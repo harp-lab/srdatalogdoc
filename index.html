@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRDatalog Documentation</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .header p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+        }
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .doc-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .doc-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .doc-card h2 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+        .doc-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        .doc-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .doc-link:hover {
+            background: #5568d3;
+        }
+        .doc-link.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-left: 0.5rem;
+        }
+        .badge-cpp {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        .badge-nim {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SRDatalog Documentation</h1>
+        <p>Complete API reference for SRDatalog C++ runtime and Nim wrapper</p>
+    </div>
+    
+    <div class="docs-grid">
+        <div class="doc-card">
+            <h2>C++ Runtime API <span class="badge badge-cpp">C++</span></h2>
+            <p>Complete documentation for the SRDatalog C++ runtime library, including relation storage, indexing, query execution, and semiring operations.</p>
+            <a href="index_cpp.html" class="doc-link">View C++ Documentation →</a>
+        </div>
+        <div class="doc-card">
+            <h2>Nim Wrapper API <span class="badge badge-nim">Nim</span></h2>
+            <p>Documentation for the Nim wrapper DSL macros, providing a high-level interface for writing Datalog programs in Nim.</p>
+            <a href="nim/srdatalog.html" class="doc-link">View Nim Documentation →</a>
+        </div>
+    </div>
+</body>
+</html>
