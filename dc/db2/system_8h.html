@@ -92,7 +92,7 @@ $(function(){initNavTree('dc/db2/system_8h.html','../../',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>Memory-system glue types for <a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a>.  
+<p>System abstraction layer for memory management and hardware configuration.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;boost/container/pmr/memory_resource.hpp&gt;</code><br />
 <code>#include &lt;boost/container/pmr/polymorphic_allocator.hpp&gt;</code><br />
@@ -108,13 +108,13 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a274567d642b1ebac2e8a9554b8311d7c" id="r_a274567d642b1ebac2e8a9554b8311d7c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#a274567d642b1ebac2e8a9554b8311d7c">SRDatalog::polymorphic_allocator</a></td></tr>
-<tr class="memdesc:a274567d642b1ebac2e8a9554b8311d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias to the project-wide default polymorphic allocator.  <br /></td></tr>
+<tr class="memdesc:a274567d642b1ebac2e8a9554b8311d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Project-wide default polymorphic allocator type.  <br /></td></tr>
 <tr class="memitem:a6c9c3992e06e97298d5f0cb72acc0acc" id="r_a6c9c3992e06e97298d5f0cb72acc0acc"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
 <tr class="memitem:a6c9c3992e06e97298d5f0cb72acc0acc template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#a6c9c3992e06e97298d5f0cb72acc0acc">SRDatalog::Vector</a> = boost::container::pmr::vector&lt;T&gt;</td></tr>
-<tr class="memdesc:a6c9c3992e06e97298d5f0cb72acc0acc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias to a PMR-aware vector type.  <br /></td></tr>
+<tr class="memdesc:a6c9c3992e06e97298d5f0cb72acc0acc"><td class="mdescLeft">&#160;</td><td class="mdescRight">PMR-aware vector type alias.  <br /></td></tr>
 <tr class="memitem:ab67943e2d4bd61b6356ef3d420e901e2" id="r_ab67943e2d4bd61b6356ef3d420e901e2"><td class="memTemplParams" colspan="2">template&lt;typename K, typename V&gt; </td></tr>
 <tr class="memitem:ab67943e2d4bd61b6356ef3d420e901e2 template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#ab67943e2d4bd61b6356ef3d420e901e2">SRDatalog::Map</a> = boost::unordered::pmr::unordered_flat_map&lt;K, V&gt;</td></tr>
-<tr class="memdesc:ab67943e2d4bd61b6356ef3d420e901e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias to a PMR-aware unordered flat map type.  <br /></td></tr>
+<tr class="memdesc:ab67943e2d4bd61b6356ef3d420e901e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">PMR-aware unordered flat map type alias.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -122,8 +122,49 @@ Functions</h2></td></tr>
 <tr class="memdesc:a5b3c0faa1601131a6cb2d81b94360904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the default memory resource used for PMR-aware containers.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Memory-system glue types for <a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a>. </p>
-<p>Provides lightweight aliases around the Boost polymorphic memory resource (PMR) facilities so the rest of the codebase can depend on a single header. This indirection also makes it possible to change the backend allocator in one place in the future. </p>
+<div class="textblock"><p>System abstraction layer for memory management and hardware configuration. </p>
+<p>This header provides a unified interface for memory management and system-level abstractions used throughout <a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a>. Currently, it focuses on memory resource management using Boost's PMR (Polymorphic Memory Resource) facilities, but is designed to evolve into a more comprehensive system abstraction layer.</p>
+<h1 class="doxsection"><a class="anchor" id="system_current"></a>
+Current Implementation</h1>
+<p>The current implementation provides:</p><ul>
+<li><b>Memory Resource Abstractions</b>: Lightweight aliases around Boost PMR facilities, allowing the rest of the codebase to depend on a single header</li>
+<li><b>PMR-Aware Containers</b>: Type aliases for containers that support custom memory allocators (Vector, Map)</li>
+<li><b>Default Resource Access</b>: Helper function to obtain the default memory resource</li>
+</ul>
+<p>This indirection makes it possible to change the backend allocator in one place, enabling different memory strategies (arena allocation, memory pooling, custom allocators) without modifying the rest of the codebase.</p>
+<h1 class="doxsection"><a class="anchor" id="system_future"></a>
+Future Evolution</h1>
+<p>This module is designed to evolve into a more polymorphic and configurable system abstraction layer that will support:</p>
+<ul>
+<li><b>Hardware Abstraction</b>: Runtime selection of execution backends based on available hardware (CPU, GPU, TPU, etc.)</li>
+<li><b>Parallel Framework Support</b>: Configurable parallel execution frameworks (OpenMP, TBB, CUDA, SYCL, etc.) selected at runtime based on configuration and hardware capabilities</li>
+<li><b>Memory Strategy Selection</b>: Runtime configuration of memory allocation strategies optimized for different hardware and workloads</li>
+<li><b>Performance Tuning</b>: Runtime configuration of performance parameters (thread counts, batch sizes, cache sizes) based on hardware characteristics</li>
+</ul>
+<p>The current simple aliases will be extended with polymorphic interfaces and factory patterns that allow runtime selection of implementations based on configuration files, environment variables, or programmatic configuration.</p>
+<h1 class="doxsection"><a class="anchor" id="system_usage"></a>
+Usage</h1>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Use default memory resource</span></div>
+<div class="line"><a class="code hl_typedef" href="../../d5/dd6/namespace_s_r_datalog.html#a6c9c3992e06e97298d5f0cb72acc0acc">Vector&lt;int&gt;</a> vec(<a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#a5b3c0faa1601131a6cb2d81b94360904">default_memory_resource</a>());</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Use custom memory resource (e.g., arena allocator)</span></div>
+<div class="line">Arena arena;</div>
+<div class="line"><a class="code hl_typedef" href="../../d5/dd6/namespace_s_r_datalog.html#a6c9c3992e06e97298d5f0cb72acc0acc">Vector&lt;int&gt;</a> vec2(&amp;arena);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// PMR-aware map</span></div>
+<div class="line"><a class="code hl_typedef" href="../../d5/dd6/namespace_s_r_datalog.html#ab67943e2d4bd61b6356ef3d420e901e2">Map&lt;std::string, int&gt;</a> my_map(<a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#a5b3c0faa1601131a6cb2d81b94360904">default_memory_resource</a>());</div>
+<div class="ttc" id="anamespace_s_r_datalog_html"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a></div><div class="ttdef"><b>Definition</b> ast.h:45</div></div>
+<div class="ttc" id="anamespace_s_r_datalog_html_a5b3c0faa1601131a6cb2d81b94360904"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html#a5b3c0faa1601131a6cb2d81b94360904">SRDatalog::default_memory_resource</a></div><div class="ttdeci">auto default_memory_resource() -&gt; memory_resource *</div><div class="ttdoc">Obtain the default memory resource used for PMR-aware containers.</div><div class="ttdef"><b>Definition</b> system.h:133</div></div>
+<div class="ttc" id="anamespace_s_r_datalog_html_a6c9c3992e06e97298d5f0cb72acc0acc"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html#a6c9c3992e06e97298d5f0cb72acc0acc">SRDatalog::Vector</a></div><div class="ttdeci">boost::container::pmr::vector&lt; T &gt; Vector</div><div class="ttdoc">PMR-aware vector type alias.</div><div class="ttdef"><b>Definition</b> system.h:107</div></div>
+<div class="ttc" id="anamespace_s_r_datalog_html_ab67943e2d4bd61b6356ef3d420e901e2"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html#ab67943e2d4bd61b6356ef3d420e901e2">SRDatalog::Map</a></div><div class="ttdeci">boost::unordered::pmr::unordered_flat_map&lt; K, V &gt; Map</div><div class="ttdoc">PMR-aware unordered flat map type alias.</div><div class="ttdef"><b>Definition</b> system.h:121</div></div>
+</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>The current implementation is intentionally minimal to provide a stable foundation. Future enhancements will maintain backward compatibility while adding polymorphic capabilities.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>memory_resource for the memory resource type </dd>
+<dd>
+Vector for PMR-aware vector type </dd>
+<dd>
+Map for PMR-aware map type </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

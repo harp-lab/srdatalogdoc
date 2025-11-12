@@ -8,7 +8,6 @@ var dir_312c0916ca49bc4c20f209d9db32b0d2 =
     [ "dist_relation_io.h", "da/d3c/dist__relation__io_8h.html", "da/d3c/dist__relation__io_8h" ],
     [ "dist_relation_io.ipp", "dd/d37/dist__relation__io_8ipp.html", "dd/d37/dist__relation__io_8ipp" ],
     [ "helper.h", "d4/da1/helper_8h.html", "d4/da1/helper_8h" ],
-    [ "main.cpp", "df/d0a/main_8cpp.html", "df/d0a/main_8cpp" ],
     [ "mpi_types.h", "d3/dce/mpi__types_8h.html", "d3/dce/mpi__types_8h" ],
     [ "query.h", "dd/d6e/query_8h.html", "dd/d6e/query_8h" ],
     [ "relation_col.h", "d1/d25/relation__col_8h.html", "d1/d25/relation__col_8h" ],

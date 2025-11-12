@@ -92,13 +92,32 @@ $(function(){initNavTree('dc/d50/struct_s_r_datalog_1_1_index_spec_hash.html','.
 </div><!--header-->
 <div class="contents">
 
+<p>Hash function for <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html" title="Specification for a multi-column index on a relation.">IndexSpec</a> to enable use in unordered containers.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d1/d25/relation__col_8h_source.html">relation_col.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6bc82755cecfe42df3a8c34cffb2687c" id="r_a6bc82755cecfe42df3a8c34cffb2687c"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bc82755cecfe42df3a8c34cffb2687c">operator()</a> (const <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a> &amp;s) const noexcept</td></tr>
+<tr class="memdesc:a6bc82755cecfe42df3a8c34cffb2687c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute hash value for an <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html" title="Specification for a multi-column index on a relation.">IndexSpec</a>.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Hash function for <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html" title="Specification for a multi-column index on a relation.">IndexSpec</a> to enable use in unordered containers. </p>
+<p><a class="el" href="../../dc/d50/struct_s_r_datalog_1_1_index_spec_hash.html" title="Hash function for IndexSpec to enable use in unordered containers.">IndexSpecHash</a> provides a custom hash function that allows <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html" title="Specification for a multi-column index on a relation.">IndexSpec</a> to be used as a key in std::unordered_map and std::unordered_set. The hash combines the size of the column vector and all column indices using a FNV-inspired hash with golden ratio mixing.</p>
+<h1 class="doxsection"><a class="anchor" id="indexspechash_algorithm"></a>
+Algorithm</h1>
+<p>The hash function:</p><ul>
+<li>Starts with an FNV-like seed constant</li>
+<li>Mixes in the vector size</li>
+<li>Mixes in each column index with bit rotations and golden ratio constant</li>
+<li>Provides good distribution for typical index specifications</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd>This hash function is deterministic and satisfies the requirements for std::hash: if two IndexSpecs are equal (operator==), they must have the same hash value.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html" title="Specification for a multi-column index on a relation.">IndexSpec</a> for the type being hashed </dd>
+<dd>
+std::unordered_map for usage in hash tables </dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a6bc82755cecfe42df3a8c34cffb2687c" name="a6bc82755cecfe42df3a8c34cffb2687c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6bc82755cecfe42df3a8c34cffb2687c">&#9670;&#160;</a></span>operator()()</h2>
 
@@ -121,6 +140,16 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Compute hash value for an <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html" title="Specification for a multi-column index on a relation.">IndexSpec</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>The <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html" title="Specification for a multi-column index on a relation.">IndexSpec</a> to hash </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Hash value suitable for use in unordered containers</dd></dl>
+<p>Uses FNV-inspired hashing with golden ratio mixing for good distribution. The hash combines the vector size and all column indices. </p>
 
 </div>
 </div>

@@ -30,8 +30,9 @@ var searchData=
   ['dist_5frelation_5fio_2eipp_27',['dist_relation_io.ipp',['../dd/d37/dist__relation__io_8ipp.html',1,'']]],
   ['distribute_5frelation_28',['distribute_relation',['../da/d3c/dist__relation__io_8h.html#abca8861b8cf52d98339e8a9b60e0f536',1,'distribute_relation(const Relation&lt; SR, AttrTs... &gt; &amp;rel, std::size_t column_idx, MPI_Comm comm=MPI_COMM_WORLD):&#160;dist_relation_io.h'],['../dd/d37/dist__relation__io_8ipp.html#a667367c64e96d9adb2804509668bf487',1,'distribute_relation(const SRDatalog::Relation&lt; SR, AttrTs... &gt; &amp;rel, std::size_t column_idx, MPI_Comm comm=MPI_COMM_WORLD):&#160;dist_relation_io.ipp']]],
   ['distribute_5frelation_5frk0_29',['distribute_relation_rk0',['../da/d3c/dist__relation__io_8h.html#a2f5690dd69280c0339cf6493e7f7fbb9',1,'distribute_relation_rk0(const Relation&lt; SR, AttrTs... &gt; &amp;rel, std::size_t column_idx, MPI_Comm comm=MPI_COMM_WORLD):&#160;dist_relation_io.h'],['../dd/d37/dist__relation__io_8ipp.html#a7011ed1344e7eb39cf91359fd67058d1',1,'distribute_relation_rk0(const SRDatalog::Relation&lt; SR, AttrTs... &gt; &amp;rel, std::size_t column_idx, MPI_Comm comm=MPI_COMM_WORLD):&#160;dist_relation_io.ipp']]],
-  ['documentation_30',['Documentation',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md5',1,'']]],
-  ['dsl_31',['Example Usage of the Nim DSL',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md14',1,'']]],
-  ['dsl_20syntax_20primer_32',['DSL Syntax Primer',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md11',1,'']]],
-  ['dsl_20workflow_33',['Nim Query DSL Workflow',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md10',1,'']]]
+  ['distributed_20communication_30',['Distributed Communication',['../d5/dd6/namespace_s_r_datalog.html#codec_communication',1,'']]],
+  ['documentation_31',['Documentation',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md5',1,'']]],
+  ['dsl_32',['Example Usage of the Nim DSL',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md14',1,'']]],
+  ['dsl_20syntax_20primer_33',['DSL Syntax Primer',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md11',1,'']]],
+  ['dsl_20workflow_34',['Nim Query DSL Workflow',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md10',1,'']]]
 ];

@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['performance_20considerations_0',['Performance Considerations',['../d3/d51/runtime_8h.html#performance_considerations',1,'']]],
-  ['pipeline_1',['Compilation Pipeline',['../d3/d51/runtime_8h.html#compilation_pipeline',1,'']]],
-  ['playground_2',['Working with the TMP Playground',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md9',1,'']]],
-  ['prerequisites_3',['Prerequisites',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md1',1,'']]],
-  ['primer_4',['DSL Syntax Primer',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md11',1,'']]]
+  ['navigation_0',['Navigation',['../df/d5a/class_s_r_datalog_1_1_relation_1_1_hash_trie_index.html#hashtrie_navigation',1,'']]],
+  ['nim_20dsl_1',['Example Usage of the Nim DSL',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md14',1,'']]],
+  ['nim_20query_20dsl_20workflow_2',['Nim Query DSL Workflow',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md10',1,'']]],
+  ['node_20types_3',['Node Types',['../d4/ddd/class_s_r_datalog_1_1_relation_1_1_hash_trie_index_1_1_node_handle.html#nodehandle_types',1,'']]]
 ];

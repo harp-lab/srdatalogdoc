@@ -14,5 +14,6 @@ var searchData=
   ['build_5findex_5ffrom_5fspec_11',['build_index_from_spec',['../d5/dd6/namespace_s_r_datalog.html#a1ed08290556176399210c9eb7211e403',1,'SRDatalog']]],
   ['buildallindices_5fimpl_12',['BuildAllIndices_Impl',['../d9/d55/struct_s_r_datalog_1_1detail_1_1_build_all_indices___impl.html',1,'SRDatalog::detail']]],
   ['buildindexhelper_13',['BuildIndexHelper',['../dd/dfb/struct_s_r_datalog_1_1detail_1_1_build_index_helper.html',1,'SRDatalog::detail']]],
-  ['bytes_5fused_14',['bytes_used',['../df/d5a/class_s_r_datalog_1_1_relation_1_1_hash_trie_index.html#a048817ccbf675fd66a47a7cf4642f33b',1,'SRDatalog::Relation::HashTrieIndex']]]
+  ['building_14',['Building',['../df/d5a/class_s_r_datalog_1_1_relation_1_1_hash_trie_index.html#hashtrie_building',1,'']]],
+  ['bytes_5fused_15',['bytes_used',['../df/d5a/class_s_r_datalog_1_1_relation_1_1_hash_trie_index.html#a048817ccbf675fd66a47a7cf4642f33b',1,'SRDatalog::Relation::HashTrieIndex']]]
 ];

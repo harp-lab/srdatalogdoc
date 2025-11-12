@@ -92,18 +92,80 @@ $(function(){initNavTree('dd/da3/struct_s_r_datalog_1_1_index_spec.html','../../
 </div><!--header-->
 <div class="contents">
 
+<p>Specification for a multi-column index on a relation.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d1/d25/relation__col_8h_source.html">relation_col.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6105c7db88defdd4ee456dde8dc9b69f" id="r_a6105c7db88defdd4ee456dde8dc9b69f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6105c7db88defdd4ee456dde8dc9b69f">operator==</a> (const <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a> &amp;o) const noexcept</td></tr>
+<tr class="memdesc:a6105c7db88defdd4ee456dde8dc9b69f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality comparison operator.  <br /></td></tr>
 <tr class="memitem:a77b05b9de5f516f943e68e55aa973980" id="r_a77b05b9de5f516f943e68e55aa973980"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77b05b9de5f516f943e68e55aa973980">operator!=</a> (const <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a> &amp;o) const noexcept</td></tr>
+<tr class="memdesc:a77b05b9de5f516f943e68e55aa973980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inequality comparison operator.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aa5b0d79cf324d6288ce27e468be45ee9" id="r_aa5b0d79cf324d6288ce27e468be45ee9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5b0d79cf324d6288ce27e468be45ee9">cols</a></td></tr>
+<tr class="memdesc:aa5b0d79cf324d6288ce27e468be45ee9"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d3/d99/class_s_r_datalog_1_1_column.html" title="Thin, PMR-aware contiguous column wrapper.">Column</a> indices that form the index key (left-to-right order).  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Specification for a multi-column index on a relation. </p>
+<p><a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html" title="Specification for a multi-column index on a relation.">IndexSpec</a> defines which columns of a relation should be indexed together. The columns form a composite key where values are concatenated left-to-right. This is used to create HashTrieIndex structures for efficient prefix lookups and joins.</p>
+<h1 class="doxsection"><a class="anchor" id="indexspec_structure"></a>
+Structure</h1>
+<p>An <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html" title="Specification for a multi-column index on a relation.">IndexSpec</a> contains:</p><ul>
+<li><span class="tt"><a class="el" href="#aa5b0d79cf324d6288ce27e468be45ee9" title="Column indices that form the index key (left-to-right order).">cols</a></span>: A vector of column indices (0-based) that form the index key</li>
+<li>The order matters: columns are indexed in the order specified</li>
+<li>Duplicate column indices are allowed but generally not useful</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="indexspec_usage"></a>
+Usage</h1>
+<div class="fragment"><div class="line"><span class="comment">// Create an index on the first column only</span></div>
+<div class="line"><a class="code hl_struct" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a> spec1;</div>
+<div class="line">spec1.<a class="code hl_variable" href="#aa5b0d79cf324d6288ce27e468be45ee9">cols</a> = {0};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Create an index on columns 0 and 1 (composite key)</span></div>
+<div class="line"><a class="code hl_struct" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a> spec2;</div>
+<div class="line">spec2.<a class="code hl_variable" href="#aa5b0d79cf324d6288ce27e468be45ee9">cols</a> = {0, 1};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Create an index on columns 1, 0 (different order = different index)</span></div>
+<div class="line">IndexSpec spec3;</div>
+<div class="line">spec3.cols = {1, 0};  <span class="comment">// Note: spec2 != spec3</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Use with Relation::ensure_index()</span></div>
+<div class="line"><span class="keyword">const</span> <span class="keyword">auto</span>&amp; idx = rel.ensure_index(spec2);</div>
+<div class="ttc" id="astruct_s_r_datalog_1_1_index_spec_html"><div class="ttname"><a href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">SRDatalog::IndexSpec</a></div><div class="ttdoc">Specification for a multi-column index on a relation.</div><div class="ttdef"><b>Definition</b> relation_col.h:176</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1_index_spec_html_aa5b0d79cf324d6288ce27e468be45ee9"><div class="ttname"><a href="#aa5b0d79cf324d6288ce27e468be45ee9">SRDatalog::IndexSpec::cols</a></div><div class="ttdeci">std::vector&lt; int &gt; cols</div><div class="ttdoc">Column indices that form the index key (left-to-right order).</div><div class="ttdef"><b>Definition</b> relation_col.h:181</div></div>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="indexspec_key_format"></a>
+Key Format</h1>
+<p>The index key is formed by concatenating encoded values from the specified columns in order:</p><ul>
+<li>For <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html" title="Specification for a multi-column index on a relation.">IndexSpec</a> with cols = {0, 1}, the key is (col0_value, col1_value)</li>
+<li><a class="el" href="../../db/d9b/struct_s_r_datalog_1_1_prefix.html" title="Type-safe key prefix for index lookups.">Prefix</a> lookups work on prefixes of this key (e.g., just col0_value)</li>
+<li>Full key lookups require all components</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="indexspec_examples"></a>
+Examples</h1>
+<p>For a relation R(x: int, y: int, z: int):</p><ul>
+<li><span class="tt">{0}</span> indexes on column x only</li>
+<li><span class="tt">{0, 1}</span> indexes on (x, y) composite key</li>
+<li><span class="tt">{1, 2}</span> indexes on (y, z) composite key</li>
+<li><span class="tt">{0, 1, 2}</span> indexes on all columns (full key)</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="indexspec_comparison"></a>
+Comparison</h1>
+<p><a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html" title="Specification for a multi-column index on a relation.">IndexSpec</a> supports equality comparison:</p><ul>
+<li>Two IndexSpecs are equal if their <span class="tt"><a class="el" href="#aa5b0d79cf324d6288ce27e468be45ee9" title="Column indices that form the index key (left-to-right order).">cols</a></span> vectors are identical</li>
+<li>Order matters: {0, 1} != {1, 0}</li>
+<li>Can be used as keys in std::map and std::set</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd><a class="el" href="../../d3/d99/class_s_r_datalog_1_1_column.html" title="Thin, PMR-aware contiguous column wrapper.">Column</a> indices must be valid (0 &lt;= index &lt; relation arity) when used to build an index. Invalid indices will cause errors during index construction.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>HashTrieIndex for the index structure created from this specification </dd>
+<dd>
+<a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html#ac2f70836a44a12f69b8816726cddd622">Relation::ensure_index</a> for building indexes from specifications </dd>
+<dd>
+<a class="el" href="../../dc/d50/struct_s_r_datalog_1_1_index_spec_hash.html" title="Hash function for IndexSpec to enable use in unordered containers.">IndexSpecHash</a> for use in unordered containers </dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a77b05b9de5f516f943e68e55aa973980" name="a77b05b9de5f516f943e68e55aa973980"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a77b05b9de5f516f943e68e55aa973980">&#9670;&#160;</a></span>operator!=()</h2>
 
@@ -126,6 +188,15 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Inequality comparison operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">o</td><td>Other <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html" title="Specification for a multi-column index on a relation.">IndexSpec</a> to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if IndexSpecs differ </dd></dl>
 
 </div>
 </div>
@@ -152,6 +223,16 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Equality comparison operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">o</td><td>Other <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html" title="Specification for a multi-column index on a relation.">IndexSpec</a> to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if both IndexSpecs have identical <span class="tt"><a class="el" href="#aa5b0d79cf324d6288ce27e468be45ee9" title="Column indices that form the index key (left-to-right order).">cols</a></span> vectors</dd></dl>
+<p>Two IndexSpecs are equal if their column vectors match exactly (same elements in same order). </p>
+
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
@@ -166,6 +247,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><a class="el" href="../../d3/d99/class_s_r_datalog_1_1_column.html" title="Thin, PMR-aware contiguous column wrapper.">Column</a> indices that form the index key (left-to-right order). </p>
+<p>Each integer is a 0-based column index. The values from these columns are concatenated in order to form the composite key. Empty vector is valid but creates an index with no key columns. </p>
 
 </div>
 </div>
