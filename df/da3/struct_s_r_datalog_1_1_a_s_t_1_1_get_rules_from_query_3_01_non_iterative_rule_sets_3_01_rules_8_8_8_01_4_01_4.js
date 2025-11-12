@@ -1,4 +1,0 @@
-var struct_s_r_datalog_1_1_a_s_t_1_1_get_rules_from_query_3_01_non_iterative_rule_sets_3_01_rules_8_8_8_01_4_01_4 =
-[
-    [ "type", "df/da3/struct_s_r_datalog_1_1_a_s_t_1_1_get_rules_from_query_3_01_non_iterative_rule_sets_3_01_rules_8_8_8_01_4_01_4.html#a119cd41b4f3b6a763a7c5159511eb968", null ]
-];
