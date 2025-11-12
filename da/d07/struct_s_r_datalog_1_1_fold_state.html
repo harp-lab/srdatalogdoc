@@ -92,14 +92,30 @@ $(function(){initNavTree('da/d07/struct_s_r_datalog_1_1_fold_state.html','../../
 </div><!--header-->
 <div class="contents">
 
+<p>State structure for the fold operation over join plan variables.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../dd/d6e/query_8h_source.html">query.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a46801f365b28f1ac8acc3b33570e355b" id="r_a46801f365b28f1ac8acc3b33570e355b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46801f365b28f1ac8acc3b33570e355b">bound_vars</a> = BoundVars</td></tr>
+<tr class="memdesc:a46801f365b28f1ac8acc3b33570e355b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variables bound so far.  <br /></td></tr>
 <tr class="memitem:a2a3ac6e11eef14818a90d2767a5aa623" id="r_a2a3ac6e11eef14818a90d2767a5aa623"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a3ac6e11eef14818a90d2767a5aa623">ops</a> = AccumulatedOps</td></tr>
+<tr class="memdesc:a2a3ac6e11eef14818a90d2767a5aa623"><td class="mdescLeft">&#160;</td><td class="mdescRight">MIR operations accumulated so far.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;tmp::CTuple BoundVars, tmp::CTuple AccumulatedOps&gt;<br />
+struct SRDatalog::FoldState&lt; BoundVars, AccumulatedOps &gt;</div><p>State structure for the fold operation over join plan variables. </p>
+<p>Tracks which variables have been bound and which MIR operations have been accumulated so far during rule body compilation.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">BoundVars</td><td>A std::tuple of variables that have been bound </td></tr>
+    <tr><td class="paramname">AccumulatedOps</td><td>A std::tuple of MIR operations generated so far </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
 <a id="a46801f365b28f1ac8acc3b33570e355b" name="a46801f365b28f1ac8acc3b33570e355b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a46801f365b28f1ac8acc3b33570e355b">&#9670;&#160;</a></span>bound_vars</h2>
 
@@ -113,6 +129,10 @@ template&lt;tmp::CTuple BoundVars, tmp::CTuple AccumulatedOps&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Variables bound so far. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a44">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -129,6 +149,10 @@ template&lt;tmp::CTuple BoundVars, tmp::CTuple AccumulatedOps&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>MIR operations accumulated so far. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a45">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
 
 </div>
 </div>

@@ -92,13 +92,28 @@ $(function(){initNavTree('d9/d55/struct_s_r_datalog_1_1detail_1_1_build_all_indi
 </div><!--header-->
 <div class="contents">
 
+<p>Implementation helper for building all indexes.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../dd/d6e/query_8h_source.html">query.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a224e6524dd02a632822279e9d8a83ad8" id="r_a224e6524dd02a632822279e9d8a83ad8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a224e6524dd02a632822279e9d8a83ad8">build</a> (AllRelationsTuple &amp;all_relations)</td></tr>
+<tr class="memdesc:a224e6524dd02a632822279e9d8a83ad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds all indexes specified in IndexSpecList.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename IndexSpecList, typename AllRelationsTuple&gt;<br />
+struct SRDatalog::detail::BuildAllIndices_Impl&lt; IndexSpecList, AllRelationsTuple &gt;</div><p>Implementation helper for building all indexes. </p>
+<p>Template metaprogramming helper that uses mp::mp_for_each to iterate over all <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a> types and build their corresponding runtime indexes.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">IndexSpecList</td><td>A std::tuple of <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a> types </td></tr>
+    <tr><td class="paramname">AllRelationsTuple</td><td>The type of the relations tuple </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a224e6524dd02a632822279e9d8a83ad8" name="a224e6524dd02a632822279e9d8a83ad8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a224e6524dd02a632822279e9d8a83ad8">&#9670;&#160;</a></span>build()</h2>
 
@@ -123,6 +138,16 @@ template&lt;typename IndexSpecList, typename AllRelationsTuple&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Builds all indexes specified in IndexSpecList. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">all_relations</td><td>Reference to the tuple of relation objects </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a19">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
 
 </div>
 </div>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['new_5fver_0',['NEW_VER',['../db/df0/ast_8h.html#af23fd1858447e4f2bfe0a8891acf1a77',1,'ast.h']]]
+  ['platform_5fid_0',['PLATFORM_ID',['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'CMakeCXXCompilerId.cpp']]]
 ];

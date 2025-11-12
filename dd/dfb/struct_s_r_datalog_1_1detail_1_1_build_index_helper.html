@@ -92,18 +92,32 @@ $(function(){initNavTree('dd/dfb/struct_s_r_datalog_1_1detail_1_1_build_index_he
 </div><!--header-->
 <div class="contents">
 
+<p>Helper functor to build a single index from an <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a>.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../dd/d6e/query_8h_source.html">query.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa9a91c8a1b86e1f36dc44b6ad317ee3d" id="r_aa9a91c8a1b86e1f36dc44b6ad317ee3d"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a>&gt; </td></tr>
 <tr class="memitem:aa9a91c8a1b86e1f36dc44b6ad317ee3d template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9a91c8a1b86e1f36dc44b6ad317ee3d">operator()</a> (<a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a>) const</td></tr>
+<tr class="memdesc:aa9a91c8a1b86e1f36dc44b6ad317ee3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds an index from an <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a> type.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a40d574817cdd254723d6814df218f2ca" id="r_a40d574817cdd254723d6814df218f2ca"><td class="memItemLeft" align="right" valign="top">AllRelationsTuple &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40d574817cdd254723d6814df218f2ca">all_relations</a></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename AllRelationsTuple&gt;<br />
+struct SRDatalog::detail::BuildIndexHelper&lt; AllRelationsTuple &gt;</div><p>Helper functor to build a single index from an <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a>. </p>
+<p>Used with mp::mp_for_each to iterate over a list of <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a> types and build each corresponding runtime index.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">AllRelationsTuple</td><td>The type of the relations tuple </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="aa9a91c8a1b86e1f36dc44b6ad317ee3d" name="aa9a91c8a1b86e1f36dc44b6ad317ee3d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa9a91c8a1b86e1f36dc44b6ad317ee3d">&#9670;&#160;</a></span>operator()()</h2>
 
@@ -131,6 +145,16 @@ template&lt;typename <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_ind
 </table>
 </div><div class="memdoc">
 
+<p>Builds an index from an <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a> type. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a></td><td>The <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a> ADT type (compile-time) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a18">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
+
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
@@ -147,6 +171,8 @@ template&lt;typename AllRelationsTuple&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a17">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
 
 </div>
 </div>

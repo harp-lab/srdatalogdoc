@@ -100,6 +100,7 @@ Public Types</h2></td></tr>
 <tr class="memitem:aa480ce3d3c73adbd86025fba2d03ec66 template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa480ce3d3c73adbd86025fba2d03ec66">VarToIndex</a> = mp::mp_int&lt;<a class="el" href="../../dc/db4/struct_s_r_datalog_1_1_a_s_t_1_1_find_term_index.html">FindTermIndex</a>&lt;<a class="el" href="../../dc/dd9/struct_s_r_datalog_1_1_a_s_t_1_1_var.html">Var</a>, ClauseTerms&gt;::value&gt;</td></tr>
 <tr class="memitem:adecab3c51699754556537f7da39fe4df" id="r_adecab3c51699754556537f7da39fe4df"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adecab3c51699754556537f7da39fe4df">IndexList</a> = mp::mp_transform&lt;<a class="el" href="#aa480ce3d3c73adbd86025fba2d03ec66">VarToIndex</a>, VarAccessOrder&gt;</td></tr>
 <tr class="memitem:ad2ca48de4b6dd7008dfc7adbc2849425" id="r_ad2ca48de4b6dd7008dfc7adbc2849425"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2ca48de4b6dd7008dfc7adbc2849425">type</a> = decltype(<a class="el" href="#a2fc51f83baae2f3ff7a319a074f3fe3e">to_seq</a>(mp::mp_rename&lt;<a class="el" href="#adecab3c51699754556537f7da39fe4df">IndexList</a>, mp::mp_list&gt;{}))</td></tr>
+<tr class="memdesc:ad2ca48de4b6dd7008dfc7adbc2849425"><td class="mdescLeft">&#160;</td><td class="mdescRight">The integer sequence of column indexes.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -138,7 +139,9 @@ template&lt;tmp::CTuple ClauseTerms, tmp::CTuple VarAccessOrder&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d5e/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2ast_8h-example.html#a34">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+
+<p>The integer sequence of column indexes. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d5e/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2ast_8h-example.html#a34">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>, and <a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a2">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
 </dl>
 
 </div>

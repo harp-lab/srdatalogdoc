@@ -92,6 +92,9 @@ $(function(){initNavTree('d0/d7f/struct_s_r_datalog_1_1_map_clauses_to_specs___i
 </div><!--header-->
 <div class="contents">
 
+<p>Maps all body clauses to their required IndexSpecs.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../dd/d6e/query_8h_source.html">query.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -101,7 +104,18 @@ Public Types</h2></td></tr>
 <tr class="memitem:a08d4297ec3658a4dc115862d42796d83 template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08d4297ec3658a4dc115862d42796d83">ToSpec</a> = typename <a class="el" href="../../d7/d48/struct_s_r_datalog_1_1_get_index_for_clause.html">GetIndexForClause</a>&lt;<a class="el" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s_t_1_1_clause.html">Clause</a>, GlobalJoinPlan&gt;<a class="el" href="#a6adcf733a66b4801593be439961b0827">::type</a></td></tr>
 <tr class="memitem:a6adcf733a66b4801593be439961b0827" id="r_a6adcf733a66b4801593be439961b0827"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6adcf733a66b4801593be439961b0827">type</a> = mp::mp_transform&lt;<a class="el" href="#a08d4297ec3658a4dc115862d42796d83">ToSpec</a>, <a class="el" href="#a2a7372d696a0d2c21e498db1250ec389">NormalClausesOnly</a>&gt;</td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;tmp::CTuple BodyClauses, tmp::CTuple GlobalJoinPlan&gt;<br />
+struct SRDatalog::MapClausesToSpecs_Impl&lt; BodyClauses, GlobalJoinPlan &gt;</div><p>Maps all body clauses to their required IndexSpecs. </p>
+<p>Filters body clauses to only normal clauses (excluding LetClauses) and computes the <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a> for each. This produces the complete set of indexes needed to execute the rule body efficiently.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">BodyClauses</td><td>A std::tuple of clause types (normal and let) </td></tr>
+    <tr><td class="paramname">GlobalJoinPlan</td><td>A std::tuple of <a class="el" href="../../dc/dd9/struct_s_r_datalog_1_1_a_s_t_1_1_var.html">Var</a> types specifying the join order </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
 <a id="a2a7372d696a0d2c21e498db1250ec389" name="a2a7372d696a0d2c21e498db1250ec389"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2a7372d696a0d2c21e498db1250ec389">&#9670;&#160;</a></span>NormalClausesOnly</h2>
 
@@ -115,6 +129,8 @@ template&lt;tmp::CTuple BodyClauses, tmp::CTuple GlobalJoinPlan&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a3">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -133,6 +149,8 @@ template&lt;typename <a class="el" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a4">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -149,6 +167,8 @@ template&lt;tmp::CTuple BodyClauses, tmp::CTuple GlobalJoinPlan&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a5">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
 
 </div>
 </div>

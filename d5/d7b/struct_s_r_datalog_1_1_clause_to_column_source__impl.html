@@ -92,6 +92,9 @@ $(function(){initNavTree('d5/d7b/struct_s_r_datalog_1_1_clause_to_column_source_
 </div><!--header-->
 <div class="contents">
 
+<p>Converts a normal clause to a ColumnSource MIR operation.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../dd/d6e/query_8h_source.html">query.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -110,7 +113,20 @@ Public Types</h2></td></tr>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:aeabf40403c3e41714579022c7e105a7d" id="r_aeabf40403c3e41714579022c7e105a7d"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeabf40403c3e41714579022c7e105a7d">ClauseVer</a></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename <a class="el" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s_t_1_1_clause.html">Clause</a>, CVar VarToBind, tmp::CTuple BoundVars, tmp::CTuple JoinPlan&gt;<br />
+struct SRDatalog::ClauseToColumnSource_impl&lt; Clause, VarToBind, BoundVars, JoinPlan &gt;</div><p>Converts a normal clause to a ColumnSource MIR operation. </p>
+<p>Analyzes a clause in the context of bound variables and join plan to determine how it should be accessed. Produces a ColumnSource that specifies which index to use and which variables are already bound (prefix).</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="el" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s_t_1_1_clause.html">Clause</a></td><td>The normal clause to convert </td></tr>
+    <tr><td class="paramname">VarToBind</td><td>The variable currently being bound (for context) </td></tr>
+    <tr><td class="paramname">BoundVars</td><td>A std::tuple of variables already bound </td></tr>
+    <tr><td class="paramname"><a class="el" href="../../d4/d58/struct_s_r_datalog_1_1_a_s_t_1_1_join_plan.html">JoinPlan</a></td><td>The global join plan (variable order) </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
 <a id="ab9729782af5fc74de0abf4241021242f" name="ab9729782af5fc74de0abf4241021242f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab9729782af5fc74de0abf4241021242f">&#9670;&#160;</a></span>AccessOrder</h2>
 
@@ -124,6 +140,8 @@ template&lt;typename <a class="el" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a37">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -140,6 +158,8 @@ template&lt;typename <a class="el" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a32">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -156,6 +176,8 @@ template&lt;typename <a class="el" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a31">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -174,8 +196,10 @@ template&lt;typename <a class="el" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line"> </div>
 <div class="line">      <span class="keyword">typename</span> <a class="code hl_typedef" href="../../d1/d47/struct_s_r_datalog_1_1_a_s_t_1_1_map_vars_to_column_indexes.html#ad2ca48de4b6dd7008dfc7adbc2849425">MapVarsToColumnIndexes&lt;ClauseTerms, AccessOrder&gt;::type</a></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_map_vars_to_column_indexes_html_ad2ca48de4b6dd7008dfc7adbc2849425"><div class="ttname"><a href="../../d1/d47/struct_s_r_datalog_1_1_a_s_t_1_1_map_vars_to_column_indexes.html#ad2ca48de4b6dd7008dfc7adbc2849425">SRDatalog::AST::MapVarsToColumnIndexes::type</a></div><div class="ttdeci">decltype(to_seq(mp::mp_rename&lt; IndexList, mp::mp_list &gt;{})) type</div><div class="ttdef"><b>Definition</b> ast.h:709</div></div>
-</div><!-- fragment -->
+<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_map_vars_to_column_indexes_html_ad2ca48de4b6dd7008dfc7adbc2849425"><div class="ttname"><a href="../../d1/d47/struct_s_r_datalog_1_1_a_s_t_1_1_map_vars_to_column_indexes.html#ad2ca48de4b6dd7008dfc7adbc2849425">SRDatalog::AST::MapVarsToColumnIndexes::type</a></div><div class="ttdeci">decltype(to_seq(mp::mp_rename&lt; IndexList, mp::mp_list &gt;{})) type</div><div class="ttdoc">The integer sequence of column indexes.</div><div class="ttdef"><b>Definition</b> ast.h:792</div></div>
+</div><!-- fragment --><dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a38">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
+
 </div>
 </div>
 <a id="a14bf94a6bd77d5b0c7c810144fe44ba8" name="a14bf94a6bd77d5b0c7c810144fe44ba8"></a>
@@ -191,6 +215,8 @@ template&lt;typename <a class="el" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a35">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -207,6 +233,8 @@ template&lt;typename <a class="el" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a40">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -223,6 +251,8 @@ template&lt;typename <a class="el" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a34">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -239,6 +269,8 @@ template&lt;typename <a class="el" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a33">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -255,6 +287,8 @@ template&lt;typename <a class="el" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a41">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -282,8 +316,10 @@ template&lt;typename <a class="el" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">      <a class="code hl_struct" href="../../d0/d54/struct_s_r_datalog_1_1_a_s_t_1_1_get_normal_clause_version.html">GetNormalClauseVersion&lt;Clause&gt;::value</a></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_get_normal_clause_version_html"><div class="ttname"><a href="../../d0/d54/struct_s_r_datalog_1_1_a_s_t_1_1_get_normal_clause_version.html">SRDatalog::AST::GetNormalClauseVersion</a></div><div class="ttdoc">Template metaprogramming trait to extract the version from a normal clause.</div><div class="ttdef"><b>Definition</b> ast.h:625</div></div>
-</div><!-- fragment -->
+<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_get_normal_clause_version_html"><div class="ttname"><a href="../../d0/d54/struct_s_r_datalog_1_1_a_s_t_1_1_get_normal_clause_version.html">SRDatalog::AST::GetNormalClauseVersion</a></div><div class="ttdoc">Template metaprogramming trait to extract the version from a normal clause.</div><div class="ttdef"><b>Definition</b> ast.h:678</div></div>
+</div><!-- fragment --><dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a39">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>

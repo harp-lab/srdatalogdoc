@@ -92,11 +92,18 @@ $(function(){initNavTree('d9/d56/struct_s_r_datalog_1_1_a_s_t_1_1_get_rules_from
 </div><!--header-->
 <div class="contents">
 
-<p>Trait to extract the std::tuple of Rules from a single Query ADT.  
+<p>Extracts the tuple of rules from a Query ADT.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;CQuery Q&gt;<br />
-struct SRDatalog::AST::GetRulesFromQuery&lt; Q &gt;</div><p>Trait to extract the std::tuple of Rules from a single Query ADT. </p>
+struct SRDatalog::AST::GetRulesFromQuery&lt; Q &gt;</div><p>Extracts the tuple of rules from a Query ADT. </p>
+<p>Template metaprogramming trait that unwraps either a Fixpoint or <a class="el" href="../../dd/dbc/struct_s_r_datalog_1_1_a_s_t_1_1_non_iterative_rule_sets.html">NonIterativeRuleSets</a> to get the underlying tuple of rules. Provides a unified interface for extracting rules from different query types.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Q</td><td>The query type (must satisfy <a class="el" href="../../d5/d82/concept_s_r_datalog_1_1_a_s_t_1_1_c_query.html">CQuery</a>) </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>generalized_datalog/<a class="el" href="../../db/df0/ast_8h_source.html">ast.h</a></li>
 </ul>

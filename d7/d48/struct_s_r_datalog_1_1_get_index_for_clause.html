@@ -92,13 +92,31 @@ $(function(){initNavTree('d7/d48/struct_s_r_datalog_1_1_get_index_for_clause.htm
 </div><!--header-->
 <div class="contents">
 
+<p>Join plan for Worst-Case Optimal Join (WCOJ) algorithms.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../dd/d6e/query_8h_source.html">query.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:acba2be5451673b8c388a50bf3930f319" id="r_acba2be5451673b8c388a50bf3930f319"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acba2be5451673b8c388a50bf3930f319">type</a> = <a class="el" href="../../d3/d0c/struct_s_r_datalog_1_1_a_s_t_1_1_index_spec_t.html">IndexSpecT</a>&lt;Schema, ColumnIndexes, ClauseVer&gt;</td></tr>
+<tr class="memdesc:acba2be5451673b8c388a50bf3930f319"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a> ADT specifying which index to use for this clause.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;CNormalClause Clause, tmp::CTuple GlobalJoinPlan&gt;<br />
+struct SRDatalog::GetIndexForClause&lt; Clause, GlobalJoinPlan &gt;</div><p>Join plan for Worst-Case Optimal Join (WCOJ) algorithms. </p>
+<p>A join plan specifies the order in which logical variables should be bound during join execution. The naive join plan uses the appearance order of variables in the rule body. More sophisticated plans can optimize join order based on selectivity and data distribution.</p>
+<p>Computes the <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a> for a single normal clause.</p>
+<p>Given a clause and a global join plan, determines which index should be used to access the clause's relation efficiently. The index is chosen based on which variables from the join plan appear in the clause, ensuring optimal access patterns for WCOJ algorithms.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="el" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s_t_1_1_clause.html">Clause</a></td><td>The normal clause to analyze (must satisfy CNormalClause) </td></tr>
+    <tr><td class="paramname">GlobalJoinPlan</td><td>A std::tuple of <a class="el" href="../../dc/dd9/struct_s_r_datalog_1_1_a_s_t_1_1_var.html">Var</a> types specifying the join order</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Only considers variables that appear in both the clause and the join plan, ensuring the index supports the join execution order. </dd></dl>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
 <a id="acba2be5451673b8c388a50bf3930f319" name="acba2be5451673b8c388a50bf3930f319"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acba2be5451673b8c388a50bf3930f319">&#9670;&#160;</a></span>type</h2>
 
@@ -112,6 +130,10 @@ template&lt;CNormalClause Clause, tmp::CTuple GlobalJoinPlan&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">IndexSpec</a> ADT specifying which index to use for this clause. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a0">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
 
 </div>
 </div>

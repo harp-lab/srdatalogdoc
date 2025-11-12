@@ -43,6 +43,7 @@ var NAVTREE =
       ] ],
       [ "Example Usage of the Nim DSL", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md14", null ]
     ] ],
+    [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -82,9 +83,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#a4b0efeb7a5d59313986b3a0390f050f6",
-"d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215",
-"dd/d6e/query_8h.html#a4e5cc7b3884212c6523665f9cd2e4bd6"
+"d3/d24/struct_s_r_datalog_1_1_process_one_variable.html#ae222b2f9a880ad9fc79b92d87d8a1f71",
+"d5/dd6/namespace_s_r_datalog.html#a580f8a28f36f8658bba35ef0f6e4102b",
+"dd/d28/struct_s_r_datalog_1_1_a_s_t_1_1_get_vars_from_terms.html#a2e8de21470d7eb210eb01b29594c1f70"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

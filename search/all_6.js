@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['fact_0',['FACT',['../dd/d6e/query_8h.html#a4e5cc7b3884212c6523665f9cd2e4bd6',1,'query.h']]],
+  ['fact_0',['FACT',['../d1/d5a/group___query_macros.html#ga4e5cc7b3884212c6523665f9cd2e4bd6',1,'query.h']]],
   ['finalstate_1',['FinalState',['../d5/dc9/struct_s_r_datalog_1_1_compile_bodies_to_m_i_r.html#aaec4aca44f12e877f29f5f69b9df5c3b',1,'SRDatalog::CompileBodiesToMIR']]],
   ['findletclauses_2',['FindLetClauses',['../d1/d9a/struct_s_r_datalog_1_1_find_let_clauses.html',1,'SRDatalog']]],
   ['findnormalclauseswithvar_3',['FindNormalClausesWithVar',['../de/d67/struct_s_r_datalog_1_1_find_normal_clauses_with_var.html',1,'SRDatalog']]],

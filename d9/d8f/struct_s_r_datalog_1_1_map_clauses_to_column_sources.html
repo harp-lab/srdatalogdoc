@@ -92,6 +92,9 @@ $(function(){initNavTree('d9/d8f/struct_s_r_datalog_1_1_map_clauses_to_column_so
 </div><!--header-->
 <div class="contents">
 
+<p>Maps multiple normal clauses to ColumnSource MIR operations.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../dd/d6e/query_8h_source.html">query.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -100,7 +103,20 @@ Public Types</h2></td></tr>
 <tr class="memitem:a85b4b37b5c7d34d103b49459d56d76c1 template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85b4b37b5c7d34d103b49459d56d76c1">ToColumnSource</a></td></tr>
 <tr class="memitem:af3c8df3301b3c99620374139d7a1e73b" id="r_af3c8df3301b3c99620374139d7a1e73b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3c8df3301b3c99620374139d7a1e73b">type</a> = mp::mp_transform&lt;<a class="el" href="#a85b4b37b5c7d34d103b49459d56d76c1">ToColumnSource</a>, NormalClauses&gt;</td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;CVar VarToBind, tmp::CTuple NormalClauses, tmp::CTuple BoundVars, tmp::CTuple JoinPlan&gt;<br />
+struct SRDatalog::MapClausesToColumnSources&lt; VarToBind, NormalClauses, BoundVars, JoinPlan &gt;</div><p>Maps multiple normal clauses to ColumnSource MIR operations. </p>
+<p>Converts a list of normal clauses into their corresponding ColumnSource operations, all in the context of the same bound variables and join plan.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">VarToBind</td><td>The variable currently being bound </td></tr>
+    <tr><td class="paramname">NormalClauses</td><td>A std::tuple of normal clause types </td></tr>
+    <tr><td class="paramname">BoundVars</td><td>A std::tuple of variables already bound </td></tr>
+    <tr><td class="paramname"><a class="el" href="../../d4/d58/struct_s_r_datalog_1_1_a_s_t_1_1_join_plan.html">JoinPlan</a></td><td>The global join plan </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
 <a id="a85b4b37b5c7d34d103b49459d56d76c1" name="a85b4b37b5c7d34d103b49459d56d76c1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a85b4b37b5c7d34d103b49459d56d76c1">&#9670;&#160;</a></span>ToColumnSource</h2>
 
@@ -121,9 +137,11 @@ template&lt;typename <a class="el" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s
 <div class="line">                                         <a class="code hl_struct" href="../../d4/d58/struct_s_r_datalog_1_1_a_s_t_1_1_join_plan.html">JoinPlan</a>&gt;<a class="code hl_typedef" href="#af3c8df3301b3c99620374139d7a1e73b">::type</a></div>
 <div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_clause_html"><div class="ttname"><a href="../../d4/dbf/struct_s_r_datalog_1_1_a_s_t_1_1_clause.html">SRDatalog::AST::Clause</a></div><div class="ttdef"><b>Definition</b> ast.h:281</div></div>
 <div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_join_plan_html"><div class="ttname"><a href="../../d4/d58/struct_s_r_datalog_1_1_a_s_t_1_1_join_plan.html">SRDatalog::AST::JoinPlan</a></div><div class="ttdef"><b>Definition</b> ast.h:341</div></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_clause_to_column_source__impl_html"><div class="ttname"><a href="../../d5/d7b/struct_s_r_datalog_1_1_clause_to_column_source__impl.html">SRDatalog::ClauseToColumnSource_impl</a></div><div class="ttdef"><b>Definition</b> query.h:277</div></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_map_clauses_to_column_sources_html_af3c8df3301b3c99620374139d7a1e73b"><div class="ttname"><a href="#af3c8df3301b3c99620374139d7a1e73b">SRDatalog::MapClausesToColumnSources::type</a></div><div class="ttdeci">mp::mp_transform&lt; ToColumnSource, NormalClauses &gt; type</div><div class="ttdef"><b>Definition</b> query.h:314</div></div>
-</div><!-- fragment -->
+<div class="ttc" id="astruct_s_r_datalog_1_1_clause_to_column_source__impl_html"><div class="ttname"><a href="../../d5/d7b/struct_s_r_datalog_1_1_clause_to_column_source__impl.html">SRDatalog::ClauseToColumnSource_impl</a></div><div class="ttdoc">Converts a normal clause to a ColumnSource MIR operation.</div><div class="ttdef"><b>Definition</b> query.h:616</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1_map_clauses_to_column_sources_html_af3c8df3301b3c99620374139d7a1e73b"><div class="ttname"><a href="#af3c8df3301b3c99620374139d7a1e73b">SRDatalog::MapClausesToColumnSources::type</a></div><div class="ttdeci">mp::mp_transform&lt; ToColumnSource, NormalClauses &gt; type</div><div class="ttdef"><b>Definition</b> query.h:665</div></div>
+</div><!-- fragment --><dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a42">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
+
 </div>
 </div>
 <a id="af3c8df3301b3c99620374139d7a1e73b" name="af3c8df3301b3c99620374139d7a1e73b"></a>
@@ -139,6 +157,8 @@ template&lt;CVar VarToBind, tmp::CTuple NormalClauses, tmp::CTuple BoundVars, tm
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a43">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
 
 </div>
 </div>

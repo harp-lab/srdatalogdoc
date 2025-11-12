@@ -92,6 +92,9 @@ $(function(){initNavTree('d3/d24/struct_s_r_datalog_1_1_process_one_variable.htm
 </div><!--header-->
 <div class="contents">
 
+<p>Fold operation functor for processing one variable from the join plan.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../dd/d6e/query_8h_source.html">query.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -99,7 +102,19 @@ Public Types</h2></td></tr>
 <tr class="memitem:ae222b2f9a880ad9fc79b92d87d8a1f71" id="r_ae222b2f9a880ad9fc79b92d87d8a1f71"><td class="memTemplParams" colspan="2">template&lt;typename State, typename VarToBind&gt; </td></tr>
 <tr class="memitem:ae222b2f9a880ad9fc79b92d87d8a1f71 template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae222b2f9a880ad9fc79b92d87d8a1f71">fn</a></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;tmp::CTuple AllJoinPlan, tmp::CTuple AllBodyClauses, tmp::CTuple Indices&gt;<br />
+struct SRDatalog::ProcessOneVariable&lt; AllJoinPlan, AllBodyClauses, Indices &gt;</div><p>Fold operation functor for processing one variable from the join plan. </p>
+<p>Used with mp::mp_fold_q to process each variable in the join plan sequentially, accumulating MIR operations. This implements the core of the rule body compilation algorithm.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">AllJoinPlan</td><td>The complete join plan (all variables) </td></tr>
+    <tr><td class="paramname">AllBodyClauses</td><td>All clauses in the rule body </td></tr>
+    <tr><td class="paramname">Indices</td><td>The computed IndexSpecs (for reference) </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
 <a id="ae222b2f9a880ad9fc79b92d87d8a1f71" name="ae222b2f9a880ad9fc79b92d87d8a1f71"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae222b2f9a880ad9fc79b92d87d8a1f71">&#9670;&#160;</a></span>fn</h2>
 
@@ -117,8 +132,10 @@ template&lt;typename State, typename VarToBind&gt; </div>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line"> <span class="keyword">typename</span> <a class="code hl_struct" href="../../de/d58/struct_s_r_datalog_1_1_process_one_variable__impl.html">ProcessOneVariable_impl</a>&lt;State, VarToBind, AllJoinPlan,</div>
 <div class="line">                                              AllBodyClauses, Indices&gt;::type</div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_process_one_variable__impl_html"><div class="ttname"><a href="../../de/d58/struct_s_r_datalog_1_1_process_one_variable__impl.html">SRDatalog::ProcessOneVariable_impl</a></div><div class="ttdef"><b>Definition</b> query.h:354</div></div>
-</div><!-- fragment -->
+<div class="ttc" id="astruct_s_r_datalog_1_1_process_one_variable__impl_html"><div class="ttname"><a href="../../de/d58/struct_s_r_datalog_1_1_process_one_variable__impl.html">SRDatalog::ProcessOneVariable_impl</a></div><div class="ttdoc">Implementation of processing one variable in the join plan.</div><div class="ttdef"><b>Definition</b> query.h:745</div></div>
+</div><!-- fragment --><dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a46">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>

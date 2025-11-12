@@ -92,11 +92,18 @@ $(function(){initNavTree('d9/dd4/struct_s_r_datalog_1_1_get_version_from_sources
 </div><!--header-->
 <div class="contents">
 
-<p>(Private) Implements the fold over the join plan.  
+<p>Helper to extract version from ColumnSource operations.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;tmp::CTuple Sources&gt;<br />
-struct SRDatalog::GetVersionFromSources&lt; Sources &gt;</div><p>(Private) Implements the fold over the join plan. </p>
+struct SRDatalog::GetVersionFromSources&lt; Sources &gt;</div><p>Helper to extract version from ColumnSource operations. </p>
+<p>Extracts the version number from the first ColumnSource in a tuple. All ColumnSources in a join should have the same version.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Sources</td><td>A std::tuple of ColumnSource types </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>generalized_datalog/<a class="el" href="../../dd/d6e/query_8h_source.html">query.h</a></li>
 </ul>
