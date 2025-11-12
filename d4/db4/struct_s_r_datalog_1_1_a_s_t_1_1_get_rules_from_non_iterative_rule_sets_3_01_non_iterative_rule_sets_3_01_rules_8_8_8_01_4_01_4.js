@@ -1,0 +1,4 @@
+var struct_s_r_datalog_1_1_a_s_t_1_1_get_rules_from_non_iterative_rule_sets_3_01_non_iterative_rule_sets_3_01_rules_8_8_8_01_4_01_4 =
+[
+    [ "type", "d4/db4/struct_s_r_datalog_1_1_a_s_t_1_1_get_rules_from_non_iterative_rule_sets_3_01_non_iterative_rule_sets_3_01_rules_8_8_8_01_4_01_4.html#a2403750bd2178ddd172ce9002fa4e71e", null ]
+];

@@ -1,0 +1,4 @@
+var struct_s_r_datalog_1_1_a_s_t_1_1_get_normal_clause_schema_3_01_clause_3_01_s_00_01_ver_00_01_vars_8_8_8_01_4_01_4 =
+[
+    [ "type", "d0/d48/struct_s_r_datalog_1_1_a_s_t_1_1_get_normal_clause_schema_3_01_clause_3_01_s_00_01_ver_00_01_vars_8_8_8_01_4_01_4.html#a8d98fe9e6e271253db70784736119d84", null ]
+];

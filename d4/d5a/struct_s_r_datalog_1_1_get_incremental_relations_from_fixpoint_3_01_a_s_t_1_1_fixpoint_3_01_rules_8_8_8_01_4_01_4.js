@@ -1,0 +1,4 @@
+var struct_s_r_datalog_1_1_get_incremental_relations_from_fixpoint_3_01_a_s_t_1_1_fixpoint_3_01_rules_8_8_8_01_4_01_4 =
+[
+    [ "type", "d4/d5a/struct_s_r_datalog_1_1_get_incremental_relations_from_fixpoint_3_01_a_s_t_1_1_fixpoint_3_01_rules_8_8_8_01_4_01_4.html#a2b48f6909b5879baefe116c08cd332f8", null ]
+];

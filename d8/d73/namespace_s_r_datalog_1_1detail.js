@@ -1,0 +1,25 @@
+var namespace_s_r_datalog_1_1detail =
+[
+    [ "IndexRelInDBRels", "dd/d2a/struct_s_r_datalog_1_1detail_1_1_index_rel_in_d_b_rels.html", null ],
+    [ "is_relation_ref", "df/d0f/struct_s_r_datalog_1_1detail_1_1is__relation__ref.html", null ],
+    [ "is_relation_ref&lt; Relation&lt; SR, Attrs... &gt; &amp; &gt;", "d8/d08/struct_s_r_datalog_1_1detail_1_1is__relation__ref_3_01_relation_3_01_s_r_00_01_attrs_8_8_8_01_4_01_6_01_4.html", null ],
+    [ "BuildIndexHelper", "dd/dfb/struct_s_r_datalog_1_1detail_1_1_build_index_helper.html", "dd/dfb/struct_s_r_datalog_1_1detail_1_1_build_index_helper" ],
+    [ "BuildAllIndices_Impl", "d9/d55/struct_s_r_datalog_1_1detail_1_1_build_all_indices___impl.html", null ],
+    [ "GetValueFromState", "d0/d27/struct_s_r_datalog_1_1detail_1_1_get_value_from_state.html", null ],
+    [ "GetPrefixValues", "d3/d45/struct_s_r_datalog_1_1detail_1_1_get_prefix_values.html", null ],
+    [ "GetPrefixValues&lt; mir::BoundVars&lt; Vars... &gt;, StateMap &gt;", "da/df8/struct_s_r_datalog_1_1detail_1_1_get_prefix_values_3_01mir_1_1_bound_vars_3_01_vars_8_8_8_01_4_00_01_state_map_01_4.html", null ],
+    [ "GetPayloadValues", "df/d8a/struct_s_r_datalog_1_1detail_1_1_get_payload_values.html", null ],
+    [ "GetPayloadValues&lt; std::tuple&lt; Terms... &gt;, StateMap &gt;", "d5/d61/struct_s_r_datalog_1_1detail_1_1_get_payload_values_3_01std_1_1tuple_3_01_terms_8_8_8_01_4_00_01_state_map_01_4.html", null ],
+    [ "GetPayloadValues&lt; std::tuple&lt;&gt;, StateMap &gt;", "df/ddd/struct_s_r_datalog_1_1detail_1_1_get_payload_values_3_01std_1_1tuple_3_4_00_01_state_map_01_4.html", null ],
+    [ "GenerateIterator", "d8/de1/struct_s_r_datalog_1_1detail_1_1_generate_iterator.html", null ],
+    [ "GenerateIterator&lt; mir::ColumnSource&lt; IndexSpecT&lt; Schema, std::integer_sequence&lt; int, Cols... &gt;, Ver &gt;, PrefixVars &gt;, DB, StateMap &gt;", "d2/d4d/struct_s_r_datalog_1_1detail_1_1_generate_iterator_3_01mir_1_1_column_source_3_01_index_spec_t_31a7820df72adc7a13bc39cb3e44262da.html", null ],
+    [ "MIRExecutor", "dc/d68/struct_s_r_datalog_1_1detail_1_1_m_i_r_executor.html", null ],
+    [ "MIRExecutor&lt; std::tuple&lt;&gt;, StateMap &gt;", "d4/dab/struct_s_r_datalog_1_1detail_1_1_m_i_r_executor_3_01std_1_1tuple_3_4_00_01_state_map_01_4.html", null ],
+    [ "MIRExecutor&lt; std::tuple&lt; HeadOp, TailOps... &gt;, StateMap &gt;", "dd/d3e/struct_s_r_datalog_1_1detail_1_1_m_i_r_executor_3_01std_1_1tuple_3_01_head_op_00_01_tail_ops_8_8_8_01_4_00_01_state_map_01_4.html", null ],
+    [ "MIRExecutor&lt; std::tuple&lt; mir::ColumnJoin&lt; VarToBind, Sources &gt;, TailOps... &gt;, StateMap &gt;", "d4/d88/struct_s_r_datalog_1_1detail_1_1_m_i_r_executor_3_01std_1_1tuple_3_01mir_1_1_column_join_3_01_vaccde6c0ac674a2e9c46fbf1bf30fc0ee.html", null ],
+    [ "MIRExecutor&lt; std::tuple&lt; LetClause&lt; VarToBind, CppExpr&lt; CapturedVars, Func &gt; &gt;, TailOps... &gt;, StateMap &gt;", "d1/d9e/struct_s_r_datalog_1_1detail_1_1_m_i_r_executor_3_01std_1_1tuple_3_01_let_clause_3_01_var_to_bin8907e8d68030a7c70648f497f908557e.html", null ],
+    [ "MIRExecutor&lt; std::tuple&lt; mir::DestinationRelation&lt; Schema, Terms, Ver &gt;, TailOps... &gt;, StateMap &gt;", "d9/d4e/struct_s_r_datalog_1_1detail_1_1_m_i_r_executor_3_01std_1_1tuple_3_01mir_1_1_destination_relatiod77068713e8e97a230041d4e4f85930c.html", null ],
+    [ "make_tuple_with_resource_impl", "d8/d73/namespace_s_r_datalog_1_1detail.html#a22e8605c732594ffd5ab36a6080d4463", null ],
+    [ "print_map_pair", "d8/d73/namespace_s_r_datalog_1_1detail.html#aeac037a7b599a6cd9464e5ffba0a53d0", null ],
+    [ "print_state", "d8/d73/namespace_s_r_datalog_1_1detail.html#aaa67ccc9bda7f3a4b4c51d1fa3929125", null ]
+];
