@@ -12,5 +12,5 @@ var searchData=
   ['vector_9',['Vector',['../d5/dd6/namespace_s_r_datalog.html#a6c9c3992e06e97298d5f0cb72acc0acc',1,'SRDatalog']]],
   ['verify_5fdistinct_5faddresses_10',['verify_distinct_addresses',['../d2/d05/struct_s_r_datalog_1_1_a_s_t_1_1_semi_naive_database.html#a86db2760bec8e43469663866f4a00162',1,'SRDatalog::AST::SemiNaiveDatabase']]],
   ['version_11',['version',['../d4/dbf/struct_s_r_datalog_1_1_a_s_t_1_1_clause.html#a9ec79b80c888fbf20729b3484c807df2',1,'SRDatalog::AST::Clause::version'],['../d3/d0c/struct_s_r_datalog_1_1_a_s_t_1_1_index_spec_t.html#a60e74ba5940462d15f0ae12b3f180ef7',1,'SRDatalog::AST::IndexSpecT::version']]],
-  ['vscode_12',['IDE Settings (For VSCode)',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md10',1,'']]]
+  ['vscode_12',['IDE Settings (VSCode)',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md21',1,'']]]
 ];

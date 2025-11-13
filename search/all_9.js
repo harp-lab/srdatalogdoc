@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['ide_20settings_20for_20vscode_0',['IDE Settings (For VSCode)',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md10',1,'']]],
+  ['ide_20settings_20vscode_0',['IDE Settings (VSCode)',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md21',1,'']]],
   ['idx_1',['idx',['../dc/db4/struct_s_r_datalog_1_1_a_s_t_1_1_find_term_index.html#aaba3d9163d30287219f20ede62903919',1,'SRDatalog::AST::FindTermIndex']]],
   ['idxres_2',['IdxRes',['../d0/db0/struct_s_r_datalog_1_1_compile_rule_to_m_i_r_3_01_rule_3_01_head_00_01_body_00_01_join_plan_01_4_01_4.html#a944d464654a3a757063459f98535853a',1,'SRDatalog::CompileRuleToMIR&lt; Rule&lt; Head, Body, JoinPlan &gt; &gt;']]],
   ['impl_3',['Impl',['../d3/dbf/struct_s_r_datalog_1_1_relation_1_1_hash_trie_index_1_1_impl.html',1,'SRDatalog::Relation::HashTrieIndex']]],
@@ -30,7 +30,7 @@ var searchData=
   ['init_5fdatabase_27',['init_database',['../db/dde/namespace_s_r_datalog_1_1_a_s_t.html#a6aa6efb894acaa6e64fedd24b538f4c9',1,'SRDatalog::AST']]],
   ['initdatabasehelper_28',['InitDatabaseHelper',['../d8/dfd/struct_s_r_datalog_1_1_a_s_t_1_1_init_database_helper.html',1,'SRDatalog::AST']]],
   ['initdatabasehelper_3c_20database_3c_20schemas_2e_2e_2e_20_3e_20_3e_29',['InitDatabaseHelper&lt; Database&lt; Schemas... &gt; &gt;',['../d8/dd2/struct_s_r_datalog_1_1_a_s_t_1_1_init_database_helper_3_01_database_3_01_schemas_8_8_8_01_4_01_4.html',1,'SRDatalog::AST']]],
-  ['integration_30',['Continuous Integration',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md4',1,'']]],
+  ['integration_30',['Continuous Integration',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md17',1,'']]],
   ['internals_31',['Internals',['../d2/d83/class_s_r_datalog_1_1_dictionary_codec.html#dictionarycodec_internals',1,'']]],
   ['interned_5fcolumn_32',['interned_column',['../d0/d94/class_s_r_datalog_1_1_relation.html#a761c70d029a7884ab0acdd4a86d3e260',1,'SRDatalog::Relation::interned_column()'],['../d0/d94/class_s_r_datalog_1_1_relation.html#ab40ad8db5d6b2b84f6eff98053b3ca8a',1,'SRDatalog::Relation::interned_column() const']]],
   ['interned_5fsize_33',['interned_size',['../d0/d94/class_s_r_datalog_1_1_relation.html#ae0f73c220fae9355a2f1a95906a29081',1,'SRDatalog::Relation']]],

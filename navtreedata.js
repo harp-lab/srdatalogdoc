@@ -26,30 +26,38 @@ var NAVTREE =
 [
   [ "SRDatalog", "index.html", [
     [ "SRDatalog", "d3/dcc/md__r_e_a_d_m_e.html", [
-      [ "Prerequisites", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md1", null ],
-      [ "Environment Bootstrap Script", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md2", null ],
-      [ "Quick Start", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md3", null ],
-      [ "Continuous Integration", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md4", null ],
-      [ "Code Formatting", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md5", [
-        [ "Setting Up the Pre-Commit Hook", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md6", null ],
-        [ "Manual Formatting", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md7", null ]
+      [ "Table of Contents", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md1", null ],
+      [ "Architecture", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md2", [
+        [ "Overview", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md3", null ],
+        [ "Design Philosophy: Learning from Ascent and Soufflé", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md4", null ],
+        [ "Provenance and Annotations: A Fundamental Design Principle", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md5", null ],
+        [ "Meta Language: Nim as a Transitional Choice", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md6", null ],
+        [ "Template Metaprogramming (TMP) Foundation", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md7", null ],
+        [ "Usage Patterns", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md8", null ]
       ] ],
-      [ "Documentation", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md8", [
-        [ "Configure Once", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md9", null ]
+      [ "Getting Started", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md9", [
+        [ "Prerequisites", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md10", null ],
+        [ "Environment Setup", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md11", null ],
+        [ "Quick Start", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md12", null ]
       ] ],
-      [ "IDE Settings (For VSCode)", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md10", null ],
-      [ "Target Matrix", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md11", null ],
-      [ "Working with the TMP Playground", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md12", null ],
-      [ "Nim Query DSL Workflow", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md13", [
-        [ "Accessing Generated C++ Files", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md14", null ]
+      [ "Building and Testing", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md13", [
+        [ "Build Configuration", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md14", null ],
+        [ "Build Targets", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md15", null ],
+        [ "Working with TMP and Nim DSL", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md16", null ],
+        [ "Continuous Integration", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md17", null ],
+        [ "Cleaning", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md18", null ]
       ] ],
-      [ "DSL Syntax Primer", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md15", null ],
-      [ "Cleaning", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md16", [
-        [ "Example Usage of the Template Metaprogramming API", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md17", null ]
+      [ "Development", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md19", [
+        [ "Code Formatting", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md20", null ],
+        [ "IDE Settings (VSCode)", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md21", null ],
+        [ "Documentation", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md22", null ]
       ] ],
-      [ "Example Usage of the Nim DSL", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md18", [
-        [ "Triangle Query Example", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md19", null ],
-        [ "Transitive Closure Example", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md20", null ]
+      [ "Examples", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md23", [
+        [ "Example Usage of the Template Metaprogramming API", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md24", null ],
+        [ "Example Usage of the Nim DSL", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md25", null ]
+      ] ],
+      [ "Reference", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md26", [
+        [ "DSL Syntax Primer", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md27", null ]
       ] ]
     ] ],
     [ "Topics", "topics.html", "topics" ],
@@ -93,8 +101,8 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "d3/d20/struct_s_r_datalog_1_1_relation_1_1_hash_trie_index_1_1_impl_1_1_node.html",
-"d5/dd6/namespace_s_r_datalog.html#a1c8609f84f1bb5e93e01497247df183f",
-"dc/db4/struct_s_r_datalog_1_1_a_s_t_1_1_find_term_index.html"
+"d5/dcd/struct_s_r_datalog_1_1_a_s_t_1_1_get_expr_dependencies.html",
+"dc/d97/struct_s_r_datalog_1_1to__impl.html#a59992bb3ffc22db749f786f5c1f59e78"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

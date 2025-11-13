@@ -92,9 +92,226 @@ $(function(){initNavTree('d3/dcc/md__r_e_a_d_m_e.html','../../',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p>
-<p>Column-oriented Datalog engine experiments built with C++23, template metaprogramming (TMP), and a Nim-based query DSL.</p>
+<p><b><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a></b> (Super Reconfigurable Datalog) is a column-oriented Datalog engine framework built with C++23, template metaprogramming (TMP), and a Nim-based query DSL. The "SR" prefix emphasizes the framework's <b>super reconfigurable</b> architecture, enabling users to build custom Datalog engines by swapping data structure backends, runtime mechanisms, and optimization strategies.</p>
+<p>For full documentation, please refer to the <a href="https://harp-lab.com/srdatalogdoc/">docs</a>.</p>
+<p><b>Vision</b>: The ambitious goal of this project is to become **the LLVM for Datalog**—a foundational compiler infrastructure that enables researchers and practitioners to build custom Datalog engines, experiment with new optimization strategies, and target diverse execution environments, all while sharing a common intermediate representation and optimization pipeline.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
-Prerequisites</h1>
+Table of Contents</h1>
+<ul>
+<li>Architecture</li>
+<li>Getting Started</li>
+<li>Building and Testing</li>
+<li>Development</li>
+<li>Examples</li>
+<li>Reference</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+Architecture</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+Overview</h2>
+<p>This repository leverages <b>minimal language features in Nim (only AST macros and <span class="tt">{.emit.}</span> blocks)</b>, reusing Nim-lang's parser and AST. The system bypasses everything in Nim-lang and directly generates C++ code, while reusing Nim's C++ toolchain to automatically setup compiler and build infrastructure.</p>
+<p>The architecture is designed with the ambitious goal of becoming <b>the LLVM for Datalog</b>: a modular compiler infrastructure where frontends (DSL parsers) generate a common intermediate representation (TMP-based AST), which is then optimized and compiled to various backends (different data structures, execution engines, and target architectures). This design enables:</p><ul>
+<li><b>Multiple frontends</b>: Different DSLs can target the same TMP-based IR</li>
+<li><b>Shared optimizations</b>: Common optimization passes work across all frontends</li>
+<li><b>Diverse backends</b>: The same query can target different execution environments (CPU, GPU, distributed, etc.)</li>
+<li><b>Research flexibility</b>: Easy experimentation with new optimization techniques and execution strategies</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+Design Philosophy: Learning from Ascent and Soufflé</h2>
+<p><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a> draws fundamental inspiration from both <b>Ascent</b> and <b>Soufflé</b>, while addressing their limitations through a multi-level IR architecture and better reconfigurability.</p>
+<p><b>Learning from Ascent: Macro-Based Query Language</b></p>
+<p><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a> fundamentally agrees with <b>Ascent's core ideology</b>: <b>query languages should be macros that expand to the host language</b> (Rust for Ascent, C++ for <a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a>). This approach provides:</p><ul>
+<li>Direct integration with the host language ecosystem</li>
+<li>No separate runtime or interpreter overhead</li>
+<li>Natural interoperability with existing libraries and code</li>
+</ul>
+<p>However, <b>Rust's limitations for HPC libraries</b> became a critical constraint, especially in the context of <b>next-generation supercomputers</b>:</p>
+<ul>
+<li><b>CUDA integration</b>: Rust's ownership model (if we have to use unsafe everywhere, we don't use rust) and FFI complexity make it difficult to interface with CUDA libraries, which are fundamentally C/C++-based. This limits GPU acceleration capabilities crucial for heterogeneous supercomputing environments.</li>
+<li><b>Next-generation supercomputers</b>: Modern HPC systems like <b>El Capitan</b>, <b>Aurora</b>, and other <b>heterogeneous exascale systems</b> feature complex node architectures with multiple CPU types, GPU accelerators (AMD MI300X, Intel Ponte Vecchio), and specialized processing units. These systems require deep integration with low-level memory hierarchies, NUMA topologies, and accelerator programming models (CUDA, ROCm, oneAPI) that are fundamentally C/C++ ecosystems.</li>
+<li><b>Complex node interconnection and hierarchy</b>: Exascale systems have sophisticated network topologies (Slingshot, InfiniBand, custom interconnects) with hierarchical memory systems and specialized communication libraries. Direct C++ integration enables <a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a> to:<ul>
+<li>Leverage low-level networking primitives and topology-aware placement strategies</li>
+<li>Optimize for NUMA locality and memory hierarchy (HBM, DDR, persistent memory)</li>
+<li>Integrate with specialized communication libraries and runtime systems</li>
+<li>Support advanced features like remote direct memory access (RDMA) and partitioned global address space (PGAS) models</li>
+</ul>
+</li>
+<li><b>MPICH/MPI integration</b>: High-Performance Computing (HPC) libraries like MPICH/OpenMPI are primarily C/C++ based and deeply integrated with system-level features. Rust's memory model and FFI overhead complicate efficient MPI integration, which is crucial for distributed Datalog execution across thousands of nodes in these massive systems.</li>
+<li><b>Infrastructure reuse</b>: Many HPC libraries, numerical computing frameworks, and domain-specific optimizations are built on C/C++ ecosystems. By choosing C++ as the host language, <a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a> can directly reuse this extensive infrastructure without complex FFI layers, enabling seamless integration with the cutting-edge HPC software stack.</li>
+</ul>
+<p><b>Addressing Ascent's Architectural Limitations</b></p>
+<p>While Ascent's macro-based approach is elegant, it suffers from several design limitations that <a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a> addresses:</p>
+<p><b>1. Monolithic Compilation Model</b>: Ascent's macro compiles directly from AST to Rust code in a single pass. This monolithic design makes it <b>non-reconfigurable</b>:</p><ul>
+<li>Cannot swap different join algorithms (hash join, sort-merge, worst-case optimal joins)</li>
+<li>Cannot change storage models (row-oriented, column-oriented, hybrid)</li>
+<li>Cannot customize ordering strategies and optimization passes</li>
+<li>Hard to experiment with different execution strategies</li>
+</ul>
+<p><b>2. BYODs (Bring Your Own Data Structures) Complexity</b>: While Ascent's BYODs design is conceptually powerful, it's <b>too difficult to use in practice</b>:</p><ul>
+<li>Users must implement complex trait hierarchies</li>
+<li>Heavy boilerplate required for custom data structures</li>
+<li>Limited guidance on optimal data structure choices</li>
+<li>Makes experimentation with storage backends cumbersome</li>
+</ul>
+<p><b>3. Non-Declarative Clause Ordering</b>: Ascent's flexible Rust code generation allows arbitrary code nesting, which breaks the <b>declarative nature</b> of Datalog:</p><ul>
+<li>Clause order matters semantically but appears implicit</li>
+<li>Makes query optimization harder</li>
+<li>Reduces clarity about execution semantics</li>
+<li>Limits compiler's ability to reorder and optimize clauses</li>
+</ul>
+<p><b><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a>'s Multi-Level IR Architecture</b></p>
+<p><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a> addresses these limitations through a <b>multi-level IR design</b> with necessary abstraction boundaries:</p>
+<ol type="1">
+<li><b>AST (Abstract Syntax Tree)</b>: High-level declarative representation of Datalog rules, relations, and queries. This maintains declarative semantics and enables high-level optimizations.</li>
+<li><p class="startli"><b>MIR (Mid-level IR)</b>: Compile-time compilation from AST to MIR (<span class="tt">CompileRuleToMIR</span>) produces structured operations:</p><ul>
+<li><span class="tt">ColumnSource</span>: <a class="el" href="../../d3/dc1/class_relation.html">Relation</a> access operations</li>
+<li><span class="tt">ColumnJoin</span>: Multi-way join operations</li>
+<li><span class="tt">DestinationRelation</span>: Fact insertion operations</li>
+</ul>
+<p class="startli">This intermediate representation enables:</p><ul>
+<li><b>Reconfigurable join algorithms</b>: Different MIR interpreters can implement hash joins, sort-merge joins, or worst-case optimal joins</li>
+<li><b>Swappable storage models</b>: The same MIR can target row-oriented or column-oriented backends</li>
+<li><b>Custom optimization passes</b>: MIR transformations can optimize join order, index selection, and execution strategies</li>
+</ul>
+</li>
+<li><b>Runtime Execution</b>: The MIR is interpreted at runtime with full type information, enabling efficient code generation while maintaining flexibility.</li>
+</ol>
+<p><b>Benefits of Multi-Level IR Design</b></p>
+<ul>
+<li><b>More Design Flexibility</b>: Different optimization strategies can be applied at different IR levels without affecting others</li>
+<li><b>More Optimization Opportunities</b>: AST-to-MIR compilation, MIR transformations, and runtime optimizations can all be customized independently</li>
+<li><b>Necessary Limitations</b>: Each IR level enforces declarative semantics and prevents overly flexible code generation that breaks query optimization</li>
+<li><b>Reconfigurability</b>: Storage backends, join algorithms, and execution strategies can be swapped at the MIR level without rewriting queries</li>
+<li><b>Maintainability</b>: Clear separation between logical (AST), operational (MIR), and execution (runtime) concerns</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+Provenance and Annotations: A Fundamental Design Principle</h2>
+<p><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a> treats <b>provenance (annotations)</b> as a <b>fundamental, first-class citizen</b> from the very bottom level of the architecture, not merely as a monomorphism to a single column in relations. This design decision is driven by <b>symbolic AI requirements</b> and enables advanced features like <b>LAT logic</b> (Linear Algebra Temporal logic) and <b>temporal provenance</b> from the ground up.</p>
+<p><b>Provenance as a Core Architecture Component</b></p>
+<p>Unlike systems that treat annotations as an afterthought or simple monomorphism, <a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a>'s annotation system is deeply integrated into the entire IR stack:</p>
+<ol type="1">
+<li><b>AST Level</b>: Semirings are a <b>first-class type parameter</b> in <span class="tt">AST::RelationSchema&lt;Name, <a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a>, AttrTypes...&gt;</span>, making provenance semantics part of the compile-time type system</li>
+<li><b>MIR Level</b>: Annotation propagation and aggregation are <b>explicitly modeled</b> in the Mid-level IR operations, enabling provenance-aware join planning and optimization</li>
+<li><b>Storage Level</b>: While annotations are currently stored as a dedicated column (<span class="tt">ann_</span>) in relations, the architecture is designed to support more sophisticated provenance representations beyond simple scalar values</li>
+</ol>
+<p><b>Symbolic AI Requirements: LAT Logic and Temporal Provenance</b></p>
+<p><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a> is designed with <b>symbolic AI requirements as a primary consideration</b>, particularly:</p>
+<ul>
+<li><b>LAT Logic (Linear Algebra Temporal Logic)</b>: The system is architected to support temporal reasoning and linear algebra operations over annotations. The semiring abstraction provides a natural foundation for representing temporal semantics and linear transformations</li>
+<li><b>Temporal Provenance</b>: Time-based provenance tracking is considered from the low-level IR design, allowing annotations to encode temporal information and enabling temporal reasoning at the query level</li>
+</ul>
+<p>These requirements are <b>not retrofitted</b> but are fundamental to the IR design, enabling:</p><ul>
+<li><b>Annotation-aware optimization</b>: The compiler can optimize queries based on provenance semantics (e.g., idempotent semirings enable different join strategies)</li>
+<li><b>Provenance-preserving transformations</b>: IR transformations maintain provenance information throughout the compilation pipeline</li>
+<li><b>Custom provenance representations</b>: The architecture allows different annotation models (scalar values, vectors, time-stamped values, etc.) without changing the query structure</li>
+</ul>
+<p><b>Current Implementation and Future Extensibility</b></p>
+<p>Currently, annotations are implemented as a semiring value stored per row (the <span class="tt">ann_</span> column in <span class="tt"><a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&lt;SR, AttrTs...&gt;</span>). However, the architecture is designed to support more sophisticated representations:</p>
+<ul>
+<li><b>Beyond scalar monomorphism</b>: The IR structure can accommodate richer annotation structures (e.g., vectors for multi-dimensional provenance, trees for hierarchical provenance, time-series for temporal provenance)</li>
+<li><b>Annotation-aware joins</b>: Join operations can propagate and combine annotations according to semiring semantics, preserving provenance information through complex queries</li>
+<li><b>Symbolic AI extensions</b>: The low-level IR design enables future extensions for LAT logic operations, temporal reasoning, and other symbolic AI primitives without architectural changes</li>
+</ul>
+<p>This foundational approach to provenance ensures that <a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a> can serve as a platform for advanced symbolic AI applications that require sophisticated reasoning about data derivation, temporal relationships, and logical annotations.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+Meta Language: Nim as a Transitional Choice</h2>
+<p><b>Important Note on Meta Language Strategy</b>: The Nim-based DSL in this repository is provided as a <b>transitional solution for planning and to offer users more language choices</b> during the framework's development. However, it's important to acknowledge that the <b>full, final, and complete meta language implementation will be a Racket language module</b>.</p>
+<p><b>Why Nim Currently? Transition Planning and Multiple Options</b></p>
+<p><b>AST Manipulation and Optimization</b>: Datalog compiler developers can leverage Nim's macro system to easily manipulate the AST of queries. This enables sophisticated optimizations, query rewriting, and even join planning at compile time. The macro system provides a clean, high-level interface for transforming Datalog programs before code generation.</p>
+<p><b>C++ Integration</b>: Nim can be considered as an external macro system for C++. By using Nim's <span class="tt">{.emit.}</span> blocks and C++ backend, the framework generates optimized C++ code while providing a more ergonomic metaprogramming environment than raw C++ template metaprogramming. This approach combines the expressiveness of Nim's macros with the performance and ecosystem of C++.</p>
+<p><b>Limitations of the Nim Implementation</b>: The current Nim-based implementation has several limitations:</p>
+<ul>
+<li><b>Limited Metaprogramming Expressiveness</b>: While Nim's macros are powerful, they lack the full metaprogramming flexibility and homoiconicity that Lisp-family languages like Racket provide for DSL development</li>
+<li><b>Parser Reuse Constraints</b>: The system relies on Nim's parser, which limits syntactic flexibility for domain-specific constructs</li>
+<li><b>AST Transformation Overhead</b>: Complex transformations may require more verbose macro code compared to languages designed for language-oriented programming</li>
+<li><b>Experimental Status</b>: The Nim DSL is experimental and may not support all planned features of the final metalang</li>
+</ul>
+<p><b>Configurable Backend Architecture</b>: The framework is designed for maximum configurability and reusability. Users can reset the data structure backend by reloading the relations API and executor function, allowing support for different data structures and runtime mechanisms. This makes <a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a> not just a Datalog engine, but a <b>framework for building your own Datalog engines</b> tailored to specific use cases.</p>
+<p><b>Framework Reusability</b>: The combination of Nim's metaprogramming capabilities and the modular design of the C++ runtime creates a highly reusable framework. Developers can extend the system by:</p><ul>
+<li>Writing custom AST transformations using Nim macros</li>
+<li>Implementing new data structure backends by providing alternative relation APIs</li>
+<li>Creating specialized executors for different runtime environments (e.g., distributed, GPU-accelerated)</li>
+<li>Customizing optimization passes and query planning strategies</li>
+</ul>
+<p><b>The Final Metalang: Racket</b>: The <b>complete and final meta language implementation will be a Racket language module</b>. Racket's language-oriented programming paradigm, powerful macro system, and homoiconicity make it the ideal choice for building sophisticated DSLs and compiler frameworks. The Racket implementation will provide:</p><ul>
+<li>Full metaprogramming capabilities for complex AST transformations</li>
+<li>Native language-oriented programming support for DSL development</li>
+<li>Flexible syntax extension mechanisms without parser constraints</li>
+<li>A mature ecosystem for compiler construction and code generation</li>
+<li>Integration with C JIT compilation libraries for efficient code generation</li>
+</ul>
+<p><b>Transition Strategy</b>: The Nim implementation serves as a practical intermediate step that allows developers to start using the framework while the Racket metalang is under development. This provides users with options during the transition period and helps validate the framework's design.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+Template Metaprogramming (TMP) Foundation</h2>
+<p>The C++ runtime is built on a foundation of <b>template metaprogramming (TMP)</b> that enables compile-time query compilation and optimization. The <span class="tt"><a class="el" href="../../dc/dc6/tmp_8h.html">generalized_datalog/tmp.h</a></span> module provides essential TMP utilities built on top of Boost.MP11, offering:</p>
+<p><b>TMP Library Dependencies</b>: At the template level, the TMP library <b>heavily relies on C++17 features</b>, <b>Boost.MP11</b>, and <b>Boost.Hana</b>. Any developer working on the TMP layer will need to work directly with these libraries:</p><ul>
+<li><b>C++17 features</b>: The TMP code extensively uses C++17 language features such as <span class="tt">constexpr if</span>, fold expressions, class template argument deduction, and structured bindings. The overall project requires C++23, but the TMP metaprogramming foundations primarily leverage C++17 features</li>
+<li><b>Boost.MP11</b>: Used extensively in <span class="tt"><a class="el" href="../../dc/dc6/tmp_8h.html">tmp.h</a></span> for type-level tuple operations, type predicates, compile-time type manipulation utilities, and set operations (intersection, difference, uniqueness)</li>
+<li><b>Boost.Hana</b>: Used in <span class="tt"><a class="el" href="../../db/df0/ast_8h.html" title="Abstract Syntax Tree (AST) for Datalog using Template Metaprogramming.">ast.h</a></span> for compile-time string literals as template parameters (<span class="tt">boost::hana::string</span>) and in <span class="tt"><a class="el" href="../../d3/d51/runtime_8h.html" title="Runtime execution engine for MIR (Mid-level Intermediate Representation).">runtime.h</a></span> for heterogeneous containers and compile-time state management (using <span class="tt">hana::map</span> for variable bindings)</li>
+</ul>
+<p>Developers extending or modifying the TMP layer should be familiar with modern C++ metaprogramming techniques and these library APIs, as the codebase makes extensive use of Boost.MP11 for type-level operations and Boost.Hana for compile-time computation and state management.</p>
+<ul>
+<li><b>Type-level tuple operations</b>: Concatenation, intersection, difference, and uniqueness operations on type tuples</li>
+<li><b>Type predicates</b>: Compile-time checks for tuple types and type membership</li>
+<li><b>Set operations</b>: Efficient type-level set intersection and difference for join planning</li>
+</ul>
+<p>These utilities are used throughout the codebase in:</p><ul>
+<li><span class="tt"><a class="el" href="../../db/df0/ast_8h.html" title="Abstract Syntax Tree (AST) for Datalog using Template Metaprogramming.">ast.h</a></span>: For defining relation schemas, rules, clauses, and join plans as compile-time types</li>
+<li><span class="tt"><a class="el" href="../../dd/d6e/query_8h.html" title="Query compilation and index management for Datalog programs.">query.h</a></span>: For compiling AST rules into Mid-level IR (MIR) operations and computing required indexes</li>
+<li><span class="tt"><a class="el" href="../../d1/d25/relation__col_8h.html" title="Defines the column-oriented Relation class and associated views/indexes.">relation_col.h</a></span>: For type-safe column-oriented relation operations</li>
+</ul>
+<p><b>TMP-Based Type API</b>: The core of <a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a>'s architecture is its TMP-based type system. Relations, rules, and queries are represented as C++ template types that encode their structure at compile time:</p>
+<ul>
+<li><span class="tt">AST::RelationSchema&lt;Name, <a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a>, AttrTypes...&gt;</span>: Represents a relation with its schema</li>
+<li><span class="tt">AST::Rule&lt;HeadTuple, BodyTuple, JoinPlan&gt;</span>: Represents a Datalog rule with its join plan</li>
+<li><span class="tt">AST::Clause&lt;<a class="el" href="../../d3/dc1/class_relation.html">Relation</a>, Version, Vars...&gt;</span>: Represents a relation call in a rule body or head</li>
+<li><span class="tt">AST::Var&lt;Name&gt;</span>: Represents a logical variable</li>
+<li><span class="tt">AST::JoinPlan&lt;VarTuple&gt;</span>: Encodes the join order for efficient execution</li>
+</ul>
+<p><b>Frontend DSL to TMP Code Generation</b>: The Nim-based frontend DSL (<span class="tt">src/srdatalog/syntax.nim</span> and <span class="tt">src/srdatalog/codegen.nim</span>) generates C++ code that constructs these TMP types. When you write a Datalog query in the DSL:</p>
+<ol type="1">
+<li><b>Parsing</b>: The Nim macros parse the high-level Datalog syntax into an intermediate representation</li>
+<li><b>Code Generation</b>: The codegen module emits C++ code that instantiates the TMP types (e.g., <span class="tt">AST::RelationSchema</span>, <span class="tt">AST::Rule</span>, <span class="tt">AST::NonIterativeRuleSets</span>, <span class="tt">AST::Fixpoint</span>)</li>
+<li><b>Compilation</b>: The C++ compiler evaluates these TMP types at compile time, generating optimized join plans and index structures</li>
+<li><b>Execution</b>: The runtime executes the compiled query using the pre-computed join plans and indexes</li>
+</ol>
+<p>For example, when you write: </p><div class="fragment"><div class="line">datalog_db TriangleDB:</div>
+<div class="line">  RRel: Relation[int, int]</div>
+<div class="line">  SRel: Relation[int, int, int]</div>
+<div class="line">none_recursive_rule TriangleRule:</div>
+<div class="line">  [{(ZRel x y z)} &lt;-- {(RRel x y) (SRel y z)}]</div>
+</div><!-- fragment --><p>The DSL generates C++ code like: </p><div class="fragment"><div class="line"><span class="keyword">using </span>RRel = AST::RelationSchema&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;RRel&quot;</span>_s), <a class="code hl_struct" href="../../d8/dcb/struct_boolean_s_r.html">BooleanSR</a>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>&gt;;</div>
+<div class="line"><span class="keyword">using </span>SRel = AST::RelationSchema&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;SRel&quot;</span>_s), <a class="code hl_struct" href="../../d8/dcb/struct_boolean_s_r.html">BooleanSR</a>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>&gt;;</div>
+<div class="line"><span class="keyword">using </span>TriangleRule = AST::Rule&lt;</div>
+<div class="line">  std::tuple&lt;AST::Clause&lt;ZRel, NEW_VER, x_, y_, z_&gt;&gt;,</div>
+<div class="line">  std::tuple&lt;AST::Clause&lt;RRel, FULL_VER, x_, y_&gt;, </div>
+<div class="line">             AST::Clause&lt;SRel, FULL_VER, y_, z_&gt;&gt;,</div>
+<div class="line">  AST::JoinPlan&lt;std::tuple&lt;x_, y_, z_&gt;&gt;</div>
+<div class="line">&gt;;</div>
+<div class="ttc" id="astruct_boolean_s_r_html"><div class="ttname"><a href="../../d8/dcb/struct_boolean_s_r.html">BooleanSR</a></div><div class="ttdef"><b>Definition</b> semiring.h:49</div></div>
+</div><!-- fragment --><p>This TMP-based approach enables the compiler to:</p><ul>
+<li><b>Compute join plans at compile time</b>: The <span class="tt">CompileRuleToMIR</span> template transforms rules into optimized MIR operations</li>
+<li><b>Generate efficient indexes</b>: The <span class="tt">AllIndicesFromProgram</span> template computes all required indexes from the program structure</li>
+<li><b>Enable zero-cost abstractions</b>: All query structure is encoded in types, with no runtime overhead for query representation</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+Usage Patterns</h2>
+<p>Users have two main ways to use this system:</p>
+<p><b>a) Extract compiled Nim -cpp code for inclusion in C++ projects:</b></p><ul>
+<li>Compile your Nim code with the <span class="tt">-cpp</span> backend</li>
+<li>Take the generated C++ code and include it in your existing C++ files</li>
+<li>This allows you to leverage the DSL while maintaining full control over the C++ build process</li>
+</ul>
+<p><b>b) Use Nim as a module system with thin function wrappers:</b></p><ul>
+<li>Use Nim as your module system and thin-level function wrapper layer</li>
+<li>Always put your logic code in <span class="tt">emit-cpp</span> blocks within Nim files</li>
+<li>You can use other Nim libraries (like Nim's C++ std wrapper) to transmit data between Nim and C++ layers</li>
+<li>This approach provides a clean separation between the DSL/metaprogramming layer (Nim) and the execution layer (C++)</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+Getting Started</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+Prerequisites</h2>
 <ul>
 <li><a href="https://xmake.io">xmake</a> 2.8+ in <span class="tt">PATH</span></li>
 <li>A C++23-capable compiler (clang 17+ or GCC 13+ on macOS/Linux)</li>
@@ -105,78 +322,26 @@ Prerequisites</h1>
 <blockquote class="doxtable">
 <p>macOS users can install everything via <span class="tt">brew install xmake nim</span>. </p>
 </blockquote>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
-Environment Bootstrap Script</h1>
-<p><span class="tt">./setup.sh</span> installs xmake, Nim, and required packages using Homebrew on macOS: </p><div class="fragment"><div class="line">bash setup.sh</div>
-</div><!-- fragment --><p> Run it once after cloning if you prefer scripted setup; otherwise install dependencies manually as noted above.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
-Quick Start</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+Environment Setup</h2>
+<p><b>Automated Setup (macOS):</b> </p><div class="fragment"><div class="line">bash setup.sh</div>
+</div><!-- fragment --><p> This installs xmake, Nim, and required packages using Homebrew.</p>
+<p><b>Manual Setup:</b> Install dependencies manually as noted in the Prerequisites section above.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+Quick Start</h2>
 <div class="fragment"><div class="line"># From the project root</div>
 <div class="line">xmake f -m releasedbg             # configure once (release with debug symbols)</div>
 <div class="line">xmake                             # build everything with the cached config</div>
 <div class="line">xmake run test_relation</div>
 </div><!-- fragment --><p><span class="tt">xmake</span> generates build output under <span class="tt">build/&lt;plat&gt;/&lt;arch&gt;/&lt;mode&gt;/</span>. Add <span class="tt">-m release</span> for optimized builds.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
-Continuous Integration</h1>
-<p>GitHub Actions builds and runs the core tests (<span class="tt">test_column</span>, <span class="tt">test_semiring</span>, <span class="tt">test_relation</span>, <span class="tt">test_mpi_type</span>) for every push and pull request. The workflow definition lives at <span class="tt">.github/workflows/ci.yml</span>.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
-Code Formatting</h1>
-<p>This project uses automated code formatting via git pre-commit hooks:</p>
-<ul>
-<li><b>C++ files</b>: Formatted with <span class="tt">clang-format</span></li>
-<li><b>Nim files</b>: Formatted with <span class="tt">nph</span> (Nim Pretty Handler)</li>
-</ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
-Setting Up the Pre-Commit Hook</h2>
-<p>To ensure consistent code formatting, set up the pre-commit hook after cloning:</p>
-<ol type="1">
-<li><p class="startli"><b>Install <span class="tt">nph</span>:</b></p>
-<div class="fragment"><div class="line">nimble install nph</div>
-</div><!-- fragment --></li>
-<li><p class="startli"><b>Install the Pre-Commit Hook:</b></p>
-<p class="startli">The pre-commit hook is located at <span class="tt">.git/hooks/pre-commit</span>. If it doesn't exist or needs to be reinstalled, copy it:</p>
-<div class="fragment"><div class="line">chmod +x .git/hooks/pre-commit</div>
-</div><!-- fragment --><p class="startli">The hook will automatically format all staged C++ and Nim files before each commit.</p>
-</li>
-</ol>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
-Manual Formatting</h2>
-<p>You can also format files manually:</p>
-<div class="fragment"><div class="line"># Format a specific Nim file</div>
-<div class="line">nph src/srdatalog/lang.nim</div>
-<div class="line"> </div>
-<div class="line"># Format all Nim files in src/</div>
-<div class="line">find src/ -name &quot;*.nim&quot; -exec nph {} \;</div>
-<div class="line"> </div>
-<div class="line"># Format C++ files</div>
-<div class="line">clang-format -i generalized_datalog/*.h generalized_datalog/*.cpp</div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
-Documentation</h1>
-<p>API documentation is generated with Doxygen through the <span class="tt">xmake build docs</span> target. The workflow in <span class="tt">.github/workflows/docs.yml</span> builds the HTML and stores it as a downloadable GitHub Actions artifact (<span class="tt">docs/build/html</span>). GitHub Pages deployment can be re-enabled later once desired.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
-Configure Once</h2>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
+Building and Testing</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+Build Configuration</h2>
 <p>Use <span class="tt">xmake f</span> (<span class="tt">xmake config</span>) to set options that persist for later builds: </p><div class="fragment"><div class="line">xmake f -m releasedbg --build_test_tmp=true   # enable TMP + Nim targets</div>
 <div class="line">xmake                                         # rebuild with the new config</div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
-IDE Settings (For VSCode)</h1>
-<p>To integrate xmake with clangd</p><ol type="1">
-<li>install xmake and clangd extension for VSCode</li>
-<li>add .vscode/settings.json to the project root <div class="fragment"><div class="line">{</div>
-<div class="line">    &quot;clangd.arguments&quot;: [</div>
-<div class="line">        &quot;--compile-commands-dir=${workspaceFolder}&quot;,</div>
-<div class="line">        &quot;--header-insertion=never&quot;,</div>
-<div class="line">        &quot;--completion-style=detailed&quot;,</div>
-<div class="line">        &quot;--compile-commands-dir=.vscode&quot;</div>
-<div class="line">    ],</div>
-<div class="line">}</div>
-</div><!-- fragment --></li>
-<li>build the project</li>
-<li>open command palette (Ctrl/Command+Shift+P) and run "Xmake: UpdateIntelliSense"</li>
-<li>open command palette again and run "clangd: Restart"</li>
-<li>Enjoy the clangd autocompletion and error checking</li>
-</ol>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
-Target Matrix</h1>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
+Build Targets</h2>
 <ul>
 <li><span class="tt">test_relation</span> – exercises <span class="tt">generalized_datalog/relation_col.*</span></li>
 <li><span class="tt">test_column</span>, <span class="tt">test_semiring</span> – column store and semiring regression tests</li>
@@ -189,18 +354,15 @@ Target Matrix</h1>
 <div class="line">xmake run test_relation</div>
 <div class="line">xmake run test_tmp          # only after enabling --build_test_tmp</div>
 <div class="line">./srdatalog                 # run the Nim DSL example</div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
-Working with the TMP Playground</h1>
-<ol type="1">
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
+Working with TMP and Nim DSL</h2>
+<p><b>TMP Playground:</b></p><ol type="1">
 <li>Enable the option: <span class="tt">xmake f --build_test_tmp=y</span></li>
 <li>Rebuild: <span class="tt">xmake build test_tmp</span></li>
 <li>Execute: <span class="tt">xmake run test_tmp</span></li>
 </ol>
 <p>The executable prints the TMP evaluation results to stdout. Adjust <span class="tt"><a class="el" href="../../d5/d1d/test__tmp_8cpp.html" title="test the TMP based query compiler and executor">generalized_datalog/test_tmp.cpp</a></span> and rebuild.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
-Nim Query DSL Workflow</h1>
-<p>The Nim target wraps the C++ runtime and emits C++ ASTs during compilation.</p>
-<ol type="1">
+<p><b>Nim Query DSL:</b></p><ol type="1">
 <li>Install Nim &amp; nimble, then enable the TMP option: <div class="fragment"><div class="line">xmake f --build_test_tmp=y</div>
 <div class="line">xmake build test_nim</div>
 </div><!-- fragment --></li>
@@ -209,10 +371,9 @@ Nim Query DSL Workflow</h1>
 </div><!-- fragment --> The default program (<span class="tt">src/srdatalog.nim</span>) declares relations, loads facts, and prints the <span class="tt">ZRel</span> output relation.</li>
 <li>Edit <span class="tt">src/srdatalog.nim</span> to experiment with the DSL. Re-run <span class="tt">xmake build test_nim</span> (or simply <span class="tt">xmake</span>) to regenerate the binary.</li>
 </ol>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
-Accessing Generated C++ Files</h2>
+<p><b>Accessing Generated C++ Files:</b></p>
 <p>When Nim compiles your DSL code with the C++ backend, it generates intermediate C++ files that you can inspect to understand how your DSL macros are translated. These files are stored in Nim's cache directory.</p>
-<p><b>Location:</b> The generated C++ files are stored in <span class="tt">~/.cache/nim/srdatalog_d/</span> (or <span class="tt">USERPROFILE%\.cache\nim\srdatalog_d\</span> on Windows).</p>
+<p><b>Location:</b> <span class="tt">~/.cache/nim/srdatalog_d/</span> (or <span class="tt">USERPROFILE%\.cache\nim\srdatalog_d\</span> on Windows).</p>
 <p><b>File Naming Convention:</b> Nim uses a special naming scheme where module paths are encoded:</p><ul>
 <li><span class="tt">@mexample@stc.nim.cpp</span> corresponds to <span class="tt">src/example/tc.nim</span></li>
 <li><span class="tt">@mexample@striangle.nim.cpp</span> corresponds to <span class="tt">src/example/triangle.nim</span></li>
@@ -220,47 +381,76 @@ Accessing Generated C++ Files</h2>
 <li><span class="tt">@msrdatalog@srelation.nim.cpp</span> corresponds to <span class="tt">src/srdatalog/relation.nim</span></li>
 </ul>
 <p>The pattern is: <span class="tt">@m</span> followed by the module path with <span class="tt">@s</span> replacing <span class="tt">/</span> separators, then <span class="tt">.nim.cpp</span>.</p>
-<p><b>How to Access:</b></p>
-<ol type="1">
-<li><b>List all generated files:</b> <div class="fragment"><div class="line">ls ~/.cache/nim/srdatalog_d/*.cpp</div>
-</div><!-- fragment --></li>
-<li><b>View a specific generated file:</b> <div class="fragment"><div class="line"># For example, to view the generated C++ for src/example/tc.nim:</div>
+<p><b>How to Access:</b> </p><div class="fragment"><div class="line"># List all generated files</div>
+<div class="line">ls ~/.cache/nim/srdatalog_d/*.cpp</div>
+<div class="line"> </div>
+<div class="line"># View a specific generated file</div>
 <div class="line">cat ~/.cache/nim/srdatalog_d/@mexample@stc.nim.cpp</div>
 <div class="line"> </div>
-<div class="line"># Or use your preferred editor:</div>
-<div class="line">code ~/.cache/nim/srdatalog_d/@mexample@stc.nim.cpp</div>
-</div><!-- fragment --></li>
-<li><b>Find files by pattern:</b> <div class="fragment"><div class="line"># Find all example files:</div>
+<div class="line"># Find files by pattern</div>
 <div class="line">ls ~/.cache/nim/srdatalog_d/@mexample@*.cpp</div>
-<div class="line"> </div>
-<div class="line"># Find all srdatalog module files:</div>
 <div class="line">ls ~/.cache/nim/srdatalog_d/@msrdatalog@*.cpp</div>
-</div><!-- fragment --></li>
-<li><b>View the main entry point:</b> <div class="fragment"><div class="line">cat ~/.cache/nim/srdatalog_d/@msrdatalog.nim.cpp</div>
-</div><!-- fragment --></li>
-</ol>
-<p><b>Note:</b> The cache directory is automatically created when you build the project. If you don't see the files, make sure you've run <span class="tt">xmake build test_nim</span> at least once. The files are regenerated each time you rebuild, so they always reflect the current state of your Nim source code.</p>
-<p><b>Alternative: Using <span class="tt">nim c --genScript</span></b></p>
-<p>You can also generate a compilation script that shows exactly how Nim compiles your code: </p><div class="fragment"><div class="line">cd &lt;project_root&gt;</div>
+</div><!-- fragment --><p><b>Note:</b> The cache directory is automatically created when you build the project. If you don't see the files, make sure you've run <span class="tt">xmake build test_nim</span> at least once. The files are regenerated each time you rebuild, so they always reflect the current state of your Nim source code.</p>
+<p><b>Alternative: Using <span class="tt">nim c --genScript</span></b> </p><div class="fragment"><div class="line">cd &lt;project_root&gt;</div>
 <div class="line">nim c --genScript --backend:cpp src/srdatalog.nim</div>
 </div><!-- fragment --><p> This will create a shell script (usually <span class="tt">compile_*.sh</span>) that shows the compilation commands and intermediate file locations.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
-DSL Syntax Primer</h1>
-<p>The DSL macros live under <span class="tt">src/srdatalog/syntax.nim</span> (parsing) and <span class="tt">src/srdatalog/codegen.nim</span> (C++ emission). At compile-time they lower Nim syntax to the TMP types in <span class="tt">generalized_datalog/</span>. Core forms:</p>
-<ul>
-<li><span class="tt">srdatalog_prelude()</span> injects the required C++ headers and namespace setup so later <span class="tt">emit</span> blocks compile cleanly.</li>
-<li><span class="tt">datalog_db &lt;BlueprintName&gt;:</span> introduces relation declarations. Use <span class="tt"><a class="el" href="../../d3/dc1/class_relation.html">Relation</a>[T1, T2, ...]</span> to create a schema backed by the default <span class="tt"><a class="el" href="../../d8/dcb/struct_boolean_s_r.html">BooleanSR</a></span> semiring, or <span class="tt"><a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a>[T1, ..., CustomSR]</span> when you need a different semiring as the final type argument.</li>
-<li><span class="tt">none_recursive_rule &lt;Alias&gt;:</span> describes a non-recursive rule set. Inside the bracket you write <span class="tt">{(Head ...) ...} &lt;-- {(Body ...) ...}</span> with an attached pragma block <span class="tt">{. name: RuleId order: [x, y, ...] .}</span>. Each head/body tuple is a parenthesised relation call; identifiers become logical variables, while <span class="tt">($"...")</span> embeds raw C++ expressions for constants.</li>
-<li><span class="tt">fixpoint_rule &lt;Alias&gt;:</span> describes a recursive rule set that computes a fixpoint. The syntax is identical to <span class="tt">none_recursive_rule</span>, but the head relation may appear in the body. The macro automatically generates rule variants for semi-naive evaluation, using <span class="tt"><a class="el" href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a></span> for incremental relations in the body and <span class="tt"><a class="el" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a></span> for others. This enables efficient iterative computation until convergence.</li>
-<li><span class="tt">edb &lt;DbSymbol&gt;:</span> emits facts. Every tuple is <span class="tt">(&lt;<a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&gt; ($"SemiringExpr") ($"col1") ...)</span> which expands to <span class="tt">add_fact&lt;<a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&gt;(DbSymbol, ...)</span> in the generated C++.</li>
-</ul>
-<p>When expanded, these constructs generate aliases such as <span class="tt">AST::RelationSchema</span>, <span class="tt">AST::Rule</span>, <span class="tt">AST::NonIterativeRuleSets</span>, <span class="tt">AST::Fixpoint</span>, and the corresponding MIR types, matching what you would otherwise write by hand in C++. Refer to the examples below or the implementation files for additional forms (guards <span class="tt">?(...)</span> and <span class="tt">:=</span> bindings are parsed but still experimental).</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
-Cleaning</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+Continuous Integration</h2>
+<p>GitHub Actions builds and runs the core tests (<span class="tt">test_column</span>, <span class="tt">test_semiring</span>, <span class="tt">test_relation</span>, <span class="tt">test_mpi_type</span>) for every push and pull request. The workflow definition lives at <span class="tt">.github/workflows/ci.yml</span>.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
+Cleaning</h2>
 <div class="fragment"><div class="line">xmake clean</div>
 <div class="line"># or wipe the cached configuration:</div>
 <div class="line">xmake f -c</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
+Development</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
+Code Formatting</h2>
+<p>This project uses automated code formatting via git pre-commit hooks:</p>
+<ul>
+<li><b>C++ files</b>: Formatted with <span class="tt">clang-format</span></li>
+<li><b>Nim files</b>: Formatted with <span class="tt">nph</span> (Nim Pretty Handler)</li>
+</ul>
+<p><b>Setting Up the Pre-Commit Hook:</b></p>
+<ol type="1">
+<li><b>Install <span class="tt">nph</span>:</b> <div class="fragment"><div class="line">nimble install nph</div>
+</div><!-- fragment --></li>
+<li><b>Install the Pre-Commit Hook:</b> The pre-commit hook is located at <span class="tt">.git/hooks/pre-commit</span>. If it doesn't exist or needs to be reinstalled: <div class="fragment"><div class="line">chmod +x .git/hooks/pre-commit</div>
+</div><!-- fragment --> The hook will automatically format all staged C++ and Nim files before each commit.</li>
+</ol>
+<p><b>Manual Formatting:</b> </p><div class="fragment"><div class="line"># Format a specific Nim file</div>
+<div class="line">nph src/srdatalog/lang.nim</div>
+<div class="line"> </div>
+<div class="line"># Format all Nim files in src/</div>
+<div class="line">find src/ -name &quot;*.nim&quot; -exec nph {} \;</div>
+<div class="line"> </div>
+<div class="line"># Format C++ files</div>
+<div class="line">clang-format -i generalized_datalog/*.h generalized_datalog/*.cpp</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
+IDE Settings (VSCode)</h2>
+<p>To integrate xmake with clangd:</p>
+<ol type="1">
+<li>Install xmake and clangd extension for VSCode</li>
+<li>Add <span class="tt">.vscode/settings.json</span> to the project root: <div class="fragment"><div class="line">{</div>
+<div class="line">    &quot;clangd.arguments&quot;: [</div>
+<div class="line">        &quot;--compile-commands-dir=${workspaceFolder}&quot;,</div>
+<div class="line">        &quot;--header-insertion=never&quot;,</div>
+<div class="line">        &quot;--completion-style=detailed&quot;,</div>
+<div class="line">        &quot;--compile-commands-dir=.vscode&quot;</div>
+<div class="line">    ],</div>
+<div class="line">}</div>
+</div><!-- fragment --></li>
+<li>Build the project</li>
+<li>Open command palette (Ctrl/Command+Shift+P) and run "Xmake: UpdateIntelliSense"</li>
+<li>Open command palette again and run "clangd: Restart"</li>
+<li>Enjoy the clangd autocompletion and error checking</li>
+</ol>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
+Documentation</h2>
+<p>API documentation is generated with Doxygen through the <span class="tt">xmake build docs</span> target. The workflow in <span class="tt">.github/workflows/docs.yml</span> builds the HTML and stores it as a downloadable GitHub Actions artifact (<span class="tt">docs/build/html</span>). GitHub Pages deployment can be re-enabled later once desired.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
+Examples</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
 Example Usage of the Template Metaprogramming API</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../db/df0/ast_8h.html">ast.h</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d6e/query_8h.html">query.h</a>&quot;</span></div>
@@ -268,7 +458,6 @@ Example Usage of the Template Metaprogramming API</h2>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d69/semiring_8h.html">semiring.h</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="../../da/d38/test__column_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
-<div class="line"> </div>
 <div class="line">  <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a>;</div>
 <div class="line">  <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../da/d83/namespace_s_r_datalog_1_1_a_s_t_1_1literals.html">SRDatalog::AST::literals</a>;</div>
 <div class="line">  <span class="keyword">using </span>SR = <a class="code hl_struct" href="../../d8/dcb/struct_boolean_s_r.html">BooleanSR</a>;</div>
@@ -304,29 +493,8 @@ Example Usage of the Template Metaprogramming API</h2>
 <div class="line"> </div>
 <div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationR&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 1, 10);</div>
 <div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationR&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 2, 10);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationR&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 3, 10);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationR&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 4, 10);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationR&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 5, 20);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationR&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 6, 30);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationR&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 7, 40);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationR&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 8, 50);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationS&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 10, 7, 5);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationS&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 10, 8, 9);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationS&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 10, 9, 4);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationS&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 10, 100, 3);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationS&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 20, 7, 6);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationS&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 30, 6, 12);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationS&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 40, 7, 57);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationS&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 50, 7, 34);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationT&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 7, 1, 4);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationT&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 8, 2, 3);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationT&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 9, 3, 3);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationT&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 7, 5, 4);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationT&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 6, 7, 6);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationT&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 7, 8, 2);</div>
-<div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact&lt;RelationT&gt;</a>(db, <a class="code hl_function" href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a>(), 123, 4, 1);</div>
+<div class="line">  <span class="comment">// ... more facts ...</span></div>
 <div class="line"> </div>
-<div class="line">  <span class="comment">//   std::cout &lt;&lt; &quot;mir_plan type: &quot; &lt;&lt; get_type_name&lt;mir_plan&gt;() &lt;&lt; std::endl;</span></div>
 <div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#a92a4b0f2b8e2135ea77cc61acae1b95c">execute_mir_plan&lt;mir_plan, triangle&gt;</a>(db);</div>
 <div class="line">  <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#a199862a46af3476f5c3f54fe56e4750c">print_relation&lt;RelationZ, NEW_VER&gt;</a>(db, std::cout, 10);</div>
 <div class="line"> </div>
@@ -342,7 +510,6 @@ Example Usage of the Template Metaprogramming API</h2>
 <div class="ttc" id="aquery_8h_html"><div class="ttname"><a href="../../dd/d6e/query_8h.html">query.h</a></div><div class="ttdoc">Query compilation and index management for Datalog programs.</div></div>
 <div class="ttc" id="aruntime_8h_html"><div class="ttname"><a href="../../d3/d51/runtime_8h.html">runtime.h</a></div><div class="ttdoc">Runtime execution engine for MIR (Mid-level Intermediate Representation).</div></div>
 <div class="ttc" id="asemiring_8h_html"><div class="ttname"><a href="../../d7/d69/semiring_8h.html">semiring.h</a></div></div>
-<div class="ttc" id="astruct_boolean_s_r_html"><div class="ttname"><a href="../../d8/dcb/struct_boolean_s_r.html">BooleanSR</a></div><div class="ttdef"><b>Definition</b> semiring.h:49</div></div>
 <div class="ttc" id="astruct_boolean_s_r_html_ae8937af654349fe6098cc9a42a85e98f"><div class="ttname"><a href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a></div><div class="ttdeci">static constexpr value_type one() noexcept</div><div class="ttdef"><b>Definition</b> semiring.h:52</div></div>
 <div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_clause_html"><div class="ttname"><a href="../../d4/dbf/struct_s_r_datalog_1_1_a_s_t_1_1_clause.html">SRDatalog::AST::Clause</a></div><div class="ttdef"><b>Definition</b> ast.h:297</div></div>
 <div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_join_plan_html"><div class="ttname"><a href="../../d4/d58/struct_s_r_datalog_1_1_a_s_t_1_1_join_plan.html">SRDatalog::AST::JoinPlan</a></div><div class="ttdef"><b>Definition</b> ast.h:357</div></div>
@@ -353,15 +520,14 @@ Example Usage of the Template Metaprogramming API</h2>
 <div class="ttc" id="astruct_s_r_datalog_1_1_all_indices_from_program_html"><div class="ttname"><a href="../../dd/d24/struct_s_r_datalog_1_1_all_indices_from_program.html">SRDatalog::AllIndicesFromProgram</a></div><div class="ttdoc">Computes and builds all indexes required by a Program.</div><div class="ttdef"><b>Definition</b> query.h:514</div></div>
 <div class="ttc" id="astruct_s_r_datalog_1_1_compile_rule_to_m_i_r_html"><div class="ttname"><a href="../../d8/df6/struct_s_r_datalog_1_1_compile_rule_to_m_i_r.html">SRDatalog::CompileRuleToMIR</a></div><div class="ttdoc">Compiles a complete Rule ADT into MIR operations.</div><div class="ttdef"><b>Definition</b> query.h:830</div></div>
 <div class="ttc" id="atest__column_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="../../da/d38/test__column_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition</b> test_column.cpp:155</div></div>
-</div><!-- fragment --> <h1 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
-Example Usage of the Nim DSL</h1>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
+Example Usage of the Nim DSL</h2>
 <p>The project includes two example programs in <span class="tt">src/example/</span>:</p>
 <ol type="1">
 <li><b>Triangle Query</b> (<span class="tt">triangle.nim</span>): A non-recursive join query that finds triangles in a graph</li>
 <li><b>Transitive Closure</b> (<span class="tt">tc.nim</span>): A recursive fixpoint query that computes reachability</li>
 </ol>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
-Triangle Query Example</h2>
+<p><b>Triangle Query Example:</b></p>
 <p>This example demonstrates non-recursive rules with multi-way joins:</p>
 <div class="fragment"><div class="line">import srdatalog/lang</div>
 <div class="line"> </div>
@@ -394,8 +560,7 @@ Triangle Query Example</h2>
 <div class="line">  print_relation&lt;ZRel, NEW_VER&gt;(triangle_runtime, std::cout, 10);</div>
 <div class="line">  &quot;&quot;&quot; .}</div>
 <div class="line">{.pop.}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
-Transitive Closure Example</h2>
+</div><!-- fragment --><p><b>Transitive Closure Example:</b></p>
 <p>This example demonstrates recursive fixpoint rules for computing reachability:</p>
 <div class="fragment"><div class="line">import srdatalog/lang</div>
 <div class="line"> </div>
@@ -438,7 +603,20 @@ Transitive Closure Example</h2>
 <p>Both examples can be run via the main <span class="tt">srdatalog</span> binary: </p><div class="fragment"><div class="line">./srdatalog</div>
 <div class="line"># or</div>
 <div class="line">xmake run test_nim</div>
-</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
+Reference</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
+DSL Syntax Primer</h2>
+<p>The DSL macros live under <span class="tt">src/srdatalog/syntax.nim</span> (parsing) and <span class="tt">src/srdatalog/codegen.nim</span> (C++ emission). At compile-time they lower Nim syntax to the TMP types in <span class="tt">generalized_datalog/</span>. Core forms:</p>
+<ul>
+<li><span class="tt">srdatalog_prelude()</span> injects the required C++ headers and namespace setup so later <span class="tt">emit</span> blocks compile cleanly.</li>
+<li><span class="tt">datalog_db &lt;BlueprintName&gt;:</span> introduces relation declarations. Use <span class="tt"><a class="el" href="../../d3/dc1/class_relation.html">Relation</a>[T1, T2, ...]</span> to create a schema backed by the default <span class="tt"><a class="el" href="../../d8/dcb/struct_boolean_s_r.html">BooleanSR</a></span> semiring, or <span class="tt"><a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a>[T1, ..., CustomSR]</span> when you need a different semiring as the final type argument.</li>
+<li><span class="tt">none_recursive_rule &lt;Alias&gt;:</span> describes a non-recursive rule set. Inside the bracket you write <span class="tt">{(Head ...) ...} &lt;-- {(Body ...) ...}</span> with an attached pragma block <span class="tt">{. name: RuleId order: [x, y, ...] .}</span>. Each head/body tuple is a parenthesised relation call; identifiers become logical variables, while <span class="tt">($"...")</span> embeds raw C++ expressions for constants.</li>
+<li><span class="tt">fixpoint_rule &lt;Alias&gt;:</span> describes a recursive rule set that computes a fixpoint. The syntax is identical to <span class="tt">none_recursive_rule</span>, but the head relation may appear in the body. The macro automatically generates rule variants for semi-naive evaluation, using <span class="tt"><a class="el" href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a></span> for incremental relations in the body and <span class="tt"><a class="el" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a></span> for others. This enables efficient iterative computation until convergence.</li>
+<li><span class="tt">edb &lt;DbSymbol&gt;:</span> emits facts. Every tuple is <span class="tt">(&lt;<a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&gt; ($"SemiringExpr") ($"col1") ...)</span> which expands to <span class="tt">add_fact&lt;<a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&gt;(DbSymbol, ...)</span> in the generated C++.</li>
+</ul>
+<p>When expanded, these constructs generate aliases such as <span class="tt">AST::RelationSchema</span>, <span class="tt">AST::Rule</span>, <span class="tt">AST::NonIterativeRuleSets</span>, <span class="tt">AST::Fixpoint</span>, and the corresponding MIR types, matching what you would otherwise write by hand in C++. Refer to the examples above or the implementation files for additional forms (guards <span class="tt">?(...)</span> and <span class="tt">:=</span> bindings are parsed but still experimental). </p>
+</div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

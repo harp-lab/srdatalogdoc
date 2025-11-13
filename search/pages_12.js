@@ -1,14 +1,18 @@
 var searchData=
 [
-  ['satisfy_20codec_0',['Types That Satisfy Codec',['../d9/dcf/concept_s_r_datalog_1_1_codec.html#codec_types',1,'']]],
-  ['script_1',['Environment Bootstrap Script',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md2',1,'']]],
-  ['setting_20up_20the_20pre_20commit_20hook_2',['Setting Up the Pre-Commit Hook',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md6',1,'']]],
-  ['settings_20for_20vscode_3',['IDE Settings (For VSCode)',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md10',1,'']]],
-  ['size_4',['Uniform Value Size',['../d5/dd6/namespace_s_r_datalog.html#codec_uniform_size',1,'']]],
-  ['srdatalog_5',['SRDatalog',['../d3/dcc/md__r_e_a_d_m_e.html',1,'']]],
-  ['start_6',['Quick Start',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md3',1,'']]],
-  ['storage_7',['Column-Oriented Storage',['../d1/d25/relation__col_8h.html#column_oriented',1,'']]],
-  ['strategy_8',['Indexing Strategy',['../d1/d25/relation__col_8h.html#indexing_strategy',1,'']]],
-  ['structure_9',['Structure',['../d0/d94/class_s_r_datalog_1_1_relation.html#relation_structure',1,'Relation Structure'],['../dd/da3/struct_s_r_datalog_1_1_index_spec.html#indexspec_structure',1,'Structure'],['../df/d5a/class_s_r_datalog_1_1_relation_1_1_hash_trie_index.html#hashtrie_structure',1,'Structure']]],
-  ['syntax_20primer_10',['DSL Syntax Primer',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md15',1,'']]]
+  ['table_20of_20contents_0',['Table of Contents',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md1',1,'']]],
+  ['targets_1',['Build Targets',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md15',1,'']]],
+  ['template_20metaprogramming_20api_2',['Example Usage of the Template Metaprogramming API',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md24',1,'']]],
+  ['template_20metaprogramming_20tmp_20foundation_3',['Template Metaprogramming (TMP) Foundation',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md7',1,'']]],
+  ['testing_4',['Building and Testing',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md13',1,'']]],
+  ['that_20satisfy_20codec_5',['Types That Satisfy Codec',['../d9/dcf/concept_s_r_datalog_1_1_codec.html#codec_types',1,'']]],
+  ['the_20nim_20dsl_6',['Example Usage of the Nim DSL',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md25',1,'']]],
+  ['the_20template_20metaprogramming_20api_7',['Example Usage of the Template Metaprogramming API',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md24',1,'']]],
+  ['tmp_20and_20nim_20dsl_8',['Working with TMP and Nim DSL',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md16',1,'']]],
+  ['tmp_20foundation_9',['Template Metaprogramming (TMP) Foundation',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md7',1,'']]],
+  ['trade_20offs_10',['Trade-offs',['../d5/dd6/namespace_s_r_datalog.html#codec_tradeoffs',1,'']]],
+  ['transitional_20choice_11',['Meta Language: Nim as a Transitional Choice',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md6',1,'']]],
+  ['transitive_20closure_20example_12',['Transitive Closure Example',['../d3/d51/runtime_8h.html#example_transitive_closure',1,'']]],
+  ['types_13',['Node Types',['../d4/ddd/class_s_r_datalog_1_1_relation_1_1_hash_trie_index_1_1_node_handle.html#nodehandle_types',1,'']]],
+  ['types_20that_20satisfy_20codec_14',['Types That Satisfy Codec',['../d9/dcf/concept_s_r_datalog_1_1_codec.html#codec_types',1,'']]]
 ];

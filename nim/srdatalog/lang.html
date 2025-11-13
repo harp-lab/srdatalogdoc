@@ -107,6 +107,14 @@
 <h1><a class="toc-backref" id="srdatalog-language-macros" href="#srdatalog-language-macros">SRDatalog Language Macros</a></h1><p>This module provides the main DSL (Domain-Specific Language) macros for writing Datalog programs in Nim. These macros translate Nim syntax into C++ code that uses the SRDatalog runtime library.</p>
 
 <h2><a class="toc-backref" id="srdatalog-language-macros-overview" href="#srdatalog-language-macros-overview">Overview</a></h2><p>The SRDatalog Nim wrapper provides a high-level, type-safe interface for writing Datalog programs. It uses Nim's powerful macro system to generate optimized C++ code at compile time, combining the expressiveness of Nim with the performance of the C++ runtime.</p>
+<p><strong>Nim as a Meta Language for Datalog Compilation</strong></p>
+<p>This module leverages Nim as a meta language for building Datalog compilers. The macro system enables:</p>
+<ul class="simple"><li><strong>AST Manipulation</strong>: Easy manipulation of query ASTs for optimizations, query rewriting, and join planning</li>
+<li><strong>Configurable Backends</strong>: Users can reset data structure backends by reloading relations API and executor functions to support different data structures and runtime mechanisms</li>
+<li><strong>Framework Reusability</strong>: The system is designed as a framework for building custom Datalog engines, not just a single engine implementation</li>
+<li><strong>C++ Integration</strong>: Nim acts as an external macro system for C++, providing better ergonomics than raw C++ template metaprogramming while generating optimized C++ code</li>
+</ul>
+<p><strong>Future Meta Language Support</strong>: While Nim is currently the primary meta language, the framework is designed to support additional meta languages in the future. In particular, <strong>Racket with C JIT compile library setup</strong> is planned as an alternative meta language option, providing another powerful metaprogramming environment for Datalog compiler development.</p>
 
 <h2><a class="toc-backref" id="srdatalog-language-macros-main-macros" href="#srdatalog-language-macros-main-macros">Main Macros</a></h2><ul class="simple"><li><tt class="docutils literal"><span class="pre"><span class="Identifier">srdatalog_prelude</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt>: Initializes the SRDatalog environment and includes necessary C++ headers</li>
 <li><tt class="docutils literal"><span class="pre"><span class="Identifier">datalog_db</span></span></tt>: Defines a database schema with relation declarations</li>
@@ -342,7 +350,7 @@ This is a development/debugging tool and may not be needed in production code.</
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2025-11-13 21:18:16 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2025-11-13 22:26:05 UTC</small>
       </div>
     </div>
   </div>

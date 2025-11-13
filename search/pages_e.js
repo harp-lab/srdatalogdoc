@@ -1,9 +1,12 @@
 var searchData=
 [
-  ['of_20the_20nim_20dsl_0',['Example Usage of the Nim DSL',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md18',1,'']]],
-  ['of_20the_20template_20metaprogramming_20api_1',['Example Usage of the Template Metaprogramming API',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md17',1,'']]],
-  ['offs_2',['Trade-offs',['../d5/dd6/namespace_s_r_datalog.html#codec_tradeoffs',1,'']]],
-  ['once_3',['Configure Once',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md9',1,'']]],
-  ['oriented_20storage_4',['Column-Oriented Storage',['../d1/d25/relation__col_8h.html#column_oriented',1,'']]],
-  ['overview_5',['Design Overview',['../d3/d51/runtime_8h.html#design_overview',1,'']]]
+  ['patterns_0',['Usage Patterns',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md8',1,'']]],
+  ['performance_1',['Join Performance',['../d5/dd6/namespace_s_r_datalog.html#codec_join_performance',1,'']]],
+  ['performance_20considerations_2',['Performance Considerations',['../d3/d51/runtime_8h.html#performance_considerations',1,'']]],
+  ['philosophy_3a_20learning_20from_20ascent_20and_20soufflé_3',['Design Philosophy: Learning from Ascent and Soufflé',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md4',1,'']]],
+  ['pipeline_4',['Compilation Pipeline',['../d3/d51/runtime_8h.html#compilation_pipeline',1,'']]],
+  ['prerequisites_5',['Prerequisites',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md10',1,'']]],
+  ['primer_6',['DSL Syntax Primer',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md27',1,'']]],
+  ['principle_7',['Provenance and Annotations: A Fundamental Design Principle',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md5',1,'']]],
+  ['provenance_20and_20annotations_3a_20a_20fundamental_20design_20principle_8',['Provenance and Annotations: A Fundamental Design Principle',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md5',1,'']]]
 ];

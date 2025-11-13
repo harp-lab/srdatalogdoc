@@ -1,5 +1,12 @@
 var NAVTREEINDEX2 =
 {
+"d5/dcd/struct_s_r_datalog_1_1_a_s_t_1_1_get_expr_dependencies.html":[4,0,0,0,38],
+"d5/dd6/namespace_s_r_datalog.html":[2,0,0],
+"d5/dd6/namespace_s_r_datalog.html#a01d832039a3ea718dde6c48429df4236":[2,0,0,73],
+"d5/dd6/namespace_s_r_datalog.html#a0f79ed37877d2c63457a5dca4629f67e":[2,0,0,79],
+"d5/dd6/namespace_s_r_datalog.html#a12d853d83b1edeacd64b2613255f0066":[2,0,0,82],
+"d5/dd6/namespace_s_r_datalog.html#a199862a46af3476f5c3f54fe56e4750c":[2,0,0,87],
+"d5/dd6/namespace_s_r_datalog.html#a1c0abd0f8c92f4e6a87b136c6eff09d2":[2,0,0,77],
 "d5/dd6/namespace_s_r_datalog.html#a1c8609f84f1bb5e93e01497247df183f":[2,0,0,81],
 "d5/dd6/namespace_s_r_datalog.html#a1ed08290556176399210c9eb7211e403":[2,0,0,60],
 "d5/dd6/namespace_s_r_datalog.html#a274567d642b1ebac2e8a9554b8311d7c":[2,0,0,54],
@@ -242,12 +249,5 @@ var NAVTREEINDEX2 =
 "dc/d97/struct_s_r_datalog_1_1to__impl.html":[2,0,0,6],
 "dc/d97/struct_s_r_datalog_1_1to__impl.html":[4,0,0,4],
 "dc/d97/struct_s_r_datalog_1_1to__impl.html#a5328a089c1e1f53a370e4814da955887":[2,0,0,6,1],
-"dc/d97/struct_s_r_datalog_1_1to__impl.html#a5328a089c1e1f53a370e4814da955887":[4,0,0,4,1],
-"dc/d97/struct_s_r_datalog_1_1to__impl.html#a59992bb3ffc22db749f786f5c1f59e78":[2,0,0,6,0],
-"dc/d97/struct_s_r_datalog_1_1to__impl.html#a59992bb3ffc22db749f786f5c1f59e78":[4,0,0,4,0],
-"dc/db2/system_8h.html":[5,0,0,14],
-"dc/db2/system_8h_source.html":[5,0,0,14],
-"dc/db4/build__test_2mpi__type_8h.html":[5,0,0,1,1],
-"dc/db4/build__test_2mpi__type_8h_source.html":[5,0,0,1,1],
-"dc/db4/struct_s_r_datalog_1_1_a_s_t_1_1_find_term_index.html":[2,0,0,0,41]
+"dc/d97/struct_s_r_datalog_1_1to__impl.html#a5328a089c1e1f53a370e4814da955887":[4,0,0,4,1]
 };

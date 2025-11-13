@@ -4,6 +4,5 @@ var searchData=
   ['head_1',['head',['../d0/d94/class_s_r_datalog_1_1_relation.html#a3574bc6e050c6831fc0d0a22a3170f6f',1,'SRDatalog::Relation']]],
   ['helper_20macros_2',['Query Helper Macros',['../d1/d5a/group___query_macros.html',1,'']]],
   ['helper_2eh_3',['helper.h',['../d4/da1/helper_8h.html',1,'']]],
-  ['hex_4',['HEX',['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#a46d5d95daa1bef867bd0179594310ed5',1,'CMakeCXXCompilerId.cpp']]],
-  ['hook_5',['Setting Up the Pre-Commit Hook',['../d3/dcc/md__r_e_a_d_m_e.html#autotoc_md6',1,'']]]
+  ['hex_4',['HEX',['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#a46d5d95daa1bef867bd0179594310ed5',1,'CMakeCXXCompilerId.cpp']]]
 ];

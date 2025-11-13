@@ -55,6 +55,7 @@
 <ul class="simple"><li><a class="reference" id="srdatalog-minus-nim-wrapper-for-srdatalog-runtime-overview_toc" href="#srdatalog-minus-nim-wrapper-for-srdatalog-runtime-overview">Overview</a></li>
 <li><a class="reference" id="srdatalog-minus-nim-wrapper-for-srdatalog-runtime-quick-start_toc" href="#srdatalog-minus-nim-wrapper-for-srdatalog-runtime-quick-start">Quick Start</a></li>
 <li><a class="reference" id="srdatalog-minus-nim-wrapper-for-srdatalog-runtime-architecture_toc" href="#srdatalog-minus-nim-wrapper-for-srdatalog-runtime-architecture">Architecture</a></li>
+<li><a class="reference" id="srdatalog-minus-nim-wrapper-for-srdatalog-runtime-why-nim-as-a-meta-languageqmark_toc" href="#srdatalog-minus-nim-wrapper-for-srdatalog-runtime-why-nim-as-a-meta-languageqmark">Why Nim as a Meta Language?</a></li>
 <li><a class="reference" id="srdatalog-minus-nim-wrapper-for-srdatalog-runtime-see-also_toc" href="#srdatalog-minus-nim-wrapper-for-srdatalog-runtime-see-also">See also</a></li>
 </ul><li>
   <a class="reference reference-toplevel" href="#6" id="56">Imports</a>
@@ -68,7 +69,7 @@
     <div id="tocRoot"></div>
     
     <p class="module-desc">
-<h1><a class="toc-backref" id="srdatalog-minus-nim-wrapper-for-srdatalog-runtime" href="#srdatalog-minus-nim-wrapper-for-srdatalog-runtime">SRDatalog - Nim Wrapper for SRDatalog Runtime</a></h1><p>This module provides the main entry point for using SRDatalog from Nim. SRDatalog is a high-performance Datalog engine with support for generalized semirings, enabling provenance tracking, probabilistic reasoning, and other advanced Datalog features.</p>
+<h1><a class="toc-backref" id="srdatalog-minus-nim-wrapper-for-srdatalog-runtime" href="#srdatalog-minus-nim-wrapper-for-srdatalog-runtime">SRDatalog - Nim Wrapper for SRDatalog Runtime</a></h1><p>This module provides the main entry point for using SRDatalog from Nim. <strong>SRDatalog</strong> (Super Reconfigurable Datalog) is a high-performance Datalog engine framework with support for generalized semirings, enabling provenance tracking, probabilistic reasoning, and other advanced Datalog features. The &quot;SR&quot; prefix emphasizes the framework's <strong>super reconfigurable</strong> architecture, enabling users to build custom Datalog engines by swapping data structure backends, runtime mechanisms, and optimization strategies.</p>
 
 <h2><a class="toc-backref" id="srdatalog-minus-nim-wrapper-for-srdatalog-runtime-overview" href="#srdatalog-minus-nim-wrapper-for-srdatalog-runtime-overview">Overview</a></h2><p>SRDatalog combines:</p>
 <ul class="simple"><li><strong>Nim's expressive syntax</strong>: Write Datalog programs using a clean DSL</li>
@@ -122,6 +123,19 @@
 <li>Clean, declarative syntax (Datalog DSL)</li>
 </ul>
 
+<h2><a class="toc-backref" id="srdatalog-minus-nim-wrapper-for-srdatalog-runtime-why-nim-as-a-meta-languageqmark" href="#srdatalog-minus-nim-wrapper-for-srdatalog-runtime-why-nim-as-a-meta-languageqmark">Why Nim as a Meta Language?</a></h2><p>Nim serves as a powerful meta language for building Datalog compilers, offering several key advantages:</p>
+<p><strong>AST Manipulation and Optimization</strong>: Datalog compiler users can leverage Nim's macro system to easily manipulate the AST of queries. This enables sophisticated optimizations, query rewriting, and even join planning at compile time. The macro system provides a clean, high-level interface for transforming Datalog programs before code generation.</p>
+<p><strong>Configurable Backend Architecture</strong>: The framework is designed for maximum configurability and reusability. Users can reset the data structure backend by reloading the relations API and executor function, allowing support for different data structures and runtime mechanisms. This makes SRDatalog not just a Datalog engine, but a <strong>framework for building your own Datalog engines</strong> tailored to specific use cases.</p>
+<p><strong>C++ Integration</strong>: Nim can be considered as an external macro system for C++. By using Nim's <tt class="docutils literal"><span class="pre">{.emit.}</span></tt> blocks and C++ backend, the framework generates optimized C++ code while providing a more ergonomic metaprogramming environment than raw C++ template metaprogramming. This approach combines the expressiveness of Nim's macros with the performance and ecosystem of C++.</p>
+<p><strong>Framework Reusability</strong>: The combination of Nim's metaprogramming capabilities and the modular design of the C++ runtime creates a highly reusable framework. Developers can extend the system by:</p>
+<ul class="simple"><li>Writing custom AST transformations using Nim macros</li>
+<li>Implementing new data structure backends by providing alternative relation APIs</li>
+<li>Creating specialized executors for different runtime environments (e.g., distributed, GPU-accelerated)</li>
+<li>Customizing optimization passes and query planning strategies</li>
+</ul>
+<p>This architecture makes SRDatalog an ideal foundation for research and production Datalog systems that need fine-grained control over compilation and execution.</p>
+<p><strong>Future Meta Language Support</strong>: While Nim is currently the primary meta language, the framework is designed to support additional meta languages in the future. In particular, <strong>Racket with C JIT compile library setup</strong> is planned as an alternative meta language option, providing another powerful metaprogramming environment for Datalog compiler development.</p>
+
 <h2><a class="toc-backref" id="srdatalog-minus-nim-wrapper-for-srdatalog-runtime-see-also" href="#srdatalog-minus-nim-wrapper-for-srdatalog-runtime-see-also">See also</a></h2><ul class="simple"><li><tt class="docutils literal"><span class="pre"><span class="Identifier">srdatalog</span><span class="Operator">/</span><span class="Identifier">lang</span></span></tt> for the main language macros</li>
 <li>For C++ runtime documentation, see <tt class="docutils literal"><span class="pre"><span class="Identifier">generalized_datalog</span><span class="Operator">/</span><span class="Identifier">relation_col</span><span class="Operator">.</span><span class="Identifier">h</span></span></tt></li>
 </ul>
@@ -139,7 +153,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2025-11-13 21:18:16 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2025-11-13 22:26:05 UTC</small>
       </div>
     </div>
   </div>

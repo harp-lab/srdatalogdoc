@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['join_20algorithm_0',['Join Algorithm',['../d3/d51/runtime_8h.html#join_algorithm',1,'']]],
-  ['join_20performance_1',['Join Performance',['../d5/dd6/namespace_s_r_datalog.html#codec_join_performance',1,'']]]
+  ['key_20features_0',['Key Features',['../df/d5a/class_s_r_datalog_1_1_relation_1_1_hash_trie_index.html#hashtrie_features',1,'']]],
+  ['key_20format_1',['Key Format',['../dd/da3/struct_s_r_datalog_1_1_index_spec.html#indexspec_key_format',1,'']]]
 ];
