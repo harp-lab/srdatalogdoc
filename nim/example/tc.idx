@@ -1,0 +1,2 @@
+nimTitle	tc	example/tc.html	module src/example/tc		0
+nim	runTC	example/tc.html#runTC	proc runTC()		6

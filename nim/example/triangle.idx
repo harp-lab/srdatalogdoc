@@ -1,0 +1,2 @@
+nimTitle	triangle	example/triangle.html	module src/example/triangle		0
+nim	runDatalog	example/triangle.html#runDatalog	proc runDatalog()		8

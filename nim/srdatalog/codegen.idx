@@ -1,0 +1,9 @@
+nimTitle	codegen	srdatalog/codegen.html	module src/srdatalog/codegen		0
+nim	codegenTString	srdatalog/codegen.html#codegenTString,string	proc codegenTString(str: string): string		9
+nim	codegenRelationDecls	srdatalog/codegen.html#codegenRelationDecls,seq[RelationDecl]	proc codegenRelationDecls(decls: seq[RelationDecl]): NimNode		15
+nim	codegenDBBlueprint	srdatalog/codegen.html#codegenDBBlueprint,string,seq[RelationDecl]	proc codegenDBBlueprint(db_name: string; decls: seq[RelationDecl]): NimNode		42
+nim	codegenClauseArg	srdatalog/codegen.html#codegenClauseArg,ClauseArg	proc codegenClauseArg(arg: ClauseArg): string		57
+nim	codegenRule	srdatalog/codegen.html#codegenRule,Rule,int	proc codegenRule(query: Rule; delta_cls_idx: int = -1): NimNode		66
+nim	codegenNonIterativeRuleSets	srdatalog/codegen.html#codegenNonIterativeRuleSets,string,seq[Rule]	proc codegenNonIterativeRuleSets(rule_name: string; rules: seq[Rule]): NimNode		108
+nim	codegenFixpointRuleSets	srdatalog/codegen.html#codegenFixpointRuleSets,string,seq[Rule]	proc codegenFixpointRuleSets(ruleset_name: string; rules: seq[Rule]): NimNode		140
+nim	codegenFact	srdatalog/codegen.html#codegenFact,string,Fact,bool	proc codegenFact(db_name: string; fact: Fact; nim_mode: bool = false): NimNode		200

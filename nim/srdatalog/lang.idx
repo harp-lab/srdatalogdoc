@@ -1,0 +1,13 @@
+nimTitle	lang	srdatalog/lang.html	module src/srdatalog/lang		0
+nim	srdatalog_prelude	srdatalog/lang.html#srdatalog_prelude.m	macro srdatalog_prelude(): untyped		59
+nim	datalog_db	srdatalog/lang.html#datalog_db.m,untyped,untyped	macro datalog_db(db_name: untyped; decls: untyped): untyped		117
+nim	none_recursive_rule	srdatalog/lang.html#none_recursive_rule.m,untyped,untyped	macro none_recursive_rule(rule_name: untyped; rules: untyped): untyped		164
+nim	fixpoint_rule	srdatalog/lang.html#fixpoint_rule.m,untyped,untyped	macro fixpoint_rule(rule_name: untyped; rules: untyped): untyped		208
+nim	edb	srdatalog/lang.html#edb.m,untyped,untyped	macro edb(db_name: untyped; facts_raw: untyped): untyped		258
+nim	edbNim	srdatalog/lang.html#edbNim.m,untyped,untyped	macro edbNim(db_name: untyped; facts_raw: untyped): untyped		296
+nim	print_ast	srdatalog/lang.html#print_ast.m,untyped	macro print_ast(ast: untyped): untyped		303
+heading	SRDatalog Language Macros	srdatalog/lang.html#srdatalog-language-macros	 SRDatalog Language Macros		0
+heading	Overview	srdatalog/lang.html#srdatalog-language-macros-overview	  Overview		0
+heading	Main Macros	srdatalog/lang.html#srdatalog-language-macros-main-macros	  Main Macros		0
+heading	Example Usage	srdatalog/lang.html#srdatalog-language-macros-example-usage	  Example Usage		0
+heading	See also	srdatalog/lang.html#srdatalog-language-macros-see-also	  See also		0
