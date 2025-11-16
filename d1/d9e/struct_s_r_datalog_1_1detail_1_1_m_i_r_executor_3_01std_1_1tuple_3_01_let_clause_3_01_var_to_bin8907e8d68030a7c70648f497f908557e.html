@@ -103,7 +103,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a7abf285ce6d5ce8d1dde42423c454c80 template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7abf285ce6d5ce8d1dde42423c454c80">execute</a> (DB &amp;db, const StateMap &amp;<a class="el" href="../../db/d8d/namespace_s_r_datalog_1_1state.html">state</a>)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;CVar VarToBind, tmp::CTuple CapturedVars, auto Func, typename... TailOps, typename StateMap&gt;<br />
+<div class="textblock"><div class="compoundTemplParams">template&lt;CVar VarToBind, tmp::CTuple CapturedVars, auto Func, typename... TailOps, CStateMapBasic StateMap&gt;<br />
 struct SRDatalog::detail::MIRExecutor&lt; std::tuple&lt; LetClause&lt; VarToBind, CppExpr&lt; CapturedVars, Func &gt; &gt;, TailOps... &gt;, StateMap &gt;</div><p>Specialization for <a class="el" href="../../d9/d11/struct_s_r_datalog_1_1_a_s_t_1_1_let_clause.html">LetClause</a>: executes a let binding operation. </p>
 <p>This specialization handles the <a class="el" href="../../d9/d11/struct_s_r_datalog_1_1_a_s_t_1_1_let_clause.html">LetClause</a> MIR operation, which binds a variable to the result of a C++ expression. The execution proceeds as:</p><ol type="1">
 <li>Extract runtime values for all captured variables from the state map</li>
@@ -127,7 +127,7 @@ struct SRDatalog::detail::MIRExecutor&lt; std::tuple&lt; LetClause&lt; VarToBind
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;CVar VarToBind, tmp::CTuple CapturedVars, auto Func, typename... TailOps, typename StateMap&gt; </div>
+template&lt;CVar VarToBind, tmp::CTuple CapturedVars, auto Func, typename... TailOps, CStateMapBasic StateMap&gt; </div>
 <div class="memtemplate">
 template&lt;CSemiNaiveDatabase DB&gt; </div>
 <table class="mlabels">

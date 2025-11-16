@@ -1,0 +1,3 @@
+nimTitle	ift	example/ift.html	module src/example/ift		0
+nim	IfTestDBBlueprintCode	example/ift.html#IfTestDBBlueprintCode.t	template IfTestDBBlueprintCode(): untyped		7
+nim	runIfTest	example/ift.html#runIfTest	proc runIfTest()		18

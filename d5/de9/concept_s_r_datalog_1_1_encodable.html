@@ -95,14 +95,14 @@ $(function(){initNavTree('d5/de9/concept_s_r_datalog_1_1_encodable.html','../../
 <p>Concept for types that can be encoded to size_t.  
 <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d1/d25/relation__col_8h_source.html">relation_col.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dc/df8/column_8h_source.html">column.h</a>&gt;</code></p>
 <h2 id="header-conceptdef" class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../d5/de9/concept_s_r_datalog_1_1_encodable.html">SRDatalog::Encodable</a> =  <span class="keyword">requires</span>(<span class="keyword">const</span> T &amp;val) {</div>
 <div class="line">  { <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#ac967cbefc4d32d7b0e7dfa038b29edac">encode_to_size_t</a>(val) } -&gt; std::convertible_to&lt;std::size_t&gt;;</div>
 <div class="line">}</div>
-<div class="ttc" id="aconcept_s_r_datalog_1_1_encodable_html"><div class="ttname"><a href="../../d5/de9/concept_s_r_datalog_1_1_encodable.html">SRDatalog::Encodable</a></div><div class="ttdoc">Concept for types that can be encoded to size_t.</div><div class="ttdef"><b>Definition</b> relation_col.h:660</div></div>
-<div class="ttc" id="anamespace_s_r_datalog_html_ac967cbefc4d32d7b0e7dfa038b29edac"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html#ac967cbefc4d32d7b0e7dfa038b29edac">SRDatalog::encode_to_size_t</a></div><div class="ttdeci">constexpr std::size_t encode_to_size_t(const T &amp;val) noexcept</div><div class="ttdoc">Encode an integral or enum value to size_t.</div><div class="ttdef"><b>Definition</b> relation_col.h:331</div></div>
+<div class="ttc" id="aconcept_s_r_datalog_1_1_encodable_html"><div class="ttname"><a href="../../d5/de9/concept_s_r_datalog_1_1_encodable.html">SRDatalog::Encodable</a></div><div class="ttdoc">Concept for types that can be encoded to size_t.</div><div class="ttdef"><b>Definition</b> column.h:532</div></div>
+<div class="ttc" id="anamespace_s_r_datalog_html_ac967cbefc4d32d7b0e7dfa038b29edac"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html#ac967cbefc4d32d7b0e7dfa038b29edac">SRDatalog::encode_to_size_t</a></div><div class="ttdeci">constexpr std::size_t encode_to_size_t(const T &amp;val) noexcept</div><div class="ttdoc">Encode an integral or enum value to size_t.</div><div class="ttdef"><b>Definition</b> column.h:181</div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Concept for types that can be encoded to size_t. </p>
 <p>A type is Encodable if it provides an encode_to_size_t function that can convert values to size_t. This includes:</p><ul>
@@ -112,6 +112,7 @@ $(function(){initNavTree('d5/de9/concept_s_r_datalog_1_1_encodable.html','../../
 <li>Hashable types (via std::hash)</li>
 <li>Types with DictionaryCodec (via dictionary lookup)</li>
 </ul>
+<dl class="section note"><dt>Note</dt><dd><b>C++20 feature</b>: Uses C++20 concepts with <span class="tt">requires</span> expressions to check for the existence and return type of encode_to_size_t.</dd></dl>
 <h1 class="doxsection"><a class="anchor" id="encodable_usage"></a>
 Usage</h1>
 <div class="fragment"><div class="line"><span class="keyword">static_assert</span>(<a class="code hl_concept" href="../../d5/de9/concept_s_r_datalog_1_1_encodable.html">Encodable&lt;int&gt;</a>);           <span class="comment">// true</span></div>

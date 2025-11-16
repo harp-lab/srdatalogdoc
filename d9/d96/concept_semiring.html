@@ -92,6 +92,9 @@ $(function(){initNavTree('d9/d96/concept_semiring.html','../../',''); });
 </div><!--header-->
 <div class="contents">
 
+<p>Concept defining the interface for semiring types.  
+<a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d7/d69/semiring_8h_source.html">semiring.h</a>&gt;</code></p>
 <h2 id="header-conceptdef" class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> SR&gt;</div>
@@ -107,8 +110,17 @@ $(function(){initNavTree('d9/d96/concept_semiring.html','../../',''); });
 <div class="line">  { SR::add(a, b) } -&gt; std::same_as&lt;typename SR::value_type&gt;;</div>
 <div class="line">  { SR::mul(a, b) } -&gt; std::same_as&lt;typename SR::value_type&gt;;</div>
 <div class="line">}</div>
-<div class="ttc" id="aconcept_semiring_html"><div class="ttname"><a href="../../d9/d96/concept_semiring.html">Semiring</a></div><div class="ttdef"><b>Definition</b> semiring.h:10</div></div>
-</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aconcept_semiring_html"><div class="ttname"><a href="../../d9/d96/concept_semiring.html">Semiring</a></div><div class="ttdoc">Concept defining the interface for semiring types.</div><div class="ttdef"><b>Definition</b> semiring.h:18</div></div>
+</div><!-- fragment --><a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Concept defining the interface for semiring types. </p>
+<p>A semiring must provide a value_type, identity elements (zero, one), and operations (add, mul). This concept ensures type safety and enables generic programming over different semiring implementations. </p><dl class="section note"><dt>Note</dt><dd><b>C++20 feature</b>: Uses C++20 concepts with <span class="tt">requires</span> expressions to check for required types and operations. The concept uses <span class="tt">std::same_as</span> for type constraints. </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SR</td><td>The semiring type to check </td></tr>
+  </table>
+  </dd>
+</dl>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

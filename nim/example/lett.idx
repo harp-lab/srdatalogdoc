@@ -1,0 +1,3 @@
+nimTitle	lett	example/lett.html	module src/example/lett		0
+nim	LetTestDBBlueprintCode	example/lett.html#LetTestDBBlueprintCode.t	template LetTestDBBlueprintCode(): untyped		5
+nim	runLetTest	example/lett.html#runLetTest	proc runLetTest()		12

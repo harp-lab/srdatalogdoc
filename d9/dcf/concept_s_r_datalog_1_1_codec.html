@@ -95,16 +95,17 @@ $(function(){initNavTree('d9/dcf/concept_s_r_datalog_1_1_codec.html','../../',''
 <p>Concept for types that support both encoding and decoding.  
 <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d1/d25/relation__col_8h_source.html">relation_col.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dc/df8/column_8h_source.html">column.h</a>&gt;</code></p>
 <h2 id="header-conceptdef" class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../d9/dcf/concept_s_r_datalog_1_1_codec.html">SRDatalog::Codec</a> =  <a class="code hl_concept" href="../../d5/de9/concept_s_r_datalog_1_1_encodable.html">Encodable&lt;T&gt;</a> &amp;&amp; <a class="code hl_concept" href="../../d9/d6c/concept_s_r_datalog_1_1_decodable.html">Decodable&lt;T&gt;</a></div>
-<div class="ttc" id="aconcept_s_r_datalog_1_1_codec_html"><div class="ttname"><a href="../../d9/dcf/concept_s_r_datalog_1_1_codec.html">SRDatalog::Codec</a></div><div class="ttdoc">Concept for types that support both encoding and decoding.</div><div class="ttdef"><b>Definition</b> relation_col.h:688</div></div>
-<div class="ttc" id="aconcept_s_r_datalog_1_1_decodable_html"><div class="ttname"><a href="../../d9/d6c/concept_s_r_datalog_1_1_decodable.html">SRDatalog::Decodable</a></div><div class="ttdoc">Concept for types that can be decoded from size_t.</div><div class="ttdef"><b>Definition</b> relation_col.h:433</div></div>
-<div class="ttc" id="aconcept_s_r_datalog_1_1_encodable_html"><div class="ttname"><a href="../../d5/de9/concept_s_r_datalog_1_1_encodable.html">SRDatalog::Encodable</a></div><div class="ttdoc">Concept for types that can be encoded to size_t.</div><div class="ttdef"><b>Definition</b> relation_col.h:660</div></div>
+<div class="ttc" id="aconcept_s_r_datalog_1_1_codec_html"><div class="ttname"><a href="../../d9/dcf/concept_s_r_datalog_1_1_codec.html">SRDatalog::Codec</a></div><div class="ttdoc">Concept for types that support both encoding and decoding.</div><div class="ttdef"><b>Definition</b> column.h:563</div></div>
+<div class="ttc" id="aconcept_s_r_datalog_1_1_decodable_html"><div class="ttname"><a href="../../d9/d6c/concept_s_r_datalog_1_1_decodable.html">SRDatalog::Decodable</a></div><div class="ttdoc">Concept for types that can be decoded from size_t.</div><div class="ttdef"><b>Definition</b> column.h:297</div></div>
+<div class="ttc" id="aconcept_s_r_datalog_1_1_encodable_html"><div class="ttname"><a href="../../d5/de9/concept_s_r_datalog_1_1_encodable.html">SRDatalog::Encodable</a></div><div class="ttdoc">Concept for types that can be encoded to size_t.</div><div class="ttdef"><b>Definition</b> column.h:532</div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Concept for types that support both encoding and decoding. </p>
 <p>A type satisfies Codec if it is both Encodable and Decodable. This means values can be converted to size_t and back without loss (for bidirectional codecs) or with deterministic mapping (for hash-based codecs).</p>
+<dl class="section note"><dt>Note</dt><dd><b>C++20 feature</b>: Uses C++20 concept conjunction (<span class="tt">&amp;&amp;</span>) to combine multiple concepts (Encodable and Decodable) into a single constraint.</dd></dl>
 <h1 class="doxsection"><a class="anchor" id="codec_types"></a>
 Types That Satisfy Codec</h1>
 <ul>

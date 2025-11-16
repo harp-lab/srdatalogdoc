@@ -108,10 +108,11 @@ $(function(){initNavTree('d6/d6e/concept_s_r_datalog_1_1_c_node_handle.html','..
 <div class="line">  { handle.contains_value(std::size_t{}) } -&gt; std::convertible_to&lt;bool&gt;;</div>
 <div class="line">  { handle.degree() } -&gt; std::convertible_to&lt;std::size_t&gt;;</div>
 <div class="line">}</div>
-<div class="ttc" id="aconcept_s_r_datalog_1_1_c_node_handle_html"><div class="ttname"><a href="../../d6/d6e/concept_s_r_datalog_1_1_c_node_handle.html">SRDatalog::CNodeHandle</a></div><div class="ttdoc">Concept for NodeHandle types from HashTrieIndex.</div><div class="ttdef"><b>Definition</b> relation_col.h:707</div></div>
+<div class="ttc" id="aconcept_s_r_datalog_1_1_c_node_handle_html"><div class="ttname"><a href="../../d6/d6e/concept_s_r_datalog_1_1_c_node_handle.html">SRDatalog::CNodeHandle</a></div><div class="ttdoc">Concept for NodeHandle types from HashTrieIndex.</div><div class="ttdef"><b>Definition</b> relation_col.h:272</div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Concept for NodeHandle types from HashTrieIndex. </p>
-<p>Detects types that provide the NodeHandle interface for navigating trie structures. This enables better IDE support and type checking in generic code. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>Detects types that provide the NodeHandle interface for navigating trie structures. This enables better IDE support and type checking in generic code. </p><dl class="section note"><dt>Note</dt><dd><b>C++20 feature</b>: Uses C++20 concepts with <span class="tt">requires</span> expressions to check interface requirements, including <span class="tt">std::ranges::range</span> concept for range-based operations. </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>The type to check </td></tr>
   </table>

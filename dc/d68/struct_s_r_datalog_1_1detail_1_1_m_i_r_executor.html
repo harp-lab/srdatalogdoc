@@ -95,7 +95,7 @@ $(function(){initNavTree('dc/d68/struct_s_r_datalog_1_1detail_1_1_m_i_r_executor
 <p>The main template metaprogramming interpreter for MIR execution.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename MIRPlan, typename StateMap&gt;<br />
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename MIRPlan, CStateMapBasic StateMap&gt;<br />
 struct SRDatalog::detail::MIRExecutor&lt; MIRPlan, StateMap &gt;</div><p>The main template metaprogramming interpreter for MIR execution. </p>
 <p>This is the core of the runtime execution engine. It recursively executes MIR operations by pattern matching on the head operation and dispatching to appropriate specializations. The execution model is:</p>
 <ol type="1">

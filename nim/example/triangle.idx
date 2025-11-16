@@ -1,2 +1,3 @@
 nimTitle	triangle	example/triangle.html	module src/example/triangle		0
-nim	runDatalog	example/triangle.html#runDatalog	proc runDatalog()		8
+nim	TriangleDBBlueprintCode	example/triangle.html#TriangleDBBlueprintCode.t	template TriangleDBBlueprintCode(): untyped		6
+nim	runDatalog	example/triangle.html#runDatalog	proc runDatalog()		17

@@ -64,7 +64,7 @@
     <summary><a class="reference reference-toplevel" href="#17" id="67">Macros</a></summary>
     <ul class="simple simple-toc-section">
       <ul class="simple nested-toc-section">datalog_db
-  <li><a class="reference" href="#datalog_db.m%2Cuntyped%2Cuntyped" title="datalog_db(db_name: untyped; decls: untyped): untyped">datalog_db(db_name: untyped; decls: untyped): untyped</a></li>
+  <li><a class="reference" href="#datalog_db.m%2Cuntyped%2Ctyped" title="datalog_db(db_name: untyped; decls_str: typed): untyped">datalog_db(db_name: untyped; decls_str: typed): untyped</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">edb
@@ -76,15 +76,19 @@
 
 </ul>
 <ul class="simple nested-toc-section">fixpoint_rule
-  <li><a class="reference" href="#fixpoint_rule.m%2Cuntyped%2Cuntyped" title="fixpoint_rule(rule_name: untyped; rules: untyped): untyped">fixpoint_rule(rule_name: untyped; rules: untyped): untyped</a></li>
+  <li><a class="reference" href="#fixpoint_rule.m%2Cuntyped%2Ctyped%2Cuntyped" title="fixpoint_rule(rule_name: untyped; db_schema_str: typed; rules: untyped): untyped">fixpoint_rule(rule_name: untyped; db_schema_str: typed; rules: untyped): untyped</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">none_recursive_rule
-  <li><a class="reference" href="#none_recursive_rule.m%2Cuntyped%2Cuntyped" title="none_recursive_rule(rule_name: untyped; rules: untyped): untyped">none_recursive_rule(rule_name: untyped; rules: untyped): untyped</a></li>
+  <li><a class="reference" href="#none_recursive_rule.m%2Cuntyped%2Ctyped%2Cuntyped" title="none_recursive_rule(rule_name: untyped; db_schema_str: typed; rules: untyped): untyped">none_recursive_rule(rule_name: untyped; db_schema_str: typed; rules: untyped): untyped</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">print_ast
   <li><a class="reference" href="#print_ast.m%2Cuntyped" title="print_ast(ast: untyped): untyped">print_ast(ast: untyped): untyped</a></li>
+
+</ul>
+<ul class="simple nested-toc-section">schema
+  <li><a class="reference" href="#schema.m%2Cuntyped%2Cuntyped" title="schema(db_name: untyped; decls: untyped): untyped">schema(db_name: untyped; decls: untyped): untyped</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">srdatalog_prelude
@@ -117,8 +121,10 @@
 <p><strong>Future Meta Language Support</strong>: While Nim is currently the primary meta language, the framework is designed to support additional meta languages in the future. In particular, <strong>Racket with C JIT compile library setup</strong> is planned as an alternative meta language option, providing another powerful metaprogramming environment for Datalog compiler development.</p>
 
 <h2><a class="toc-backref" id="srdatalog-language-macros-main-macros" href="#srdatalog-language-macros-main-macros">Main Macros</a></h2><ul class="simple"><li><tt class="docutils literal"><span class="pre"><span class="Identifier">srdatalog_prelude</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt>: Initializes the SRDatalog environment and includes necessary C++ headers</li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">schema</span></span></tt>: Defines a reusable database schema that can be shared across modules and macros by converting declarations to strings</li>
 <li><tt class="docutils literal"><span class="pre"><span class="Identifier">datalog_db</span></span></tt>: Defines a database schema with relation declarations</li>
 <li><tt class="docutils literal"><span class="pre"><span class="Identifier">none_recursive_rule</span></span></tt>: Defines non-recursive Datalog rules</li>
+<li><tt class="docutils literal"><span class="pre"><span class="Identifier">fixpoint_rule</span></span></tt>: Defines recursive fixpoint rules</li>
 <li><tt class="docutils literal"><span class="pre"><span class="Identifier">edb</span></span></tt>: Adds extensional database (EDB) facts to a database</li>
 </ul>
 
@@ -126,11 +132,13 @@
 
 <span class="Identifier">srdatalog_prelude</span><span class="Punctuation">(</span><span class="Punctuation">)</span>
 
-<span class="Identifier">datalog_db</span> <span class="Identifier">MyDB</span><span class="Punctuation">:</span>
+<span class="Identifier">schema</span> <span class="Identifier">MyDB</span><span class="Punctuation">:</span>
   <span class="Identifier">RRel</span><span class="Punctuation">:</span> <span class="Identifier">Relation</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">]</span>
   <span class="Identifier">SRel</span><span class="Punctuation">:</span> <span class="Identifier">Relation</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">]</span>
+  <span class="Identifier">ZRel</span><span class="Punctuation">:</span> <span class="Identifier">Relation</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">]</span>
 
-<span class="Identifier">none_recursive_rule</span> <span class="Identifier">MyRule</span><span class="Punctuation">:</span>
+<span class="Identifier">datalog_db</span><span class="Punctuation">(</span><span class="Identifier">MyDB</span><span class="Punctuation">,</span> <span class="Identifier">MyDBCode</span><span class="Punctuation">(</span><span class="Punctuation">)</span><span class="Punctuation">)</span>
+<span class="Identifier">none_recursive_rule</span> <span class="Identifier">MyRule</span><span class="Punctuation">,</span> <span class="Identifier">MyDBCode</span><span class="Punctuation">(</span><span class="Punctuation">)</span><span class="Punctuation">:</span>
   <span class="Punctuation">[</span><span class="Punctuation">{</span><span class="Punctuation">(</span><span class="Identifier">ZRel</span> <span class="Identifier">x</span> <span class="Identifier">y</span> <span class="Identifier">z</span><span class="Punctuation">)</span><span class="Punctuation">}</span> <span class="Operator">&lt;--</span>
     <span class="Punctuation">{</span><span class="Punctuation">(</span><span class="Identifier">RRel</span> <span class="Identifier">x</span> <span class="Identifier">y</span><span class="Punctuation">)</span> <span class="Punctuation">(</span><span class="Identifier">SRel</span> <span class="Identifier">y</span> <span class="Identifier">z</span> <span class="Identifier">h</span><span class="Punctuation">)</span><span class="Punctuation">}</span>
   <span class="Punctuation">]</span> <span class="Punctuation">{</span><span class="Operator">.</span> <span class="Identifier">name</span><span class="Punctuation">:</span> <span class="Identifier">Triangle</span> <span class="Identifier">order</span><span class="Punctuation">:</span> <span class="Punctuation">[</span><span class="Identifier">x</span><span class="Punctuation">,</span> <span class="Identifier">y</span><span class="Punctuation">,</span> <span class="Identifier">z</span><span class="Punctuation">]</span> <span class="Operator">.</span><span class="Punctuation">}</span>
@@ -153,15 +161,15 @@
   <h1><a class="toc-backref" href="#17">Macros</a></h1>
   <dl class="item">
     <div id="datalog_db-macros-all">
-  <div id="datalog_db.m,untyped,untyped">
-  <dt><pre><span class="Keyword">macro</span> <a href="#datalog_db.m%2Cuntyped%2Cuntyped"><span class="Identifier">datalog_db</span></a><span class="Other">(</span><span class="Identifier">db_name</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">decls</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+  <div id="datalog_db.m,untyped,typed">
+  <dt><pre><span class="Keyword">macro</span> <a href="#datalog_db.m%2Cuntyped%2Ctyped"><span class="Identifier">datalog_db</span></a><span class="Other">(</span><span class="Identifier">db_name</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">decls_str</span><span class="Other">:</span> <span class="Identifier">typed</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
   <dd>
     
     <p>Defines a Datalog database schema with relation declarations.</p>
 <p>This macro generates C++ type aliases for relation schemas and a database blueprint that groups all relations together.</p>
 <p><strong>Parameters:</strong></p>
 <ul class="simple"><li><tt class="docutils literal"><span class="pre">db_name</span></tt>: The name of the database (identifier)</li>
-<li><tt class="docutils literal"><span class="pre">decls</span></tt>: A block of relation declarations in the format: <tt class="docutils literal"><span class="pre">RelName: Relation[Type1, Type2, ...]</span></tt> or <tt class="docutils literal"><span class="pre">RelName: Semiring[Type1, Type2, ..., SemiringType]</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">decls_str</span></tt>: A typed parameter containing the schema declarations as a string. Typically obtained from a <tt class="docutils literal"><span class="pre"><span class="Identifier">schema</span></span></tt> macro via <tt class="docutils literal"><span class="pre"><span class="Operator">&lt;</span><span class="Identifier">SchemaName</span><span class="Operator">&gt;</span><span class="Identifier">Code</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt>. The string is re-parsed using <tt class="docutils literal"><span class="pre"><span class="Identifier">parseStmt</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt> to reconstruct the AST.</li>
 </ul>
 <p>Each relation declaration specifies:</p>
 <ul class="simple"><li><strong>RelName</strong>: The name of the relation (must be a valid identifier)</li>
@@ -173,14 +181,16 @@
 <li>A database blueprint type that groups all relations</li>
 </ul>
 <p>Example:</p>
-<pre class="listing"><span class="Identifier">datalog_db</span> <span class="Identifier">TriangleDB</span><span class="Punctuation">:</span>
+<pre class="listing"><span class="Identifier">schema</span> <span class="Identifier">TriangleDB</span><span class="Punctuation">:</span>
   <span class="Identifier">RRel</span><span class="Punctuation">:</span> <span class="Identifier">Relation</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">]</span>
   <span class="Identifier">SRel</span><span class="Punctuation">:</span> <span class="Identifier">Relation</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">]</span>
-  <span class="Comment"># This generates:</span>
-  <span class="Comment"># using namespace SRDatalog::AST::literals;</span>
-  <span class="Comment"># using RRel = AST::RelationSchema&lt;decltype(&quot;RRel&quot;_s), BooleanSR, int, int&gt;;</span>
-  <span class="Comment"># using SRel = AST::RelationSchema&lt;decltype(&quot;SRel&quot;_s), BooleanSR, int, int, int&gt;;</span>
-  <span class="Comment"># using TriangleDB = AST::Database&lt;RRel, SRel&gt;;</span></pre>
+
+<span class="Identifier">datalog_db</span><span class="Punctuation">(</span><span class="Identifier">TriangleDB</span><span class="Punctuation">,</span> <span class="Identifier">TriangleDBCode</span><span class="Punctuation">(</span><span class="Punctuation">)</span><span class="Punctuation">)</span>
+<span class="Comment"># This generates:</span>
+<span class="Comment"># using namespace SRDatalog::AST::Literals;</span>
+<span class="Comment"># using RRel = AST::RelationSchema&lt;decltype(&quot;RRel&quot;_s), BooleanSR, int, int&gt;;</span>
+<span class="Comment"># using SRel = AST::RelationSchema&lt;decltype(&quot;SRel&quot;_s), BooleanSR, int, int, int&gt;;</span>
+<span class="Comment"># using TriangleDB = AST::Database&lt;RRel, SRel&gt;;</span></pre>
     
   </dd>
 </div>
@@ -227,31 +237,39 @@ The <tt class="docutils literal"><span class="pre">$&quot;...&quot;</span></tt> 
 
 </div>
 <div id="fixpoint_rule-macros-all">
-  <div id="fixpoint_rule.m,untyped,untyped">
-  <dt><pre><span class="Keyword">macro</span> <a href="#fixpoint_rule.m%2Cuntyped%2Cuntyped"><span class="Identifier">fixpoint_rule</span></a><span class="Other">(</span><span class="Identifier">rule_name</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">rules</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+  <div id="fixpoint_rule.m,untyped,typed,untyped">
+  <dt><pre><span class="Keyword">macro</span> <a href="#fixpoint_rule.m%2Cuntyped%2Ctyped%2Cuntyped"><span class="Identifier">fixpoint_rule</span></a><span class="Other">(</span><span class="Identifier">rule_name</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">db_schema_str</span><span class="Other">:</span> <span class="Identifier">typed</span><span class="Other">;</span> <span class="Identifier">rules</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
   <dd>
     
     <p>Defines fixpoint (recursive) Datalog rules.</p>
 <p>This macro generates C++ code for fixpoint rule sets. Fixpoint rules are recursive rules where the head relation can appear in the body, enabling iterative computation until a fixed point is reached.</p>
 <p><strong>Parameters:</strong></p>
 <ul class="simple"><li><tt class="docutils literal"><span class="pre">rule_name</span></tt>: The name of the fixpoint rule set (identifier)</li>
+<li><tt class="docutils literal"><span class="pre">db_schema_str</span></tt>: A typed parameter containing the schema declarations as a string. Typically obtained from a <tt class="docutils literal"><span class="pre"><span class="Identifier">schema</span></span></tt> macro via <tt class="docutils literal"><span class="pre"><span class="Operator">&lt;</span><span class="Identifier">SchemaName</span><span class="Operator">&gt;</span><span class="Identifier">Code</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt>. The string is re-parsed to extract relation declarations needed for code generation.</li>
 <li><tt class="docutils literal"><span class="pre">rules</span></tt>: A sequence of rule definitions with the same syntax as <tt class="docutils literal"><span class="pre">none_recursive_rule</span></tt>, but where the head relation may appear in the body</li>
 </ul>
 <p>Rule syntax:</p>
 <ul class="simple"><li><strong>Head</strong>: <tt class="docutils literal"><span class="pre">{(RelName var1 var2 ...)}</span></tt> - defines what relation is computed</li>
 <li><strong>Body</strong>: <tt class="docutils literal"><span class="pre">{(RelName1 var1 var2) (RelName2 var2 var3) ...}</span></tt> - defines join conditions</li>
+<li><strong>If Clauses</strong>: <tt class="docutils literal"><span class="pre">(?(vars...) {.cpp &quot;&quot;&quot;code&quot;&quot;&quot;.})</span></tt> - conditional filtering with C++ expressions</li>
+<li><strong>Let Clauses</strong>: <tt class="docutils literal"><span class="pre">(var = (vars...) -&gt; Type {.cpp &quot;&quot;&quot;code&quot;&quot;&quot;.})</span></tt> - computed values with C++ expressions</li>
 <li><strong>Variables</strong>: Logical variables that appear in both head and body</li>
 <li><strong>Pragma `name`</strong>: Required name for the rule</li>
 <li><strong>Pragma `order`</strong>: Required join order (list of variables)</li>
 </ul>
 <p>The macro automatically generates multiple rule variants for semi-naive evaluation. For each rule where an incremental relation appears in the body, it creates variants that use DELTA_VER for that relation and FULL_VER for others.</p>
+<p><strong>If and Let Clauses</strong>: See the documentation for <tt class="docutils literal"><span class="pre"><span class="Identifier">none_recursive_rule</span></span></tt> for details on if and let clause syntax. These clauses work the same way in fixpoint rules as in non-recursive rules.</p>
 <p>The macro generates:</p>
 <ul class="simple"><li>C++ type aliases for each rule variant</li>
 <li>A Fixpoint type grouping all rule variants</li>
 <li>Rule variant lists for efficient semi-naive evaluation</li>
 </ul>
 <p>Example:</p>
-<pre class="listing"><span class="Identifier">fixpoint_rule</span> <span class="Identifier">TransitiveClosure</span><span class="Punctuation">:</span>
+<pre class="listing"><span class="Identifier">schema</span> <span class="Identifier">TCDB</span><span class="Punctuation">:</span>
+  <span class="Identifier">Edge</span><span class="Punctuation">:</span> <span class="Identifier">Relation</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">]</span>
+  <span class="Identifier">Path</span><span class="Punctuation">:</span> <span class="Identifier">Relation</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">]</span>
+
+<span class="Identifier">fixpoint_rule</span> <span class="Identifier">TransitiveClosure</span><span class="Punctuation">,</span> <span class="Identifier">TCDBCode</span><span class="Punctuation">(</span><span class="Punctuation">)</span><span class="Punctuation">:</span>
   <span class="Punctuation">[</span><span class="Punctuation">{</span><span class="Punctuation">(</span><span class="Identifier">Path</span> <span class="Identifier">x</span> <span class="Identifier">z</span><span class="Punctuation">)</span><span class="Punctuation">}</span> <span class="Operator">&lt;--</span>
     <span class="Punctuation">{</span><span class="Punctuation">(</span><span class="Identifier">Path</span> <span class="Identifier">x</span> <span class="Identifier">y</span><span class="Punctuation">)</span> <span class="Punctuation">(</span><span class="Identifier">Edge</span> <span class="Identifier">y</span> <span class="Identifier">z</span><span class="Punctuation">)</span><span class="Punctuation">}</span>
   <span class="Punctuation">]</span> <span class="Punctuation">{</span><span class="Operator">.</span> <span class="Identifier">name</span><span class="Punctuation">:</span> <span class="Identifier">TCTransitive</span> <span class="Identifier">order</span><span class="Punctuation">:</span> <span class="Punctuation">[</span><span class="Identifier">y</span><span class="Punctuation">,</span> <span class="Identifier">x</span><span class="Punctuation">,</span> <span class="Identifier">z</span><span class="Punctuation">]</span> <span class="Operator">.</span><span class="Punctuation">}</span></pre><p>This generates rule variants that use DELTA_VER for Path in the body when computing new Path facts, enabling efficient incremental computation.</p>
@@ -264,14 +282,16 @@ Fixpoint rules require the database to be initialized with memory arenas for sem
 
 </div>
 <div id="none_recursive_rule-macros-all">
-  <div id="none_recursive_rule.m,untyped,untyped">
-  <dt><pre><span class="Keyword">macro</span> <a href="#none_recursive_rule.m%2Cuntyped%2Cuntyped"><span class="Identifier">none_recursive_rule</span></a><span class="Other">(</span><span class="Identifier">rule_name</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">rules</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+  <div id="none_recursive_rule.m,untyped,typed,untyped">
+  <dt><pre><span class="Keyword">macro</span> <a href="#none_recursive_rule.m%2Cuntyped%2Ctyped%2Cuntyped"><span class="Identifier">none_recursive_rule</span></a><span class="Other">(</span><span class="Identifier">rule_name</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">db_schema_str</span><span class="Other">:</span> <span class="Identifier">typed</span><span class="Other">;</span>
+                          <span class="Identifier">rules</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
   <dd>
     
     <p>Defines non-recursive Datalog rules.</p>
 <p>This macro generates C++ code for non-recursive rule sets. Non-recursive rules are rules where the head relation does not appear in the body (no self-reference).</p>
 <p><strong>Parameters:</strong></p>
 <ul class="simple"><li><tt class="docutils literal"><span class="pre">rule_name</span></tt>: The name of the rule set (identifier)</li>
+<li><tt class="docutils literal"><span class="pre">db_schema_str</span></tt>: A typed parameter containing the schema declarations as a string. Typically obtained from a <tt class="docutils literal"><span class="pre"><span class="Identifier">schema</span></span></tt> macro via <tt class="docutils literal"><span class="pre"><span class="Operator">&lt;</span><span class="Identifier">SchemaName</span><span class="Operator">&gt;</span><span class="Identifier">Code</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt>. The string is re-parsed to extract relation declarations needed for code generation.</li>
 <li><tt class="docutils literal"><span class="pre">rules</span></tt>: A sequence of rule definitions, each with:<ul class="simple"><li>Head clause(s) in curly braces: <tt class="docutils literal"><span class="pre">{(RelName arg1 arg2 ...)}</span></tt></li>
 <li>Body clause(s) in curly braces: <tt class="docutils literal"><span class="pre">{(RelName arg1 arg2 ...)}</span></tt></li>
 <li>Arrow operator: <tt class="docutils literal"><span class="pre">&lt;--</span></tt> separating head from body</li>
@@ -282,20 +302,37 @@ Fixpoint rules require the database to be initialized with memory arenas for sem
 <p>Rule syntax:</p>
 <ul class="simple"><li><strong>Head</strong>: <tt class="docutils literal"><span class="pre">{(RelName var1 var2 ...)}</span></tt> - defines what relation is computed</li>
 <li><strong>Body</strong>: <tt class="docutils literal"><span class="pre">{(RelName1 var1 var2) (RelName2 var2 var3) ...}</span></tt> - defines join conditions</li>
+<li><strong>If Clauses</strong>: <tt class="docutils literal"><span class="pre">(?(vars...) {.cpp &quot;&quot;&quot;code&quot;&quot;&quot;.})</span></tt> - conditional filtering with C++ expressions</li>
+<li><strong>Let Clauses</strong>: <tt class="docutils literal"><span class="pre">(var = (vars...) -&gt; Type {.cpp &quot;&quot;&quot;code&quot;&quot;&quot;.})</span></tt> - computed values with C++ expressions</li>
 <li><strong>Variables</strong>: Logical variables that appear in both head and body</li>
 <li><strong>Pragma `name`</strong>: Required name for the rule</li>
 <li><strong>Pragma `order`</strong>: Required join order (list of variables)</li>
 </ul>
+<p><strong>If Clauses</strong>: Allow conditional filtering based on C++ expressions. The syntax is <tt class="docutils literal"><span class="pre">(?(var1, var2, ...) {.cpp &quot;&quot;&quot;return condition;&quot;&quot;&quot;.})</span></tt> where the C++ code receives the bound variables as function arguments and must return a boolean. Only tuples where the expression evaluates to <tt class="docutils literal"><span class="pre"><span class="Identifier">true</span></span></tt> are kept.</p>
+<p><strong>Let Clauses</strong>: Introduce new variables bound to computed values. The syntax is <tt class="docutils literal"><span class="pre">(var = (var1, var2, ...) -&gt; Type {.cpp &quot;&quot;&quot;return computation;&quot;&quot;&quot;.})</span></tt> where the C++ code receives the bound variables and returns a value of the specified type. The new variable can be used in subsequent clauses or the head.</p>
 <p>The macro generates:</p>
 <ul class="simple"><li>C++ type aliases for each rule</li>
 <li>MIR (Mid-level Intermediate Representation) compilation for each rule</li>
 <li>A NonIterativeRuleSets type grouping all rules</li>
 </ul>
 <p>Example:</p>
-<pre class="listing"><span class="Identifier">none_recursive_rule</span> <span class="Identifier">TriangleRule</span><span class="Punctuation">:</span>
+<pre class="listing"><span class="Identifier">schema</span> <span class="Identifier">MyDB</span><span class="Punctuation">:</span>
+  <span class="Identifier">RRel</span><span class="Punctuation">:</span> <span class="Identifier">Relation</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">]</span>
+  <span class="Identifier">SRel</span><span class="Punctuation">:</span> <span class="Identifier">Relation</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">]</span>
+  <span class="Identifier">ZRel</span><span class="Punctuation">:</span> <span class="Identifier">Relation</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">]</span>
+
+<span class="Identifier">none_recursive_rule</span> <span class="Identifier">TriangleRule</span><span class="Punctuation">,</span> <span class="Identifier">MyDBCode</span><span class="Punctuation">(</span><span class="Punctuation">)</span><span class="Punctuation">:</span>
   <span class="Punctuation">[</span><span class="Punctuation">{</span><span class="Punctuation">(</span><span class="Identifier">ZRel</span> <span class="Identifier">x</span> <span class="Identifier">y</span> <span class="Identifier">z</span><span class="Punctuation">)</span><span class="Punctuation">}</span> <span class="Operator">&lt;--</span>
     <span class="Punctuation">{</span><span class="Punctuation">(</span><span class="Identifier">RRel</span> <span class="Identifier">x</span> <span class="Identifier">y</span><span class="Punctuation">)</span> <span class="Punctuation">(</span><span class="Identifier">SRel</span> <span class="Identifier">y</span> <span class="Identifier">z</span> <span class="Identifier">h</span><span class="Punctuation">)</span> <span class="Punctuation">(</span><span class="Identifier">TRel</span> <span class="Identifier">z</span> <span class="Identifier">x</span> <span class="Identifier">f</span><span class="Punctuation">)</span><span class="Punctuation">}</span>
-  <span class="Punctuation">]</span> <span class="Punctuation">{</span><span class="Operator">.</span> <span class="Identifier">name</span><span class="Punctuation">:</span> <span class="Identifier">Triangle</span> <span class="Identifier">order</span><span class="Punctuation">:</span> <span class="Punctuation">[</span><span class="Identifier">x</span><span class="Punctuation">,</span> <span class="Identifier">y</span><span class="Punctuation">,</span> <span class="Identifier">z</span><span class="Punctuation">]</span> <span class="Operator">.</span><span class="Punctuation">}</span></pre>
+  <span class="Punctuation">]</span> <span class="Punctuation">{</span><span class="Operator">.</span> <span class="Identifier">name</span><span class="Punctuation">:</span> <span class="Identifier">Triangle</span> <span class="Identifier">order</span><span class="Punctuation">:</span> <span class="Punctuation">[</span><span class="Identifier">x</span><span class="Punctuation">,</span> <span class="Identifier">y</span><span class="Punctuation">,</span> <span class="Identifier">z</span><span class="Punctuation">]</span> <span class="Operator">.</span><span class="Punctuation">}</span></pre><p>Example with if clause:</p>
+<pre class="listing"><span class="Identifier">none_recursive_rule</span> <span class="Identifier">FilterRule</span><span class="Punctuation">,</span> <span class="Identifier">MyDBCode</span><span class="Punctuation">(</span><span class="Punctuation">)</span><span class="Punctuation">:</span>
+  <span class="Punctuation">[</span><span class="Punctuation">{</span><span class="Punctuation">(</span><span class="Identifier">ZRel</span> <span class="Identifier">x</span> <span class="Identifier">y</span> <span class="Identifier">z</span><span class="Punctuation">)</span><span class="Punctuation">}</span> <span class="Operator">&lt;--</span>
+    <span class="Punctuation">{</span><span class="Punctuation">(</span><span class="Identifier">RRel</span> <span class="Identifier">x</span> <span class="Identifier">y</span><span class="Punctuation">)</span> <span class="Punctuation">(</span><span class="Identifier">SRel</span> <span class="Identifier">y</span> <span class="Identifier">z</span> <span class="Identifier">h</span><span class="Punctuation">)</span> <span class="Punctuation">(</span><span class="Operator">?</span><span class="Punctuation">(</span><span class="Identifier">x</span><span class="Punctuation">)</span> <span class="Punctuation">{</span><span class="Operator">.</span><span class="Identifier">cpp</span> <span class="LongStringLit">&quot;&quot;&quot;return x % 2 == 0;&quot;&quot;&quot;</span><span class="Operator">.</span><span class="Punctuation">}</span><span class="Punctuation">)</span><span class="Punctuation">}</span>
+  <span class="Punctuation">]</span> <span class="Punctuation">{</span><span class="Operator">.</span> <span class="Identifier">name</span><span class="Punctuation">:</span> <span class="Identifier">Filter</span> <span class="Identifier">order</span><span class="Punctuation">:</span> <span class="Punctuation">[</span><span class="Identifier">x</span><span class="Punctuation">,</span> <span class="Identifier">y</span><span class="Punctuation">,</span> <span class="Identifier">z</span><span class="Punctuation">]</span> <span class="Operator">.</span><span class="Punctuation">}</span></pre><p>Example with let clause:</p>
+<pre class="listing"><span class="Identifier">none_recursive_rule</span> <span class="Identifier">ComputeRule</span><span class="Punctuation">,</span> <span class="Identifier">MyDBCode</span><span class="Punctuation">(</span><span class="Punctuation">)</span><span class="Punctuation">:</span>
+  <span class="Punctuation">[</span><span class="Punctuation">{</span><span class="Punctuation">(</span><span class="Identifier">ZRel</span> <span class="Identifier">x</span> <span class="Identifier">y</span> <span class="Identifier">sum</span><span class="Punctuation">)</span><span class="Punctuation">}</span> <span class="Operator">&lt;--</span>
+    <span class="Punctuation">{</span><span class="Punctuation">(</span><span class="Identifier">RRel</span> <span class="Identifier">x</span> <span class="Identifier">y</span><span class="Punctuation">)</span> <span class="Punctuation">(</span><span class="Identifier">sum</span> <span class="Operator">=</span> <span class="Punctuation">(</span><span class="Identifier">x</span><span class="Punctuation">,</span> <span class="Identifier">y</span><span class="Punctuation">)</span> <span class="Operator">-&gt;</span> <span class="Identifier">int</span> <span class="Punctuation">{</span><span class="Operator">.</span><span class="Identifier">cpp</span> <span class="LongStringLit">&quot;&quot;&quot;return x + y;&quot;&quot;&quot;</span><span class="Operator">.</span><span class="Punctuation">}</span><span class="Punctuation">)</span><span class="Punctuation">}</span>
+  <span class="Punctuation">]</span> <span class="Punctuation">{</span><span class="Operator">.</span> <span class="Identifier">name</span><span class="Punctuation">:</span> <span class="Identifier">Compute</span> <span class="Identifier">order</span><span class="Punctuation">:</span> <span class="Punctuation">[</span><span class="Identifier">x</span><span class="Punctuation">,</span> <span class="Identifier">y</span><span class="Punctuation">,</span> <span class="Identifier">sum</span><span class="Punctuation">]</span> <span class="Operator">.</span><span class="Punctuation">}</span></pre>
     
   </dd>
 </div>
@@ -314,6 +351,43 @@ Fixpoint rules require the database to be initialized with memory arenas for sem
 <p>Prints the string representation of the AST node to stdout. Useful for debugging macro transformations.</p>
 <div class="admonition admonition-info"><span class="admonition-info-text"><b>Note:</b></span>
 This is a development/debugging tool and may not be needed in production code.</div>
+
+    
+  </dd>
+</div>
+
+</div>
+<div id="schema-macros-all">
+  <div id="schema.m,untyped,untyped">
+  <dt><pre><span class="Keyword">macro</span> <a href="#schema.m%2Cuntyped%2Cuntyped"><span class="Identifier">schema</span></a><span class="Other">(</span><span class="Identifier">db_name</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">decls</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+  <dd>
+    
+    <p>Defines a reusable database schema that can be shared across modules and macros.</p>
+<p>This macro enables code sharing by converting database declarations into a string template. The schema creates a template named <tt class="docutils literal"><span class="pre"><span class="Operator">&lt;</span><span class="Identifier">SchemaName</span><span class="Operator">&gt;</span><span class="Identifier">Code</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt> that returns the declarations as a string, which can then be passed to other macros like <tt class="docutils literal"><span class="pre"><span class="Identifier">datalog_db</span></span></tt>, <tt class="docutils literal"><span class="pre"><span class="Identifier">none_recursive_rule</span></span></tt>, and <tt class="docutils literal"><span class="pre"><span class="Identifier">fixpoint_rule</span></span></tt>.</p>
+<p><strong>How It Works:</strong></p>
+<ol class="simple"><li><strong>String Conversion</strong>: Uses <tt class="docutils literal"><span class="pre"><span class="Identifier">toStrLit</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt> to convert the database declarations (AST nodes) into a string representation at compile time.</li>
+<li><strong>Template Generation</strong>: Creates a template that returns the string, allowing it to be passed across module boundaries.</li>
+<li><strong>Macro Expansion Order</strong>: Leverages Nim's macro expansion order (typed macros expand before untyped macros) to pass the schema string across macro boundaries.</li>
+<li><strong>Re-parsing</strong>: The receiving macros (<tt class="docutils literal"><span class="pre"><span class="Identifier">datalog_db</span></span></tt>, <tt class="docutils literal"><span class="pre"><span class="Identifier">none_recursive_rule</span></span></tt>, <tt class="docutils literal"><span class="pre"><span class="Identifier">fixpoint_rule</span></span></tt>) re-parse the string using <tt class="docutils literal"><span class="pre"><span class="Identifier">parseStmt</span><span class="Punctuation">(</span><span class="Identifier">decls_str</span><span class="Operator">.</span><span class="Identifier">strVal</span><span class="Punctuation">)</span></span></tt> to reconstruct the AST for code generation.</li>
+</ol>
+<p><strong>Parameters:</strong></p>
+<ul class="simple"><li><tt class="docutils literal"><span class="pre">db_name</span></tt>: The name of the schema (identifier)</li>
+<li><tt class="docutils literal"><span class="pre">decls</span></tt>: A block of relation declarations in the format: <tt class="docutils literal"><span class="pre">RelName: Relation[Type1, Type2, ...]</span></tt> or <tt class="docutils literal"><span class="pre">RelName: Semiring[Type1, Type2, ..., SemiringType]</span></tt></li>
+</ul>
+<p><strong>Returns:</strong> A template named <tt class="docutils literal"><span class="pre"><span class="Operator">&lt;</span><span class="Identifier">SchemaName</span><span class="Operator">&gt;</span><span class="Identifier">Code</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt> that can be called to get the schema declarations as a string.</p>
+<p>Example:</p>
+<pre class="listing"><span class="Identifier">schema</span> <span class="Identifier">MyDB</span><span class="Punctuation">:</span>
+  <span class="Identifier">Edge</span><span class="Punctuation">:</span> <span class="Identifier">Relation</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">]</span>
+  <span class="Identifier">Path</span><span class="Punctuation">:</span> <span class="Identifier">Relation</span><span class="Punctuation">[</span><span class="Identifier">int</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">]</span>
+
+<span class="Comment"># MyDBCode() is now available and returns the schema as a string</span>
+<span class="Identifier">datalog_db</span><span class="Punctuation">(</span><span class="Identifier">MyDB</span><span class="Punctuation">,</span> <span class="Identifier">MyDBCode</span><span class="Punctuation">(</span><span class="Punctuation">)</span><span class="Punctuation">)</span>
+<span class="Identifier">none_recursive_rule</span> <span class="Identifier">BaseCase</span><span class="Punctuation">,</span> <span class="Identifier">MyDBCode</span><span class="Punctuation">(</span><span class="Punctuation">)</span><span class="Punctuation">:</span>
+  <span class="Punctuation">[</span><span class="Punctuation">{</span><span class="Punctuation">(</span><span class="Identifier">Path</span> <span class="Identifier">x</span> <span class="Identifier">y</span><span class="Punctuation">)</span><span class="Punctuation">}</span> <span class="Operator">&lt;--</span> <span class="Punctuation">{</span><span class="Punctuation">(</span><span class="Identifier">Edge</span> <span class="Identifier">x</span> <span class="Identifier">y</span><span class="Punctuation">)</span><span class="Punctuation">}</span><span class="Punctuation">]</span> <span class="Punctuation">{</span><span class="Operator">.</span><span class="Identifier">name</span><span class="Punctuation">:</span> <span class="Identifier">Base</span><span class="Punctuation">,</span> <span class="Identifier">order</span><span class="Punctuation">:</span> <span class="Punctuation">[</span><span class="Identifier">x</span><span class="Punctuation">,</span> <span class="Identifier">y</span><span class="Punctuation">]</span><span class="Operator">.</span><span class="Punctuation">}</span></pre><p>This design allows you to:</p>
+<ul class="simple"><li>Define a database schema once and reuse it across multiple rules and modules</li>
+<li>Share schema definitions between different macros that need the same relation declarations</li>
+<li>Maintain consistency across your Datalog program by having a single source of truth for the database schema</li>
+</ul>
 
     
   </dd>
@@ -350,7 +424,7 @@ This is a development/debugging tool and may not be needed in production code.</
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2025-11-13 22:26:05 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2025-11-16 23:03:11 UTC</small>
       </div>
     </div>
   </div>

@@ -154,7 +154,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#ga36f1247acbbc037d8321dd98c29287d3">COUNT_ARGS_IMPL</a>(__VA_ARGS__, 4, 3, 2, 1)</div>
-<div class="ttc" id="agroup___index_macros_html_ga36f1247acbbc037d8321dd98c29287d3"><div class="ttname"><a href="#ga36f1247acbbc037d8321dd98c29287d3">COUNT_ARGS_IMPL</a></div><div class="ttdeci">#define COUNT_ARGS_IMPL(_1, _2, _3, _4, N,...)</div><div class="ttdef"><b>Definition</b> query.h:86</div></div>
+<div class="ttc" id="agroup___index_macros_html_ga36f1247acbbc037d8321dd98c29287d3"><div class="ttname"><a href="#ga36f1247acbbc037d8321dd98c29287d3">COUNT_ARGS_IMPL</a></div><div class="ttdeci">#define COUNT_ARGS_IMPL(_1, _2, _3, _4, N,...)</div><div class="ttdef"><b>Definition</b> query.h:89</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -219,7 +219,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">  <span class="keyword">const</span> <span class="keyword">auto</span> &amp;<a class="code hl_define" href="#gad09b296391eac2d46f9bc6099d59e1b9">INDEX</a>(REL, __VA_ARGS__) = REL.ensure_index({{__VA_ARGS__}});</div>
-<div class="ttc" id="agroup___index_macros_html_gad09b296391eac2d46f9bc6099d59e1b9"><div class="ttname"><a href="#gad09b296391eac2d46f9bc6099d59e1b9">INDEX</a></div><div class="ttdeci">#define INDEX(REL,...)</div><div class="ttdef"><b>Definition</b> query.h:116</div></div>
+<div class="ttc" id="agroup___index_macros_html_gad09b296391eac2d46f9bc6099d59e1b9"><div class="ttname"><a href="#gad09b296391eac2d46f9bc6099d59e1b9">INDEX</a></div><div class="ttdeci">#define INDEX(REL,...)</div><div class="ttdef"><b>Definition</b> query.h:119</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -247,7 +247,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#ga188ea780417dce4eb720d161d85f9f44">PASTE</a>(PASTE_NAME_, N)(REL, __VA_ARGS__)</div>
-<div class="ttc" id="agroup___index_macros_html_ga188ea780417dce4eb720d161d85f9f44"><div class="ttname"><a href="#ga188ea780417dce4eb720d161d85f9f44">PASTE</a></div><div class="ttdeci">#define PASTE(a, b)</div><div class="ttdef"><b>Definition</b> query.h:89</div></div>
+<div class="ttc" id="agroup___index_macros_html_ga188ea780417dce4eb720d161d85f9f44"><div class="ttname"><a href="#ga188ea780417dce4eb720d161d85f9f44">PASTE</a></div><div class="ttdeci">#define PASTE(a, b)</div><div class="ttdef"><b>Definition</b> query.h:92</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -270,8 +270,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">  <a class="code hl_define" href="#ga76249f0f7e29963666635b674cac8cb2">DISPATCH_PASTE</a>(REL, <a class="code hl_define" href="#gacba40d6e71ce4513a0dda5c273536fec">COUNT_ARGS</a>(__VA_ARGS__), __VA_ARGS__)</div>
-<div class="ttc" id="agroup___index_macros_html_ga76249f0f7e29963666635b674cac8cb2"><div class="ttname"><a href="#ga76249f0f7e29963666635b674cac8cb2">DISPATCH_PASTE</a></div><div class="ttdeci">#define DISPATCH_PASTE(REL, N,...)</div><div class="ttdef"><b>Definition</b> query.h:98</div></div>
-<div class="ttc" id="agroup___index_macros_html_gacba40d6e71ce4513a0dda5c273536fec"><div class="ttname"><a href="#gacba40d6e71ce4513a0dda5c273536fec">COUNT_ARGS</a></div><div class="ttdeci">#define COUNT_ARGS(...)</div><div class="ttdef"><b>Definition</b> query.h:87</div></div>
+<div class="ttc" id="agroup___index_macros_html_ga76249f0f7e29963666635b674cac8cb2"><div class="ttname"><a href="#ga76249f0f7e29963666635b674cac8cb2">DISPATCH_PASTE</a></div><div class="ttdeci">#define DISPATCH_PASTE(REL, N,...)</div><div class="ttdef"><b>Definition</b> query.h:101</div></div>
+<div class="ttc" id="agroup___index_macros_html_gacba40d6e71ce4513a0dda5c273536fec"><div class="ttname"><a href="#gacba40d6e71ce4513a0dda5c273536fec">COUNT_ARGS</a></div><div class="ttdeci">#define COUNT_ARGS(...)</div><div class="ttdef"><b>Definition</b> query.h:90</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -343,7 +343,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#ga9404439ed46dc67d489a7d4ec2853e8f">CAT</a>(a, b)</div>
-<div class="ttc" id="agroup___index_macros_html_ga9404439ed46dc67d489a7d4ec2853e8f"><div class="ttname"><a href="#ga9404439ed46dc67d489a7d4ec2853e8f">CAT</a></div><div class="ttdeci">#define CAT(a, b)</div><div class="ttdef"><b>Definition</b> query.h:88</div></div>
+<div class="ttc" id="agroup___index_macros_html_ga9404439ed46dc67d489a7d4ec2853e8f"><div class="ttname"><a href="#ga9404439ed46dc67d489a7d4ec2853e8f">CAT</a></div><div class="ttdeci">#define CAT(a, b)</div><div class="ttdef"><b>Definition</b> query.h:91</div></div>
 </div><!-- fragment -->
 </div>
 </div>

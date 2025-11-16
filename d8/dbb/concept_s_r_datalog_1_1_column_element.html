@@ -92,20 +92,20 @@ $(function(){initNavTree('d8/dbb/concept_s_r_datalog_1_1_column_element.html','.
 </div><!--header-->
 <div class="contents">
 
-<p>Concept requiring a type to be suitable for storage in a <a class="el" href="../../d3/dc1/class_relation.html">Relation</a> column.  
+<p>Concept requiring a type to be suitable for storage in a Relation column.  
 <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d1/d25/relation__col_8h_source.html">relation_col.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dc/df8/column_8h_source.html">column.h</a>&gt;</code></p>
 <h2 id="header-conceptdef" class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../d8/dbb/concept_s_r_datalog_1_1_column_element.html">SRDatalog::ColumnElement</a> = </div>
 <div class="line">    std::is_trivially_copyable_v&lt;T&gt; || std::is_arithmetic_v&lt;T&gt; ||</div>
 <div class="line">    std::is_same_v&lt;T, std::string&gt; || <a class="code hl_concept" href="../../d9/dcf/concept_s_r_datalog_1_1_codec.html">Codec&lt;T&gt;</a></div>
-<div class="ttc" id="aconcept_s_r_datalog_1_1_codec_html"><div class="ttname"><a href="../../d9/dcf/concept_s_r_datalog_1_1_codec.html">SRDatalog::Codec</a></div><div class="ttdoc">Concept for types that support both encoding and decoding.</div><div class="ttdef"><b>Definition</b> relation_col.h:688</div></div>
-<div class="ttc" id="aconcept_s_r_datalog_1_1_column_element_html"><div class="ttname"><a href="../../d8/dbb/concept_s_r_datalog_1_1_column_element.html">SRDatalog::ColumnElement</a></div><div class="ttdoc">Concept requiring a type to be suitable for storage in a Relation column.</div><div class="ttdef"><b>Definition</b> relation_col.h:696</div></div>
+<div class="ttc" id="aconcept_s_r_datalog_1_1_codec_html"><div class="ttname"><a href="../../d9/dcf/concept_s_r_datalog_1_1_codec.html">SRDatalog::Codec</a></div><div class="ttdoc">Concept for types that support both encoding and decoding.</div><div class="ttdef"><b>Definition</b> column.h:563</div></div>
+<div class="ttc" id="aconcept_s_r_datalog_1_1_column_element_html"><div class="ttname"><a href="../../d8/dbb/concept_s_r_datalog_1_1_column_element.html">SRDatalog::ColumnElement</a></div><div class="ttdoc">Concept requiring a type to be suitable for storage in a Relation column.</div><div class="ttdef"><b>Definition</b> column.h:573</div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Concept requiring a type to be suitable for storage in a <a class="el" href="../../d3/dc1/class_relation.html">Relation</a> column. </p>
-<p>The type must be trivially copyable, arithmetic, or a std::string. </p>
+<div class="textblock"><p>Concept requiring a type to be suitable for storage in a Relation column. </p>
+<p>The type must be trivially copyable, arithmetic, or a std::string. </p><dl class="section note"><dt>Note</dt><dd><b>C++20 feature</b>: Uses C++20 concepts with concept disjunction (||) to combine multiple type traits. </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

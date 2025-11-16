@@ -164,7 +164,7 @@ Design Philosophy: Learning from Ascent and Soufflé</h2>
 <ol type="1">
 <li><b>AST (Abstract Syntax Tree)</b>: High-level declarative representation of Datalog rules, relations, and queries. This maintains declarative semantics and enables high-level optimizations.</li>
 <li><p class="startli"><b>MIR (Mid-level IR)</b>: Compile-time compilation from AST to MIR (<span class="tt">CompileRuleToMIR</span>) produces structured operations:</p><ul>
-<li><span class="tt">ColumnSource</span>: <a class="el" href="../../d3/dc1/class_relation.html">Relation</a> access operations</li>
+<li><span class="tt">ColumnSource</span>: Relation access operations</li>
 <li><span class="tt">ColumnJoin</span>: Multi-way join operations</li>
 <li><span class="tt">DestinationRelation</span>: Fact insertion operations</li>
 </ul>
@@ -190,7 +190,7 @@ Provenance and Annotations: A Fundamental Design Principle</h2>
 <p><b>Provenance as a Core Architecture Component</b></p>
 <p>Unlike systems that treat annotations as an afterthought or simple monomorphism, <a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a>'s annotation system is deeply integrated into the entire IR stack:</p>
 <ol type="1">
-<li><b>AST Level</b>: Semirings are a <b>first-class type parameter</b> in <span class="tt">AST::RelationSchema&lt;Name, <a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a>, AttrTypes...&gt;</span>, making provenance semantics part of the compile-time type system</li>
+<li><b>AST Level</b>: Semirings are a <b>first-class type parameter</b> in <span class="tt">AST::RelationSchema&lt;Name, <a class="el" href="../../d9/d96/concept_semiring.html" title="Concept defining the interface for semiring types.">Semiring</a>, AttrTypesTuple&gt;</span>, making provenance semantics part of the compile-time type system</li>
 <li><b>MIR Level</b>: Annotation propagation and aggregation are <b>explicitly modeled</b> in the Mid-level IR operations, enabling provenance-aware join planning and optimization</li>
 <li><b>Storage Level</b>: While annotations are currently stored as a dedicated column (<span class="tt">ann_</span>) in relations, the architecture is designed to support more sophisticated provenance representations beyond simple scalar values</li>
 </ol>
@@ -206,7 +206,7 @@ Provenance and Annotations: A Fundamental Design Principle</h2>
 <li><b>Custom provenance representations</b>: The architecture allows different annotation models (scalar values, vectors, time-stamped values, etc.) without changing the query structure</li>
 </ul>
 <p><b>Current Implementation and Future Extensibility</b></p>
-<p>Currently, annotations are implemented as a semiring value stored per row (the <span class="tt">ann_</span> column in <span class="tt"><a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&lt;SR, AttrTs...&gt;</span>). However, the architecture is designed to support more sophisticated representations:</p>
+<p>Currently, annotations are implemented as a semiring value stored per row (the <span class="tt">ann_</span> column in the runtime <span class="tt">Relation&lt;SR, AttrTuple&gt;</span> class). However, the architecture is designed to support more sophisticated representations:</p>
 <ul>
 <li><b>Beyond scalar monomorphism</b>: The IR structure can accommodate richer annotation structures (e.g., vectors for multi-dimensional provenance, trees for hierarchical provenance, time-series for temporal provenance)</li>
 <li><b>Annotation-aware joins</b>: Join operations can propagate and combine annotations according to semiring semantics, preserving provenance information through complex queries</li>
@@ -243,10 +243,10 @@ Meta Language: Nim as a Transitional Choice</h2>
 <p><b>Transition Strategy</b>: The Nim implementation serves as a practical intermediate step that allows developers to start using the framework while the Racket metalang is under development. This provides users with options during the transition period and helps validate the framework's design.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
 Template Metaprogramming (TMP) Foundation</h2>
-<p>The C++ runtime is built on a foundation of <b>template metaprogramming (TMP)</b> that enables compile-time query compilation and optimization. The <span class="tt"><a class="el" href="../../dc/dc6/tmp_8h.html">generalized_datalog/tmp.h</a></span> module provides essential TMP utilities built on top of Boost.MP11, offering:</p>
+<p>The C++ runtime is built on a foundation of <b>template metaprogramming (TMP)</b> that enables compile-time query compilation and optimization. The <span class="tt"><a class="el" href="../../dc/dc6/tmp_8h.html" title="Template metaprogramming utilities for SRDatalog.">generalized_datalog/tmp.h</a></span> module provides essential TMP utilities built on top of Boost.MP11, offering:</p>
 <p><b>TMP Library Dependencies</b>: At the template level, the TMP library <b>heavily relies on C++17 features</b>, <b>Boost.MP11</b>, and <b>Boost.Hana</b>. Any developer working on the TMP layer will need to work directly with these libraries:</p><ul>
 <li><b>C++17 features</b>: The TMP code extensively uses C++17 language features such as <span class="tt">constexpr if</span>, fold expressions, class template argument deduction, and structured bindings. The overall project requires C++23, but the TMP metaprogramming foundations primarily leverage C++17 features</li>
-<li><b>Boost.MP11</b>: Used extensively in <span class="tt"><a class="el" href="../../dc/dc6/tmp_8h.html">tmp.h</a></span> for type-level tuple operations, type predicates, compile-time type manipulation utilities, and set operations (intersection, difference, uniqueness)</li>
+<li><b>Boost.MP11</b>: Used extensively in <span class="tt"><a class="el" href="../../dc/dc6/tmp_8h.html" title="Template metaprogramming utilities for SRDatalog.">tmp.h</a></span> for type-level tuple operations, type predicates, compile-time type manipulation utilities, and set operations (intersection, difference, uniqueness)</li>
 <li><b>Boost.Hana</b>: Used in <span class="tt"><a class="el" href="../../db/df0/ast_8h.html" title="Abstract Syntax Tree (AST) for Datalog using Template Metaprogramming.">ast.h</a></span> for compile-time string literals as template parameters (<span class="tt">boost::hana::string</span>) and in <span class="tt"><a class="el" href="../../d3/d51/runtime_8h.html" title="Runtime execution engine for MIR (Mid-level Intermediate Representation).">runtime.h</a></span> for heterogeneous containers and compile-time state management (using <span class="tt">hana::map</span> for variable bindings)</li>
 </ul>
 <p>Developers extending or modifying the TMP layer should be familiar with modern C++ metaprogramming techniques and these library APIs, as the codebase makes extensive use of Boost.MP11 for type-level operations and Boost.Hana for compile-time computation and state management.</p>
@@ -262,9 +262,12 @@ Template Metaprogramming (TMP) Foundation</h2>
 </ul>
 <p><b>TMP-Based Type API</b>: The core of <a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a>'s architecture is its TMP-based type system. Relations, rules, and queries are represented as C++ template types that encode their structure at compile time:</p>
 <ul>
-<li><span class="tt">AST::RelationSchema&lt;Name, <a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a>, AttrTypes...&gt;</span>: Represents a relation with its schema</li>
+<li><span class="tt">AST::RelationSchema&lt;Name, <a class="el" href="../../d9/d96/concept_semiring.html" title="Concept defining the interface for semiring types.">Semiring</a>, AttrTypesTuple&gt;</span>: Represents a relation with its schema (AttrTypesTuple is a std::tuple of attribute types)</li>
 <li><span class="tt">AST::Rule&lt;HeadTuple, BodyTuple, JoinPlan&gt;</span>: Represents a Datalog rule with its join plan</li>
-<li><span class="tt">AST::Clause&lt;<a class="el" href="../../d3/dc1/class_relation.html">Relation</a>, Version, Vars...&gt;</span>: Represents a relation call in a rule body or head</li>
+<li><span class="tt">AST::Clause&lt;Relation, Version, Vars...&gt;</span>: Represents a relation call in a rule body or head</li>
+<li><span class="tt">AST::IfClause&lt;CppExpr&gt;</span>: Represents a conditional filter clause that filters tuples based on a C++ expression</li>
+<li><span class="tt">AST::LetClause&lt;Var, CppExpr&gt;</span>: Represents a let binding clause that introduces a computed variable</li>
+<li><span class="tt">AST::CppExpr&lt;CapturedVars, Func&gt;</span>: Represents an inline C++ expression (lambda) used in if/let clauses</li>
 <li><span class="tt">AST::Var&lt;Name&gt;</span>: Represents a logical variable</li>
 <li><span class="tt">AST::JoinPlan&lt;VarTuple&gt;</span>: Encodes the join order for efficient execution</li>
 </ul>
@@ -280,15 +283,15 @@ Template Metaprogramming (TMP) Foundation</h2>
 <div class="line">  SRel: Relation[int, int, int]</div>
 <div class="line">none_recursive_rule TriangleRule:</div>
 <div class="line">  [{(ZRel x y z)} &lt;-- {(RRel x y) (SRel y z)}]</div>
-</div><!-- fragment --><p>The DSL generates C++ code like: </p><div class="fragment"><div class="line"><span class="keyword">using </span>RRel = AST::RelationSchema&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;RRel&quot;</span>_s), <a class="code hl_struct" href="../../d8/dcb/struct_boolean_s_r.html">BooleanSR</a>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>&gt;;</div>
-<div class="line"><span class="keyword">using </span>SRel = AST::RelationSchema&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;SRel&quot;</span>_s), <a class="code hl_struct" href="../../d8/dcb/struct_boolean_s_r.html">BooleanSR</a>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>&gt;;</div>
+</div><!-- fragment --><p>The DSL generates C++ code like: </p><div class="fragment"><div class="line"><span class="keyword">using </span>RRel = AST::RelationSchema&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;RRel&quot;</span>_s), <a class="code hl_struct" href="../../d8/dcb/struct_boolean_s_r.html">BooleanSR</a>, std::tuple&lt;int, int&gt;&gt;;</div>
+<div class="line"><span class="keyword">using </span>SRel = AST::RelationSchema&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;SRel&quot;</span>_s), <a class="code hl_struct" href="../../d8/dcb/struct_boolean_s_r.html">BooleanSR</a>, std::tuple&lt;int, int, int&gt;&gt;;</div>
 <div class="line"><span class="keyword">using </span>TriangleRule = AST::Rule&lt;</div>
 <div class="line">  std::tuple&lt;AST::Clause&lt;ZRel, NEW_VER, x_, y_, z_&gt;&gt;,</div>
 <div class="line">  std::tuple&lt;AST::Clause&lt;RRel, FULL_VER, x_, y_&gt;, </div>
 <div class="line">             AST::Clause&lt;SRel, FULL_VER, y_, z_&gt;&gt;,</div>
 <div class="line">  AST::JoinPlan&lt;std::tuple&lt;x_, y_, z_&gt;&gt;</div>
 <div class="line">&gt;;</div>
-<div class="ttc" id="astruct_boolean_s_r_html"><div class="ttname"><a href="../../d8/dcb/struct_boolean_s_r.html">BooleanSR</a></div><div class="ttdef"><b>Definition</b> semiring.h:49</div></div>
+<div class="ttc" id="astruct_boolean_s_r_html"><div class="ttname"><a href="../../d8/dcb/struct_boolean_s_r.html">BooleanSR</a></div><div class="ttdef"><b>Definition</b> semiring.h:57</div></div>
 </div><!-- fragment --><p>This TMP-based approach enables the compiler to:</p><ul>
 <li><b>Compute join plans at compile time</b>: The <span class="tt">CompileRuleToMIR</span> template transforms rules into optimized MIR operations</li>
 <li><b>Generate efficient indexes</b>: The <span class="tt">AllIndicesFromProgram</span> template computes all required indexes from the program structure</li>
@@ -459,14 +462,14 @@ Example Usage of the Template Metaprogramming API</h2>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="../../da/d38/test__column_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line">  <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a>;</div>
-<div class="line">  <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../da/d83/namespace_s_r_datalog_1_1_a_s_t_1_1literals.html">SRDatalog::AST::literals</a>;</div>
+<div class="line">  <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d0/d68/namespace_s_r_datalog_1_1_a_s_t_1_1_literals.html">SRDatalog::AST::Literals</a>;</div>
 <div class="line">  <span class="keyword">using </span>SR = <a class="code hl_struct" href="../../d8/dcb/struct_boolean_s_r.html">BooleanSR</a>;</div>
 <div class="line">  <span class="keyword">using </span>string = std::string;</div>
 <div class="line"> </div>
-<div class="line">  <span class="keyword">using </span>RelationR = <a class="code hl_struct" href="../../d0/d70/struct_s_r_datalog_1_1_a_s_t_1_1_relation_schema.html">AST::RelationSchema</a>&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;R&quot;</span>_s), SR, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>&gt;;</div>
-<div class="line">  <span class="keyword">using </span>RelationS = <a class="code hl_struct" href="../../d0/d70/struct_s_r_datalog_1_1_a_s_t_1_1_relation_schema.html">AST::RelationSchema</a>&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;S&quot;</span>_s), SR, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>&gt;;</div>
-<div class="line">  <span class="keyword">using </span>RelationT = <a class="code hl_struct" href="../../d0/d70/struct_s_r_datalog_1_1_a_s_t_1_1_relation_schema.html">AST::RelationSchema</a>&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;T&quot;</span>_s), SR, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>&gt;;</div>
-<div class="line">  <span class="keyword">using </span>RelationZ = <a class="code hl_struct" href="../../d0/d70/struct_s_r_datalog_1_1_a_s_t_1_1_relation_schema.html">AST::RelationSchema</a>&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;Z&quot;</span>_s), SR, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>&gt;;</div>
+<div class="line">  <span class="keyword">using </span>RelationR = <a class="code hl_struct" href="../../d0/d70/struct_s_r_datalog_1_1_a_s_t_1_1_relation_schema.html">AST::RelationSchema</a>&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;R&quot;</span>_s), SR, std::tuple&lt;int, int&gt;&gt;;</div>
+<div class="line">  <span class="keyword">using </span>RelationS = <a class="code hl_struct" href="../../d0/d70/struct_s_r_datalog_1_1_a_s_t_1_1_relation_schema.html">AST::RelationSchema</a>&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;S&quot;</span>_s), SR, std::tuple&lt;int, int, int&gt;&gt;;</div>
+<div class="line">  <span class="keyword">using </span>RelationT = <a class="code hl_struct" href="../../d0/d70/struct_s_r_datalog_1_1_a_s_t_1_1_relation_schema.html">AST::RelationSchema</a>&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;T&quot;</span>_s), SR, std::tuple&lt;int, int, int&gt;&gt;;</div>
+<div class="line">  <span class="keyword">using </span>RelationZ = <a class="code hl_struct" href="../../d0/d70/struct_s_r_datalog_1_1_a_s_t_1_1_relation_schema.html">AST::RelationSchema</a>&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;Z&quot;</span>_s), SR, std::tuple&lt;int, int, int&gt;&gt;;</div>
 <div class="line">  <span class="keyword">using </span>TriangleDBBlueprint =</div>
 <div class="line">      <a class="code hl_typedef" href="../../db/dde/namespace_s_r_datalog_1_1_a_s_t.html#a7c0be4b2d9320d4a4a76e8256b917823">AST::Database&lt;RelationR, RelationS, RelationT, RelationZ&gt;</a>;</div>
 <div class="line"> </div>
@@ -501,46 +504,95 @@ Example Usage of the Template Metaprogramming API</h2>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aast_8h_html"><div class="ttname"><a href="../../db/df0/ast_8h.html">ast.h</a></div><div class="ttdoc">Abstract Syntax Tree (AST) for Datalog using Template Metaprogramming.</div></div>
-<div class="ttc" id="anamespace_s_r_datalog_1_1_a_s_t_1_1literals_html"><div class="ttname"><a href="../../da/d83/namespace_s_r_datalog_1_1_a_s_t_1_1literals.html">SRDatalog::AST::literals</a></div><div class="ttdoc">Re-export Boost.Hana string literals for convenient usage.</div><div class="ttdef"><b>Definition</b> ast.h:101</div></div>
-<div class="ttc" id="anamespace_s_r_datalog_1_1_a_s_t_html_a7c0be4b2d9320d4a4a76e8256b917823"><div class="ttname"><a href="../../db/dde/namespace_s_r_datalog_1_1_a_s_t.html#a7c0be4b2d9320d4a4a76e8256b917823">SRDatalog::AST::Database</a></div><div class="ttdeci">std::tuple&lt; Schemas... &gt; Database</div><div class="ttdef"><b>Definition</b> ast.h:510</div></div>
-<div class="ttc" id="anamespace_s_r_datalog_html"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a></div><div class="ttdef"><b>Definition</b> ast.h:50</div></div>
-<div class="ttc" id="anamespace_s_r_datalog_html_a199862a46af3476f5c3f54fe56e4750c"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html#a199862a46af3476f5c3f54fe56e4750c">SRDatalog::print_relation</a></div><div class="ttdeci">void print_relation(DB &amp;runtime_db, std::ostream &amp;os=std::cout, std::size_t n=10)</div><div class="ttdoc">Print the contents of a relation in the runtime database.</div><div class="ttdef"><b>Definition</b> runtime.h:703</div></div>
-<div class="ttc" id="anamespace_s_r_datalog_html_a92a4b0f2b8e2135ea77cc61acae1b95c"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html#a92a4b0f2b8e2135ea77cc61acae1b95c">SRDatalog::execute_mir_plan</a></div><div class="ttdeci">void execute_mir_plan(DB &amp;runtime_db)</div><div class="ttdoc">Executes a pre-compiled MIR plan.</div><div class="ttdef"><b>Definition</b> runtime.h:666</div></div>
-<div class="ttc" id="anamespace_s_r_datalog_html_abddd4b71e5fb3682986014326a3c3215"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">SRDatalog::add_fact</a></div><div class="ttdeci">void add_fact(DB &amp;runtime_db, const auto &amp;&amp;semiring_val, Values... values)</div><div class="ttdoc">Add a fact to a relation in the runtime database.</div><div class="ttdef"><b>Definition</b> runtime.h:687</div></div>
+<div class="ttc" id="anamespace_s_r_datalog_1_1_a_s_t_1_1_literals_html"><div class="ttname"><a href="../../d0/d68/namespace_s_r_datalog_1_1_a_s_t_1_1_literals.html">SRDatalog::AST::Literals</a></div><div class="ttdoc">Re-export Boost.Hana string literals for convenient usage.</div><div class="ttdef"><b>Definition</b> ast.h:106</div></div>
+<div class="ttc" id="anamespace_s_r_datalog_1_1_a_s_t_html_a7c0be4b2d9320d4a4a76e8256b917823"><div class="ttname"><a href="../../db/dde/namespace_s_r_datalog_1_1_a_s_t.html#a7c0be4b2d9320d4a4a76e8256b917823">SRDatalog::AST::Database</a></div><div class="ttdeci">std::tuple&lt; Schemas... &gt; Database</div><div class="ttdef"><b>Definition</b> ast.h:540</div></div>
+<div class="ttc" id="anamespace_s_r_datalog_html"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a></div><div class="ttdef"><b>Definition</b> ast.h:55</div></div>
+<div class="ttc" id="anamespace_s_r_datalog_html_a199862a46af3476f5c3f54fe56e4750c"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html#a199862a46af3476f5c3f54fe56e4750c">SRDatalog::print_relation</a></div><div class="ttdeci">void print_relation(DB &amp;runtime_db, std::ostream &amp;os=std::cout, std::size_t n=10)</div><div class="ttdoc">Print the contents of a relation in the runtime database.</div><div class="ttdef"><b>Definition</b> runtime.h:763</div></div>
+<div class="ttc" id="anamespace_s_r_datalog_html_a92a4b0f2b8e2135ea77cc61acae1b95c"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html#a92a4b0f2b8e2135ea77cc61acae1b95c">SRDatalog::execute_mir_plan</a></div><div class="ttdeci">void execute_mir_plan(DB &amp;runtime_db)</div><div class="ttdoc">Executes a pre-compiled MIR plan.</div><div class="ttdef"><b>Definition</b> runtime.h:726</div></div>
+<div class="ttc" id="anamespace_s_r_datalog_html_abddd4b71e5fb3682986014326a3c3215"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html#abddd4b71e5fb3682986014326a3c3215">SRDatalog::add_fact</a></div><div class="ttdeci">void add_fact(DB &amp;runtime_db, const auto &amp;&amp;semiring_val, Values... values)</div><div class="ttdoc">Add a fact to a relation in the runtime database.</div><div class="ttdef"><b>Definition</b> runtime.h:747</div></div>
 <div class="ttc" id="aquery_8h_html"><div class="ttname"><a href="../../dd/d6e/query_8h.html">query.h</a></div><div class="ttdoc">Query compilation and index management for Datalog programs.</div></div>
 <div class="ttc" id="aruntime_8h_html"><div class="ttname"><a href="../../d3/d51/runtime_8h.html">runtime.h</a></div><div class="ttdoc">Runtime execution engine for MIR (Mid-level Intermediate Representation).</div></div>
 <div class="ttc" id="asemiring_8h_html"><div class="ttname"><a href="../../d7/d69/semiring_8h.html">semiring.h</a></div></div>
-<div class="ttc" id="astruct_boolean_s_r_html_ae8937af654349fe6098cc9a42a85e98f"><div class="ttname"><a href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a></div><div class="ttdeci">static constexpr value_type one() noexcept</div><div class="ttdef"><b>Definition</b> semiring.h:52</div></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_clause_html"><div class="ttname"><a href="../../d4/dbf/struct_s_r_datalog_1_1_a_s_t_1_1_clause.html">SRDatalog::AST::Clause</a></div><div class="ttdef"><b>Definition</b> ast.h:297</div></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_join_plan_html"><div class="ttname"><a href="../../d4/d58/struct_s_r_datalog_1_1_a_s_t_1_1_join_plan.html">SRDatalog::AST::JoinPlan</a></div><div class="ttdef"><b>Definition</b> ast.h:357</div></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_program_html"><div class="ttname"><a href="../../de/dd6/struct_s_r_datalog_1_1_a_s_t_1_1_program.html">SRDatalog::AST::Program</a></div><div class="ttdef"><b>Definition</b> ast.h:540</div></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_relation_schema_html"><div class="ttname"><a href="../../d0/d70/struct_s_r_datalog_1_1_a_s_t_1_1_relation_schema.html">SRDatalog::AST::RelationSchema</a></div><div class="ttdef"><b>Definition</b> ast.h:144</div></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_semi_naive_database_html"><div class="ttname"><a href="../../d2/d05/struct_s_r_datalog_1_1_a_s_t_1_1_semi_naive_database.html">SRDatalog::AST::SemiNaiveDatabase</a></div><div class="ttdoc">Runtime database structure for semi-naive evaluation.</div><div class="ttdef"><b>Definition</b> ast.h:1003</div></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_var_html"><div class="ttname"><a href="../../dc/dd9/struct_s_r_datalog_1_1_a_s_t_1_1_var.html">SRDatalog::AST::Var</a></div><div class="ttdef"><b>Definition</b> ast.h:189</div></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_all_indices_from_program_html"><div class="ttname"><a href="../../dd/d24/struct_s_r_datalog_1_1_all_indices_from_program.html">SRDatalog::AllIndicesFromProgram</a></div><div class="ttdoc">Computes and builds all indexes required by a Program.</div><div class="ttdef"><b>Definition</b> query.h:514</div></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_compile_rule_to_m_i_r_html"><div class="ttname"><a href="../../d8/df6/struct_s_r_datalog_1_1_compile_rule_to_m_i_r.html">SRDatalog::CompileRuleToMIR</a></div><div class="ttdoc">Compiles a complete Rule ADT into MIR operations.</div><div class="ttdef"><b>Definition</b> query.h:830</div></div>
+<div class="ttc" id="astruct_boolean_s_r_html_ae8937af654349fe6098cc9a42a85e98f"><div class="ttname"><a href="../../d8/dcb/struct_boolean_s_r.html#ae8937af654349fe6098cc9a42a85e98f">BooleanSR::one</a></div><div class="ttdeci">static constexpr value_type one() noexcept</div><div class="ttdef"><b>Definition</b> semiring.h:60</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_clause_html"><div class="ttname"><a href="../../d4/dbf/struct_s_r_datalog_1_1_a_s_t_1_1_clause.html">SRDatalog::AST::Clause</a></div><div class="ttdef"><b>Definition</b> ast.h:324</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_join_plan_html"><div class="ttname"><a href="../../d4/d58/struct_s_r_datalog_1_1_a_s_t_1_1_join_plan.html">SRDatalog::AST::JoinPlan</a></div><div class="ttdef"><b>Definition</b> ast.h:387</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_program_html"><div class="ttname"><a href="../../de/dd6/struct_s_r_datalog_1_1_a_s_t_1_1_program.html">SRDatalog::AST::Program</a></div><div class="ttdef"><b>Definition</b> ast.h:570</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_relation_schema_html"><div class="ttname"><a href="../../d0/d70/struct_s_r_datalog_1_1_a_s_t_1_1_relation_schema.html">SRDatalog::AST::RelationSchema</a></div><div class="ttdef"><b>Definition</b> ast.h:151</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_semi_naive_database_html"><div class="ttname"><a href="../../d2/d05/struct_s_r_datalog_1_1_a_s_t_1_1_semi_naive_database.html">SRDatalog::AST::SemiNaiveDatabase</a></div><div class="ttdoc">Runtime database structure for semi-naive evaluation.</div><div class="ttdef"><b>Definition</b> ast.h:1054</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_var_html"><div class="ttname"><a href="../../dc/dd9/struct_s_r_datalog_1_1_a_s_t_1_1_var.html">SRDatalog::AST::Var</a></div><div class="ttdef"><b>Definition</b> ast.h:192</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1_all_indices_from_program_html"><div class="ttname"><a href="../../dd/d24/struct_s_r_datalog_1_1_all_indices_from_program.html">SRDatalog::AllIndicesFromProgram</a></div><div class="ttdoc">Computes and builds all indexes required by a Program.</div><div class="ttdef"><b>Definition</b> query.h:521</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1_compile_rule_to_m_i_r_html"><div class="ttname"><a href="../../d8/df6/struct_s_r_datalog_1_1_compile_rule_to_m_i_r.html">SRDatalog::CompileRuleToMIR</a></div><div class="ttdoc">Compiles a complete Rule ADT into MIR operations.</div><div class="ttdef"><b>Definition</b> query.h:874</div></div>
 <div class="ttc" id="atest__column_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="../../da/d38/test__column_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition</b> test_column.cpp:155</div></div>
+</div><!-- fragment --><p><b>Example with If and Let Clauses (C++ API):</b></p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../db/df0/ast_8h.html">ast.h</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d6e/query_8h.html">query.h</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d51/runtime_8h.html">runtime.h</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d69/semiring_8h.html">semiring.h</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="../../da/d38/test__column_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
+<div class="line">  <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a>;</div>
+<div class="line">  <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d0/d68/namespace_s_r_datalog_1_1_a_s_t_1_1_literals.html">SRDatalog::AST::Literals</a>;</div>
+<div class="line">  <span class="keyword">using </span>SR = <a class="code hl_struct" href="../../d8/dcb/struct_boolean_s_r.html">BooleanSR</a>;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Define schemas</span></div>
+<div class="line">  <span class="keyword">using </span>RelationR = <a class="code hl_struct" href="../../d0/d70/struct_s_r_datalog_1_1_a_s_t_1_1_relation_schema.html">AST::RelationSchema</a>&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;R&quot;</span>_s), SR, std::tuple&lt;int, int&gt;&gt;;</div>
+<div class="line">  <span class="keyword">using </span>RelationZ = <a class="code hl_struct" href="../../d0/d70/struct_s_r_datalog_1_1_a_s_t_1_1_relation_schema.html">AST::RelationSchema</a>&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;Z&quot;</span>_s), SR, std::tuple&lt;int, int, int&gt;&gt;;</div>
+<div class="line">  <span class="keyword">using </span>MyDB = <a class="code hl_typedef" href="../../db/dde/namespace_s_r_datalog_1_1_a_s_t.html#a7c0be4b2d9320d4a4a76e8256b917823">AST::Database&lt;RelationR, RelationZ&gt;</a>;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">using </span>x_ = <a class="code hl_struct" href="../../dc/dd9/struct_s_r_datalog_1_1_a_s_t_1_1_var.html">AST::Var</a>&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;x&quot;</span>_s)&gt;;</div>
+<div class="line">  <span class="keyword">using </span>y_ = <a class="code hl_struct" href="../../dc/dd9/struct_s_r_datalog_1_1_a_s_t_1_1_var.html">AST::Var</a>&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;y&quot;</span>_s)&gt;;</div>
+<div class="line">  <span class="keyword">using </span>sum_ = <a class="code hl_struct" href="../../dc/dd9/struct_s_r_datalog_1_1_a_s_t_1_1_var.html">AST::Var</a>&lt;<span class="keyword">decltype</span>(<span class="stringliteral">&quot;sum&quot;</span>_s)&gt;;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Rule with let clause: Z(x, y, sum) :- R(x, y), sum = x + y</span></div>
+<div class="line">  <span class="keyword">using </span>LetRule = AST::Rule&lt;</div>
+<div class="line">      std::tuple&lt;AST::Clause&lt;RelationZ, NEW_VER, x_, y_, sum_&gt;&gt;,</div>
+<div class="line">      std::tuple&lt;</div>
+<div class="line">          <a class="code hl_struct" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s_t_1_1_clause.html">AST::Clause&lt;RelationR, FULL_VER, x_, y_&gt;</a>,</div>
+<div class="line">          <a class="code hl_struct" href="../../d9/d11/struct_s_r_datalog_1_1_a_s_t_1_1_let_clause.html">AST::LetClause</a>&lt;sum_,</div>
+<div class="line">              <a class="code hl_struct" href="../../d6/d11/struct_s_r_datalog_1_1_a_s_t_1_1_cpp_expr.html">AST::CppExpr&lt;std::tuple&lt;x_, y_&gt;</a>,</div>
+<div class="line">                  [](<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y) { <span class="keywordflow">return</span> x + y; }&gt;&gt;&gt;,</div>
+<div class="line">      <a class="code hl_struct" href="../../d4/d58/struct_s_r_datalog_1_1_a_s_t_1_1_join_plan.html">AST::JoinPlan&lt;std::tuple&lt;x_, y_, sum_&gt;</a>&gt;&gt;;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Rule with if clause: Z(x, y, z) :- R(x, y), S(y, z), x % 2 == 0</span></div>
+<div class="line">  <span class="keyword">using </span>IfRule = AST::Rule&lt;</div>
+<div class="line">      std::tuple&lt;AST::Clause&lt;RelationZ, NEW_VER, x_, y_, y_&gt;&gt;,</div>
+<div class="line">      std::tuple&lt;</div>
+<div class="line">          <a class="code hl_struct" href="../../d4/dbf/struct_s_r_datalog_1_1_a_s_t_1_1_clause.html">AST::Clause&lt;RelationR, FULL_VER, x_, y_&gt;</a>,</div>
+<div class="line">          AST::IfClause&lt;AST::CppExpr&lt;std::tuple&lt;x_&gt;,</div>
+<div class="line">              [](<span class="keywordtype">int</span> x) { <span class="keywordflow">return</span> x % 2 == 0; }&gt;&gt;&gt;,</div>
+<div class="line">      <a class="code hl_struct" href="../../d4/d58/struct_s_r_datalog_1_1_a_s_t_1_1_join_plan.html">AST::JoinPlan&lt;std::tuple&lt;x_, y_&gt;</a>&gt;&gt;;</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_struct" href="../../d2/d05/struct_s_r_datalog_1_1_a_s_t_1_1_semi_naive_database.html">SemiNaiveDatabase&lt;MyDB&gt;</a> db;</div>
+<div class="line">  <span class="comment">// ... add facts and execute rules ...</span></div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_cpp_expr_html"><div class="ttname"><a href="../../d6/d11/struct_s_r_datalog_1_1_a_s_t_1_1_cpp_expr.html">SRDatalog::AST::CppExpr</a></div><div class="ttdef"><b>Definition</b> ast.h:235</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_let_clause_html"><div class="ttname"><a href="../../d9/d11/struct_s_r_datalog_1_1_a_s_t_1_1_let_clause.html">SRDatalog::AST::LetClause</a></div><div class="ttdef"><b>Definition</b> ast.h:357</div></div>
 </div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
 Example Usage of the Nim DSL</h2>
-<p>The project includes two example programs in <span class="tt">src/example/</span>:</p>
+<p>The project includes example programs in <span class="tt">src/example/</span>:</p>
 <ol type="1">
 <li><b>Triangle Query</b> (<span class="tt">triangle.nim</span>): A non-recursive join query that finds triangles in a graph</li>
 <li><b>Transitive Closure</b> (<span class="tt">tc.nim</span>): A recursive fixpoint query that computes reachability</li>
+<li><b>If Clause Example</b> (<span class="tt">ift.nim</span>): Demonstrates conditional filtering using if clauses</li>
+<li><b>Let Clause Example</b> (<span class="tt">lett.nim</span>): Demonstrates computed values using let clauses</li>
 </ol>
 <p><b>Triangle Query Example:</b></p>
-<p>This example demonstrates non-recursive rules with multi-way joins:</p>
+<p>This example demonstrates non-recursive rules with multi-way joins and schema usage:</p>
 <div class="fragment"><div class="line">import srdatalog/lang</div>
 <div class="line"> </div>
 <div class="line">srdatalog_prelude()</div>
 <div class="line"> </div>
+<div class="line">schema TriangleDBBlueprint:</div>
+<div class="line">  RRel: Relation[int, int]</div>
+<div class="line">  SRel: Relation[int, int, int]</div>
+<div class="line">  TRel: Relation[int, int, int]</div>
+<div class="line">  ZRel: Relation[int, int, int]</div>
+<div class="line"> </div>
 <div class="line">{.push stackTrace:off.}</div>
 <div class="line">proc runDatalog() =</div>
-<div class="line">  datalog_db TriangleDBBlueprint:</div>
-<div class="line">    RRel: Relation[int, int]</div>
-<div class="line">    SRel: Relation[int, int, int]</div>
-<div class="line">    TRel: Relation[int, int, int]</div>
-<div class="line">    ZRel: Relation[int, int, int]</div>
-<div class="line">  none_recursive_rule TriangleNonIter:</div>
+<div class="line">  datalog_db(TriangleDBBlueprint, TriangleDBBlueprintCode())</div>
+<div class="line">  none_recursive_rule TriangleNonIter, TriangleDBBlueprintCode():</div>
 <div class="line">    [{(ZRel x y z)} &lt;--</div>
 <div class="line">      {(RRel x y) (SRel y z h) (TRel z x f)}</div>
 <div class="line">    ] {. name: Triangle order: [x, y, z] .}</div>
@@ -561,21 +613,23 @@ Example Usage of the Nim DSL</h2>
 <div class="line">  &quot;&quot;&quot; .}</div>
 <div class="line">{.pop.}</div>
 </div><!-- fragment --><p><b>Transitive Closure Example:</b></p>
-<p>This example demonstrates recursive fixpoint rules for computing reachability:</p>
+<p>This example demonstrates recursive fixpoint rules for computing reachability with schema usage:</p>
 <div class="fragment"><div class="line">import srdatalog/lang</div>
 <div class="line"> </div>
 <div class="line">srdatalog_prelude()</div>
 <div class="line"> </div>
+<div class="line">schema TCDBBlueprint:</div>
+<div class="line">  Edge: Relation[int, int]</div>
+<div class="line">  Path: Relation[int, int]</div>
+<div class="line"> </div>
 <div class="line">{.push stackTrace: off.}</div>
 <div class="line">proc runTC() =</div>
-<div class="line">  datalog_db TCDBBlueprint:</div>
-<div class="line">    Edge: Relation[int, int]</div>
-<div class="line">    Path: Relation[int, int]</div>
+<div class="line">  datalog_db(TCDBBlueprint, TCDBBlueprintCode())</div>
 <div class="line">  # Base case: direct edges are paths</div>
-<div class="line">  none_recursive_rule TCBaseSet:</div>
+<div class="line">  none_recursive_rule TCBaseSet, TCDBBlueprintCode():</div>
 <div class="line">    [{(Path x y)} &lt;-- {(Edge x y)}] {.name: TCBase, order: [x, y].}</div>
 <div class="line">  # Recursive case: transitive closure</div>
-<div class="line">  fixpoint_rule TCFixpointSet:</div>
+<div class="line">  fixpoint_rule TCFixpointSet, TCDBBlueprintCode():</div>
 <div class="line">    [{(Path x z)} &lt;-- {(Path x y) (Edge y z)}] {.name: TCTransitive, order: [y, x, z].}</div>
 <div class="line">  var arena_full = newArena()</div>
 <div class="line">  var arena_delta = newArena()</div>
@@ -600,7 +654,55 @@ Example Usage of the Nim DSL</h2>
 <li><b>Recursive case rule</b>: Uses <span class="tt">fixpoint_rule</span> to iteratively compute transitive paths</li>
 <li><b>Semi-naive evaluation</b>: The fixpoint rule automatically generates variants that use <span class="tt"><a class="el" href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a></span> for incremental computation</li>
 </ul>
-<p>Both examples can be run via the main <span class="tt">srdatalog</span> binary: </p><div class="fragment"><div class="line">./srdatalog</div>
+<p><b>If Clause Example:</b></p>
+<p>This example demonstrates conditional filtering using if clauses:</p>
+<div class="fragment"><div class="line">import srdatalog/lang</div>
+<div class="line"> </div>
+<div class="line">srdatalog_prelude()</div>
+<div class="line"> </div>
+<div class="line">schema IfTestDBBlueprint:</div>
+<div class="line">  RRel: Relation[int, int]</div>
+<div class="line">  SRel: Relation[int, int, int]</div>
+<div class="line">  TRel: Relation[int, int, int]</div>
+<div class="line">  ZRel: Relation[int, int, int]</div>
+<div class="line"> </div>
+<div class="line">{.push stackTrace: off.}</div>
+<div class="line">proc runIfTest() =</div>
+<div class="line">  datalog_db(IfTestDBBlueprint, IfTestDBBlueprintCode())</div>
+<div class="line">  none_recursive_rule IfTestRule, IfTestDBBlueprintCode():</div>
+<div class="line">    [{(ZRel x y z)} &lt;--</div>
+<div class="line">      {</div>
+<div class="line">        (RRel x y),</div>
+<div class="line">        (SRel y z h),</div>
+<div class="line">        (TRel z x f),</div>
+<div class="line">        (?(x) {.cpp &quot;&quot;&quot;return x % 2 == 0;&quot;&quot;&quot;.})  # Filter: only even x values</div>
+<div class="line">      }</div>
+<div class="line">    ] {.name: IfTest, order: [x, y, z].}</div>
+<div class="line">  # ... database setup and execution ...</div>
+<div class="line">{.pop.}</div>
+</div><!-- fragment --><p>The if clause <span class="tt">(?(x) {.cpp """return x % 2 == 0;""".})</span> filters tuples to keep only those where <span class="tt">x</span> is even.</p>
+<p><b>Let Clause Example:</b></p>
+<p>This example demonstrates computed values using let clauses:</p>
+<div class="fragment"><div class="line">import srdatalog/lang</div>
+<div class="line"> </div>
+<div class="line">srdatalog_prelude()</div>
+<div class="line"> </div>
+<div class="line">schema LetTestDBBlueprint:</div>
+<div class="line">  RRel: Relation[int, int]</div>
+<div class="line">  ZRel: Relation[int, int, int]</div>
+<div class="line"> </div>
+<div class="line">{.push stackTrace: off.}</div>
+<div class="line">proc runLetTest() =</div>
+<div class="line">  datalog_db(LetTestDBBlueprint, LetTestDBBlueprintCode())</div>
+<div class="line">  none_recursive_rule LetTestRule, LetTestDBBlueprintCode():</div>
+<div class="line">    [{(ZRel x y sum)} &lt;-- {</div>
+<div class="line">      (RRel x y),</div>
+<div class="line">      (sum = (x, y) -&gt; int {.cpp &quot;&quot;&quot;return x + y;&quot;&quot;&quot;.})  # Compute sum</div>
+<div class="line">    }] {.name: LetTest, order: [x, y, sum].}</div>
+<div class="line">  # ... database setup and execution ...</div>
+<div class="line">{.pop.}</div>
+</div><!-- fragment --><p>The let clause <span class="tt">(sum = (x, y) -&gt; int {.cpp """return x + y;""".})</span> introduces a new variable <span class="tt">sum</span> bound to the sum of <span class="tt">x</span> and <span class="tt">y</span>, which is then used in the rule head.</p>
+<p>All examples can be run via the main <span class="tt">srdatalog</span> binary: </p><div class="fragment"><div class="line">./srdatalog</div>
 <div class="line"># or</div>
 <div class="line">xmake run test_nim</div>
 </div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
@@ -610,12 +712,61 @@ DSL Syntax Primer</h2>
 <p>The DSL macros live under <span class="tt">src/srdatalog/syntax.nim</span> (parsing) and <span class="tt">src/srdatalog/codegen.nim</span> (C++ emission). At compile-time they lower Nim syntax to the TMP types in <span class="tt">generalized_datalog/</span>. Core forms:</p>
 <ul>
 <li><span class="tt">srdatalog_prelude()</span> injects the required C++ headers and namespace setup so later <span class="tt">emit</span> blocks compile cleanly.</li>
-<li><span class="tt">datalog_db &lt;BlueprintName&gt;:</span> introduces relation declarations. Use <span class="tt"><a class="el" href="../../d3/dc1/class_relation.html">Relation</a>[T1, T2, ...]</span> to create a schema backed by the default <span class="tt"><a class="el" href="../../d8/dcb/struct_boolean_s_r.html">BooleanSR</a></span> semiring, or <span class="tt"><a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a>[T1, ..., CustomSR]</span> when you need a different semiring as the final type argument.</li>
-<li><span class="tt">none_recursive_rule &lt;Alias&gt;:</span> describes a non-recursive rule set. Inside the bracket you write <span class="tt">{(Head ...) ...} &lt;-- {(Body ...) ...}</span> with an attached pragma block <span class="tt">{. name: RuleId order: [x, y, ...] .}</span>. Each head/body tuple is a parenthesised relation call; identifiers become logical variables, while <span class="tt">($"...")</span> embeds raw C++ expressions for constants.</li>
-<li><span class="tt">fixpoint_rule &lt;Alias&gt;:</span> describes a recursive rule set that computes a fixpoint. The syntax is identical to <span class="tt">none_recursive_rule</span>, but the head relation may appear in the body. The macro automatically generates rule variants for semi-naive evaluation, using <span class="tt"><a class="el" href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a></span> for incremental relations in the body and <span class="tt"><a class="el" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a></span> for others. This enables efficient iterative computation until convergence.</li>
-<li><span class="tt">edb &lt;DbSymbol&gt;:</span> emits facts. Every tuple is <span class="tt">(&lt;<a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&gt; ($"SemiringExpr") ($"col1") ...)</span> which expands to <span class="tt">add_fact&lt;<a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&gt;(DbSymbol, ...)</span> in the generated C++.</li>
+<li><span class="tt">schema &lt;SchemaName&gt;:</span> defines a reusable database schema that can be shared across modules and macros. This macro converts the database declarations into a string template that can be passed to other macros. The schema creates a template named <span class="tt">&lt;SchemaName&gt;Code()</span> that returns the declarations as a string, enabling code sharing across module boundaries.</li>
+<li><span class="tt">datalog_db(&lt;BlueprintName&gt;, &lt;SchemaCode&gt;):</span> introduces relation declarations. The first parameter is the database blueprint name, and the second is the schema code (typically from <span class="tt">schema</span> macro via <span class="tt">&lt;SchemaName&gt;Code()</span>). Use <span class="tt">Relation[T1, T2, ...]</span> to create a schema backed by the default <span class="tt"><a class="el" href="../../d8/dcb/struct_boolean_s_r.html">BooleanSR</a></span> semiring, or <span class="tt"><a class="el" href="../../d9/d96/concept_semiring.html" title="Concept defining the interface for semiring types.">Semiring</a>[T1, ..., CustomSR]</span> when you need a different semiring as the final type argument.</li>
+<li><span class="tt">none_recursive_rule &lt;Alias&gt;, &lt;SchemaCode&gt;:</span> describes a non-recursive rule set. The second parameter is the schema code (typically from <span class="tt">schema</span> macro). Inside the bracket you write <span class="tt">{(Head ...) ...} &lt;-- {(Body ...) ...}</span> with an attached pragma block <span class="tt">{. name: RuleId order: [x, y, ...] .}</span>. Each head/body tuple is a parenthesised relation call; identifiers become logical variables, while <span class="tt">($"...")</span> embeds raw C++ expressions for constants.</li>
+<li><span class="tt">fixpoint_rule &lt;Alias&gt;, &lt;SchemaCode&gt;:</span> describes a recursive rule set that computes a fixpoint. The second parameter is the schema code (typically from <span class="tt">schema</span> macro). The syntax is identical to <span class="tt">none_recursive_rule</span>, but the head relation may appear in the body. The macro automatically generates rule variants for semi-naive evaluation, using <span class="tt"><a class="el" href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a></span> for incremental relations in the body and <span class="tt"><a class="el" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a></span> for others. This enables efficient iterative computation until convergence.</li>
+<li><span class="tt">edb &lt;DbSymbol&gt;:</span> emits facts. Every tuple is <span class="tt">(&lt;Relation&gt; ($"SemiringExpr") ($"col1") ...)</span> which expands to <span class="tt">add_fact&lt;Relation&gt;(DbSymbol, ...)</span> in the generated C++.</li>
 </ul>
-<p>When expanded, these constructs generate aliases such as <span class="tt">AST::RelationSchema</span>, <span class="tt">AST::Rule</span>, <span class="tt">AST::NonIterativeRuleSets</span>, <span class="tt">AST::Fixpoint</span>, and the corresponding MIR types, matching what you would otherwise write by hand in C++. Refer to the examples above or the implementation files for additional forms (guards <span class="tt">?(...)</span> and <span class="tt">:=</span> bindings are parsed but still experimental). </p>
+<p><b>If and Let Clauses: Conditional Filtering and Computed Values</b></p>
+<p><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a> supports two advanced clause types for more expressive rules:</p>
+<ul>
+<li><b>If Clauses</b> (<span class="tt">?(vars...) {.cpp """code""".}</span>): Conditional filtering that allows you to filter tuples based on arbitrary C++ expressions. The expression receives the bound variables as arguments and must return a boolean value. Only tuples where the expression evaluates to <span class="tt">true</span> are kept.</li>
+<li><b>Let Clauses</b> (<span class="tt">var = (vars...) -&gt; Type {.cpp """code""".}</span>): Computed values that introduce new variables bound to the result of a C++ expression. The expression can reference previously bound variables and must return a value of the specified type. The new variable can then be used in subsequent clauses or in the rule head.</li>
+</ul>
+<p><b>If Clause Syntax:</b> </p><div class="fragment"><div class="line">none_recursive_rule MyRule, MyDBCode():</div>
+<div class="line">  [{(ZRel x y z)} &lt;-- {</div>
+<div class="line">    (RRel x y),</div>
+<div class="line">    (SRel y z h),</div>
+<div class="line">    (TRel z x f),</div>
+<div class="line">    (?(x) {.cpp &quot;&quot;&quot;return x % 2 == 0;&quot;&quot;&quot;.})  # Only keep tuples where x is even</div>
+<div class="line">  }] {.name: MyRule, order: [x, y, z].}</div>
+</div><!-- fragment --><p>The if clause <span class="tt">(?(x) {.cpp """return x % 2 == 0;""".})</span> filters tuples where <span class="tt">x</span> is even. The C++ code receives the bound variables as function arguments and must return a boolean.</p>
+<p><b>Let Clause Syntax:</b> </p><div class="fragment"><div class="line">none_recursive_rule MyRule, MyDBCode():</div>
+<div class="line">  [{(ZRel x y sum)} &lt;-- {</div>
+<div class="line">    (RRel x y),</div>
+<div class="line">    (sum = (x, y) -&gt; int {.cpp &quot;&quot;&quot;return x + y;&quot;&quot;&quot;.})  # Compute sum of x and y</div>
+<div class="line">  }] {.name: MyRule, order: [x, y, sum].}</div>
+</div><!-- fragment --><p>The let clause <span class="tt">(sum = (x, y) -&gt; int {.cpp """return x + y;""".})</span> introduces a new variable <span class="tt">sum</span> bound to the sum of <span class="tt">x</span> and <span class="tt">y</span>. The syntax <span class="tt">(x, y) -&gt; int</span> specifies the input variables and return type, and the C++ code computes the value.</p>
+<p><b>Combining If and Let:</b> </p><div class="fragment"><div class="line">none_recursive_rule MyRule, MyDBCode():</div>
+<div class="line">  [{(ZRel x y sum)} &lt;-- {</div>
+<div class="line">    (RRel x y),</div>
+<div class="line">    (sum = (x, y) -&gt; int {.cpp &quot;&quot;&quot;return x + y;&quot;&quot;&quot;.}),</div>
+<div class="line">    (?(sum) {.cpp &quot;&quot;&quot;return sum &gt; 10;&quot;&quot;&quot;.})  # Only keep tuples where sum &gt; 10</div>
+<div class="line">  }] {.name: MyRule, order: [x, y, sum].}</div>
+</div><!-- fragment --><p><b>Schema Feature: Sharing Code Across Modules and Macros</b></p>
+<p>The <span class="tt">schema</span> macro enables sharing database declarations across modules and macros by leveraging Nim's macro expansion order (typed/untyped). Here's how it works:</p>
+<ol type="1">
+<li><b>Schema Definition</b>: Define a schema once using <span class="tt">schema MyDB: ...</span> which creates a template <span class="tt">MyDBCode()</span> that converts the declarations into a string.</li>
+<li><b>String Conversion</b>: The schema macro uses <span class="tt">toStrLit()</span> to convert the database declarations (AST nodes) into a string representation at compile time.</li>
+<li><b>Cross-Module Sharing</b>: With Nim's expansion order (typed macros expand before untyped macros), the schema string can be passed across module boundaries and macro boundaries.</li>
+<li><b>Re-parsing</b>: Inside the implementation macros (<span class="tt">datalog_db</span>, <span class="tt">none_recursive_rule</span>, <span class="tt">fixpoint_rule</span>), the string is re-parsed using <span class="tt">parseStmt(decls_str.strVal)</span> to reconstruct the AST for code generation.</li>
+</ol>
+<p>This design allows you to:</p><ul>
+<li>Define a database schema once and reuse it across multiple rules and modules</li>
+<li>Share schema definitions between different macros that need the same relation declarations</li>
+<li>Maintain consistency across your Datalog program by having a single source of truth for the database schema</li>
+</ul>
+<p>Example: </p><div class="fragment"><div class="line">schema MyDB:</div>
+<div class="line">  Edge: Relation[int, int]</div>
+<div class="line">  Path: Relation[int, int]</div>
+<div class="line"> </div>
+<div class="line">datalog_db(MyDB, MyDBCode())</div>
+<div class="line">none_recursive_rule BaseCase, MyDBCode():</div>
+<div class="line">  [{(Path x y)} &lt;-- {(Edge x y)}] {.name: Base, order: [x, y].}</div>
+</div><!-- fragment --><p>When expanded, these constructs generate aliases such as <span class="tt">AST::RelationSchema</span>, <span class="tt">AST::Rule</span>, <span class="tt">AST::NonIterativeRuleSets</span>, <span class="tt">AST::Fixpoint</span>, <span class="tt">AST::IfClause</span>, <span class="tt">AST::LetClause</span>, and the corresponding MIR types, matching what you would otherwise write by hand in C++.</p>
+<p><b>If and Let Clause Examples:</b></p>
+<p>See the complete examples in <span class="tt">src/example/ift.nim</span> and <span class="tt">src/example/lett.nim</span> for working demonstrations of if and let clauses. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

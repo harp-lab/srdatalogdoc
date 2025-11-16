@@ -19,8 +19,13 @@ var concepts =
       [ "Encodable", "d5/de9/concept_s_r_datalog_1_1_encodable.html", null ],
       [ "Codec", "d9/dcf/concept_s_r_datalog_1_1_codec.html", null ],
       [ "ColumnElement", "d8/dbb/concept_s_r_datalog_1_1_column_element.html", null ],
+      [ "ColumnElementTuple", "d1/d8c/concept_s_r_datalog_1_1_column_element_tuple.html", null ],
+      [ "COtherClause", "dd/d59/concept_s_r_datalog_1_1_c_other_clause.html", null ],
       [ "CNodeHandle", "d6/d6e/concept_s_r_datalog_1_1_c_node_handle.html", null ],
-      [ "CIndex", "de/de9/concept_s_r_datalog_1_1_c_index.html", null ]
+      [ "CPrefix", "d9/d23/concept_s_r_datalog_1_1_c_prefix.html", null ],
+      [ "CIndex", "de/de9/concept_s_r_datalog_1_1_c_index.html", null ],
+      [ "CStateMap", "d9/db1/concept_s_r_datalog_1_1_c_state_map.html", null ],
+      [ "CStateMapBasic", "d1/de9/concept_s_r_datalog_1_1_c_state_map_basic.html", null ]
     ] ],
     [ "MpiCompatible", "d0/de5/concept_mpi_compatible.html", null ],
     [ "Semiring", "d9/d96/concept_semiring.html", null ]

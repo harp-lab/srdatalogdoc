@@ -11,7 +11,7 @@ var searchData=
   ['is_5fbound_5fvars_8',['is_bound_vars',['../dc/dde/struct_s_r_datalog_1_1_a_s_t_1_1mir_1_1is__bound__vars.html',1,'SRDatalog::AST::mir']]],
   ['is_5fbound_5fvars_3c_20boundvars_3c_20vars_2e_2e_2e_20_3e_20_3e_9',['is_bound_vars&lt; BoundVars&lt; Vars... &gt; &gt;',['../dc/d61/struct_s_r_datalog_1_1_a_s_t_1_1mir_1_1is__bound__vars_3_01_bound_vars_3_01_vars_8_8_8_01_4_01_4.html',1,'SRDatalog::AST::mir']]],
   ['is_5fcpp_5fexpr_10',['is_cpp_expr',['../db/d4b/struct_s_r_datalog_1_1_a_s_t_1_1is__cpp__expr.html',1,'SRDatalog::AST']]],
-  ['is_5fcpp_5fexpr_3c_20cppexpr_3c_20std_3a_3atuple_3c_20vars_2e_2e_2e_20_3e_2c_20func_20_3e_20_3e_11',['is_cpp_expr&lt; CppExpr&lt; std::tuple&lt; Vars... &gt;, Func &gt; &gt;',['../d4/de8/struct_s_r_datalog_1_1_a_s_t_1_1is__cpp__expr_3_01_cpp_expr_3_01std_1_1tuple_3_01_vars_8_8_8_01_4_00_01_func_01_4_01_4.html',1,'SRDatalog::AST']]],
+  ['is_5fcpp_5fexpr_3c_20cppexpr_3c_20std_3a_3atuple_3c_20vars_2e_2e_2e_20_3e_2c_20func_20_3e_20_3e_11',['is_cpp_expr&lt; CppExpr&lt; std::tuple&lt; Vars... &gt;, func &gt; &gt;',['../dc/d1e/struct_s_r_datalog_1_1_a_s_t_1_1is__cpp__expr_3_01_cpp_expr_3_01std_1_1tuple_3_01_vars_8_8_8_01_4_00_01func_01_4_01_4.html',1,'SRDatalog::AST']]],
   ['is_5fdatabase_12',['is_database',['../d4/d8a/struct_s_r_datalog_1_1_a_s_t_1_1is__database.html',1,'SRDatalog::AST']]],
   ['is_5fdatabase_3c_20database_3c_20schemas_2e_2e_2e_20_3e_20_3e_13',['is_database&lt; Database&lt; Schemas... &gt; &gt;',['../db/db2/struct_s_r_datalog_1_1_a_s_t_1_1is__database_3_01_database_3_01_schemas_8_8_8_01_4_01_4.html',1,'SRDatalog::AST']]],
   ['is_5findex_14',['is_index',['../da/d1f/struct_s_r_datalog_1_1is__index.html',1,'SRDatalog']]],
@@ -33,5 +33,5 @@ var searchData=
   ['is_5fmpi_5fdirect_5fmappable_3c_20std_3a_3auint8_5ft_20_3e_30',['is_mpi_direct_mappable&lt; std::uint8_t &gt;',['../d8/de1/structis__mpi__direct__mappable_3_01std_1_1uint8__t_01_4.html',1,'']]],
   ['is_5fnode_5fhandle_31',['is_node_handle',['../d0/da3/struct_s_r_datalog_1_1is__node__handle.html',1,'SRDatalog']]],
   ['is_5frelation_5fref_32',['is_relation_ref',['../df/d0f/struct_s_r_datalog_1_1detail_1_1is__relation__ref.html',1,'SRDatalog::detail']]],
-  ['is_5frelation_5fref_3c_20relation_3c_20sr_2c_20attrs_2e_2e_2e_20_3e_20_26_20_3e_33',['is_relation_ref&lt; Relation&lt; SR, Attrs... &gt; &amp; &gt;',['../d8/d08/struct_s_r_datalog_1_1detail_1_1is__relation__ref_3_01_relation_3_01_s_r_00_01_attrs_8_8_8_01_4_01_6_01_4.html',1,'SRDatalog::detail']]]
+  ['is_5frelation_5fref_3c_20relation_3c_20sr_2c_20attrtuple_20_3e_20_26_20_3e_33',['is_relation_ref&lt; Relation&lt; SR, AttrTuple &gt; &amp; &gt;',['../d9/dc7/struct_s_r_datalog_1_1detail_1_1is__relation__ref_3_01_relation_3_01_s_r_00_01_attr_tuple_01_4_01_6_01_4.html',1,'SRDatalog::detail']]]
 ];

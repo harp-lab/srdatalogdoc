@@ -1,2 +1,3 @@
 nimTitle	tc	example/tc.html	module src/example/tc		0
-nim	runTC	example/tc.html#runTC	proc runTC()		6
+nim	TCDBBlueprintCode	example/tc.html#TCDBBlueprintCode.t	template TCDBBlueprintCode(): untyped		4
+nim	runTC	example/tc.html#runTC	proc runTC()		11

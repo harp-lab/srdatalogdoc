@@ -101,14 +101,32 @@ $(function(){initNavTree('dd/dc6/struct_s_r_datalog_1_1_a_s_t_1_1_get_clause_var
 Public Types</h2></td></tr>
 <tr class="memitem:a00d53c2c7aca4e041370d3a49d9494ec" id="r_a00d53c2c7aca4e041370d3a49d9494ec"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00d53c2c7aca4e041370d3a49d9494ec">type</a></td></tr>
 <tr class="memitem:a5aef9736bcd3f65ea82183d06d0581ef" id="r_a5aef9736bcd3f65ea82183d06d0581ef"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5aef9736bcd3f65ea82183d06d0581ef">type</a> = typename <a class="el" href="../../d4/d47/struct_s_r_datalog_1_1_a_s_t_1_1_get_let_clause_vars.html">GetLetClauseVars</a>&lt;C&gt;::type</td></tr>
+<tr class="memitem:a596c8979c20a34eabdccf6e75d850b24" id="r_a596c8979c20a34eabdccf6e75d850b24"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a596c8979c20a34eabdccf6e75d850b24">type</a> = typename <a class="el" href="../../d3/d6c/struct_s_r_datalog_1_1_a_s_t_1_1_get_if_clause_vars.html">GetIfClauseVars</a>&lt;C&gt;::type</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;CNormalClause C&gt;<br />
 struct SRDatalog::AST::GetClauseVars&lt; C &gt;</div><p>Specialization for normal clauses: extracts vars from terms. </p>
+<p>Specialization for if clauses: uses IfClause-specific extraction.</p>
 <p>Specialization for let clauses: uses LetClause-specific extraction. </p>
 </div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a596c8979c20a34eabdccf6e75d850b24" name="a596c8979c20a34eabdccf6e75d850b24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a596c8979c20a34eabdccf6e75d850b24">&#9670;&#160;</a></span>type <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CNormalClause C&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../da/dea/struct_s_r_datalog_1_1_a_s_t_1_1_get_clause_vars.html">SRDatalog::AST::GetClauseVars</a>&lt; C &gt;::type = typename <a class="el" href="../../d3/d6c/struct_s_r_datalog_1_1_a_s_t_1_1_get_if_clause_vars.html">GetIfClauseVars</a>&lt;C&gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5aef9736bcd3f65ea82183d06d0581ef" name="a5aef9736bcd3f65ea82183d06d0581ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5aef9736bcd3f65ea82183d06d0581ef">&#9670;&#160;</a></span>type <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5aef9736bcd3f65ea82183d06d0581ef">&#9670;&#160;</a></span>type <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,7 +142,7 @@ template&lt;CNormalClause C&gt; </div>
 </div>
 </div>
 <a id="a00d53c2c7aca4e041370d3a49d9494ec" name="a00d53c2c7aca4e041370d3a49d9494ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00d53c2c7aca4e041370d3a49d9494ec">&#9670;&#160;</a></span>type <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a00d53c2c7aca4e041370d3a49d9494ec">&#9670;&#160;</a></span>type <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -137,9 +155,9 @@ template&lt;CNormalClause C&gt; </div>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line"> </div>
-<div class="line">      <span class="keyword">typename</span> <a class="code hl_struct" href="../../dd/d28/struct_s_r_datalog_1_1_a_s_t_1_1_get_vars_from_terms.html">GetVarsFromTerms&lt;typename GetNormalClauseTerms&lt;C&gt;::type</a>&gt;<a class="code hl_typedef" href="#a00d53c2c7aca4e041370d3a49d9494ec">::type</a></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_get_clause_vars_3_01_c_01_4_html_a00d53c2c7aca4e041370d3a49d9494ec"><div class="ttname"><a href="#a00d53c2c7aca4e041370d3a49d9494ec">SRDatalog::AST::GetClauseVars&lt; C &gt;::type</a></div><div class="ttdeci">typename GetVarsFromTerms&lt; typename GetNormalClauseTerms&lt; C &gt;::type &gt;::type type</div><div class="ttdef"><b>Definition</b> ast.h:743</div></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_get_vars_from_terms_html"><div class="ttname"><a href="../../dd/d28/struct_s_r_datalog_1_1_a_s_t_1_1_get_vars_from_terms.html">SRDatalog::AST::GetVarsFromTerms</a></div><div class="ttdoc">Template metaprogramming trait to extract all variables from a list of terms.</div><div class="ttdef"><b>Definition</b> ast.h:653</div></div>
+<div class="line">      <span class="keyword">typename</span> <a class="code hl_struct" href="../../dd/d28/struct_s_r_datalog_1_1_a_s_t_1_1_get_vars_from_terms.html">GetVarsFromTerms&lt;typename GetNormalClauseTerms&lt;C&gt;::type</a>&gt;<a class="code hl_typedef" href="../../d5/d55/struct_s_r_datalog_1_1_find_normal_clauses_with_var_3_01_var_00_01std_1_1tuple_3_01_head_00_01_tail_8_8_8_01_4_01_4.html#a28efd4842ee094f83b6f7c25504e3f60">::type</a></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1_a_s_t_1_1_get_vars_from_terms_html"><div class="ttname"><a href="../../dd/d28/struct_s_r_datalog_1_1_a_s_t_1_1_get_vars_from_terms.html">SRDatalog::AST::GetVarsFromTerms</a></div><div class="ttdoc">Template metaprogramming trait to extract all variables from a list of terms.</div><div class="ttdef"><b>Definition</b> ast.h:683</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1_find_normal_clauses_with_var_3_01_var_00_01std_1_1tuple_3_01_head_00_01_tail_8_8_8_01_4_01_4_html_a28efd4842ee094f83b6f7c25504e3f60"><div class="ttname"><a href="../../d5/d55/struct_s_r_datalog_1_1_find_normal_clauses_with_var_3_01_var_00_01std_1_1tuple_3_01_head_00_01_tail_8_8_8_01_4_01_4.html#a28efd4842ee094f83b6f7c25504e3f60">SRDatalog::FindNormalClausesWithVar&lt; Var, std::tuple&lt; Head, Tail... &gt; &gt;::type</a></div><div class="ttdeci">typename FindNormalClausesWithVar&lt; Var, std::tuple&lt; Tail... &gt; &gt;::type type</div><div class="ttdef"><b>Definition</b> query.h:621</div></div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -95,21 +95,22 @@ $(function(){initNavTree('d9/d6c/concept_s_r_datalog_1_1_decodable.html','../../
 <p>Concept for types that can be decoded from size_t.  
 <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d1/d25/relation__col_8h_source.html">relation_col.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dc/df8/column_8h_source.html">column.h</a>&gt;</code></p>
 <h2 id="header-conceptdef" class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../d9/d6c/concept_s_r_datalog_1_1_decodable.html">SRDatalog::Decodable</a> =  <span class="keyword">requires</span>(std::size_t encoded) {</div>
 <div class="line">  { <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#a467cc49491aa1b8875ad2094da994e22">decode_from_size_t&lt;T&gt;</a>(encoded) } -&gt; std::convertible_to&lt;T&gt;;</div>
 <div class="line">}</div>
-<div class="ttc" id="aconcept_s_r_datalog_1_1_decodable_html"><div class="ttname"><a href="../../d9/d6c/concept_s_r_datalog_1_1_decodable.html">SRDatalog::Decodable</a></div><div class="ttdoc">Concept for types that can be decoded from size_t.</div><div class="ttdef"><b>Definition</b> relation_col.h:433</div></div>
-<div class="ttc" id="anamespace_s_r_datalog_html_a467cc49491aa1b8875ad2094da994e22"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html#a467cc49491aa1b8875ad2094da994e22">SRDatalog::decode_from_size_t</a></div><div class="ttdeci">constexpr T decode_from_size_t(std::size_t encoded) noexcept</div><div class="ttdoc">Decode an integral or enum value from size_t.</div><div class="ttdef"><b>Definition</b> relation_col.h:394</div></div>
+<div class="ttc" id="aconcept_s_r_datalog_1_1_decodable_html"><div class="ttname"><a href="../../d9/d6c/concept_s_r_datalog_1_1_decodable.html">SRDatalog::Decodable</a></div><div class="ttdoc">Concept for types that can be decoded from size_t.</div><div class="ttdef"><b>Definition</b> column.h:297</div></div>
+<div class="ttc" id="anamespace_s_r_datalog_html_a467cc49491aa1b8875ad2094da994e22"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html#a467cc49491aa1b8875ad2094da994e22">SRDatalog::decode_from_size_t</a></div><div class="ttdeci">constexpr T decode_from_size_t(std::size_t encoded) noexcept</div><div class="ttdoc">Decode an integral or enum value from size_t.</div><div class="ttdef"><b>Definition</b> column.h:253</div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Concept for types that can be decoded from size_t. </p>
 <p>A type is Decodable if it provides a decode_from_size_t function that can convert a size_t back to the original type. This includes:</p><ul>
 <li>Integral types (via static_cast)</li>
 <li>Enum types (via static_cast)</li>
 <li>Floating-point types (via bit_cast)</li>
-<li>Types with DictionaryCodec (via dictionary lookup) <dl class="section see"><dt>See also</dt><dd>Encodable for the encoding concept </dd>
+<li>Types with DictionaryCodec (via dictionary lookup) <dl class="section note"><dt>Note</dt><dd><b>C++20 feature</b>: Uses C++20 concepts with <span class="tt">requires</span> expressions to check for the existence and return type of decode_from_size_t. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>Encodable for the encoding concept </dd>
 <dd>
 Codec for types that support both encoding and decoding </dd></dl>
 </li>

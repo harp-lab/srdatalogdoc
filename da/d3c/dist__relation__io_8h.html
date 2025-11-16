@@ -91,180 +91,33 @@ $(function(){initNavTree('da/d3c/dist__relation__io_8h.html','../../',''); });
   <div class="headertitle"><div class="title">dist_relation_io.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;tuple&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
+<code>#include &lt;cstring&gt;</code><br />
 <code>#include &lt;cstddef&gt;</code><br />
 <code>#include &lt;mpi.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../d1/d25/relation__col_8h_source.html">relation_col.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/d37/dist__relation__io_8ipp_source.html">dist_relation_io.ipp</a>&quot;</code><br />
 </div>
 <p><a href="../../da/d3c/dist__relation__io_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:SRDatalog" id="r_SRDatalog"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab03070777abdb6f3f49ed66315ead31f" id="r_ab03070777abdb6f3f49ed66315ead31f"><td class="memTemplParams" colspan="2">template&lt;class SR, class... AttrTs&gt; </td></tr>
-<tr class="memitem:ab03070777abdb6f3f49ed66315ead31f template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab03070777abdb6f3f49ed66315ead31f">pack_relation_rows</a> (const <a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&lt; SR, AttrTs... &gt; &amp;rel, std::vector&lt; std::size_t &gt; &amp;row_ids, std::vector&lt; std::byte &gt; &amp;buffer)</td></tr>
-<tr class="memitem:a995665f0d66a5ea797c80b0cae4c06bd" id="r_a995665f0d66a5ea797c80b0cae4c06bd"><td class="memTemplParams" colspan="2">template&lt;class SR, class... AttrTs&gt; </td></tr>
-<tr class="memitem:a995665f0d66a5ea797c80b0cae4c06bd template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a995665f0d66a5ea797c80b0cae4c06bd">unpack_relation_rows</a> (const std::vector&lt; std::byte &gt; &amp;buffer, <a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&lt; SR, AttrTs... &gt; &amp;rel, std::size_t nbytes)</td></tr>
-<tr class="memitem:abca8861b8cf52d98339e8a9b60e0f536" id="r_abca8861b8cf52d98339e8a9b60e0f536"><td class="memTemplParams" colspan="2">template&lt;class SR, class... AttrTs&gt; </td></tr>
-<tr class="memitem:abca8861b8cf52d98339e8a9b60e0f536 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abca8861b8cf52d98339e8a9b60e0f536">distribute_relation</a> (const <a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&lt; SR, AttrTs... &gt; &amp;rel, std::size_t column_idx, MPI_Comm comm=MPI_COMM_WORLD)</td></tr>
-<tr class="memdesc:abca8861b8cf52d98339e8a9b60e0f536"><td class="mdescLeft">&#160;</td><td class="mdescRight">@Brief: This function distributes the relation across the MPI ranks  <br /></td></tr>
-<tr class="memitem:a2f5690dd69280c0339cf6493e7f7fbb9" id="r_a2f5690dd69280c0339cf6493e7f7fbb9"><td class="memTemplParams" colspan="2">template&lt;class SR, class... AttrTs&gt; </td></tr>
-<tr class="memitem:a2f5690dd69280c0339cf6493e7f7fbb9 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f5690dd69280c0339cf6493e7f7fbb9">distribute_relation_rk0</a> (const <a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&lt; SR, AttrTs... &gt; &amp;rel, std::size_t column_idx, MPI_Comm comm=MPI_COMM_WORLD)</td></tr>
-<tr class="memitem:a2aa181c9d1c1f8980d4a968cab1968f2" id="r_a2aa181c9d1c1f8980d4a968cab1968f2"><td class="memTemplParams" colspan="2">template&lt;class SR, class... AttrTs&gt; </td></tr>
-<tr class="memitem:a2aa181c9d1c1f8980d4a968cab1968f2 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2aa181c9d1c1f8980d4a968cab1968f2">mpi_load_relation</a> (const char *filename, <a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&lt; SR, AttrTs... &gt; &amp;rel, std::size_t column_idx, MPI_Comm comm=MPI_COMM_WORLD)</td></tr>
+<tr class="memitem:aa3fa094b16f781ca3e6570b6315c4208" id="r_aa3fa094b16f781ca3e6570b6315c4208"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a> SR, ColumnElementTuple AttrTuple&gt; </td></tr>
+<tr class="memitem:aa3fa094b16f781ca3e6570b6315c4208 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#aa3fa094b16f781ca3e6570b6315c4208">SRDatalog::pack_relation_rows</a> (const <a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html">SRDatalog::Relation</a>&lt; SR, AttrTuple &gt; &amp;rel, const std::vector&lt; std::size_t &gt; &amp;row_ids, std::vector&lt; std::byte &gt; &amp;buffer)</td></tr>
+<tr class="memitem:aeec48a9b1ee1952e4e43fd1fe8984ec5" id="r_aeec48a9b1ee1952e4e43fd1fe8984ec5"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a> SR, ColumnElementTuple AttrTuple&gt; </td></tr>
+<tr class="memitem:aeec48a9b1ee1952e4e43fd1fe8984ec5 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#aeec48a9b1ee1952e4e43fd1fe8984ec5">SRDatalog::unpack_append_relation</a> (const std::vector&lt; std::byte &gt; &amp;buffer, <a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html">SRDatalog::Relation</a>&lt; SR, AttrTuple &gt; &amp;rel)</td></tr>
+<tr class="memitem:a40e22c1b2965bf325f7703dd78c80148" id="r_a40e22c1b2965bf325f7703dd78c80148"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a> SR, ColumnElementTuple AttrTuple&gt; </td></tr>
+<tr class="memitem:a40e22c1b2965bf325f7703dd78c80148 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#a40e22c1b2965bf325f7703dd78c80148">SRDatalog::distribute_relation</a> (const <a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html">Relation</a>&lt; SR, AttrTuple &gt; &amp;rel, std::size_t column_idx, MPI_Comm comm)</td></tr>
+<tr class="memitem:a751096d9e100062f01b2dd89c44f5b12" id="r_a751096d9e100062f01b2dd89c44f5b12"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a> SR, ColumnElementTuple AttrTuple&gt; </td></tr>
+<tr class="memitem:a751096d9e100062f01b2dd89c44f5b12 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#a751096d9e100062f01b2dd89c44f5b12">SRDatalog::distribute_relation_rk0</a> (const <a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html">Relation</a>&lt; SR, AttrTuple &gt; &amp;rel, std::size_t column_idx, MPI_Comm comm)</td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="abca8861b8cf52d98339e8a9b60e0f536" name="abca8861b8cf52d98339e8a9b60e0f536"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abca8861b8cf52d98339e8a9b60e0f536">&#9670;&#160;</a></span>distribute_relation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class SR, class... AttrTs&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void distribute_relation </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&lt; SR, AttrTs... &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>rel</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>column_idx</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">MPI_Comm</td>          <td class="paramname"><span class="paramname"><em>comm</em></span><span class="paramdefsep"> = </span><span class="paramdefval">MPI_COMM_WORLD</span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>@Brief: This function distributes the relation across the MPI ranks </p>
-
-</div>
-</div>
-<a id="a2f5690dd69280c0339cf6493e7f7fbb9" name="a2f5690dd69280c0339cf6493e7f7fbb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f5690dd69280c0339cf6493e7f7fbb9">&#9670;&#160;</a></span>distribute_relation_rk0()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class SR, class... AttrTs&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void distribute_relation_rk0 </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&lt; SR, AttrTs... &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>rel</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>column_idx</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">MPI_Comm</td>          <td class="paramname"><span class="paramname"><em>comm</em></span><span class="paramdefsep"> = </span><span class="paramdefval">MPI_COMM_WORLD</span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>@Brief: This function distributes the relation in the rank 0 to other processes compare to the distribute_relation function, this function only distributes the relation in the rank 0 to other processes </p>
-
-</div>
-</div>
-<a id="a2aa181c9d1c1f8980d4a968cab1968f2" name="a2aa181c9d1c1f8980d4a968cab1968f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2aa181c9d1c1f8980d4a968cab1968f2">&#9670;&#160;</a></span>mpi_load_relation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class SR, class... AttrTs&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void mpi_load_relation </td>
-          <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&lt; SR, AttrTs... &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>rel</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>column_idx</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">MPI_Comm</td>          <td class="paramname"><span class="paramname"><em>comm</em></span><span class="paramdefsep"> = </span><span class="paramdefval">MPI_COMM_WORLD</span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>@Brief: This function loads the relation from a file @Param: filename: The name of the file to load the relation from @Param: rel: The relation to be loaded @Param: column_idx: The index of the column to load @Detail: This function loads the relation from a file and distributes it across the MPI ranks Note: this function will directly load the relation into the ranks and don't need to called the distribute_relation function </p>
-
-</div>
-</div>
-<a id="ab03070777abdb6f3f49ed66315ead31f" name="ab03070777abdb6f3f49ed66315ead31f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab03070777abdb6f3f49ed66315ead31f">&#9670;&#160;</a></span>pack_relation_rows()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class SR, class... AttrTs&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void pack_relation_rows </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&lt; SR, AttrTs... &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>rel</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; std::size_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>row_ids</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; std::byte &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Auxillary function for MPI-rized the relation class so that these function can be called as needed @Brief: This function packs the relation rows into a buffer @Param: rel: The relation to be packed @Param: row_ids: A vector of vectors of bytes to store the row ids @Param: buffer: A vector of bytes to store the packed data @Return: void </p>
-
-</div>
-</div>
-<a id="a995665f0d66a5ea797c80b0cae4c06bd" name="a995665f0d66a5ea797c80b0cae4c06bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a995665f0d66a5ea797c80b0cae4c06bd">&#9670;&#160;</a></span>unpack_relation_rows()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class SR, class... AttrTs&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void unpack_relation_rows </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::byte &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d3/dc1/class_relation.html">Relation</a>&lt; SR, AttrTs... &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>rel</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>nbytes</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>@Brief: This function unpacks the packed data into the relation @Param: buffer: A vector of bytes containing the packed data @Param: rel: The relation to be unpacked </p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

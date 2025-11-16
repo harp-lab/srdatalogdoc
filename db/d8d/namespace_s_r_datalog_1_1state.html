@@ -94,12 +94,13 @@ $(function(){initNavTree('db/d8d/namespace_s_r_datalog_1_1state.html','../../','
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a39f333fba5e75826cfc2910c4800c8ba" id="r_a39f333fba5e75826cfc2910c4800c8ba"><td class="memTemplParams" colspan="2">template&lt;typename StateMap, typename... Vars&gt; </td></tr>
-<tr class="memitem:a39f333fba5e75826cfc2910c4800c8ba template"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39f333fba5e75826cfc2910c4800c8ba">extract_values</a> (const StateMap &amp;<a class="el" href="../../db/d8d/namespace_s_r_datalog_1_1state.html">state</a>, std::tuple&lt; Vars... &gt; *)</td></tr>
-<tr class="memdesc:a39f333fba5e75826cfc2910c4800c8ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper functions for extracting values from Hana state map.  <br /></td></tr>
-<tr class="memitem:ac913eb69e8c8d91c08d717204825c158" id="r_ac913eb69e8c8d91c08d717204825c158"><td class="memTemplParams" colspan="2">template&lt;typename StateMap&gt; </td></tr>
+<tr class="memitem:ad72876f491a9199c95a94613d64f7795" id="r_ad72876f491a9199c95a94613d64f7795"><td class="memTemplParams" colspan="2">template&lt;CStateMapBasic StateMap, typename... Vars&gt; <br />
+requires (CVar&lt;Vars&gt; &amp;&amp; ...)</td></tr>
+<tr class="memitem:ad72876f491a9199c95a94613d64f7795 template"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad72876f491a9199c95a94613d64f7795">extract_values</a> (const StateMap &amp;<a class="el" href="../../db/d8d/namespace_s_r_datalog_1_1state.html">state</a>, std::tuple&lt; Vars... &gt; *)</td></tr>
+<tr class="memdesc:ad72876f491a9199c95a94613d64f7795"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper functions for extracting values from Hana state map.  <br /></td></tr>
+<tr class="memitem:ac913eb69e8c8d91c08d717204825c158" id="r_ac913eb69e8c8d91c08d717204825c158"><td class="memTemplParams" colspan="2">template&lt;CStateMapBasic StateMap&gt; </td></tr>
 <tr class="memitem:ac913eb69e8c8d91c08d717204825c158 template"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac913eb69e8c8d91c08d717204825c158">extract_values</a> (const StateMap &amp;, std::tuple&lt;&gt; *)</td></tr>
-<tr class="memitem:ae695b7773752a892f2fa5f15e301eb35" id="r_ae695b7773752a892f2fa5f15e301eb35"><td class="memTemplParams" colspan="2">template&lt;typename Term, typename StateMap&gt; </td></tr>
+<tr class="memitem:ae695b7773752a892f2fa5f15e301eb35" id="r_ae695b7773752a892f2fa5f15e301eb35"><td class="memTemplParams" colspan="2">template&lt;typename Term, CStateMapBasic StateMap&gt; </td></tr>
 <tr class="memitem:ae695b7773752a892f2fa5f15e301eb35 template"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae695b7773752a892f2fa5f15e301eb35">get_term_value</a> (const StateMap &amp;<a class="el" href="../../db/d8d/namespace_s_r_datalog_1_1state.html">state</a>)</td></tr>
 <tr class="memdesc:ae695b7773752a892f2fa5f15e301eb35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get value for a single term (<a class="el" href="../../dc/dd9/struct_s_r_datalog_1_1_a_s_t_1_1_var.html">Var</a>, <a class="el" href="../../db/d28/struct_s_r_datalog_1_1_a_s_t_1_1_const.html">Const</a>, or <a class="el" href="../../d6/d11/struct_s_r_datalog_1_1_a_s_t_1_1_cpp_expr.html">CppExpr</a>).  <br /></td></tr>
 </table>
@@ -110,7 +111,7 @@ Functions</h2></td></tr>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename StateMap&gt; </div>
+template&lt;CStateMapBasic StateMap&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -135,13 +136,14 @@ template&lt;typename StateMap&gt; </div>
 
 </div>
 </div>
-<a id="a39f333fba5e75826cfc2910c4800c8ba" name="a39f333fba5e75826cfc2910c4800c8ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39f333fba5e75826cfc2910c4800c8ba">&#9670;&#160;</a></span>extract_values() <span class="overload">[2/2]</span></h2>
+<a id="ad72876f491a9199c95a94613d64f7795" name="ad72876f491a9199c95a94613d64f7795"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad72876f491a9199c95a94613d64f7795">&#9670;&#160;</a></span>extract_values() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename StateMap, typename... Vars&gt; </div>
+template&lt;CStateMapBasic StateMap, typename... Vars&gt; <br />
+requires (CVar&lt;Vars&gt; &amp;&amp; ...)</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -177,7 +179,7 @@ template&lt;typename StateMap, typename... Vars&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Term, typename StateMap&gt; </div>
+template&lt;typename Term, CStateMapBasic StateMap&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">

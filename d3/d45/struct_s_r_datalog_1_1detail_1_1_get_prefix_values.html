@@ -102,15 +102,21 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a7e82c13d601eff77a124d103cce147ee" id="r_a7e82c13d601eff77a124d103cce147ee"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e82c13d601eff77a124d103cce147ee">get</a> (const StateMap &amp;<a class="el" href="../../db/d8d/namespace_s_r_datalog_1_1state.html">state</a>)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;tmp::CTuple PrefixVars, typename StateMap&gt;<br />
+<div class="textblock"><div class="compoundTemplParams">template&lt;tmp::CTuple PrefixVars, CStateMapBasic StateMap&gt;<br />
 struct SRDatalog::detail::GetPrefixValues&lt; PrefixVars, StateMap &gt;</div><p>Hana-based helper to collect runtime values for a list of variables. </p>
-<p>Given a compile-time list of <a class="el" href="../../dc/dd9/struct_s_r_datalog_1_1_a_s_t_1_1_var.html">Var</a> types (prefix variables) and a runtime state map, extracts the corresponding runtime values and returns them as a std::tuple. Uses tag dispatching via <a class="el" href="../../db/d8d/namespace_s_r_datalog_1_1state.html#a39f333fba5e75826cfc2910c4800c8ba" title="Helper functions for extracting values from Hana state map.">state::extract_values</a> to handle different tuple types.</p>
+<p>Given a compile-time list of <a class="el" href="../../dc/dd9/struct_s_r_datalog_1_1_a_s_t_1_1_var.html">Var</a> types (prefix variables) and a runtime state map, extracts the corresponding runtime values and returns them as a std::tuple. Uses tag dispatching via <a class="el" href="../../db/d8d/namespace_s_r_datalog_1_1state.html#ad72876f491a9199c95a94613d64f7795" title="Helper functions for extracting values from Hana state map.">state::extract_values</a> to handle different tuple types.</p>
 <p>Benefits over manual recursion:</p><ul>
 <li>Single, unified implementation (no base/recursive cases needed)</li>
 <li>More declarative and functional style</li>
 <li>Leverages Hana's optimized algorithms</li>
 <li>Better compile-time performance</li>
 </ul>
+<dl class="section note"><dt>Note</dt><dd><b>Performance Warning</b>: The current implementation of <span class="tt">get_decoded&lt;Func&gt;</span> uses function type dispatch to deduce argument types at compile time. This can result in long compile times, especially when dealing with complex function signatures or multiple decode operations. This dispatch mechanism should be optimized in the future, potentially by:<ul>
+<li>Pre-computing type information during compilation</li>
+<li>Using explicit type annotations instead of type deduction</li>
+<li>Caching decoded type information per variable</li>
+</ul>
+</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">PrefixVars</td><td>A tuple of <a class="el" href="../../dc/dd9/struct_s_r_datalog_1_1_a_s_t_1_1_var.html">Var</a> types to extract values for </td></tr>
@@ -125,7 +131,7 @@ struct SRDatalog::detail::GetPrefixValues&lt; PrefixVars, StateMap &gt;</div><p>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;tmp::CTuple PrefixVars, typename StateMap&gt; </div>
+template&lt;tmp::CTuple PrefixVars, CStateMapBasic StateMap&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">

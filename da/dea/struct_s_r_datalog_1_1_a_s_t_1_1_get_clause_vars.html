@@ -97,7 +97,7 @@ $(function(){initNavTree('da/dea/struct_s_r_datalog_1_1_a_s_t_1_1_get_clause_var
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;CClause C&gt;<br />
 struct SRDatalog::AST::GetClauseVars&lt; C &gt;</div><p>Template metaprogramming trait to extract variables from any clause type. </p>
-<p>Unified interface for extracting variables from both normal clauses and let clauses. Dispatches to the appropriate specialization based on clause type.</p>
+<p>Unified interface for extracting variables from normal clauses, let clauses, and if clauses. Dispatches to the appropriate specialization based on clause type.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">C</td><td>The clause type (must satisfy CClause concept) </td></tr>

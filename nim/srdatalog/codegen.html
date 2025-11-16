@@ -71,11 +71,27 @@
 
 </ul>
 <ul class="simple nested-toc-section">codegenFixpointRuleSets
-  <li><a class="reference" href="#codegenFixpointRuleSets%2Cstring%2Cseq%5BRule%5D" title="codegenFixpointRuleSets(ruleset_name: string; rules: seq[Rule]): NimNode">codegenFixpointRuleSets(ruleset_name: string; rules: seq[Rule]): NimNode</a></li>
+  <li><a class="reference" href="#codegenFixpointRuleSets%2Cstring%2Cseq%5BRelationDecl%5D%2Cseq%5BRule%5D" title="codegenFixpointRuleSets(ruleset_name: string; decls: seq[RelationDecl];
+                        rules: seq[Rule]): NimNode">codegenFixpointRuleSets(ruleset_name: string; decls: seq[RelationDecl];
+                        rules: seq[Rule]): NimNode</a></li>
+
+</ul>
+<ul class="simple nested-toc-section">codegenIfClause
+  <li><a class="reference" href="#codegenIfClause%2Cseq%5BRelationDecl%5D%2Cseq%5BBodyClause%5D%2CBodyClause" title="codegenIfClause(decls: seq[RelationDecl]; clauses: seq[BodyClause];
+                body: BodyClause): string">codegenIfClause(decls: seq[RelationDecl]; clauses: seq[BodyClause];
+                body: BodyClause): string</a></li>
+
+</ul>
+<ul class="simple nested-toc-section">codegenLetClause
+  <li><a class="reference" href="#codegenLetClause%2Cseq%5BRelationDecl%5D%2Cseq%5BBodyClause%5D%2CBodyClause" title="codegenLetClause(decls: seq[RelationDecl]; clauses: seq[BodyClause];
+                 body: BodyClause): string">codegenLetClause(decls: seq[RelationDecl]; clauses: seq[BodyClause];
+                 body: BodyClause): string</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">codegenNonIterativeRuleSets
-  <li><a class="reference" href="#codegenNonIterativeRuleSets%2Cstring%2Cseq%5BRule%5D" title="codegenNonIterativeRuleSets(rule_name: string; rules: seq[Rule]): NimNode">codegenNonIterativeRuleSets(rule_name: string; rules: seq[Rule]): NimNode</a></li>
+  <li><a class="reference" href="#codegenNonIterativeRuleSets%2Cstring%2Cseq%5BRelationDecl%5D%2Cseq%5BRule%5D" title="codegenNonIterativeRuleSets(rule_name: string; decls: seq[RelationDecl];
+                            rules: seq[Rule]): NimNode">codegenNonIterativeRuleSets(rule_name: string; decls: seq[RelationDecl];
+                            rules: seq[Rule]): NimNode</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">codegenRelationDecls
@@ -83,7 +99,7 @@
 
 </ul>
 <ul class="simple nested-toc-section">codegenRule
-  <li><a class="reference" href="#codegenRule%2CRule%2Cint" title="codegenRule(query: Rule; delta_cls_idx: int = -1): NimNode">codegenRule(query: Rule; delta_cls_idx: int = -1): NimNode</a></li>
+  <li><a class="reference" href="#codegenRule%2CRule%2Cseq%5BRelationDecl%5D%2Cint" title="codegenRule(query: Rule; decls: seq[RelationDecl]; delta_cls_idx: int = -1): NimNode">codegenRule(query: Rule; decls: seq[RelationDecl]; delta_cls_idx: int = -1): NimNode</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">codegenTString
@@ -149,9 +165,10 @@
 
 </div>
 <div id="codegenFixpointRuleSets-procs-all">
-  <div id="codegenFixpointRuleSets,string,seq[Rule]">
-  <dt><pre><span class="Keyword">proc</span> <a href="#codegenFixpointRuleSets%2Cstring%2Cseq%5BRule%5D"><span class="Identifier">codegenFixpointRuleSets</span></a><span class="Other">(</span><span class="Identifier">ruleset_name</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">rules</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><a href="syntax.html#Rule"><span class="Identifier">Rule</span></a><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">NimNode</span> {.
-    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <div id="codegenFixpointRuleSets,string,seq[RelationDecl],seq[Rule]">
+  <dt><pre><span class="Keyword">proc</span> <a href="#codegenFixpointRuleSets%2Cstring%2Cseq%5BRelationDecl%5D%2Cseq%5BRule%5D"><span class="Identifier">codegenFixpointRuleSets</span></a><span class="Other">(</span><span class="Identifier">ruleset_name</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">decls</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><a href="syntax.html#RelationDecl"><span class="Identifier">RelationDecl</span></a><span class="Other">]</span><span class="Other">;</span>
+                             <span class="Identifier">rules</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><a href="syntax.html#Rule"><span class="Identifier">Rule</span></a><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">NimNode</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
     <p>Generates C++ code for fixpoint (recursive) rule sets with semi-naive evaluation.</p>
@@ -173,10 +190,37 @@
 </div>
 
 </div>
+<div id="codegenIfClause-procs-all">
+  <div id="codegenIfClause,seq[RelationDecl],seq[BodyClause],BodyClause">
+  <dt><pre><span class="Keyword">proc</span> <a href="#codegenIfClause%2Cseq%5BRelationDecl%5D%2Cseq%5BBodyClause%5D%2CBodyClause"><span class="Identifier">codegenIfClause</span></a><span class="Other">(</span><span class="Identifier">decls</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><a href="syntax.html#RelationDecl"><span class="Identifier">RelationDecl</span></a><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">clauses</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><a href="syntax.html#BodyClause"><span class="Identifier">BodyClause</span></a><span class="Other">]</span><span class="Other">;</span>
+                     <span class="Identifier">body</span><span class="Other">:</span> <a href="syntax.html#BodyClause"><span class="Identifier">BodyClause</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    
+    
+  </dd>
+</div>
+
+</div>
+<div id="codegenLetClause-procs-all">
+  <div id="codegenLetClause,seq[RelationDecl],seq[BodyClause],BodyClause">
+  <dt><pre><span class="Keyword">proc</span> <a href="#codegenLetClause%2Cseq%5BRelationDecl%5D%2Cseq%5BBodyClause%5D%2CBodyClause"><span class="Identifier">codegenLetClause</span></a><span class="Other">(</span><span class="Identifier">decls</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><a href="syntax.html#RelationDecl"><span class="Identifier">RelationDecl</span></a><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">clauses</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><a href="syntax.html#BodyClause"><span class="Identifier">BodyClause</span></a><span class="Other">]</span><span class="Other">;</span>
+                      <span class="Identifier">body</span><span class="Other">:</span> <a href="syntax.html#BodyClause"><span class="Identifier">BodyClause</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    
+    
+  </dd>
+</div>
+
+</div>
 <div id="codegenNonIterativeRuleSets-procs-all">
-  <div id="codegenNonIterativeRuleSets,string,seq[Rule]">
-  <dt><pre><span class="Keyword">proc</span> <a href="#codegenNonIterativeRuleSets%2Cstring%2Cseq%5BRule%5D"><span class="Identifier">codegenNonIterativeRuleSets</span></a><span class="Other">(</span><span class="Identifier">rule_name</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">rules</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><a href="syntax.html#Rule"><span class="Identifier">Rule</span></a><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">NimNode</span> {.
-    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <div id="codegenNonIterativeRuleSets,string,seq[RelationDecl],seq[Rule]">
+  <dt><pre><span class="Keyword">proc</span> <a href="#codegenNonIterativeRuleSets%2Cstring%2Cseq%5BRelationDecl%5D%2Cseq%5BRule%5D"><span class="Identifier">codegenNonIterativeRuleSets</span></a><span class="Other">(</span><span class="Identifier">rule_name</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">decls</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><a href="syntax.html#RelationDecl"><span class="Identifier">RelationDecl</span></a><span class="Other">]</span><span class="Other">;</span>
+                                 <span class="Identifier">rules</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><a href="syntax.html#Rule"><span class="Identifier">Rule</span></a><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">NimNode</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
     
@@ -198,9 +242,9 @@
 
 </div>
 <div id="codegenRule-procs-all">
-  <div id="codegenRule,Rule,int">
-  <dt><pre><span class="Keyword">proc</span> <a href="#codegenRule%2CRule%2Cint"><span class="Identifier">codegenRule</span></a><span class="Other">(</span><span class="Identifier">query</span><span class="Other">:</span> <a href="syntax.html#Rule"><span class="Identifier">Rule</span></a><span class="Other">;</span> <span class="Identifier">delta_cls_idx</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="DecNumber">-1</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">NimNode</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <div id="codegenRule,Rule,seq[RelationDecl],int">
+  <dt><pre><span class="Keyword">proc</span> <a href="#codegenRule%2CRule%2Cseq%5BRelationDecl%5D%2Cint"><span class="Identifier">codegenRule</span></a><span class="Other">(</span><span class="Identifier">query</span><span class="Other">:</span> <a href="syntax.html#Rule"><span class="Identifier">Rule</span></a><span class="Other">;</span> <span class="Identifier">decls</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><a href="syntax.html#RelationDecl"><span class="Identifier">RelationDecl</span></a><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">delta_cls_idx</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="DecNumber">-1</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">NimNode</span> {.
+    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
     
@@ -230,7 +274,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2025-11-13 22:26:05 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2025-11-16 23:03:11 UTC</small>
       </div>
     </div>
   </div>

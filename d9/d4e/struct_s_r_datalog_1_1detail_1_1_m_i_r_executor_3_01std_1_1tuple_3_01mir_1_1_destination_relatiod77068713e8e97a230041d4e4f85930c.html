@@ -103,7 +103,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:add702c4dfcaaa26fa2731b3bd7f62784 template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add702c4dfcaaa26fa2731b3bd7f62784">execute</a> (DB &amp;db, const StateMap &amp;<a class="el" href="../../db/d8d/namespace_s_r_datalog_1_1state.html">state</a>)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;CRelationSchema Schema, tmp::CTuple Terms, std::size_t Ver, typename... TailOps, typename StateMap&gt;<br />
+<div class="textblock"><div class="compoundTemplParams">template&lt;CRelationSchema Schema, tmp::CTuple Terms, std::size_t Ver, typename... TailOps, CStateMapBasic StateMap&gt;<br />
 struct SRDatalog::detail::MIRExecutor&lt; std::tuple&lt; mir::DestinationRelation&lt; Schema, Terms, Ver &gt;, TailOps... &gt;, StateMap &gt;</div><p>Specialization for DestinationRelation: executes a fact insertion operation. </p>
 <p>This specialization handles the DestinationRelation MIR operation, which writes a fact to a relation. The execution proceeds as:</p><ol type="1">
 <li>Get the runtime relation from the database</li>
@@ -129,7 +129,7 @@ struct SRDatalog::detail::MIRExecutor&lt; std::tuple&lt; mir::DestinationRelatio
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;CRelationSchema Schema, tmp::CTuple Terms, std::size_t Ver, typename... TailOps, typename StateMap&gt; </div>
+template&lt;CRelationSchema Schema, tmp::CTuple Terms, std::size_t Ver, typename... TailOps, CStateMapBasic StateMap&gt; </div>
 <div class="memtemplate">
 template&lt;CSemiNaiveDatabase DB&gt; </div>
 <table class="mlabels">

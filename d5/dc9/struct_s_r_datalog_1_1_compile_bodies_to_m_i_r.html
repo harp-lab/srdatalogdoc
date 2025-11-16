@@ -100,16 +100,18 @@ $(function(){initNavTree('d5/dc9/struct_s_r_datalog_1_1_compile_bodies_to_m_i_r.
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:aaec4aca44f12e877f29f5f69b9df5c3b" id="r_aaec4aca44f12e877f29f5f69b9df5c3b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaec4aca44f12e877f29f5f69b9df5c3b">FinalState</a></td></tr>
-<tr class="memitem:ae0c2d4e6524e800588fec7a631cb4000" id="r_ae0c2d4e6524e800588fec7a631cb4000"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0c2d4e6524e800588fec7a631cb4000">type</a> = typename FinalState::ops</td></tr>
-<tr class="memdesc:ae0c2d4e6524e800588fec7a631cb4000"><td class="mdescLeft">&#160;</td><td class="mdescRight">The tuple of MIR operations for the rule body.  <br /></td></tr>
+<tr class="memitem:aaad18563cce0e9076e1f451d34ff41d2" id="r_aaad18563cce0e9076e1f451d34ff41d2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaad18563cce0e9076e1f451d34ff41d2">IfClauses</a> = typename <a class="el" href="../../d7/d1e/struct_s_r_datalog_1_1_find_if_clauses.html">FindIfClauses</a>&lt;BodyClauses&gt;<a class="el" href="#ab5d60c2e9cb188a6e3e6f3e63ec4f2f4">::type</a></td></tr>
+<tr class="memitem:ad6a97b3cbeff145bd67b9bada77343dc" id="r_ad6a97b3cbeff145bd67b9bada77343dc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6a97b3cbeff145bd67b9bada77343dc">IfClauseOps</a> = <a class="el" href="#aaad18563cce0e9076e1f451d34ff41d2">IfClauses</a></td></tr>
+<tr class="memitem:ab5d60c2e9cb188a6e3e6f3e63ec4f2f4" id="r_ab5d60c2e9cb188a6e3e6f3e63ec4f2f4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5d60c2e9cb188a6e3e6f3e63ec4f2f4">type</a> = mp::mp_append&lt;typename FinalState::ops, <a class="el" href="#ad6a97b3cbeff145bd67b9bada77343dc">IfClauseOps</a>&gt;</td></tr>
+<tr class="memdesc:ab5d60c2e9cb188a6e3e6f3e63ec4f2f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The tuple of MIR operations for the rule body (joins + IfClause operations).  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;tmp::CTuple BodyClauses, tmp::CTuple GlobalJoinPlan, tmp::CTuple Indices&gt;<br />
 struct SRDatalog::CompileBodiesToMIR&lt; BodyClauses, GlobalJoinPlan, Indices &gt;</div><p>Compiles the rule body into MIR operations. </p>
-<p>Processes the rule body clauses according to the join plan, generating ColumnSource and ColumnJoin operations for normal clauses and preserving <a class="el" href="../../d9/d11/struct_s_r_datalog_1_1_a_s_t_1_1_let_clause.html">LetClause</a> operations. Uses a fold over the join plan variables to accumulate operations in the correct order.</p>
+<p>Processes the rule body clauses according to the join plan, generating ColumnSource and ColumnJoin operations for normal clauses and preserving <a class="el" href="../../d9/d11/struct_s_r_datalog_1_1_a_s_t_1_1_let_clause.html">LetClause</a> operations. Uses a fold over the join plan variables to accumulate operations in the correct order. IfClause operations are added after all variable bindings are complete.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">BodyClauses</td><td>A std::tuple of clause types (normal and let) </td></tr>
+    <tr><td class="paramname">BodyClauses</td><td>A std::tuple of clause types (normal, let, and if) </td></tr>
     <tr><td class="paramname">GlobalJoinPlan</td><td>A std::tuple of <a class="el" href="../../dc/dd9/struct_s_r_datalog_1_1_a_s_t_1_1_var.html">Var</a> types specifying join order </td></tr>
     <tr><td class="paramname">Indices</td><td>The computed IndexSpecs (for reference, currently unused)</td></tr>
   </table>
@@ -133,14 +135,14 @@ template&lt;tmp::CTuple BodyClauses, tmp::CTuple GlobalJoinPlan, tmp::CTuple Ind
 <b>Initial value:</b><div class="fragment"><div class="line"> </div>
 <div class="line">      mp::mp_fold_q&lt;GlobalJoinPlan, FoldState&lt;std::tuple&lt;&gt;, std::tuple&lt;&gt;&gt;,</div>
 <div class="line">                    <a class="code hl_struct" href="../../d3/d24/struct_s_r_datalog_1_1_process_one_variable.html">ProcessOneVariable&lt;GlobalJoinPlan, BodyClauses, Indices&gt;</a>&gt;</div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_process_one_variable_html"><div class="ttname"><a href="../../d3/d24/struct_s_r_datalog_1_1_process_one_variable.html">SRDatalog::ProcessOneVariable</a></div><div class="ttdoc">Fold operation functor for processing one variable from the join plan.</div><div class="ttdef"><b>Definition</b> query.h:724</div></div>
-</div><!-- fragment --><dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a57">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+<div class="ttc" id="astruct_s_r_datalog_1_1_process_one_variable_html"><div class="ttname"><a href="../../d3/d24/struct_s_r_datalog_1_1_process_one_variable.html">SRDatalog::ProcessOneVariable</a></div><div class="ttdoc">Fold operation functor for processing one variable from the join plan.</div><div class="ttdef"><b>Definition</b> query.h:759</div></div>
+</div><!-- fragment --><dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a58">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
 </dl>
 
 </div>
 </div>
-<a id="ae0c2d4e6524e800588fec7a631cb4000" name="ae0c2d4e6524e800588fec7a631cb4000"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0c2d4e6524e800588fec7a631cb4000">&#9670;&#160;</a></span>type</h2>
+<a id="ad6a97b3cbeff145bd67b9bada77343dc" name="ad6a97b3cbeff145bd67b9bada77343dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6a97b3cbeff145bd67b9bada77343dc">&#9670;&#160;</a></span>IfClauseOps</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -148,13 +150,49 @@ template&lt;tmp::CTuple BodyClauses, tmp::CTuple GlobalJoinPlan, tmp::CTuple Ind
 template&lt;tmp::CTuple BodyClauses, tmp::CTuple GlobalJoinPlan, tmp::CTuple Indices&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d5/dc9/struct_s_r_datalog_1_1_compile_bodies_to_m_i_r.html">SRDatalog::CompileBodiesToMIR</a>&lt; BodyClauses, GlobalJoinPlan, Indices &gt;::type = typename FinalState::ops</td>
+          <td class="memname">using <a class="el" href="../../d5/dc9/struct_s_r_datalog_1_1_compile_bodies_to_m_i_r.html">SRDatalog::CompileBodiesToMIR</a>&lt; BodyClauses, GlobalJoinPlan, Indices &gt;::IfClauseOps = <a class="el" href="#aaad18563cce0e9076e1f451d34ff41d2">IfClauses</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a60">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="aaad18563cce0e9076e1f451d34ff41d2" name="aaad18563cce0e9076e1f451d34ff41d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaad18563cce0e9076e1f451d34ff41d2">&#9670;&#160;</a></span>IfClauses</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;tmp::CTuple BodyClauses, tmp::CTuple GlobalJoinPlan, tmp::CTuple Indices&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d5/dc9/struct_s_r_datalog_1_1_compile_bodies_to_m_i_r.html">SRDatalog::CompileBodiesToMIR</a>&lt; BodyClauses, GlobalJoinPlan, Indices &gt;::IfClauses = typename <a class="el" href="../../d7/d1e/struct_s_r_datalog_1_1_find_if_clauses.html">FindIfClauses</a>&lt;BodyClauses&gt;<a class="el" href="#ab5d60c2e9cb188a6e3e6f3e63ec4f2f4">::type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a59">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="ab5d60c2e9cb188a6e3e6f3e63ec4f2f4" name="ab5d60c2e9cb188a6e3e6f3e63ec4f2f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5d60c2e9cb188a6e3e6f3e63ec4f2f4">&#9670;&#160;</a></span>type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;tmp::CTuple BodyClauses, tmp::CTuple GlobalJoinPlan, tmp::CTuple Indices&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d5/dc9/struct_s_r_datalog_1_1_compile_bodies_to_m_i_r.html">SRDatalog::CompileBodiesToMIR</a>&lt; BodyClauses, GlobalJoinPlan, Indices &gt;::type = mp::mp_append&lt;typename FinalState::ops, <a class="el" href="#ad6a97b3cbeff145bd67b9bada77343dc">IfClauseOps</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>The tuple of MIR operations for the rule body. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a58">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+<p>The tuple of MIR operations for the rule body (joins + IfClause operations). </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d52/_2_users_2stargazermiao_2workspace_2_s_r_datalog_2generalized_datalog_2query_8h-example.html#a61">/Users/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
 </dl>
 
 </div>

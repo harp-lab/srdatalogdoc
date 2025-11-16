@@ -91,74 +91,73 @@ $(function(){initNavTree('d4/da1/helper_8h_source.html','../../',''); });
   <div class="headertitle"><div class="title">helper.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d4/da1/helper_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iterator&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;ranges&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// this is a helper file to impl some c++23 lib for ranges only in glibc (gcc-13)</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// ----------------------------- Range helpers -----------------------------</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a> {</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">template</span>&lt;<span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Container&gt;</div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html">   16</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html">to_fn</a> {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">template</span>&lt;std::ranges::input_range R&gt;</div>
-<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html#afadd6a878f7befd48eaf66c4c3ff0e2c">   18</a></span>    <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html#afadd6a878f7befd48eaf66c4c3ff0e2c">operator()</a>(R&amp;&amp; r)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keyword">using </span>value_type = std::ranges::range_value_t&lt;R&gt;;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        Container&lt;value_type&gt; result;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::ranges::sized_range&lt;R&gt;) {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            result.reserve(std::ranges::size(r));</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        }</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        std::ranges::copy(r, std::back_inserter(result));</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
+<a href="../../d4/da1/helper_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;iterator&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;ranges&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">// ----------------------------- Range helpers -----------------------------</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">template</span>&lt;<span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Container&gt;</div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html">   31</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html">to_fn</a> {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">template</span>&lt;std::ranges::input_range R&gt;</div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="}">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html#afadd6a878f7befd48eaf66c4c3ff0e2c">   33</a></span>    <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html#afadd6a878f7befd48eaf66c4c3ff0e2c">operator()</a>(R&amp;&amp; r)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keyword">using </span>value_type = std::ranges::range_value_t&lt;R&gt;;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        Container&lt;value_type&gt; result;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::ranges::sized_range&lt;R&gt;) {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            result.reserve(std::ranges::size(r));</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        std::ranges::copy(r, std::back_inserter(result));</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
 </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
 </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">template</span>&lt;<span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Container&gt;</div>
-<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html">   33</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html">to_impl</a> {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html#a59992bb3ffc22db749f786f5c1f59e78">   34</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html#a59992bb3ffc22db749f786f5c1f59e78">type</a> = <a class="code hl_struct" href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html">to_fn&lt;Container&gt;</a>;</div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html#a5328a089c1e1f53a370e4814da955887">   35</a></span>    <span class="keyword">constexpr</span> <a class="code hl_struct" href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html">to_fn&lt;Container&gt;</a> <a class="code hl_function" href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html#a5328a089c1e1f53a370e4814da955887">operator()</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">return</span> {};</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">template</span>&lt;<span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Container&gt;</div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="};">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html">   48</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html">to_impl</a> {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html#a59992bb3ffc22db749f786f5c1f59e78">   49</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html#a59992bb3ffc22db749f786f5c1f59e78">type</a> = <a class="code hl_struct" href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html">to_fn&lt;Container&gt;</a>;</div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html#a5328a089c1e1f53a370e4814da955887">   50</a></span>    <span class="keyword">constexpr</span> <a class="code hl_struct" href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html">to_fn&lt;Container&gt;</a> <a class="code hl_function" href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html#a5328a089c1e1f53a370e4814da955887">operator()</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordflow">return</span> {};</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    }</div>
 </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
 </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">template</span>&lt;<span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Container&gt;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../d5/dd6/namespace_s_r_datalog.html#a8a1cae69213b63b7a52b182f9dfc6738">   41</a></span><span class="keyword">inline</span> <span class="keyword">constexpr</span> <a class="code hl_struct" href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html">to_impl&lt;Container&gt;</a> <a class="code hl_variable" href="../../d5/dd6/namespace_s_r_datalog.html#a8a1cae69213b63b7a52b182f9dfc6738">to</a>{};</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">// Allow pipe operator usage: range | to&lt;std::vector&gt;()</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">template</span>&lt;<span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Container, std::ranges::input_range R&gt;</div>
-<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d5/dd6/namespace_s_r_datalog.html#aaa2cd7b71f7335db85773fc3379ea2bb">   45</a></span><span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#aaa2cd7b71f7335db85773fc3379ea2bb">operator|</a>(R&amp;&amp; r, <span class="keyword">const</span> <a class="code hl_struct" href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html">to_impl&lt;Container&gt;</a>&amp; impl) {</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">return</span> impl()(std::forward&lt;R&gt;(r));</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">template</span>&lt;<span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Container&gt;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../d5/dd6/namespace_s_r_datalog.html#a8a1cae69213b63b7a52b182f9dfc6738">   56</a></span><span class="keyword">inline</span> <span class="keyword">constexpr</span> <a class="code hl_struct" href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html">to_impl&lt;Container&gt;</a> <a class="code hl_variable" href="../../d5/dd6/namespace_s_r_datalog.html#a8a1cae69213b63b7a52b182f9dfc6738">to</a>{};</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">// Allow pipe operator usage: range | to&lt;std::vector&gt;()</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">template</span>&lt;<span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Container, std::ranges::input_range R&gt;</div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="}">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../d5/dd6/namespace_s_r_datalog.html#aaa2cd7b71f7335db85773fc3379ea2bb">   64</a></span><span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#aaa2cd7b71f7335db85773fc3379ea2bb">operator|</a>(R&amp;&amp; r, <span class="keyword">const</span> <a class="code hl_struct" href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html">to_impl&lt;Container&gt;</a>&amp; impl) {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">return</span> impl()(std::forward&lt;R&gt;(r));</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
 </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">// Also support: range | to&lt;std::vector&gt;() (with explicit call)</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">template</span>&lt;<span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Container, std::ranges::input_range R&gt;</div>
-<div class="foldopen" id="foldopen00051" data-start="{" data-end="}">
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d5/dd6/namespace_s_r_datalog.html#a5b180722b9fad7db67932be1f9fcbae9">   51</a></span><span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#aaa2cd7b71f7335db85773fc3379ea2bb">operator|</a>(R&amp;&amp; r, <span class="keyword">const</span> <a class="code hl_struct" href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html">to_fn&lt;Container&gt;</a>&amp; fn) {</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">return</span> fn(std::forward&lt;R&gt;(r));</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">// Also support: range | to&lt;std::vector&gt;() (with explicit call)</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">template</span>&lt;<span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Container, std::ranges::input_range R&gt;</div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../d5/dd6/namespace_s_r_datalog.html#a5b180722b9fad7db67932be1f9fcbae9">   70</a></span><span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="../../d5/dd6/namespace_s_r_datalog.html#aaa2cd7b71f7335db85773fc3379ea2bb">operator|</a>(R&amp;&amp; r, <span class="keyword">const</span> <a class="code hl_struct" href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html">to_fn&lt;Container&gt;</a>&amp; fn) {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordflow">return</span> fn(std::forward&lt;R&gt;(r));</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}</div>
 </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
-<div class="ttc" id="anamespace_s_r_datalog_html"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a></div><div class="ttdef"><b>Definition</b> ast.h:50</div></div>
-<div class="ttc" id="anamespace_s_r_datalog_html_a8a1cae69213b63b7a52b182f9dfc6738"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html#a8a1cae69213b63b7a52b182f9dfc6738">SRDatalog::to</a></div><div class="ttdeci">constexpr to_impl&lt; Container &gt; to</div><div class="ttdef"><b>Definition</b> helper.h:41</div></div>
-<div class="ttc" id="anamespace_s_r_datalog_html_aaa2cd7b71f7335db85773fc3379ea2bb"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html#aaa2cd7b71f7335db85773fc3379ea2bb">SRDatalog::operator|</a></div><div class="ttdeci">constexpr auto operator|(R &amp;&amp;r, const to_impl&lt; Container &gt; &amp;impl)</div><div class="ttdef"><b>Definition</b> helper.h:45</div></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1to__fn_html"><div class="ttname"><a href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html">SRDatalog::to_fn</a></div><div class="ttdoc">Helper to convert a range to a container using the pipe operator.</div><div class="ttdef"><b>Definition</b> helper.h:16</div></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1to__fn_html_afadd6a878f7befd48eaf66c4c3ff0e2c"><div class="ttname"><a href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html#afadd6a878f7befd48eaf66c4c3ff0e2c">SRDatalog::to_fn::operator()</a></div><div class="ttdeci">constexpr auto operator()(R &amp;&amp;r) const</div><div class="ttdef"><b>Definition</b> helper.h:18</div></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1to__impl_html"><div class="ttname"><a href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html">SRDatalog::to_impl</a></div><div class="ttdoc">Function template for converting ranges to containers.</div><div class="ttdef"><b>Definition</b> helper.h:33</div></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1to__impl_html_a5328a089c1e1f53a370e4814da955887"><div class="ttname"><a href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html#a5328a089c1e1f53a370e4814da955887">SRDatalog::to_impl::operator()</a></div><div class="ttdeci">constexpr to_fn&lt; Container &gt; operator()() const</div><div class="ttdef"><b>Definition</b> helper.h:35</div></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1to__impl_html_a59992bb3ffc22db749f786f5c1f59e78"><div class="ttname"><a href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html#a59992bb3ffc22db749f786f5c1f59e78">SRDatalog::to_impl::type</a></div><div class="ttdeci">to_fn&lt; Container &gt; type</div><div class="ttdef"><b>Definition</b> helper.h:34</div></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
+<div class="ttc" id="anamespace_s_r_datalog_html"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a></div><div class="ttdef"><b>Definition</b> ast.h:55</div></div>
+<div class="ttc" id="anamespace_s_r_datalog_html_a8a1cae69213b63b7a52b182f9dfc6738"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html#a8a1cae69213b63b7a52b182f9dfc6738">SRDatalog::to</a></div><div class="ttdeci">constexpr to_impl&lt; Container &gt; to</div><div class="ttdef"><b>Definition</b> helper.h:56</div></div>
+<div class="ttc" id="anamespace_s_r_datalog_html_aaa2cd7b71f7335db85773fc3379ea2bb"><div class="ttname"><a href="../../d5/dd6/namespace_s_r_datalog.html#aaa2cd7b71f7335db85773fc3379ea2bb">SRDatalog::operator|</a></div><div class="ttdeci">constexpr auto operator|(R &amp;&amp;r, const to_impl&lt; Container &gt; &amp;impl)</div><div class="ttdoc">Pipe operator for range-to-container conversion.</div><div class="ttdef"><b>Definition</b> helper.h:64</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1to__fn_html"><div class="ttname"><a href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html">SRDatalog::to_fn</a></div><div class="ttdoc">Helper to convert a range to a container using the pipe operator.</div><div class="ttdef"><b>Definition</b> helper.h:31</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1to__fn_html_afadd6a878f7befd48eaf66c4c3ff0e2c"><div class="ttname"><a href="../../d1/d8b/struct_s_r_datalog_1_1to__fn.html#afadd6a878f7befd48eaf66c4c3ff0e2c">SRDatalog::to_fn::operator()</a></div><div class="ttdeci">constexpr auto operator()(R &amp;&amp;r) const</div><div class="ttdef"><b>Definition</b> helper.h:33</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1to__impl_html"><div class="ttname"><a href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html">SRDatalog::to_impl</a></div><div class="ttdoc">Function template for converting ranges to containers.</div><div class="ttdef"><b>Definition</b> helper.h:48</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1to__impl_html_a5328a089c1e1f53a370e4814da955887"><div class="ttname"><a href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html#a5328a089c1e1f53a370e4814da955887">SRDatalog::to_impl::operator()</a></div><div class="ttdeci">constexpr to_fn&lt; Container &gt; operator()() const</div><div class="ttdef"><b>Definition</b> helper.h:50</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1to__impl_html_a59992bb3ffc22db749f786f5c1f59e78"><div class="ttname"><a href="../../dc/d97/struct_s_r_datalog_1_1to__impl.html#a59992bb3ffc22db749f786f5c1f59e78">SRDatalog::to_impl::type</a></div><div class="ttdeci">to_fn&lt; Container &gt; type</div><div class="ttdef"><b>Definition</b> helper.h:49</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

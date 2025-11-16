@@ -91,6 +91,9 @@ $(function(){initNavTree('d8/d73/namespace_s_r_datalog_1_1detail.html','../../',
   <div class="headertitle"><div class="title">SRDatalog::detail Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Helper to transform a tuple of types into a tuple of <a class="el" href="../../d3/d99/class_s_r_datalog_1_1_column.html" title="Thin, PMR-aware contiguous column wrapper.">Column</a> types.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -98,7 +101,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper to find the 0-based index of a relation type in a database tuple.  <a href="../../dd/d2a/struct_s_r_datalog_1_1detail_1_1_index_rel_in_d_b_rels.html#details">More...</a><br /></td></tr>
 <tr class="memitem:is_5Frelation_5Fref" id="r_is_5Frelation_5Fref"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0f/struct_s_r_datalog_1_1detail_1_1is__relation__ref.html">is_relation_ref</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper to check if a type is a reference to a <a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html" title="Column-oriented Relation class.">Relation</a>.  <a href="../../df/d0f/struct_s_r_datalog_1_1detail_1_1is__relation__ref.html#details">More...</a><br /></td></tr>
-<tr class="memitem:is_5Frelation_5Fref_3C_20Relation_3C_20SR_2C_20Attrs_2E_2E_2E_20_3E_20_26_20_3E" id="r_is_5Frelation_5Fref_3C_20Relation_3C_20SR_2C_20Attrs_2E_2E_2E_20_3E_20_26_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d08/struct_s_r_datalog_1_1detail_1_1is__relation__ref_3_01_relation_3_01_s_r_00_01_attrs_8_8_8_01_4_01_6_01_4.html">is_relation_ref&lt; Relation&lt; SR, Attrs... &gt; &amp; &gt;</a></td></tr>
+<tr class="memitem:is_5Frelation_5Fref_3C_20Relation_3C_20SR_2C_20AttrTuple_20_3E_20_26_20_3E" id="r_is_5Frelation_5Fref_3C_20Relation_3C_20SR_2C_20AttrTuple_20_3E_20_26_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dc7/struct_s_r_datalog_1_1detail_1_1is__relation__ref_3_01_relation_3_01_s_r_00_01_attr_tuple_01_4_01_6_01_4.html">is_relation_ref&lt; Relation&lt; SR, AttrTuple &gt; &amp; &gt;</a></td></tr>
 <tr class="memitem:BuildIndexHelper" id="r_BuildIndexHelper"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dfb/struct_s_r_datalog_1_1detail_1_1_build_index_helper.html">BuildIndexHelper</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper functor to build a single index from an <a class="el" href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html" title="Specification for a multi-column index on a relation.">IndexSpec</a>.  <a href="../../dd/dfb/struct_s_r_datalog_1_1detail_1_1_build_index_helper.html#details">More...</a><br /></td></tr>
 <tr class="memitem:BuildAllIndices_5FImpl" id="r_BuildAllIndices_5FImpl"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d55/struct_s_r_datalog_1_1detail_1_1_build_all_indices___impl.html">BuildAllIndices_Impl</a></td></tr>
@@ -107,11 +110,8 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boost.Hana map-based state management for variable bindings.  <a href="../../d0/d27/struct_s_r_datalog_1_1detail_1_1_get_value_from_state.html#details">More...</a><br /></td></tr>
 <tr class="memitem:GetPrefixValues" id="r_GetPrefixValues"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d45/struct_s_r_datalog_1_1detail_1_1_get_prefix_values.html">GetPrefixValues</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hana-based helper to collect runtime values for a list of variables.  <a href="../../d3/d45/struct_s_r_datalog_1_1detail_1_1_get_prefix_values.html#details">More...</a><br /></td></tr>
-<tr class="memitem:GetPrefixValues_3C_20mir_3A_3ABoundVars_3C_20Vars_2E_2E_2E_20_3E_2C_20StateMap_20_3E" id="r_GetPrefixValues_3C_20mir_3A_3ABoundVars_3C_20Vars_2E_2E_2E_20_3E_2C_20StateMap_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/df8/struct_s_r_datalog_1_1detail_1_1_get_prefix_values_3_01mir_1_1_bound_vars_3_01_vars_8_8_8_01_4_00_01_state_map_01_4.html">GetPrefixValues&lt; mir::BoundVars&lt; Vars... &gt;, StateMap &gt;</a></td></tr>
-<tr class="memitem:GetPayloadValues" id="r_GetPayloadValues"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d8a/struct_s_r_datalog_1_1detail_1_1_get_payload_values.html">GetPayloadValues</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hana-based helper to collect runtime values for a list of terms.  <a href="../../df/d8a/struct_s_r_datalog_1_1detail_1_1_get_payload_values.html#details">More...</a><br /></td></tr>
-<tr class="memitem:GetPayloadValues_3C_20std_3A_3Atuple_3C_20Terms_2E_2E_2E_20_3E_2C_20StateMap_20_3E" id="r_GetPayloadValues_3C_20std_3A_3Atuple_3C_20Terms_2E_2E_2E_20_3E_2C_20StateMap_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d61/struct_s_r_datalog_1_1detail_1_1_get_payload_values_3_01std_1_1tuple_3_01_terms_8_8_8_01_4_00_01_state_map_01_4.html">GetPayloadValues&lt; std::tuple&lt; Terms... &gt;, StateMap &gt;</a></td></tr>
-<tr class="memitem:GetPayloadValues_3C_20std_3A_3Atuple_3C_3E_2C_20StateMap_20_3E" id="r_GetPayloadValues_3C_20std_3A_3Atuple_3C_3E_2C_20StateMap_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/ddd/struct_s_r_datalog_1_1detail_1_1_get_payload_values_3_01std_1_1tuple_3_4_00_01_state_map_01_4.html">GetPayloadValues&lt; std::tuple&lt;&gt;, StateMap &gt;</a></td></tr>
+<tr class="memitem:GetPrefixValuesDecoded" id="r_GetPrefixValuesDecoded"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d3c/struct_s_r_datalog_1_1detail_1_1_get_prefix_values_decoded.html">GetPrefixValuesDecoded</a></td></tr>
+<tr class="memitem:GetPrefixValuesDecoded_3C_20std_3A_3Atuple_3C_20Vars_2E_2E_2E_20_3E_2C_20StateMap_20_3E" id="r_GetPrefixValuesDecoded_3C_20std_3A_3Atuple_3C_20Vars_2E_2E_2E_20_3E_2C_20StateMap_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d1e/struct_s_r_datalog_1_1detail_1_1_get_prefix_values_decoded_3_01std_1_1tuple_3_01_vars_8_8_8_01_4_00_01_state_map_01_4.html">GetPrefixValuesDecoded&lt; std::tuple&lt; Vars... &gt;, StateMap &gt;</a></td></tr>
 <tr class="memitem:GenerateIterator" id="r_GenerateIterator"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/de1/struct_s_r_datalog_1_1detail_1_1_generate_iterator.html">GenerateIterator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template metaprogramming helper to generate a single iterator from a ColumnSource.  <a href="../../d8/de1/struct_s_r_datalog_1_1detail_1_1_generate_iterator.html#details">More...</a><br /></td></tr>
 <tr class="memitem:GenerateIterator_3C_20mir_3A_3AColumnSource_3C_20IndexSpecT_3C_20Schema_2C_20std_3A_3Ainteger_5Fsequence_3C_20int_2C_20Cols_2E_2E_2E_20_3E_2C_20Ver_20_3E_2C_20PrefixVars_20_3E_2C_20DB_2C_20StateMap_20_3E" id="r_GenerateIterator_3C_20mir_3A_3AColumnSource_3C_20IndexSpecT_3C_20Schema_2C_20std_3A_3Ainteger_5Fsequence_3C_20int_2C_20Cols_2E_2E_2E_20_3E_2C_20Ver_20_3E_2C_20PrefixVars_20_3E_2C_20DB_2C_20StateMap_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/struct_s_r_datalog_1_1detail_1_1_generate_iterator_3_01mir_1_1_column_source_3_01_index_spec_t_31a7820df72adc7a13bc39cb3e44262da.html">GenerateIterator&lt; mir::ColumnSource&lt; IndexSpecT&lt; Schema, std::integer_sequence&lt; int, Cols... &gt;, Ver &gt;, PrefixVars &gt;, DB, StateMap &gt;</a></td></tr>
@@ -124,23 +124,86 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization for ColumnJoin: executes a multi-way join operation.  <a href="../../d4/d88/struct_s_r_datalog_1_1detail_1_1_m_i_r_executor_3_01std_1_1tuple_3_01mir_1_1_column_join_3_01_vaccde6c0ac674a2e9c46fbf1bf30fc0ee.html#details">More...</a><br /></td></tr>
 <tr class="memitem:MIRExecutor_3C_20std_3A_3Atuple_3C_20LetClause_3C_20VarToBind_2C_20CppExpr_3C_20CapturedVars_2C_20Func_20_3E_20_3E_2C_20TailOps_2E_2E_2E_20_3E_2C_20StateMap_20_3E" id="r_MIRExecutor_3C_20std_3A_3Atuple_3C_20LetClause_3C_20VarToBind_2C_20CppExpr_3C_20CapturedVars_2C_20Func_20_3E_20_3E_2C_20TailOps_2E_2E_2E_20_3E_2C_20StateMap_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d9e/struct_s_r_datalog_1_1detail_1_1_m_i_r_executor_3_01std_1_1tuple_3_01_let_clause_3_01_var_to_bin8907e8d68030a7c70648f497f908557e.html">MIRExecutor&lt; std::tuple&lt; LetClause&lt; VarToBind, CppExpr&lt; CapturedVars, Func &gt; &gt;, TailOps... &gt;, StateMap &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization for <a class="el" href="../../d9/d11/struct_s_r_datalog_1_1_a_s_t_1_1_let_clause.html">LetClause</a>: executes a let binding operation.  <a href="../../d1/d9e/struct_s_r_datalog_1_1detail_1_1_m_i_r_executor_3_01std_1_1tuple_3_01_let_clause_3_01_var_to_bin8907e8d68030a7c70648f497f908557e.html#details">More...</a><br /></td></tr>
+<tr class="memitem:MIRExecutor_3C_20std_3A_3Atuple_3C_20IfClause_3C_20CppExpr_3C_20BoundVars_2C_20Func_20_3E_20_3E_2C_20TailOps_2E_2E_2E_20_3E_2C_20StateMap_20_3E" id="r_MIRExecutor_3C_20std_3A_3Atuple_3C_20IfClause_3C_20CppExpr_3C_20BoundVars_2C_20Func_20_3E_20_3E_2C_20TailOps_2E_2E_2E_20_3E_2C_20StateMap_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d0c/struct_s_r_datalog_1_1detail_1_1_m_i_r_executor_3_01std_1_1tuple_3_01_if_clause_3_01_cpp_expr_3_a69521d3ffe16a7bde2af065d98f8919.html">MIRExecutor&lt; std::tuple&lt; IfClause&lt; CppExpr&lt; BoundVars, Func &gt; &gt;, TailOps... &gt;, StateMap &gt;</a></td></tr>
 <tr class="memitem:MIRExecutor_3C_20std_3A_3Atuple_3C_20mir_3A_3ADestinationRelation_3C_20Schema_2C_20Terms_2C_20Ver_20_3E_2C_20TailOps_2E_2E_2E_20_3E_2C_20StateMap_20_3E" id="r_MIRExecutor_3C_20std_3A_3Atuple_3C_20mir_3A_3ADestinationRelation_3C_20Schema_2C_20Terms_2C_20Ver_20_3E_2C_20TailOps_2E_2E_2E_20_3E_2C_20StateMap_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d4e/struct_s_r_datalog_1_1detail_1_1_m_i_r_executor_3_01std_1_1tuple_3_01mir_1_1_destination_relatiod77068713e8e97a230041d4e4f85930c.html">MIRExecutor&lt; std::tuple&lt; mir::DestinationRelation&lt; Schema, Terms, Ver &gt;, TailOps... &gt;, StateMap &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization for DestinationRelation: executes a fact insertion operation.  <a href="../../d9/d4e/struct_s_r_datalog_1_1detail_1_1_m_i_r_executor_3_01std_1_1tuple_3_01mir_1_1_destination_relatiod77068713e8e97a230041d4e4f85930c.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-concepts" class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
 <tr class="memitem:IndexLike" id="r_IndexLike"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d62/concept_s_r_datalog_1_1detail_1_1_index_like.html">IndexLike</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept for index-like types with trie navigation interface. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a0bdb35146c8e83531038b3f7be838c7c" id="r_a0bdb35146c8e83531038b3f7be838c7c"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a0bdb35146c8e83531038b3f7be838c7c template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0bdb35146c8e83531038b3f7be838c7c">ColumnFor</a> = <a class="el" href="../../d3/d99/class_s_r_datalog_1_1_column.html">Column</a>&lt;T&gt;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a8a5cf88672dc971f8904a42e53593ba6" id="r_a8a5cf88672dc971f8904a42e53593ba6"><td class="memTemplParams" colspan="2">template&lt;typename Tuple, std::size_t... Is&gt; </td></tr>
+<tr class="memitem:a8a5cf88672dc971f8904a42e53593ba6 template"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a5cf88672dc971f8904a42e53593ba6">all_column_elements_impl</a> (std::index_sequence&lt; Is... &gt;)</td></tr>
 <tr class="memitem:a22e8605c732594ffd5ab36a6080d4463" id="r_a22e8605c732594ffd5ab36a6080d4463"><td class="memTemplParams" colspan="2">template&lt;typename TupleType, std::size_t... Is&gt; </td></tr>
 <tr class="memitem:a22e8605c732594ffd5ab36a6080d4463 template"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22e8605c732594ffd5ab36a6080d4463">make_tuple_with_resource_impl</a> (boost::container::pmr::memory_resource *resource, std::index_sequence&lt; Is... &gt;)</td></tr>
 <tr class="memitem:aeac037a7b599a6cd9464e5ffba0a53d0" id="r_aeac037a7b599a6cd9464e5ffba0a53d0"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="../../dc/dd9/struct_s_r_datalog_1_1_a_s_t_1_1_var.html">Var</a>, typename Value&gt; </td></tr>
 <tr class="memitem:aeac037a7b599a6cd9464e5ffba0a53d0 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeac037a7b599a6cd9464e5ffba0a53d0">print_map_pair</a> (const hana::basic_type&lt; <a class="el" href="../../dc/dd9/struct_s_r_datalog_1_1_a_s_t_1_1_var.html">Var</a> &gt; &amp;, const Value &amp;value)</td></tr>
-<tr class="memitem:aaa67ccc9bda7f3a4b4c51d1fa3929125" id="r_aaa67ccc9bda7f3a4b4c51d1fa3929125"><td class="memTemplParams" colspan="2">template&lt;typename StateMap&gt; </td></tr>
+<tr class="memitem:aaa67ccc9bda7f3a4b4c51d1fa3929125" id="r_aaa67ccc9bda7f3a4b4c51d1fa3929125"><td class="memTemplParams" colspan="2">template&lt;CStateMapBasic StateMap&gt; </td></tr>
 <tr class="memitem:aaa67ccc9bda7f3a4b4c51d1fa3929125 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa67ccc9bda7f3a4b4c51d1fa3929125">print_state</a> (const StateMap &amp;<a class="el" href="../../db/d8d/namespace_s_r_datalog_1_1state.html">state</a>)</td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Helper to transform a tuple of types into a tuple of <a class="el" href="../../d3/d99/class_s_r_datalog_1_1_column.html" title="Thin, PMR-aware contiguous column wrapper.">Column</a> types. </p>
+<p>Concept requiring all elements of a tuple to satisfy <a class="el" href="../../d8/dbb/concept_s_r_datalog_1_1_column_element.html" title="Concept requiring a type to be suitable for storage in a Relation column.">ColumnElement</a>.</p>
+<p>Uses boost::mp11 template metaprogramming to transform each type in the tuple to its corresponding <a class="el" href="../../d3/d99/class_s_r_datalog_1_1_column.html" title="Thin, PMR-aware contiguous column wrapper.">Column</a> type. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">AttrTuple</td><td>The tuple of attribute types to transform</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This concept checks that every type in the tuple satisfies the <a class="el" href="../../d8/dbb/concept_s_r_datalog_1_1_column_element.html" title="Concept requiring a type to be suitable for storage in a Relation column.">ColumnElement</a> concept, enabling tuple-based <a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html" title="Column-oriented Relation class.">Relation</a> templates while maintaining type safety. </p><dl class="section note"><dt>Note</dt><dd><b>C++20 feature</b>: Uses C++20 concepts with fold expressions (<span class="tt">&amp;&amp; ...</span>) to check all tuple elements at compile time. The fold expression iterates over all elements in the tuple using <span class="tt">std::index_sequence</span> and checks each element satisfies <span class="tt"><a class="el" href="../../d8/dbb/concept_s_r_datalog_1_1_column_element.html" title="Concept requiring a type to be suitable for storage in a Relation column.">ColumnElement</a></span>. </dd></dl>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
+<a id="a0bdb35146c8e83531038b3f7be838c7c" name="a0bdb35146c8e83531038b3f7be838c7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bdb35146c8e83531038b3f7be838c7c">&#9670;&#160;</a></span>ColumnFor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a0bdb35146c8e83531038b3f7be838c7c">SRDatalog::detail::ColumnFor</a> = <a class="el" href="../../d3/d99/class_s_r_datalog_1_1_column.html">Column</a>&lt;T&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a8a5cf88672dc971f8904a42e53593ba6" name="a8a5cf88672dc971f8904a42e53593ba6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a5cf88672dc971f8904a42e53593ba6">&#9670;&#160;</a></span>all_column_elements_impl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tuple, std::size_t... Is&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SRDatalog::detail::all_column_elements_impl </td>
+          <td>(</td>
+          <td class="paramtype">std::index_sequence&lt; Is... &gt;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a22e8605c732594ffd5ab36a6080d4463" name="a22e8605c732594ffd5ab36a6080d4463"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a22e8605c732594ffd5ab36a6080d4463">&#9670;&#160;</a></span>make_tuple_with_resource_impl()</h2>
 
@@ -195,7 +258,7 @@ template&lt;typename <a class="el" href="../../dc/dd9/struct_s_r_datalog_1_1_a_s
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename StateMap&gt; </div>
+template&lt;CStateMapBasic StateMap&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void SRDatalog::detail::print_state </td>

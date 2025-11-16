@@ -25,10 +25,14 @@
   <div class="document" id="documentId">
     <div class="container">
       <h1 class="title">Index</h1>
-      Modules: <a href="example/tc.html">example/tc</a>, <a href="example/triangle.html">example/triangle</a>, <a href="srdatalog.html">srdatalog</a>, <a href="srdatalog/codegen.html">srdatalog/codegen</a>, <a href="srdatalog/lang.html">srdatalog/lang</a>, <a href="srdatalog/syntax.html">srdatalog/syntax</a>.<br/><p /><h2>API symbols</h2>
+      Modules: <a href="example/ift.html">example/ift</a>, <a href="example/lett.html">example/lett</a>, <a href="example/tc.html">example/tc</a>, <a href="example/triangle.html">example/triangle</a>, <a href="srdatalog.html">srdatalog</a>, <a href="srdatalog/codegen.html">srdatalog/codegen</a>, <a href="srdatalog/lang.html">srdatalog/lang</a>, <a href="srdatalog/syntax.html">srdatalog/syntax</a>.<br/><p /><h2>API symbols</h2>
 <dl><dt><a name="BodyClause" href="#BodyClause"><span>BodyClause:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="syntax: object BodyClause" href="srdatalog/syntax.html#BodyClause">syntax: object BodyClause</a></li>
+          </ul></dd>
+<dt><a name="BodyClauseKind" href="#BodyClauseKind"><span>BodyClauseKind:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="syntax: enum BodyClauseKind" href="srdatalog/syntax.html#BodyClauseKind">syntax: enum BodyClauseKind</a></li>
           </ul></dd>
 <dt><a name="ClauseArg" href="#ClauseArg"><span>ClauseArg:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -52,11 +56,27 @@
           </ul></dd>
 <dt><a name="codegenFixpointRuleSets" href="#codegenFixpointRuleSets"><span>codegenFixpointRuleSets:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="codegen: proc codegenFixpointRuleSets(ruleset_name: string; rules: seq[Rule]): NimNode" href="srdatalog/codegen.html#codegenFixpointRuleSets%2Cstring%2Cseq%5BRule%5D">codegen: proc codegenFixpointRuleSets(ruleset_name: string; rules: seq[Rule]): NimNode</a></li>
+          data-doc-search-tag="codegen: proc codegenFixpointRuleSets(ruleset_name: string; decls: seq[RelationDecl];
+                        rules: seq[Rule]): NimNode" href="srdatalog/codegen.html#codegenFixpointRuleSets%2Cstring%2Cseq%5BRelationDecl%5D%2Cseq%5BRule%5D">codegen: proc codegenFixpointRuleSets(ruleset_name: string; decls: seq[RelationDecl];
+                        rules: seq[Rule]): NimNode</a></li>
+          </ul></dd>
+<dt><a name="codegenIfClause" href="#codegenIfClause"><span>codegenIfClause:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="codegen: proc codegenIfClause(decls: seq[RelationDecl]; clauses: seq[BodyClause];
+                body: BodyClause): string" href="srdatalog/codegen.html#codegenIfClause%2Cseq%5BRelationDecl%5D%2Cseq%5BBodyClause%5D%2CBodyClause">codegen: proc codegenIfClause(decls: seq[RelationDecl]; clauses: seq[BodyClause];
+                body: BodyClause): string</a></li>
+          </ul></dd>
+<dt><a name="codegenLetClause" href="#codegenLetClause"><span>codegenLetClause:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="codegen: proc codegenLetClause(decls: seq[RelationDecl]; clauses: seq[BodyClause];
+                 body: BodyClause): string" href="srdatalog/codegen.html#codegenLetClause%2Cseq%5BRelationDecl%5D%2Cseq%5BBodyClause%5D%2CBodyClause">codegen: proc codegenLetClause(decls: seq[RelationDecl]; clauses: seq[BodyClause];
+                 body: BodyClause): string</a></li>
           </ul></dd>
 <dt><a name="codegenNonIterativeRuleSets" href="#codegenNonIterativeRuleSets"><span>codegenNonIterativeRuleSets:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="codegen: proc codegenNonIterativeRuleSets(rule_name: string; rules: seq[Rule]): NimNode" href="srdatalog/codegen.html#codegenNonIterativeRuleSets%2Cstring%2Cseq%5BRule%5D">codegen: proc codegenNonIterativeRuleSets(rule_name: string; rules: seq[Rule]): NimNode</a></li>
+          data-doc-search-tag="codegen: proc codegenNonIterativeRuleSets(rule_name: string; decls: seq[RelationDecl];
+                            rules: seq[Rule]): NimNode" href="srdatalog/codegen.html#codegenNonIterativeRuleSets%2Cstring%2Cseq%5BRelationDecl%5D%2Cseq%5BRule%5D">codegen: proc codegenNonIterativeRuleSets(rule_name: string; decls: seq[RelationDecl];
+                            rules: seq[Rule]): NimNode</a></li>
           </ul></dd>
 <dt><a name="codegenRelationDecls" href="#codegenRelationDecls"><span>codegenRelationDecls:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -64,7 +84,7 @@
           </ul></dd>
 <dt><a name="codegenRule" href="#codegenRule"><span>codegenRule:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="codegen: proc codegenRule(query: Rule; delta_cls_idx: int = -1): NimNode" href="srdatalog/codegen.html#codegenRule%2CRule%2Cint">codegen: proc codegenRule(query: Rule; delta_cls_idx: int = -1): NimNode</a></li>
+          data-doc-search-tag="codegen: proc codegenRule(query: Rule; decls: seq[RelationDecl]; delta_cls_idx: int = -1): NimNode" href="srdatalog/codegen.html#codegenRule%2CRule%2Cseq%5BRelationDecl%5D%2Cint">codegen: proc codegenRule(query: Rule; decls: seq[RelationDecl]; delta_cls_idx: int = -1): NimNode</a></li>
           </ul></dd>
 <dt><a name="codegenTString" href="#codegenTString"><span>codegenTString:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -76,7 +96,7 @@
           </ul></dd>
 <dt><a name="datalog_db" href="#datalog_db"><span>datalog_db:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="lang: macro datalog_db(db_name: untyped; decls: untyped): untyped" href="srdatalog/lang.html#datalog_db.m%2Cuntyped%2Cuntyped">lang: macro datalog_db(db_name: untyped; decls: untyped): untyped</a></li>
+          data-doc-search-tag="lang: macro datalog_db(db_name: untyped; decls_str: typed): untyped" href="srdatalog/lang.html#datalog_db.m%2Cuntyped%2Ctyped">lang: macro datalog_db(db_name: untyped; decls_str: typed): untyped</a></li>
           </ul></dd>
 <dt><a name="edb" href="#edb"><span>edb:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -92,11 +112,19 @@
           </ul></dd>
 <dt><a name="fixpoint_rule" href="#fixpoint_rule"><span>fixpoint_rule:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="lang: macro fixpoint_rule(rule_name: untyped; rules: untyped): untyped" href="srdatalog/lang.html#fixpoint_rule.m%2Cuntyped%2Cuntyped">lang: macro fixpoint_rule(rule_name: untyped; rules: untyped): untyped</a></li>
+          data-doc-search-tag="lang: macro fixpoint_rule(rule_name: untyped; db_schema_str: typed; rules: untyped): untyped" href="srdatalog/lang.html#fixpoint_rule.m%2Cuntyped%2Ctyped%2Cuntyped">lang: macro fixpoint_rule(rule_name: untyped; db_schema_str: typed; rules: untyped): untyped</a></li>
           </ul></dd>
 <dt><a name="HeadClause" href="#HeadClause"><span>HeadClause:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="syntax: object HeadClause" href="srdatalog/syntax.html#HeadClause">syntax: object HeadClause</a></li>
+          </ul></dd>
+<dt><a name="IfClause" href="#IfClause"><span>IfClause:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="syntax: BodyClauseKind.IfClause" href="srdatalog/syntax.html#IfClause">syntax: BodyClauseKind.IfClause</a></li>
+          </ul></dd>
+<dt><a name="IfTestDBBlueprintCode" href="#IfTestDBBlueprintCode"><span>IfTestDBBlueprintCode:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="ift: template IfTestDBBlueprintCode(): untyped" href="example/ift.html#IfTestDBBlueprintCode.t">ift: template IfTestDBBlueprintCode(): untyped</a></li>
           </ul></dd>
 <dt><a name="isCppCodeNode" href="#isCppCodeNode"><span>isCppCodeNode:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -106,13 +134,25 @@
 <li><a class="reference external"
           data-doc-search-tag="syntax: proc isStratumNode(node: NimNode): bool" href="srdatalog/syntax.html#isStratumNode%2CNimNode">syntax: proc isStratumNode(node: NimNode): bool</a></li>
           </ul></dd>
+<dt><a name="LetClause" href="#LetClause"><span>LetClause:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="syntax: BodyClauseKind.LetClause" href="srdatalog/syntax.html#LetClause">syntax: BodyClauseKind.LetClause</a></li>
+          </ul></dd>
+<dt><a name="LetTestDBBlueprintCode" href="#LetTestDBBlueprintCode"><span>LetTestDBBlueprintCode:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="lett: template LetTestDBBlueprintCode(): untyped" href="example/lett.html#LetTestDBBlueprintCode.t">lett: template LetTestDBBlueprintCode(): untyped</a></li>
+          </ul></dd>
 <dt><a name="LVar" href="#LVar"><span>LVar:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="syntax: ClauseArgKind.LVar" href="srdatalog/syntax.html#LVar">syntax: ClauseArgKind.LVar</a></li>
           </ul></dd>
+<dt><a name="MultiLineCppCode" href="#MultiLineCppCode"><span>MultiLineCppCode:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="syntax: object MultiLineCppCode" href="srdatalog/syntax.html#MultiLineCppCode">syntax: object MultiLineCppCode</a></li>
+          </ul></dd>
 <dt><a name="none_recursive_rule" href="#none_recursive_rule"><span>none_recursive_rule:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="lang: macro none_recursive_rule(rule_name: untyped; rules: untyped): untyped" href="srdatalog/lang.html#none_recursive_rule.m%2Cuntyped%2Cuntyped">lang: macro none_recursive_rule(rule_name: untyped; rules: untyped): untyped</a></li>
+          data-doc-search-tag="lang: macro none_recursive_rule(rule_name: untyped; db_schema_str: typed; rules: untyped): untyped" href="srdatalog/lang.html#none_recursive_rule.m%2Cuntyped%2Ctyped%2Cuntyped">lang: macro none_recursive_rule(rule_name: untyped; db_schema_str: typed; rules: untyped): untyped</a></li>
           </ul></dd>
 <dt><a name="parseBodyClause" href="#parseBodyClause"><span>parseBodyClause:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -133,6 +173,10 @@
 <dt><a name="parseHeadClause" href="#parseHeadClause"><span>parseHeadClause:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="syntax: proc parseHeadClause(clause: NimNode): HeadClause" href="srdatalog/syntax.html#parseHeadClause%2CNimNode">syntax: proc parseHeadClause(clause: NimNode): HeadClause</a></li>
+          </ul></dd>
+<dt><a name="parseMultiLineCppCode" href="#parseMultiLineCppCode"><span>parseMultiLineCppCode:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="syntax: proc parseMultiLineCppCode(code: NimNode): MultiLineCppCode" href="srdatalog/syntax.html#parseMultiLineCppCode%2CNimNode">syntax: proc parseMultiLineCppCode(code: NimNode): MultiLineCppCode</a></li>
           </ul></dd>
 <dt><a name="parseOrder" href="#parseOrder"><span>parseOrder:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -178,6 +222,10 @@
 <li><a class="reference external"
           data-doc-search-tag="syntax: object RelationDecl" href="srdatalog/syntax.html#RelationDecl">syntax: object RelationDecl</a></li>
           </ul></dd>
+<dt><a name="RelClause" href="#RelClause"><span>RelClause:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="syntax: BodyClauseKind.RelClause" href="srdatalog/syntax.html#RelClause">syntax: BodyClauseKind.RelClause</a></li>
+          </ul></dd>
 <dt><a name="Rule" href="#Rule"><span>Rule:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="syntax: object Rule" href="srdatalog/syntax.html#Rule">syntax: object Rule</a></li>
@@ -186,9 +234,21 @@
 <li><a class="reference external"
           data-doc-search-tag="triangle: proc runDatalog()" href="example/triangle.html#runDatalog">triangle: proc runDatalog()</a></li>
           </ul></dd>
+<dt><a name="runIfTest" href="#runIfTest"><span>runIfTest:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="ift: proc runIfTest()" href="example/ift.html#runIfTest">ift: proc runIfTest()</a></li>
+          </ul></dd>
+<dt><a name="runLetTest" href="#runLetTest"><span>runLetTest:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="lett: proc runLetTest()" href="example/lett.html#runLetTest">lett: proc runLetTest()</a></li>
+          </ul></dd>
 <dt><a name="runTC" href="#runTC"><span>runTC:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="tc: proc runTC()" href="example/tc.html#runTC">tc: proc runTC()</a></li>
+          </ul></dd>
+<dt><a name="schema" href="#schema"><span>schema:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="lang: macro schema(db_name: untyped; decls: untyped): untyped" href="srdatalog/lang.html#schema.m%2Cuntyped%2Cuntyped">lang: macro schema(db_name: untyped; decls: untyped): untyped</a></li>
           </ul></dd>
 <dt><a name="srdatalog_prelude" href="#srdatalog_prelude"><span>srdatalog_prelude:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -198,11 +258,19 @@
 <li><a class="reference external"
           data-doc-search-tag="syntax: object Stratum" href="srdatalog/syntax.html#Stratum">syntax: object Stratum</a></li>
           </ul></dd>
+<dt><a name="TCDBBlueprintCode" href="#TCDBBlueprintCode"><span>TCDBBlueprintCode:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="tc: template TCDBBlueprintCode(): untyped" href="example/tc.html#TCDBBlueprintCode.t">tc: template TCDBBlueprintCode(): untyped</a></li>
+          </ul></dd>
+<dt><a name="TriangleDBBlueprintCode" href="#TriangleDBBlueprintCode"><span>TriangleDBBlueprintCode:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="triangle: template TriangleDBBlueprintCode(): untyped" href="example/triangle.html#TriangleDBBlueprintCode.t">triangle: template TriangleDBBlueprintCode(): untyped</a></li>
+          </ul></dd>
 </dl>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2025-11-13 22:26:05 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2025-11-16 23:03:11 UTC</small>
       </div>
     </div>
   </div>

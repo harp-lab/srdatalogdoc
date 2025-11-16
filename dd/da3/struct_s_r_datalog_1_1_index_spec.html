@@ -135,8 +135,8 @@ Usage</h1>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Use with Relation::ensure_index()</span></div>
 <div class="line"><span class="keyword">const</span> <span class="keyword">auto</span>&amp; idx = rel.ensure_index(spec2);</div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_index_spec_html"><div class="ttname"><a href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">SRDatalog::IndexSpec</a></div><div class="ttdoc">Specification for a multi-column index on a relation.</div><div class="ttdef"><b>Definition</b> relation_col.h:178</div></div>
-<div class="ttc" id="astruct_s_r_datalog_1_1_index_spec_html_aa5b0d79cf324d6288ce27e468be45ee9"><div class="ttname"><a href="#aa5b0d79cf324d6288ce27e468be45ee9">SRDatalog::IndexSpec::cols</a></div><div class="ttdeci">std::vector&lt; int &gt; cols</div><div class="ttdoc">Column indices that form the index key (left-to-right order).</div><div class="ttdef"><b>Definition</b> relation_col.h:183</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1_index_spec_html"><div class="ttname"><a href="../../dd/da3/struct_s_r_datalog_1_1_index_spec.html">SRDatalog::IndexSpec</a></div><div class="ttdoc">Specification for a multi-column index on a relation.</div><div class="ttdef"><b>Definition</b> relation_col.h:184</div></div>
+<div class="ttc" id="astruct_s_r_datalog_1_1_index_spec_html_aa5b0d79cf324d6288ce27e468be45ee9"><div class="ttname"><a href="#aa5b0d79cf324d6288ce27e468be45ee9">SRDatalog::IndexSpec::cols</a></div><div class="ttdeci">std::vector&lt; int &gt; cols</div><div class="ttdoc">Column indices that form the index key (left-to-right order).</div><div class="ttdef"><b>Definition</b> relation_col.h:189</div></div>
 </div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="indexspec_key_format"></a>
 Key Format</h1>
 <p>The index key is formed by concatenating encoded values from the specified columns in order:</p><ul>
@@ -162,7 +162,7 @@ Comparison</h1>
 <dl class="section note"><dt>Note</dt><dd><a class="el" href="../../d3/d99/class_s_r_datalog_1_1_column.html" title="Thin, PMR-aware contiguous column wrapper.">Column</a> indices must be valid (0 &lt;= index &lt; relation arity) when used to build an index. Invalid indices will cause errors during index construction.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd>HashTrieIndex for the index structure created from this specification </dd>
 <dd>
-<a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html#ac2f70836a44a12f69b8816726cddd622">Relation::ensure_index</a> for building indexes from specifications </dd>
+<a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html#a2f47097876de2dc6839ff87a7b33fe94">Relation::ensure_index</a> for building indexes from specifications </dd>
 <dd>
 <a class="el" href="../../dc/d50/struct_s_r_datalog_1_1_index_spec_hash.html" title="Hash function for IndexSpec to enable use in unordered containers.">IndexSpecHash</a> for use in unordered containers </dd></dl>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>

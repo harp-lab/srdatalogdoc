@@ -92,6 +92,9 @@ $(function(){initNavTree('db/d62/concept_s_r_datalog_1_1detail_1_1_index_like.ht
 </div><!--header-->
 <div class="contents">
 
+<p>Concept for index-like types with trie navigation interface.  
+<a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d1/d25/relation__col_8h_source.html">relation_col.h</a>&gt;</code></p>
 <h2 id="header-conceptdef" class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
@@ -103,9 +106,12 @@ $(function(){initNavTree('db/d62/concept_s_r_datalog_1_1detail_1_1_index_like.ht
 <div class="line">  { idx.size() } -&gt; std::convertible_to&lt;std::size_t&gt;;</div>
 <div class="line">  { idx.clear() } -&gt; std::same_as&lt;void&gt;;</div>
 <div class="line">}</div>
-<div class="ttc" id="aconcept_s_r_datalog_1_1_c_node_handle_html"><div class="ttname"><a href="../../d6/d6e/concept_s_r_datalog_1_1_c_node_handle.html">SRDatalog::CNodeHandle</a></div><div class="ttdoc">Concept for NodeHandle types from HashTrieIndex.</div><div class="ttdef"><b>Definition</b> relation_col.h:707</div></div>
-<div class="ttc" id="aconcept_s_r_datalog_1_1detail_1_1_index_like_html"><div class="ttname"><a href="../../db/d62/concept_s_r_datalog_1_1detail_1_1_index_like.html">SRDatalog::detail::IndexLike</a></div><div class="ttdef"><b>Definition</b> relation_col.h:1488</div></div>
-</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aconcept_s_r_datalog_1_1_c_node_handle_html"><div class="ttname"><a href="../../d6/d6e/concept_s_r_datalog_1_1_c_node_handle.html">SRDatalog::CNodeHandle</a></div><div class="ttdoc">Concept for NodeHandle types from HashTrieIndex.</div><div class="ttdef"><b>Definition</b> relation_col.h:272</div></div>
+<div class="ttc" id="aconcept_s_r_datalog_1_1detail_1_1_index_like_html"><div class="ttname"><a href="../../db/d62/concept_s_r_datalog_1_1detail_1_1_index_like.html">SRDatalog::detail::IndexLike</a></div><div class="ttdoc">Concept for index-like types with trie navigation interface.</div><div class="ttdef"><b>Definition</b> relation_col.h:1083</div></div>
+</div><!-- fragment --><a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Concept for index-like types with trie navigation interface. </p>
+<dl class="section note"><dt>Note</dt><dd><b>C++20 feature</b>: Uses nested <span class="tt">requires</span> clauses (requires CNodeHandle) and <span class="tt">requires</span> expressions to check for required types and operations. </dd></dl>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

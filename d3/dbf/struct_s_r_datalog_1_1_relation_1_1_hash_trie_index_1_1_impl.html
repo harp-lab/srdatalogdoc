@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SRDatalog: SRDatalog::Relation&lt; SR, AttrTs &gt;::HashTrieIndex::Impl Struct Reference</title>
+<title>SRDatalog: SRDatalog::Relation&lt; SR, AttrTuple &gt;::HashTrieIndex::Impl Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -62,7 +62,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('d3/dbf/struct_s_r_datalog_1_1_relation_1_1_hash_trie_index_1_1_impl.html','../../',''); });
+$(function(){initNavTree('d3/dbf/struct_s_r_datalog_1_1_relation_1_1_hash_trie_index_1_1_impl.html','../../','d0/d93/struct_s_r_datalog_1_1_relation_1_1_hash_trie_index_1_1_impl-members'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -88,14 +88,315 @@ $(function(){initNavTree('d3/dbf/struct_s_r_datalog_1_1_relation_1_1_hash_trie_i
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">SRDatalog::Relation&lt; SR, AttrTs &gt;::HashTrieIndex::Impl Struct Reference</div></div>
+  <div class="headertitle"><div class="title">SRDatalog::Relation&lt; SR, AttrTuple &gt;::HashTrieIndex::Impl Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:Node" id="r_Node"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d20/struct_s_r_datalog_1_1_relation_1_1_hash_trie_index_1_1_impl_1_1_node.html">Node</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a60b34101911012baf933cf0224071f93" id="r_a60b34101911012baf933cf0224071f93"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60b34101911012baf933cf0224071f93">RowId</a> = typename <a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html#a25ebca279f672490f3e8aab1ab18fa92">Relation</a>&lt;SR, AttrTuple&gt;::RowId</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:acfa6efd62fb5bafe64a077592022ba41" id="r_acfa6efd62fb5bafe64a077592022ba41"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfa6efd62fb5bafe64a077592022ba41">Impl</a> ()</td></tr>
+<tr class="memitem:a3fec469a100b101118e81cc9c1193108" id="r_a3fec469a100b101118e81cc9c1193108"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fec469a100b101118e81cc9c1193108">Impl</a> (boost::container::pmr::memory_resource *resource)</td></tr>
+<tr class="memitem:a72c04e535b681e6348b2fab45f69915f" id="r_a72c04e535b681e6348b2fab45f69915f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72c04e535b681e6348b2fab45f69915f">root_id</a> () const noexcept</td></tr>
+<tr class="memitem:ab05e232ce2d4b1f2251eefa79dd05099" id="r_ab05e232ce2d4b1f2251eefa79dd05099"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab05e232ce2d4b1f2251eefa79dd05099">ensure_child</a> (uint32_t nid, std::size_t key, uint32_t child_depth)</td></tr>
+<tr class="memitem:ae28a8bded730323b3f7db0beed7b7387" id="r_ae28a8bded730323b3f7db0beed7b7387"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae28a8bded730323b3f7db0beed7b7387">find_child</a> (uint32_t nid, std::size_t key) const</td></tr>
+<tr class="memitem:a955eb921b99bf1b55973b82f1b535512" id="r_a955eb921b99bf1b55973b82f1b535512"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a955eb921b99bf1b55973b82f1b535512">finalize_keys_cache</a> ()</td></tr>
+<tr class="memitem:a8e2e4be58cf50602c6c6a475f6478223" id="r_a8e2e4be58cf50602c6c6a475f6478223"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e2e4be58cf50602c6c6a475f6478223">bytes_used</a> () const</td></tr>
+<tr class="memitem:a56e44654610ce13dfa5bb0648f86e777" id="r_a56e44654610ce13dfa5bb0648f86e777"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56e44654610ce13dfa5bb0648f86e777">clear</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a688a24cf86a544a73c097ea435e67fc2" id="r_a688a24cf86a544a73c097ea435e67fc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#a6c9c3992e06e97298d5f0cb72acc0acc">Vector</a>&lt; <a class="el" href="../../d3/d20/struct_s_r_datalog_1_1_relation_1_1_hash_trie_index_1_1_impl_1_1_node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a688a24cf86a544a73c097ea435e67fc2">nodes</a></td></tr>
+<tr class="memitem:ad41b31eb6bfbaba2afdb5f77d49c9521" id="r_ad41b31eb6bfbaba2afdb5f77d49c9521"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad41b31eb6bfbaba2afdb5f77d49c9521">arity</a> {0}</td></tr>
 </table>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a60b34101911012baf933cf0224071f93" name="a60b34101911012baf933cf0224071f93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60b34101911012baf933cf0224071f93">&#9670;&#160;</a></span>RowId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a> SR, ColumnElementTuple AttrTuple&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html">SRDatalog::Relation</a>&lt; SR, AttrTuple &gt;::HashTrieIndex::Impl::RowId = typename <a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html#a25ebca279f672490f3e8aab1ab18fa92">Relation</a>&lt;SR, AttrTuple&gt;::RowId</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="acfa6efd62fb5bafe64a077592022ba41" name="acfa6efd62fb5bafe64a077592022ba41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfa6efd62fb5bafe64a077592022ba41">&#9670;&#160;</a></span>Impl() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a> SR, ColumnElementTuple AttrTuple&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html">SRDatalog::Relation</a>&lt; SR, AttrTuple &gt;::HashTrieIndex::Impl::Impl </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3fec469a100b101118e81cc9c1193108" name="a3fec469a100b101118e81cc9c1193108"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fec469a100b101118e81cc9c1193108">&#9670;&#160;</a></span>Impl() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a> SR, ColumnElementTuple AttrTuple&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html">SRDatalog::Relation</a>&lt; SR, AttrTuple &gt;::HashTrieIndex::Impl::Impl </td>
+          <td>(</td>
+          <td class="paramtype">boost::container::pmr::memory_resource *</td>          <td class="paramname"><span class="paramname"><em>resource</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a8e2e4be58cf50602c6c6a475f6478223" name="a8e2e4be58cf50602c6c6a475f6478223"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e2e4be58cf50602c6c6a475f6478223">&#9670;&#160;</a></span>bytes_used()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a> SR, ColumnElementTuple AttrTuple&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html">SRDatalog::Relation</a>&lt; SR, AttrTuple &gt;::HashTrieIndex::Impl::bytes_used </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56e44654610ce13dfa5bb0648f86e777" name="a56e44654610ce13dfa5bb0648f86e777"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56e44654610ce13dfa5bb0648f86e777">&#9670;&#160;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a> SR, ColumnElementTuple AttrTuple&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html">SRDatalog::Relation</a>&lt; SR, AttrTuple &gt;::HashTrieIndex::Impl::clear </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab05e232ce2d4b1f2251eefa79dd05099" name="ab05e232ce2d4b1f2251eefa79dd05099"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab05e232ce2d4b1f2251eefa79dd05099">&#9670;&#160;</a></span>ensure_child()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a> SR, ColumnElementTuple AttrTuple&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html">SRDatalog::Relation</a>&lt; SR, AttrTuple &gt;::HashTrieIndex::Impl::ensure_child </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>nid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>child_depth</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a955eb921b99bf1b55973b82f1b535512" name="a955eb921b99bf1b55973b82f1b535512"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a955eb921b99bf1b55973b82f1b535512">&#9670;&#160;</a></span>finalize_keys_cache()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a> SR, ColumnElementTuple AttrTuple&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html">SRDatalog::Relation</a>&lt; SR, AttrTuple &gt;::HashTrieIndex::Impl::finalize_keys_cache </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae28a8bded730323b3f7db0beed7b7387" name="ae28a8bded730323b3f7db0beed7b7387"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae28a8bded730323b3f7db0beed7b7387">&#9670;&#160;</a></span>find_child()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a> SR, ColumnElementTuple AttrTuple&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html">SRDatalog::Relation</a>&lt; SR, AttrTuple &gt;::HashTrieIndex::Impl::find_child </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>nid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>key</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a72c04e535b681e6348b2fab45f69915f" name="a72c04e535b681e6348b2fab45f69915f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72c04e535b681e6348b2fab45f69915f">&#9670;&#160;</a></span>root_id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a> SR, ColumnElementTuple AttrTuple&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html">SRDatalog::Relation</a>&lt; SR, AttrTuple &gt;::HashTrieIndex::Impl::root_id </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ad41b31eb6bfbaba2afdb5f77d49c9521" name="ad41b31eb6bfbaba2afdb5f77d49c9521"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad41b31eb6bfbaba2afdb5f77d49c9521">&#9670;&#160;</a></span>arity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a> SR, ColumnElementTuple AttrTuple&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html">SRDatalog::Relation</a>&lt; SR, AttrTuple &gt;::HashTrieIndex::Impl::arity {0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a688a24cf86a544a73c097ea435e67fc2" name="a688a24cf86a544a73c097ea435e67fc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a688a24cf86a544a73c097ea435e67fc2">&#9670;&#160;</a></span>nodes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d9/d96/concept_semiring.html">Semiring</a> SR, ColumnElementTuple AttrTuple&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#a6c9c3992e06e97298d5f0cb72acc0acc">Vector</a>&lt;<a class="el" href="../../d3/d20/struct_s_r_datalog_1_1_relation_1_1_hash_trie_index_1_1_impl_1_1_node.html">Node</a>&gt; <a class="el" href="../../d0/d94/class_s_r_datalog_1_1_relation.html">SRDatalog::Relation</a>&lt; SR, AttrTuple &gt;::HashTrieIndex::Impl::nodes</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>generalized_datalog/<a class="el" href="../../d1/d41/relation__col_8ipp_source.html">relation_col.ipp</a></li>
 </ul>

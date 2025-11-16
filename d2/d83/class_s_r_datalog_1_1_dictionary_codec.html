@@ -95,7 +95,7 @@ $(function(){initNavTree('d2/d83/class_s_r_datalog_1_1_dictionary_codec.html','.
 <p>Bidirectional dictionary codec for mapping values to/from size_t.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d1/d25/relation__col_8h_source.html">relation_col.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dc/df8/column_8h_source.html">column.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -151,10 +151,10 @@ Usage</h1>
 <div class="line"><span class="keywordflow">if</span> (codec.<a class="code hl_function" href="#ac4240b3338c4d3eb4b2dfcdd717d2f19">contains</a>(0)) {</div>
 <div class="line">  <span class="comment">// ...</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_s_r_datalog_1_1_dictionary_codec_html_a2f55539f119151a3bb8d54204af75571"><div class="ttname"><a href="#a2f55539f119151a3bb8d54204af75571">SRDatalog::DictionaryCodec::encode</a></div><div class="ttdeci">std::size_t encode(const T &amp;value)</div><div class="ttdoc">Encode a value to a size_t ID.</div><div class="ttdef"><b>Definition</b> relation_col.h:509</div></div>
-<div class="ttc" id="aclass_s_r_datalog_1_1_dictionary_codec_html_a959eb46746c1e92f88393dd0f1cee244"><div class="ttname"><a href="#a959eb46746c1e92f88393dd0f1cee244">SRDatalog::DictionaryCodec::DictionaryCodec</a></div><div class="ttdeci">DictionaryCodec()</div><div class="ttdoc">Construct an empty DictionaryCodec.</div><div class="ttdef"><b>Definition</b> relation_col.h:500</div></div>
-<div class="ttc" id="aclass_s_r_datalog_1_1_dictionary_codec_html_ac4240b3338c4d3eb4b2dfcdd717d2f19"><div class="ttname"><a href="#ac4240b3338c4d3eb4b2dfcdd717d2f19">SRDatalog::DictionaryCodec::contains</a></div><div class="ttdeci">bool contains(std::size_t id) const</div><div class="ttdoc">Check if an ID exists in the dictionary.</div><div class="ttdef"><b>Definition</b> relation_col.h:537</div></div>
-<div class="ttc" id="aclass_s_r_datalog_1_1_dictionary_codec_html_af8e62eca7c29b196442b9cf65343690a"><div class="ttname"><a href="#af8e62eca7c29b196442b9cf65343690a">SRDatalog::DictionaryCodec::decode</a></div><div class="ttdeci">const T &amp; decode(std::size_t id) const</div><div class="ttdoc">Decode an ID back to its original value.</div><div class="ttdef"><b>Definition</b> relation_col.h:525</div></div>
+<div class="ttc" id="aclass_s_r_datalog_1_1_dictionary_codec_html_a2f55539f119151a3bb8d54204af75571"><div class="ttname"><a href="#a2f55539f119151a3bb8d54204af75571">SRDatalog::DictionaryCodec::encode</a></div><div class="ttdeci">std::size_t encode(const T &amp;value)</div><div class="ttdoc">Encode a value to a size_t ID.</div><div class="ttdef"><b>Definition</b> column.h:376</div></div>
+<div class="ttc" id="aclass_s_r_datalog_1_1_dictionary_codec_html_a959eb46746c1e92f88393dd0f1cee244"><div class="ttname"><a href="#a959eb46746c1e92f88393dd0f1cee244">SRDatalog::DictionaryCodec::DictionaryCodec</a></div><div class="ttdeci">DictionaryCodec()</div><div class="ttdoc">Construct an empty DictionaryCodec.</div><div class="ttdef"><b>Definition</b> column.h:364</div></div>
+<div class="ttc" id="aclass_s_r_datalog_1_1_dictionary_codec_html_ac4240b3338c4d3eb4b2dfcdd717d2f19"><div class="ttname"><a href="#ac4240b3338c4d3eb4b2dfcdd717d2f19">SRDatalog::DictionaryCodec::contains</a></div><div class="ttdeci">bool contains(std::size_t id) const</div><div class="ttdoc">Check if an ID exists in the dictionary.</div><div class="ttdef"><b>Definition</b> column.h:406</div></div>
+<div class="ttc" id="aclass_s_r_datalog_1_1_dictionary_codec_html_af8e62eca7c29b196442b9cf65343690a"><div class="ttname"><a href="#af8e62eca7c29b196442b9cf65343690a">SRDatalog::DictionaryCodec::decode</a></div><div class="ttdeci">const T &amp; decode(std::size_t id) const</div><div class="ttdoc">Decode an ID back to its original value.</div><div class="ttdef"><b>Definition</b> column.h:392</div></div>
 </div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="dictionarycodec_internals"></a>
 Internals</h1>
 <p>The codec maintains two hash maps:</p><ul>
@@ -301,7 +301,7 @@ template&lt;typename T&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the ID exists, false otherwise</dd></dl>
-<p>Useful for checking validity before calling <a class="el" href="#af8e62eca7c29b196442b9cf65343690a" title="Decode an ID back to its original value.">decode()</a>. </p>
+<p>Useful for checking validity before calling <a class="el" href="#af8e62eca7c29b196442b9cf65343690a" title="Decode an ID back to its original value.">decode()</a>. </p><dl class="section note"><dt>Note</dt><dd><b>C++20 feature</b>: Uses <span class="tt">std::unordered_map::contains()</span> method (C++20) instead of <span class="tt">find() != end()</span> pattern for clearer code. </dd></dl>
 
 </div>
 </div>
@@ -381,7 +381,9 @@ template&lt;typename T&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The encoded ID (size_t)</dd></dl>
-<p>If the value has been seen before, returns its existing ID. Otherwise, assigns a new sequential ID and stores the mapping. </p><dl class="section note"><dt>Note</dt><dd>Encoding is idempotent: encoding the same value multiple times returns the same ID. </dd></dl>
+<p>If the value has been seen before, returns its existing ID. Otherwise, assigns a new sequential ID and stores the mapping. </p><dl class="section note"><dt>Note</dt><dd><b>C++17 feature</b>: Uses <span class="tt">if</span> statement with initialization (<span class="tt">if (auto it = ...)</span>) for efficient lookup and initialization in a single statement. </dd>
+<dd>
+Encoding is idempotent: encoding the same value multiple times returns the same ID. </dd></dl>
 
 </div>
 </div>
@@ -417,7 +419,7 @@ template&lt;typename T&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>generalized_datalog/<a class="el" href="../../d1/d25/relation__col_8h_source.html">relation_col.h</a></li>
+<li>generalized_datalog/<a class="el" href="../../dc/df8/column_8h_source.html">column.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

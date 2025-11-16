@@ -91,9 +91,15 @@ $(function(){initNavTree('dc/df8/column_8h.html','../../',''); });
   <div class="headertitle"><div class="title">column.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Thin, PMR-aware contiguous column wrapper and encoding/decoding system.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;cstddef&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../dc/db2/system_8h_source.html">system.h</a>&quot;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;concepts&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
+<code>#include &lt;boost/unordered/unordered_map.hpp&gt;</code><br />
+<code>#include &lt;boost/mp11.hpp&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../df/d8e/column_8ipp_source.html">column.ipp</a>&quot;</code><br />
 </div>
 <p><a href="../../dc/df8/column_8h_source.html">Go to the source code of this file.</a></p>
@@ -102,12 +108,74 @@ $(function(){initNavTree('dc/df8/column_8h.html','../../',''); });
 Classes</h2></td></tr>
 <tr class="memitem:SRDatalog_3A_3AColumn_3C_20T_20_3E" id="r_SRDatalog_3A_3AColumn_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d99/class_s_r_datalog_1_1_column.html">SRDatalog::Column&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thin, PMR-aware contiguous column wrapper.  <a href="../../d3/d99/class_s_r_datalog_1_1_column.html#details">More...</a><br /></td></tr>
+<tr class="memitem:SRDatalog_3A_3ADictionaryCodec_3C_20T_20_3E" id="r_SRDatalog_3A_3ADictionaryCodec_3C_20T_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_s_r_datalog_1_1_dictionary_codec.html">SRDatalog::DictionaryCodec&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bidirectional dictionary codec for mapping values to/from size_t.  <a href="../../d2/d83/class_s_r_datalog_1_1_dictionary_codec.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:SRDatalog" id="r_SRDatalog"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html">SRDatalog</a></td></tr>
+<tr class="memitem:SRDatalog_3A_3Adetail" id="r_SRDatalog_3A_3Adetail"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d73/namespace_s_r_datalog_1_1detail.html">SRDatalog::detail</a></td></tr>
+<tr class="memdesc:d8/d73/namespace_s_r_datalog_1_1detail"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper to transform a tuple of types into a tuple of <a class="el" href="../../d3/d99/class_s_r_datalog_1_1_column.html" title="Thin, PMR-aware contiguous column wrapper.">Column</a> types. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-concepts" class="groupheader"><a id="concepts" name="concepts"></a>
+Concepts</h2></td></tr>
+<tr class="memitem:SRDatalog_3A_3ADecodable" id="r_SRDatalog_3A_3ADecodable"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d6c/concept_s_r_datalog_1_1_decodable.html">SRDatalog::Decodable</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept for types that can be decoded from size_t. <br /></td></tr>
+<tr class="memitem:SRDatalog_3A_3AEncodable" id="r_SRDatalog_3A_3AEncodable"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de9/concept_s_r_datalog_1_1_encodable.html">SRDatalog::Encodable</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept for types that can be encoded to size_t. <br /></td></tr>
+<tr class="memitem:SRDatalog_3A_3ACodec" id="r_SRDatalog_3A_3ACodec"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcf/concept_s_r_datalog_1_1_codec.html">SRDatalog::Codec</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept for types that support both encoding and decoding. <br /></td></tr>
+<tr class="memitem:SRDatalog_3A_3AColumnElement" id="r_SRDatalog_3A_3AColumnElement"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dbb/concept_s_r_datalog_1_1_column_element.html">SRDatalog::ColumnElement</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept requiring a type to be suitable for storage in a Relation column. <br /></td></tr>
+<tr class="memitem:SRDatalog_3A_3AColumnElementTuple" id="r_SRDatalog_3A_3AColumnElementTuple"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d8c/concept_s_r_datalog_1_1_column_element_tuple.html">SRDatalog::ColumnElementTuple</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept for tuple types where all elements satisfy ColumnElement. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a0bdb35146c8e83531038b3f7be838c7c" id="r_a0bdb35146c8e83531038b3f7be838c7c"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a0bdb35146c8e83531038b3f7be838c7c template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d73/namespace_s_r_datalog_1_1detail.html#a0bdb35146c8e83531038b3f7be838c7c">SRDatalog::detail::ColumnFor</a> = <a class="el" href="../../d3/d99/class_s_r_datalog_1_1_column.html">Column</a>&lt;T&gt;</td></tr>
+<tr class="memitem:a29432f30ec81784324a3214baded803a" id="r_a29432f30ec81784324a3214baded803a"><td class="memTemplParams" colspan="2">template&lt;typename AttrTuple&gt; </td></tr>
+<tr class="memitem:a29432f30ec81784324a3214baded803a template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#a29432f30ec81784324a3214baded803a">SRDatalog::ColumnTuple</a> = boost::mp11::mp_transform&lt;<a class="el" href="../../d8/d73/namespace_s_r_datalog_1_1detail.html#a0bdb35146c8e83531038b3f7be838c7c">detail::ColumnFor</a>, AttrTuple&gt;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ac967cbefc4d32d7b0e7dfa038b29edac" id="r_ac967cbefc4d32d7b0e7dfa038b29edac"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
+requires std::is_integral_v&lt;T&gt; || std::is_enum_v&lt;T&gt;</td></tr>
+<tr class="memitem:ac967cbefc4d32d7b0e7dfa038b29edac template"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#ac967cbefc4d32d7b0e7dfa038b29edac">SRDatalog::encode_to_size_t</a> (const T &amp;val) noexcept</td></tr>
+<tr class="memdesc:ac967cbefc4d32d7b0e7dfa038b29edac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode an integral or enum value to size_t.  <br /></td></tr>
+<tr class="memitem:aaab816d49a0cbde1be597ea37df2b140" id="r_aaab816d49a0cbde1be597ea37df2b140"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
+requires std::is_floating_point_v&lt;T&gt; &amp;&amp; (sizeof(T) &lt;= sizeof(std::size_t))</td></tr>
+<tr class="memitem:aaab816d49a0cbde1be597ea37df2b140 template"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#aaab816d49a0cbde1be597ea37df2b140">SRDatalog::encode_to_size_t</a> (const T &amp;val) noexcept</td></tr>
+<tr class="memdesc:aaab816d49a0cbde1be597ea37df2b140"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode a floating-point value to size_t.  <br /></td></tr>
+<tr class="memitem:a3a2af07bbcbd1598ec38044c083da5d3" id="r_a3a2af07bbcbd1598ec38044c083da5d3"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
+requires (!std::is_integral_v&lt;T&gt; &amp;&amp; !std::is_floating_point_v&lt;T&gt;) &amp;&amp; requires(const T &amp;val) { { std::hash&lt;T&gt;{}(val) } -&gt; std::convertible_to&lt;std::size_t&gt;; }</td></tr>
+<tr class="memitem:a3a2af07bbcbd1598ec38044c083da5d3 template"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#a3a2af07bbcbd1598ec38044c083da5d3">SRDatalog::encode_to_size_t</a> (const T &amp;val)</td></tr>
+<tr class="memdesc:a3a2af07bbcbd1598ec38044c083da5d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode a hashable type to size_t using std::hash.  <br /></td></tr>
+<tr class="memitem:a467cc49491aa1b8875ad2094da994e22" id="r_a467cc49491aa1b8875ad2094da994e22"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
+requires std::is_integral_v&lt;T&gt; || std::is_enum_v&lt;T&gt;</td></tr>
+<tr class="memitem:a467cc49491aa1b8875ad2094da994e22 template"><td class="memItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#a467cc49491aa1b8875ad2094da994e22">SRDatalog::decode_from_size_t</a> (std::size_t encoded) noexcept</td></tr>
+<tr class="memdesc:a467cc49491aa1b8875ad2094da994e22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode an integral or enum value from size_t.  <br /></td></tr>
+<tr class="memitem:ac851280d023e8970ac30345ed33d48f7" id="r_ac851280d023e8970ac30345ed33d48f7"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
+requires std::is_floating_point_v&lt;T&gt; &amp;&amp; (sizeof(T) &lt;= sizeof(std::size_t))</td></tr>
+<tr class="memitem:ac851280d023e8970ac30345ed33d48f7 template"><td class="memItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#ac851280d023e8970ac30345ed33d48f7">SRDatalog::decode_from_size_t</a> (std::size_t encoded) noexcept</td></tr>
+<tr class="memdesc:ac851280d023e8970ac30345ed33d48f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode a floating-point value from size_t.  <br /></td></tr>
+<tr class="memitem:a8e69ca2196061b3d4f944d870bf2aee1" id="r_a8e69ca2196061b3d4f944d870bf2aee1"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a8e69ca2196061b3d4f944d870bf2aee1 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d83/class_s_r_datalog_1_1_dictionary_codec.html">DictionaryCodec</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#a8e69ca2196061b3d4f944d870bf2aee1">SRDatalog::get_global_codec</a> ()</td></tr>
+<tr class="memdesc:a8e69ca2196061b3d4f944d870bf2aee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a global (shared) <a class="el" href="../../d2/d83/class_s_r_datalog_1_1_dictionary_codec.html" title="Bidirectional dictionary codec for mapping values to/from size_t.">DictionaryCodec</a> instance for type T.  <br /></td></tr>
+<tr class="memitem:a58663b69f872df2d98f5aeba989bdb13" id="r_a58663b69f872df2d98f5aeba989bdb13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#a58663b69f872df2d98f5aeba989bdb13">SRDatalog::reset_all_global_codecs</a> ()</td></tr>
+<tr class="memdesc:a58663b69f872df2d98f5aeba989bdb13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset all global dictionaries (useful for testing).  <br /></td></tr>
+<tr class="memitem:a553c88abf96862c45767743d1ff87d60" id="r_a553c88abf96862c45767743d1ff87d60"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#a553c88abf96862c45767743d1ff87d60">SRDatalog::decode_from_size_t</a> (std::size_t encoded)</td></tr>
+<tr class="memdesc:a553c88abf96862c45767743d1ff87d60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode a string from size_t using the global string codec.  <br /></td></tr>
+<tr class="memitem:a64dd1c99bfe2ea721a12e0dd58c968ee" id="r_a64dd1c99bfe2ea721a12e0dd58c968ee"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dd6/namespace_s_r_datalog.html#a64dd1c99bfe2ea721a12e0dd58c968ee">SRDatalog::encode_to_size_t</a> (const std::string &amp;val)</td></tr>
+<tr class="memdesc:a64dd1c99bfe2ea721a12e0dd58c968ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode a string to size_t using the global string codec.  <br /></td></tr>
+<tr class="memitem:a8a5cf88672dc971f8904a42e53593ba6" id="r_a8a5cf88672dc971f8904a42e53593ba6"><td class="memTemplParams" colspan="2">template&lt;typename Tuple, std::size_t... Is&gt; </td></tr>
+<tr class="memitem:a8a5cf88672dc971f8904a42e53593ba6 template"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d73/namespace_s_r_datalog_1_1detail.html#a8a5cf88672dc971f8904a42e53593ba6">SRDatalog::detail::all_column_elements_impl</a> (std::index_sequence&lt; Is... &gt;)</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Thin, PMR-aware contiguous column wrapper and encoding/decoding system. </p>
+<p>This file provides the Column class for storing attribute data in a column-oriented format, along with encoding/decoding utilities for converting values to/from size_t for efficient indexing.</p>
+<dl class="section note"><dt>Note</dt><dd><b>C++20/23 Features Used</b>: This file uses C++20 concepts extensively for type constraints (Encodable, Decodable, Codec, ColumnElement, ColumnElementTuple), <span class="tt">requires</span> clauses for template constraints, <span class="tt">std::bit_cast</span> for type-punning, <span class="tt">if constexpr</span> for compile-time conditionals, fold expressions for tuple element checking, and C++17 <span class="tt">if</span> statement with initialization. </dd></dl>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>
