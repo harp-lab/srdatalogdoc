@@ -1,0 +1,12 @@
+<map id="generalized_datalog/gpu/runtime/runtime.h" name="generalized_datalog/gpu/runtime/runtime.h">
+<area shape="rect" id="node1" title="Complete GPU runtime &#45; includes all components for easy usage." alt="" coords="415,5,587,47"/>
+<area shape="rect" id="node2" href="$de/db4/runtime__tc__instantiation_8cpp.html" title=" " alt="" coords="5,95,179,151"/>
+<area shape="rect" id="node3" href="$df/dd6/gpu__fixpoint__executor_8h.html" title=" " alt="" coords="203,95,392,151"/>
+<area shape="rect" id="node8" href="$d3/db7/test__gpu__pipeline__executor_8cpp.html" title=" " alt="" coords="416,95,587,151"/>
+<area shape="rect" id="node9" href="$d4/d4a/test__gpu__pipeline__executor__let__if_8cpp.html" title="Test GPU pipeline execution for LetClause and IfClause." alt="" coords="611,95,781,151"/>
+<area shape="rect" id="node10" href="$d7/dab/test__mir__aggregation_8cpp.html" title=" " alt="" coords="805,102,1027,143"/>
+<area shape="rect" id="node4" href="$de/de3/test__gpu__fixpoint__executor_8cpp.html" title=" " alt="" coords="121,199,287,255"/>
+<area shape="rect" id="node5" href="$da/d33/gpu_2runtime_2query_8h.html" title=" " alt="" coords="311,206,467,247"/>
+<area shape="rect" id="node6" href="$d8/d53/test__gpu__query_8cpp.html" title=" " alt="" coords="199,303,379,344"/>
+<area shape="rect" id="node7" href="$d4/df5/test__gpu__tmp_8cpp.html" title="Test compiled pipelines on GPU (Port of test_tmp.cpp) using high&#45;level query compiler." alt="" coords="404,303,575,344"/>
+</map>

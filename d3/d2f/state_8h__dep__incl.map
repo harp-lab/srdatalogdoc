@@ -1,0 +1,16 @@
+<map id="generalized_datalog/runtime/state.h" name="generalized_datalog/runtime/state.h">
+<area shape="rect" id="node1" title="Runtime state management for variable bindings." alt="" coords="377,5,532,47"/>
+<area shape="rect" id="node2" href="$df/dd6/gpu__fixpoint__executor_8h.html" title=" " alt="" coords="228,273,417,329"/>
+<area shape="rect" id="node4" href="$da/d33/gpu_2runtime_2query_8h.html" title=" " alt="" coords="113,385,269,426"/>
+<area shape="rect" id="node7" href="$df/d22/iterator_8h.html" title="Iterator generation from ColumnSource MIR operations." alt="" coords="492,95,647,136"/>
+<area shape="rect" id="node10" href="$de/de0/runtime_2query_8h.html" title=" " alt="" coords="839,281,993,322"/>
+<area shape="rect" id="node11" href="$db/d21/runtime_2runtime_8h.html" title=" " alt="" coords="616,385,771,426"/>
+<area shape="rect" id="node3" href="$de/de3/test__gpu__fixpoint__executor_8cpp.html" title=" " alt="" coords="317,377,483,433"/>
+<area shape="rect" id="node5" href="$d8/d53/test__gpu__query_8cpp.html" title=" " alt="" coords="201,481,381,523"/>
+<area shape="rect" id="node6" href="$d4/df5/test__gpu__tmp_8cpp.html" title="Test compiled pipelines on GPU (Port of test_tmp.cpp) using high&#45;level query compiler." alt="" coords="5,481,176,523"/>
+<area shape="rect" id="node8" href="$dd/d40/executor_8h.html" title="Pipeline executor &#45; core template metaprogramming interpreter for pipelines." alt="" coords="576,184,731,225"/>
+<area shape="rect" id="node9" href="$d7/dab/test__mir__aggregation_8cpp.html" title=" " alt="" coords="543,281,764,322"/>
+<area shape="rect" id="node12" href="$d3/d51/runtime_8h.html" title="Runtime execution engine for MIR (Mid&#45;level Intermediate Representation)." alt="" coords="616,481,771,523"/>
+<area shape="rect" id="node13" href="$d1/d89/srdatalog_8h.html" title="Main include header for SRDatalog C++ library." alt="" coords="616,571,771,612"/>
+<area shape="rect" id="node14" href="$d4/d48/reach__benchmark_8cpp.html" title=" " alt="" coords="570,660,817,701"/>
+</map>

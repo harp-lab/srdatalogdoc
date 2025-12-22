@@ -1,4 +1,0 @@
-var struct_s_r_datalog_1_1_a_s_t_1_1_get_normal_clause_terms_3_01_clause_3_01_s_00_01_ver_00_01_vars_8_8_8_01_4_01_4 =
-[
-    [ "type", "df/d69/struct_s_r_datalog_1_1_a_s_t_1_1_get_normal_clause_terms_3_01_clause_3_01_s_00_01_ver_00_01_vars_8_8_8_01_4_01_4.html#acbd6896fbaba6c6296119e5f42ec3d45", null ]
-];

@@ -1,11 +1,9 @@
 var searchData=
 [
-  ['idxres_0',['IdxRes',['../d0/db0/struct_s_r_datalog_1_1_compile_rule_to_m_i_r_3_01_rule_3_01_head_00_01_body_00_01_join_plan_01_4_01_4.html#a944d464654a3a757063459f98535853a',1,'SRDatalog::CompileRuleToMIR&lt; Rule&lt; Head, Body, JoinPlan &gt; &gt;']]],
-  ['ifclauseops_1',['IfClauseOps',['../d5/dc9/struct_s_r_datalog_1_1_compile_bodies_to_m_i_r.html#ad6a97b3cbeff145bd67b9bada77343dc',1,'SRDatalog::CompileBodiesToMIR']]],
-  ['ifclauses_2',['IfClauses',['../d5/dc9/struct_s_r_datalog_1_1_compile_bodies_to_m_i_r.html#aaad18563cce0e9076e1f451d34ff41d2',1,'SRDatalog::CompileBodiesToMIR']]],
-  ['index_3',['Index',['../d5/d7b/struct_s_r_datalog_1_1_clause_to_column_source__impl.html#acf2b28003cf26f934bb929eec746b187',1,'SRDatalog::ClauseToColumnSource_impl']]],
-  ['indexlist_4',['IndexList',['../d1/d47/struct_s_r_datalog_1_1_a_s_t_1_1_map_vars_to_column_indexes.html#adecab3c51699754556537f7da39fe4df',1,'SRDatalog::AST::MapVarsToColumnIndexes']]],
-  ['indices_5',['Indices',['../d0/db0/struct_s_r_datalog_1_1_compile_rule_to_m_i_r_3_01_rule_3_01_head_00_01_body_00_01_join_plan_01_4_01_4.html#aa89108617c68f69984f64c5883ff6f12',1,'SRDatalog::CompileRuleToMIR&lt; Rule&lt; Head, Body, JoinPlan &gt; &gt;']]],
-  ['inversemap_6',['InverseMap',['../d2/d83/class_s_r_datalog_1_1_dictionary_codec.html#a2a52dd9331f0baca2451c60aaa8ba234',1,'SRDatalog::DictionaryCodec']]],
-  ['is_5ftuple_7',['is_tuple',['../d8/d67/namespace_s_r_datalog_1_1tmp.html#a4d548d31ee92e34c3f1579a223e572c6',1,'SRDatalog::tmp']]]
+  ['handletype_2291',['HandleType',['../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb',1,'runtime_tc_instantiation.cpp']]],
+  ['handletype1_2292',['HandleType1',['../d4/d4a/test__gpu__pipeline__executor__let__if_8cpp.html#a7ffd472de1325e723137f8de4b77c55a',1,'test_gpu_pipeline_executor_let_if.cpp']]],
+  ['handletype2_2293',['HandleType2',['../d4/d4a/test__gpu__pipeline__executor__let__if_8cpp.html#aec1cea4143aa725d3845a63787b7cc03',1,'test_gpu_pipeline_executor_let_if.cpp']]],
+  ['handletype3_2294',['HandleType3',['../d4/d4a/test__gpu__pipeline__executor__let__if_8cpp.html#a57e51ec1c746173466b822328894ead1',1,'test_gpu_pipeline_executor_let_if.cpp']]],
+  ['hostrelationpolicy_2295',['HostRelationPolicy',['../dc/d33/namespaceSRDatalog.html#a579d447a242cd4eed3ea98f47bcc9ee4',1,'SRDatalog']]],
+  ['hostrelationtype_2296',['HostRelationType',['../df/dcf/namespaceSRDatalog_1_1GPU.html#a70b6fbfbfbb779e70bd4091b1978a0ec',1,'SRDatalog::GPU']]]
 ];

@@ -1,0 +1,15 @@
+<map id="generalized_datalog/runtime/iterator.h" name="generalized_datalog/runtime/iterator.h">
+<area shape="rect" id="node1" title="Iterator generation from ColumnSource MIR operations." alt="" coords="586,5,741,47"/>
+<area shape="rect" id="node2" href="$dd/d40/executor_8h.html" title="Pipeline executor &#45; core template metaprogramming interpreter for pipelines." alt="" coords="503,95,658,136"/>
+<area shape="rect" id="node10" href="$db/d21/runtime_2runtime_8h.html" title=" " alt="" coords="618,295,773,337"/>
+<area shape="rect" id="node3" href="$df/dd6/gpu__fixpoint__executor_8h.html" title=" " alt="" coords="45,184,234,240"/>
+<area shape="rect" id="node8" href="$d7/dab/test__mir__aggregation_8cpp.html" title=" " alt="" coords="258,191,479,233"/>
+<area shape="rect" id="node9" href="$de/de0/runtime_2query_8h.html" title=" " alt="" coords="503,191,658,233"/>
+<area shape="rect" id="node4" href="$de/de3/test__gpu__fixpoint__executor_8cpp.html" title=" " alt="" coords="5,288,172,344"/>
+<area shape="rect" id="node5" href="$da/d33/gpu_2runtime_2query_8h.html" title=" " alt="" coords="196,295,352,337"/>
+<area shape="rect" id="node6" href="$d8/d53/test__gpu__query_8cpp.html" title=" " alt="" coords="135,392,315,433"/>
+<area shape="rect" id="node7" href="$d4/df5/test__gpu__tmp_8cpp.html" title="Test compiled pipelines on GPU (Port of test_tmp.cpp) using high&#45;level query compiler." alt="" coords="339,392,510,433"/>
+<area shape="rect" id="node11" href="$d3/d51/runtime_8h.html" title="Runtime execution engine for MIR (Mid&#45;level Intermediate Representation)." alt="" coords="618,392,773,433"/>
+<area shape="rect" id="node12" href="$d1/d89/srdatalog_8h.html" title="Main include header for SRDatalog C++ library." alt="" coords="618,481,773,523"/>
+<area shape="rect" id="node13" href="$d4/d48/reach__benchmark_8cpp.html" title=" " alt="" coords="572,571,819,612"/>
+</map>

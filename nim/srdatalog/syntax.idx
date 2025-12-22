@@ -14,20 +14,21 @@ nim	parseHeadClause	srdatalog/syntax.html#parseHeadClause,NimNode	proc parseHead
 nim	IfClause	srdatalog/syntax.html#IfClause	BodyClauseKind.IfClause		140
 nim	LetClause	srdatalog/syntax.html#LetClause	BodyClauseKind.LetClause		140
 nim	RelClause	srdatalog/syntax.html#RelClause	BodyClauseKind.RelClause		140
+nim	AggClause	srdatalog/syntax.html#AggClause	BodyClauseKind.AggClause		140
 nim	BodyClauseKind	srdatalog/syntax.html#BodyClauseKind	enum BodyClauseKind		140
-nim	BodyClause	srdatalog/syntax.html#BodyClause	object BodyClause		145
-nim	parseCppCode	srdatalog/syntax.html#parseCppCode,NimNode	proc parseCppCode(code_raw: NimNode): string		160
-nim	isCppCodeNode	srdatalog/syntax.html#isCppCodeNode,NimNode	proc isCppCodeNode(node: NimNode): bool		168
-nim	parseBodyClause	srdatalog/syntax.html#parseBodyClause,NimNode	proc parseBodyClause(clause: NimNode): BodyClause		174
-nim	Fact	srdatalog/syntax.html#Fact	object Fact		218
-nim	parseFact	srdatalog/syntax.html#parseFact,NimNode	proc parseFact(fact: NimNode): Fact		224
-nim	Rule	srdatalog/syntax.html#Rule	object Rule		240
-nim	parseOrder	srdatalog/syntax.html#parseOrder,NimNode	proc parseOrder(order: NimNode): seq[NimNode]		246
-nim	parseRule	srdatalog/syntax.html#parseRule,NimNode	proc parseRule(rule: NimNode): Rule		257
-nim	Stratum	srdatalog/syntax.html#Stratum	object Stratum		328
-nim	parseStratum	srdatalog/syntax.html#parseStratum,NimNode	proc parseStratum(stratum: NimNode): Stratum		333
-nim	isStratumNode	srdatalog/syntax.html#isStratumNode,NimNode	proc isStratumNode(node: NimNode): bool		352
-nim	ProgramNode	srdatalog/syntax.html#ProgramNode	object ProgramNode		362
-nim	parseProgramNode	srdatalog/syntax.html#parseProgramNode,NimNode	proc parseProgramNode(node: NimNode): ProgramNode		369
-nim	Program	srdatalog/syntax.html#Program	object Program		379
-nim	parseProgram	srdatalog/syntax.html#parseProgram,NimNode	proc parseProgram(program: NimNode): Program		384
+nim	BodyClause	srdatalog/syntax.html#BodyClause	object BodyClause		146
+nim	parseCppCode	srdatalog/syntax.html#parseCppCode,NimNode	proc parseCppCode(code_raw: NimNode): string		166
+nim	isCppCodeNode	srdatalog/syntax.html#isCppCodeNode,NimNode	proc isCppCodeNode(node: NimNode): bool		174
+nim	parseBodyClause	srdatalog/syntax.html#parseBodyClause,NimNode	proc parseBodyClause(clause: NimNode): BodyClause		180
+nim	Fact	srdatalog/syntax.html#Fact	object Fact		247
+nim	parseFact	srdatalog/syntax.html#parseFact,NimNode	proc parseFact(fact: NimNode): Fact		253
+nim	Rule	srdatalog/syntax.html#Rule	object Rule		269
+nim	parseOrder	srdatalog/syntax.html#parseOrder,NimNode	proc parseOrder(order: NimNode): seq[NimNode]		275
+nim	parseRule	srdatalog/syntax.html#parseRule,NimNode	proc parseRule(rule: NimNode): Rule		286
+nim	Stratum	srdatalog/syntax.html#Stratum	object Stratum		357
+nim	parseStratum	srdatalog/syntax.html#parseStratum,NimNode	proc parseStratum(stratum: NimNode): Stratum		362
+nim	isStratumNode	srdatalog/syntax.html#isStratumNode,NimNode	proc isStratumNode(node: NimNode): bool		381
+nim	ProgramNode	srdatalog/syntax.html#ProgramNode	object ProgramNode		391
+nim	parseProgramNode	srdatalog/syntax.html#parseProgramNode,NimNode	proc parseProgramNode(node: NimNode): ProgramNode		398
+nim	Program	srdatalog/syntax.html#Program	object Program		408
+nim	parseProgram	srdatalog/syntax.html#parseProgram,NimNode	proc parseProgram(program: NimNode): Program		413

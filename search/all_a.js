@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['join_20algorithm_0',['Join Algorithm',['../d3/d51/runtime_8h.html#join_algorithm',1,'']]],
-  ['join_20performance_1',['Join Performance',['../d5/dd6/namespace_s_r_datalog.html#codec_join_performance',1,'']]],
-  ['joinplan_2',['JoinPlan',['../d4/d58/struct_s_r_datalog_1_1_a_s_t_1_1_join_plan.html',1,'SRDatalog::AST']]]
+  ['join_5fmaterialized_685',['JOIN_MATERIALIZED',['../d4/d9e/macro_8h.html#ac4c8a20a9ea03818026fe37bbcb4c352',1,'macro.h']]],
+  ['join_5fsize_5fonly_686',['JOIN_SIZE_ONLY',['../d4/d9e/macro_8h.html#a7abd56b9e95622527c8768c4b51d3f99',1,'macro.h']]],
+  ['joinplan_687',['JoinPlan',['../d4/dd0/structSRDatalog_1_1AST_1_1JoinPlan.html',1,'SRDatalog::AST']]],
+  ['joinplanvars_688',['JoinPlanVars',['../de/de3/test__gpu__fixpoint__executor_8cpp.html#a92233ee955eb34af1ae271368710d655',1,'test_gpu_fixpoint_executor.cpp']]],
+  ['joinx_689',['JoinX',['../de/db4/runtime__tc__instantiation_8cpp.html#acfde82aebae9a715e3b8d883fc5b65b5',1,'JoinX():&#160;runtime_tc_instantiation.cpp'],['../de/de3/test__gpu__fixpoint__executor_8cpp.html#ab2fa038bc813a0b1223a4e05c1f39f33',1,'JoinX():&#160;test_gpu_fixpoint_executor.cpp']]],
+  ['joiny_690',['JoinY',['../de/db4/runtime__tc__instantiation_8cpp.html#a8431d7a99e5cbb8e0ae46eec28d4eb11',1,'JoinY():&#160;runtime_tc_instantiation.cpp'],['../de/de3/test__gpu__fixpoint__executor_8cpp.html#a31e88ddd6a3355de24d4fbedd9e76aca',1,'JoinY():&#160;test_gpu_fixpoint_executor.cpp']]],
+  ['joinz_691',['JoinZ',['../de/db4/runtime__tc__instantiation_8cpp.html#aec9fc88f26644e3b8d2366b90f74f973',1,'JoinZ():&#160;runtime_tc_instantiation.cpp'],['../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6a5e751e6a5629c775b3eb88a07dbd3d',1,'JoinZ():&#160;test_gpu_fixpoint_executor.cpp']]]
 ];

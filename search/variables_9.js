@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['rule_5fsize_0',['rule_size',['../dd/dbc/struct_s_r_datalog_1_1_a_s_t_1_1_non_iterative_rule_sets.html#ac8dd7a7256f2802c4320da812924496e',1,'SRDatalog::AST::NonIterativeRuleSets']]]
+  ['join_5fmaterialized_2137',['JOIN_MATERIALIZED',['../d4/d9e/macro_8h.html#ac4c8a20a9ea03818026fe37bbcb4c352',1,'macro.h']]],
+  ['join_5fsize_5fonly_2138',['JOIN_SIZE_ONLY',['../d4/d9e/macro_8h.html#a7abd56b9e95622527c8768c4b51d3f99',1,'macro.h']]]
 ];

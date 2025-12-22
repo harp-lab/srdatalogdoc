@@ -1,0 +1,5 @@
+<map id="generalized_datalog/gpu/rand.h" name="generalized_datalog/gpu/rand.h">
+<area shape="rect" id="node1" title="Random number generation for GPU. Use simple static xorshift* algorithm. or some wrapper for vendor f..." alt="" coords="131,5,286,47"/>
+<area shape="rect" id="node2" href="$dc/d28/cuda__test_8cpp.html" title=" " alt="" coords="5,95,199,136"/>
+<area shape="rect" id="node3" href="$d8/d5d/sycl__test_8cpp.html" title=" " alt="" coords="223,95,411,136"/>
+</map>

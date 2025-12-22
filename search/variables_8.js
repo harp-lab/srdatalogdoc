@@ -1,4 +1,32 @@
 var searchData=
 [
-  ['postings_0',['postings',['../d3/d20/struct_s_r_datalog_1_1_relation_1_1_hash_trie_index_1_1_impl_1_1_node.html#a10b7d9983ff8c201ea0edb0401952b89',1,'SRDatalog::Relation::HashTrieIndex::Impl::Node']]]
+  ['idx_2108',['idx',['../df/d68/structSRDatalog_1_1AST_1_1FindTermIndex.html#aaba3d9163d30287219f20ede62903919',1,'SRDatalog::AST::FindTermIndex']]],
+  ['idx_5fbuf_5fa_2109',['idx_buf_a',['../d8/ddf/structhwy__lexsort_1_1SortContext.html#ad0add23e53b0b299dd2c3402e229ad4a',1,'hwy_lexsort::SortContext']]],
+  ['idx_5fbuf_5fb_2110',['idx_buf_b',['../d8/ddf/structhwy__lexsort_1_1SortContext.html#a46429fd23418484c03b1818d56fded04',1,'hwy_lexsort::SortContext']]],
+  ['index_2111',['Index',['../db/d7d/namespaceSRDatalog_1_1mir.html#a3347aa14094b78614688063f4d47a6af',1,'SRDatalog::mir']]],
+  ['index_5farity_2112',['index_arity',['../d8/d8b/structSRDatalog_1_1SortedArrayIndex_1_1Impl.html#a57a55cf6d4255a3616ed3cb5f45838a0',1,'SRDatalog::SortedArrayIndex::Impl']]],
+  ['indexlike_2113',['IndexLike',['../dc/d33/namespaceSRDatalog.html#a4874ccb3f9bdc70e331e26488d358207',1,'SRDatalog']]],
+  ['indexlike_3c_20indextype_3c_20sr_2c_20attrtuple_2c_20valuetype_2c_20rowidtype_20_3e_20_3e_2114',['IndexLike&lt; IndexType&lt; SR, AttrTuple, ValueType, RowIdType &gt; &gt;',['../d6/d03/namespaceSRDatalog_1_1detail.html#a9194084c707d8c184a12238ef0fd6f2e',1,'SRDatalog::detail']]],
+  ['indexspec_2115',['IndexSpec',['../db/d7d/namespaceSRDatalog_1_1mir.html#a52b437635f5ec67c4c24e3ce5f52b43c',1,'SRDatalog::mir']]],
+  ['indextype_2116',['IndexType',['../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#adb3b51327cf77f2b9056c6e008672818',1,'SRDatalog::index::detail']]],
+  ['indextype_3c_20sr_2c_20attrtuple_20_3e_2117',['IndexType&lt; SR, AttrTuple &gt;',['../d6/d03/namespaceSRDatalog_1_1detail.html#a8a0ee872d893bf963448abbbaca1f90d',1,'SRDatalog::detail']]],
+  ['indextype_3c_20sr_2c_20attrtuple_2c_20valuetype_2c_20rowidtype_20_3e_2118',['IndexType&lt; SR, AttrTuple, ValueType, RowIdType &gt;',['../d6/d03/namespaceSRDatalog_1_1detail.html#a618392d46f818606ed8888da6523e0a8',1,'SRDatalog::detail']]],
+  ['interned_5fcols_5f_2119',['interned_cols_',['../d4/dd8/structSRDatalog_1_1Relation_1_1StorageUnion_1_1HostData.html#a3af07090dc9d941dd745ede68bb0066a',1,'SRDatalog::Relation::StorageUnion::HostData::interned_cols_()'],['../d0/d60/structSRDatalog_1_1detail_1_1RelationStorage_1_1HostStorage.html#a3e130a1c0231c754cad73c9879f8faf1',1,'SRDatalog::detail::RelationStorage::HostStorage::interned_cols_()']]],
+  ['is_5fbound_5fvars_5fv_2120',['is_bound_vars_v',['../db/d7d/namespaceSRDatalog_1_1mir.html#ab3f8046d2f93688e1df4c2f19ac1439b',1,'SRDatalog::mir']]],
+  ['is_5fcpp_5fexpr_5fv_2121',['is_cpp_expr_v',['../d6/da1/namespaceSRDatalog_1_1AST.html#ad36b01adf0bbf30bb691e55e697a752c',1,'SRDatalog::AST']]],
+  ['is_5fdatabase_5fv_2122',['is_database_v',['../d6/da1/namespaceSRDatalog_1_1AST.html#ae72b694b919d980ae6a14fe78403065e',1,'SRDatalog::AST']]],
+  ['is_5fdevice_2123',['is_device',['../d1/d48/structSRDatalog_1_1detail_1_1RelationStorageTraits_3_01Policy_01_4.html#a913e4aa93190be4cf2309579c0b38246',1,'SRDatalog::detail::RelationStorageTraits&lt; Policy &gt;']]],
+  ['is_5fexecute_5fpipeline_5fv_2124',['is_execute_pipeline_v',['../db/d7d/namespaceSRDatalog_1_1mir.html#a948b19a5dff01841981bd6543f745d69',1,'SRDatalog::mir']]],
+  ['is_5ffixpoint_5fplan_5fv_2125',['is_fixpoint_plan_v',['../dc/d33/namespaceSRDatalog.html#afeb2930d564331d6557162bc20c06914',1,'SRDatalog']]],
+  ['is_5findex_5ftemplate_5fv_2126',['is_index_template_v',['../dc/d33/namespaceSRDatalog.html#a34644dca2e63f4ff048d3a6672e69c53',1,'SRDatalog']]],
+  ['is_5findex_5fv_2127',['is_index_v',['../dc/d33/namespaceSRDatalog.html#a3fb7d916c1df52f0a518e90d0665bb6c',1,'SRDatalog']]],
+  ['is_5fintersection_2128',['is_intersection',['../d6/d1a/structSRDatalog_1_1GPU_1_1GPUPipelineExecutor_3_01std_1_1tuple_3_01mir_1_1ColumnJoin_3_01VarToBibeb562d4b45bdf6bc706e8f5389e7ec9.html#a68e74b6051dca5e4312afa0d11ad0105',1,'SRDatalog::GPU::GPUPipelineExecutor&lt; std::tuple&lt; mir::ColumnJoin&lt; VarToBind, std::tuple&lt; Sources... &gt; &gt;, TailOps... &gt;, VarPosMap, IteratorPosMap, RelationPosMap, GroupSize, IsLeafLevel &gt;']]],
+  ['is_5fmpi_5fdirect_5fmappable_5fv_2129',['is_mpi_direct_mappable_v',['../d3/dce/mpi__types_8h.html#ae1221e1a331e3923de51ebbf11d8ea7b',1,'mpi_types.h']]],
+  ['is_5fmulti_5fspace_2130',['is_multi_space',['../dd/d10/structSRDatalog_1_1DelimiterInfo.html#a2a1bfb747587da8bdd73cb707792dae4',1,'SRDatalog::DelimiterInfo']]],
+  ['is_5fnode_5fhandle_5fv_2131',['is_node_handle_v',['../dc/d33/namespaceSRDatalog.html#a8fbefc00278a99aade4129e9ad385100',1,'SRDatalog']]],
+  ['is_5ftuple_5fv_2132',['is_tuple_v',['../d1/dc9/namespaceSRDatalog_1_1tmp.html#ab4ec044fe00e8e65b534e90139879a0e',1,'SRDatalog::tmp']]],
+  ['is_5fvalid_5fhash_5ftrie_5findex_5fv_2133',['is_valid_hash_trie_index_v',['../dc/d33/namespaceSRDatalog.html#ab51ca493789e6227f27a199874810561',1,'SRDatalog']]],
+  ['is_5fvalid_5fsorted_5findex_5fv_2134',['is_valid_sorted_index_v',['../dc/d33/namespaceSRDatalog.html#a72a8a78098dffd05fcc1be7499ebf139',1,'SRDatalog']]],
+  ['isdevicepolicy_2135',['IsDevicePolicy',['../d6/d03/namespaceSRDatalog_1_1detail.html#afd5e3dfe5d52df05750cacc297048e90',1,'SRDatalog::detail']]],
+  ['ishostpolicy_2136',['IsHostPolicy',['../d6/d03/namespaceSRDatalog_1_1detail.html#a8a5f90a974a117a36a8acdbc11e9b8d5',1,'SRDatalog::detail']]]
 ];

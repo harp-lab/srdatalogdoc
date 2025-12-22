@@ -1,0 +1,4 @@
+<map id="SRDatalog::GPU::GPUPipelineExecutor&lt; std::tuple&lt; mir::ColumnJoin&lt; VarToBind, std::tuple&lt; Sources... &gt; &gt;, TailOps... &gt;, VarPosMap, IteratorPosMap, RelationPosMap, GroupSize, IsLeafLevel &gt;" name="SRDatalog::GPU::GPUPipelineExecutor&lt; std::tuple&lt; mir::ColumnJoin&lt; VarToBind, std::tuple&lt; Sources... &gt; &gt;, TailOps... &gt;, VarPosMap, IteratorPosMap, RelationPosMap, GroupSize, IsLeafLevel &gt;">
+<area shape="rect" id="node1" title="Specialization for ColumnJoin: Bind variable by intersection or iterating single source." alt="" coords="5,153,347,253"/>
+<area shape="rect" id="node2" href="$d7/dd3/structSRDatalog_1_1GPU_1_1state_1_1VarStore.html" title=" " alt="" coords="88,5,264,61"/>
+</map>

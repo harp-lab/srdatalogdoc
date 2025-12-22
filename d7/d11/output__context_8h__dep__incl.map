@@ -1,0 +1,16 @@
+<map id="generalized_datalog/gpu/runtime/output_context.h" name="generalized_datalog/gpu/runtime/output_context.h">
+<area shape="rect" id="node1" title="Output context for two&#45;phase GPU execution (count + materialize)" alt="" coords="453,5,608,61"/>
+<area shape="rect" id="node2" href="$da/dd5/gpu_2runtime_2runtime_8h.html" title="Complete GPU runtime &#45; includes all components for easy usage." alt="" coords="415,392,587,433"/>
+<area shape="rect" id="node12" href="$d9/dce/pipeline__executor_8h.html" title="Inner pipeline executor &#45; recursive TMP dispatcher for MIR operations." alt="" coords="450,109,611,165"/>
+<area shape="rect" id="node13" href="$de/dc5/root__executor_8h.html" title="Root&#45;level executor &#45; handles first ColumnJoin and kernel launch." alt="" coords="530,213,739,255"/>
+<area shape="rect" id="node3" href="$de/db4/runtime__tc__instantiation_8cpp.html" title=" " alt="" coords="5,481,179,537"/>
+<area shape="rect" id="node4" href="$df/dd6/gpu__fixpoint__executor_8h.html" title=" " alt="" coords="203,481,392,537"/>
+<area shape="rect" id="node9" href="$d3/db7/test__gpu__pipeline__executor_8cpp.html" title=" " alt="" coords="416,481,587,537"/>
+<area shape="rect" id="node10" href="$d4/d4a/test__gpu__pipeline__executor__let__if_8cpp.html" title="Test GPU pipeline execution for LetClause and IfClause." alt="" coords="611,481,781,537"/>
+<area shape="rect" id="node11" href="$d7/dab/test__mir__aggregation_8cpp.html" title=" " alt="" coords="805,489,1027,530"/>
+<area shape="rect" id="node5" href="$de/de3/test__gpu__fixpoint__executor_8cpp.html" title=" " alt="" coords="121,585,287,641"/>
+<area shape="rect" id="node6" href="$da/d33/gpu_2runtime_2query_8h.html" title=" " alt="" coords="311,593,467,634"/>
+<area shape="rect" id="node7" href="$d8/d53/test__gpu__query_8cpp.html" title=" " alt="" coords="199,689,379,731"/>
+<area shape="rect" id="node8" href="$d4/df5/test__gpu__tmp_8cpp.html" title="Test compiled pipelines on GPU (Port of test_tmp.cpp) using high&#45;level query compiler." alt="" coords="404,689,575,731"/>
+<area shape="rect" id="node14" href="$da/d75/launcher_8h.html" title="Host&#45;side launcher for GPU pipeline execution." alt="" coords="564,303,740,344"/>
+</map>

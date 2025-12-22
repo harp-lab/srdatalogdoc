@@ -67,9 +67,14 @@
     bodyCppCode*: string
   of RelClause:
     relname*: NimNode
-    args*: seq[ClauseArg]">BodyClause</a></li>
+    args*: seq[ClauseArg]
+  of AggClause:
+    aggResultVar*: NimNode
+    aggFunc*: string
+    aggRelName*: NimNode
+    aggRelArgs*: seq[ClauseArg]">BodyClause</a></li>
 <li><a class="reference" href="#BodyClauseKind" title="BodyClauseKind = enum
-  IfClause, LetClause, RelClause">BodyClauseKind</a></li>
+  IfClause, LetClause, RelClause, AggClause">BodyClauseKind</a></li>
 <li><a class="reference" href="#ClauseArg" title="ClauseArg = object
   case kind*: ClauseArgKind
   of LVar:
@@ -207,7 +212,12 @@
     <span class="Identifier">bodyCppCode</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">string</span>
   <span class="Keyword">of</span> <span class="Identifier">RelClause</span><span class="Other">:</span>
     <span class="Identifier">relname</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">NimNode</span>
-    <span class="Identifier">args</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><a href="syntax.html#ClauseArg"><span class="Identifier">ClauseArg</span></a><span class="Other">]</span></pre></dt>
+    <span class="Identifier">args</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><a href="syntax.html#ClauseArg"><span class="Identifier">ClauseArg</span></a><span class="Other">]</span>
+  <span class="Keyword">of</span> <span class="Identifier">AggClause</span><span class="Other">:</span>
+    <span class="Identifier">aggResultVar</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">NimNode</span>
+    <span class="Identifier">aggFunc</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">string</span>
+    <span class="Identifier">aggRelName</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">NimNode</span>
+    <span class="Identifier">aggRelArgs</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><a href="syntax.html#ClauseArg"><span class="Identifier">ClauseArg</span></a><span class="Other">]</span></pre></dt>
   <dd>
     
     
@@ -216,7 +226,7 @@
 </div>
 <div id="BodyClauseKind">
   <dt><pre><a href="syntax.html#BodyClauseKind"><span class="Identifier">BodyClauseKind</span></a> <span class="Other">=</span> <span class="Keyword">enum</span>
-  <span class="Identifier">IfClause</span><span class="Other">,</span> <span class="Identifier">LetClause</span><span class="Other">,</span> <span class="Identifier">RelClause</span></pre></dt>
+  <span class="Identifier">IfClause</span><span class="Other">,</span> <span class="Identifier">LetClause</span><span class="Other">,</span> <span class="Identifier">RelClause</span><span class="Other">,</span> <span class="Identifier">AggClause</span></pre></dt>
   <dd>
     
     
@@ -521,7 +531,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2025-11-16 23:03:11 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2025-12-22 06:16:27 UTC</small>
       </div>
     </div>
   </div>
