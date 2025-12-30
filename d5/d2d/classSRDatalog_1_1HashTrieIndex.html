@@ -191,7 +191,7 @@ Usage</h1>
 <div class="fragment"><div class="line"><span class="comment">// Build index on columns 0 and 1</span></div>
 <div class="line"><a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">IndexSpec</a> spec;</div>
 <div class="line">spec.<a class="code" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html#aa5b0d79cf324d6288ce27e468be45ee9">cols</a> = {0, 1};</div>
-<div class="line"><span class="keyword">const</span> <span class="keyword">auto</span>&amp; idx = rel.ensure_index(spec);</div>
+<div class="line"><span class="keyword">const</span> <span class="keyword">auto</span>&amp; idx = <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a>.ensure_index(spec);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Query with full key</span></div>
 <div class="line"><span class="keyword">auto</span> prefix = Prefix&lt;int, int&gt;{5, 10};</div>
@@ -210,8 +210,9 @@ Usage</h1>
 <div class="line">    <span class="comment">// Enumerate possible values for column 1 when column 0 = 5</span></div>
 <div class="line">  }</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceSRDatalog_1_1GPU_html_acd0e9dde4687ece128684cdb2bf1db12"><div class="ttname"><a href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">SRDatalog::GPU::IndexSpec</a></div><div class="ttdeci">SRDatalog::IndexSpec IndexSpec</div><div class="ttdef"><b>Definition:</b> device_sorted_array_index.h:49</div></div>
-<div class="ttc" id="astructSRDatalog_1_1IndexSpec_html_aa5b0d79cf324d6288ce27e468be45ee9"><div class="ttname"><a href="../../d1/d33/structSRDatalog_1_1IndexSpec.html#aa5b0d79cf324d6288ce27e468be45ee9">SRDatalog::IndexSpec::cols</a></div><div class="ttdeci">std::vector&lt; int &gt; cols</div><div class="ttdoc">Column indices that form the index key (left-to-right order).</div><div class="ttdef"><b>Definition:</b> index.h:267</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a5e6b328cd7e5a4fb45a9843d28889e45"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">SRDatalog::AST::rel</a></div><div class="ttdeci">constexpr auto rel</div><div class="ttdoc">Global helper to create a RelWrapper for a schema.</div><div class="ttdef"><b>Definition:</b> ast.h:1269</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1GPU_html_acd0e9dde4687ece128684cdb2bf1db12"><div class="ttname"><a href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">SRDatalog::GPU::IndexSpec</a></div><div class="ttdeci">SRDatalog::IndexSpec IndexSpec</div><div class="ttdef"><b>Definition:</b> device_sorted_array_index.h:50</div></div>
+<div class="ttc" id="astructSRDatalog_1_1IndexSpec_html_aa5b0d79cf324d6288ce27e468be45ee9"><div class="ttname"><a href="../../d1/d33/structSRDatalog_1_1IndexSpec.html#aa5b0d79cf324d6288ce27e468be45ee9">SRDatalog::IndexSpec::cols</a></div><div class="ttdeci">std::vector&lt; int &gt; cols</div><div class="ttdoc">Column indices that form the index key (left-to-right order).</div><div class="ttdef"><b>Definition:</b> index.h:300</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="hashtrie_navigation"></a>
 Navigation</h1>
 <p>Navigation uses <a class="el" href="../../db/d1c/classSRDatalog_1_1HashTrieIndex_1_1NodeHandle.html" title="Cursor for navigating and querying nodes in a HashTrieIndex.">NodeHandle</a> cursors:</p><ul>
@@ -251,7 +252,7 @@ Building</h1>
 template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType  = std::size_t, typename RowIdType  = uint32_t&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::<a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html#acf6c0a93dc884a1a6ec5e4d26a20368d">RowId</a> =  RowIdType</td>
+          <td class="memname">using <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::<a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html#acf6c0a93dc884a1a6ec5e4d26a20368d">RowId</a> =  RowIdType</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -267,7 +268,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType  = std
 template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType  = std::size_t, typename RowIdType  = uint32_t&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::<a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html#a6635ac3cc2d5359f52abd282a9c14fbf">RowRange</a> =  std::span&lt;const <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html#acf6c0a93dc884a1a6ec5e4d26a20368d">RowId</a>&gt;</td>
+          <td class="memname">using <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::<a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html#a6635ac3cc2d5359f52abd282a9c14fbf">RowRange</a> =  std::span&lt;const <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html#acf6c0a93dc884a1a6ec5e4d26a20368d">RowId</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -283,7 +284,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType  = std
 template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType  = std::size_t, typename RowIdType  = uint32_t&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::<a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html#ac7b44ad5250e2868ae39a0a4c5998a1e">ValueRange</a> =  std::span&lt;const ValueType&gt;</td>
+          <td class="memname">using <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::<a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html#ac7b44ad5250e2868ae39a0a4c5998a1e">ValueRange</a> =  std::span&lt;const ValueType&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -303,7 +304,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType , type
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::<a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a> </td>
+          <td class="memname"><a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::<a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../dc/d33/namespaceSRDatalog.html#a43bc1ecf5ffd3218efaafb0d722fecc4">memory_resource</a> *&#160;</td>
           <td class="paramname"><em>resource</em></td><td>)</td>
@@ -340,7 +341,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType , type
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::~<a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a> </td>
+          <td class="memname"><a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::~<a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -369,9 +370,9 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType  = std
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::<a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a> </td>
+          <td class="memname"><a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::<a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt; &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -397,9 +398,9 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType  = std
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::<a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a> </td>
+          <td class="memname"><a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::<a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt; &amp;&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt; &amp;&amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -426,7 +427,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType  = std
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::build_from_encoded </td>
+          <td class="memname">void <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::build_from_encoded </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html">IndexSpec</a> &amp;&#160;</td>
           <td class="paramname"><em>spec</em>, </td>
@@ -487,7 +488,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType , type
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::bytes_used</td>
+          <td class="memname">std::size_t <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::bytes_used</td>
         </tr>
       </table>
   </td>
@@ -521,7 +522,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType  = std
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::clear </td>
+          <td class="memname">void <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::clear </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -548,9 +549,9 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType  = std
 template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType , typename RowIdType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::clone_from </td>
+          <td class="memname">void <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::clone_from </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt; &amp;&#160;</td>
           <td class="paramname"><em>other</em>, </td>
         </tr>
         <tr>
@@ -590,7 +591,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType  = std
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::empty </td>
+          <td class="memname">bool <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::empty </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -622,7 +623,7 @@ template&lt;typename FirstHandle , typename... OtherHandles&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::intersect </td>
+          <td class="memname">auto <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::intersect </td>
           <td>(</td>
           <td class="paramtype">const FirstHandle &amp;&#160;</td>
           <td class="paramname"><em>first</em>, </td>
@@ -660,9 +661,9 @@ template&lt;typename FirstHandle , typename... OtherHandles&gt; </div>
 template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType , typename RowIdType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::merge </td>
+          <td class="memname">void <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::merge </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt; &amp;&#160;</td>
           <td class="paramname"><em>other</em>, </td>
         </tr>
         <tr>
@@ -702,9 +703,9 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType  = std
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a>&amp; <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::operator= </td>
+          <td class="memname"><a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a>&amp; <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt; &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -730,9 +731,9 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType  = std
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a>&amp; <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::operator= </td>
+          <td class="memname"><a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a>&amp; <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt; &amp;&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt; &amp;&amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -757,7 +758,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType  = std
 template&lt;std::size_t N&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d1c/classSRDatalog_1_1HashTrieIndex_1_1NodeHandle.html">NodeHandle</a> <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::prefix_lookup </td>
+          <td class="memname"><a class="el" href="../../db/d1c/classSRDatalog_1_1HashTrieIndex_1_1NodeHandle.html">NodeHandle</a> <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::prefix_lookup </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../dc/d33/namespaceSRDatalog.html#a0b66a20aea24b66fdb769e3994cd5e44">EncodedKeyPrefix</a>&lt; N &gt; &amp;&#160;</td>
           <td class="paramname"><em>k</em></td><td>)</td>
@@ -802,7 +803,7 @@ template&lt;std::size_t N&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::prefix_lookup </td>
+          <td class="memname">auto <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::prefix_lookup </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../dc/d33/namespaceSRDatalog.html#a0b66a20aea24b66fdb769e3994cd5e44">EncodedKeyPrefix</a>&lt; N &gt; &amp;&#160;</td>
           <td class="paramname"><em>k</em></td><td>)</td>
@@ -830,7 +831,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType , type
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::root</td>
+          <td class="memname">auto <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::root</td>
         </tr>
       </table>
   </td>
@@ -858,7 +859,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType  = std
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::rows_processed </td>
+          <td class="memname">std::size_t <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::rows_processed </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -889,7 +890,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType  = std
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::size </td>
+          <td class="memname">std::size_t <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::size </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -921,7 +922,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, typename ValueType  = std
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::arity = std::tuple_size_v&lt;AttrTuple&gt;</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="../../d5/d2d/classSRDatalog_1_1HashTrieIndex.html">SRDatalog::HashTrieIndex</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;::arity = std::tuple_size_v&lt;AttrTuple&gt;</td>
         </tr>
       </table>
   </td>

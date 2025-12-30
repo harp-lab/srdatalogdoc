@@ -94,431 +94,476 @@ $(function() {
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <a class="code" href="../../da/d2a/func__type__helper_8h.html">&quot;func_type_helper.h&quot;</a></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <a class="code" href="../../d3/dab/mir_8h.html" title="Mid-level Intermediate Representation (MIR) definitions and compilation.">&quot;mir.h&quot;</a>         <span class="comment">// For CIndexSpec</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// Note: query.h is NOT included here to avoid circular dependency</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">iostream</span><span class="preprocessor">&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">string</span><span class="preprocessor">&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace</span> SRDatalog {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using</span> <span class="keyword">namespace</span> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html">AST</a>;  <span class="comment">// Bring AST concepts into scope</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace</span> hana = boost::hana;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace</span> mp = boost::mp11;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">using</span> <span class="keyword">namespace</span> boost::hana::literals;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">// debug print the type name</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../dc/d33/namespaceSRDatalog.html#a580f8a28f36f8658bba35ef0f6e4102b">   37</a></span>&#160;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::string <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a580f8a28f36f8658bba35ef0f6e4102b">get_type_name</a>() {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  boost::typeindex::type_index ti = boost::typeindex::type_id&lt;T&gt;();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordflow">return</span> ti.pretty_name();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// -----------------------------------------------------------------</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">// State Management Helpers (Hana-based)</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <a class="code" href="../../d3/d31/type__name_8h.html">&quot;type_name.h&quot;</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">iostream</span><span class="preprocessor">&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">string</span><span class="preprocessor">&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace</span> SRDatalog {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using</span> <span class="keyword">namespace</span> <a class="code" href="../../dc/d33/namespaceSRDatalog.html">AST</a>;  <span class="comment">// Bring AST concepts into scope</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace</span> hana = boost::hana;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace</span> mp = boost::mp11;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">using</span> <span class="keyword">namespace</span> boost::hana::literals;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">SRD_HOST_DEVICE</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifdef</span> <span class="preprocessor">__CUDACC__</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">SRD_HOST_DEVICE</span> <span class="preprocessor">__host__</span> <span class="preprocessor">__device__</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">else</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../db/d3b/state_8h.html#acb1e9d35d683f55f731f9a2282b0f038">   40</a></span>&#160;<span class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">SRD_HOST_DEVICE</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">// -----------------------------------------------------------------</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html">   45</a></span>&#160;<span class="keyword">namespace</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">state</a> {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"> * @brief Helper functions for extracting values from Hana state map</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"> * @details These helpers use tag dispatching to handle different tuple types</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"> * (std::tuple vs mir::BoundVars) without template specialization conflicts.</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">StateMap</a>, <span class="keyword">typename</span>... <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">Vars</a>&gt;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">   54</a></span>&#160;  <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">requires</a>(<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">CVar</a>&lt;<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Vars</a>&gt; &amp;&amp; ...)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> extract_values(<span class="keyword">const</span> StateMap&amp; state, std::tuple&lt;Vars...&gt;*) {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="comment">// Look up each Var in the state map and return as std::tuple directly</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordflow">return</span> std::make_tuple(state[hana::type_c&lt;Vars&gt;]...);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> StateMap&gt;</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a448cb50c51ada93499c084005632d08a">   61</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a448cb50c51ada93499c084005632d08a">extract_values</a>(<span class="keyword">const</span> StateMap&amp;, <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;&gt;*) {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::make_tuple();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">// -----------------------------------------------------------------</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">// State Management Helpers (Tuple-based with compile-time position map)</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// State Management Helpers (Hana-based)</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">// -----------------------------------------------------------------</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html">   47</a></span>&#160;<span class="keyword">namespace</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">state</a> {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"> * @brief Helper functions for extracting values from Hana state map</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"> * @details These helpers use tag dispatching to handle different tuple types</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"> * (std::tuple vs mir::BoundVars) without template specialization conflicts.</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">StateMap</a>, <span class="keyword">typename</span>... <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">Vars</a>&gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">   56</a></span>&#160;  <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">requires</a>(<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">CVar</a>&lt;<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Vars</a>&gt; &amp;&amp; ...)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> extract_values(<span class="keyword">const</span> StateMap&amp; state, std::tuple&lt;Vars...&gt;*) {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="comment">// Look up each Var in the state map and return as std::tuple directly</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordflow">return</span> std::make_tuple(state[hana::type_c&lt;Vars&gt;]...);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> StateMap&gt;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a448cb50c51ada93499c084005632d08a">   63</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a448cb50c51ada93499c084005632d08a">extract_values</a>(<span class="keyword">const</span> StateMap&amp;, <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;&gt;*) {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::make_tuple();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">// -----------------------------------------------------------------</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"> * @brief Get a single value from tuple-based state for a given variable</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"> * @details Uses compile-time position map to look up variable position,</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment"> * then accesses the tuple at runtime. All Hana operations are compile-time.</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"> * @tparam VarPosMap Compile-time hana::map mapping variable types to positions</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment"> * @tparam StateTuple Runtime state as std::tuple&lt;Value1, Value2, ...&gt;</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment"> * @tparam Var The variable type to extract</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"> * @return The value of the variable from the state tuple</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, CVar Var&gt;</div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aea7aca45911316e9de02ad3cdfdfdcab">   81</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aea7aca45911316e9de02ad3cdfdfdcab">get_value_from_tuple</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="comment">// Get position from compile-time map, then access tuple at runtime</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="comment">// All Hana operations (at_key, type_c) are evaluated at compile-time</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keyword">constexpr</span> <span class="keyword">auto</span> pos = std::decay_t&lt;<span class="keyword">decltype</span>(hana::at_key(VarPosMap{}, hana::type_c&lt;Var&gt;))&gt;::value;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordflow">return</span> std::get&lt;pos&gt;(state);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment"> * @brief Primary template for ValueExtractor.</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment"> * It remains undefined to force a compile error if a non-tuple is passed.</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span> Terms&gt;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="../../d9/de3/structSRDatalog_1_1state_1_1ValueExtractor.html">   93</a></span>&#160;<span class="keyword">struct</span> ValueExtractor;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment"> * @brief Partial specialization for std::tuple&lt;Vars...&gt;.</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment"> * This &quot;cracks open&quot; the Terms type to access Vars... directly.</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span>... Vars&gt;</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="../../d8/d68/structSRDatalog_1_1state_1_1ValueExtractor_3_01VarPosMap_00_01StateTuple_00_01std_1_1tuple_3_01Vars_8_8_8_01_4_01_4.html">  100</a></span>&#160;<span class="keyword">struct</span> ValueExtractor&lt;VarPosMap, StateTuple, <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;Vars...&gt;&gt; {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="comment">// static inline ensures aggressive optimization</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="../../d8/d68/structSRDatalog_1_1state_1_1ValueExtractor_3_01VarPosMap_00_01StateTuple_00_01std_1_1tuple_3_01Vars_8_8_8_01_4_01_4.html#a955611e3a1356b0e7e45b333998ef7da">  103</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../d8/d68/structSRDatalog_1_1state_1_1ValueExtractor_3_01VarPosMap_00_01StateTuple_00_01std_1_1tuple_3_01Vars_8_8_8_01_4_01_4.html#a955611e3a1356b0e7e45b333998ef7da">extract</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (<span class="keyword">sizeof</span>...(Vars) == 0) {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::make_tuple();</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="comment">// Direct expansion without helper functions</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::make_tuple(get_value_from_tuple&lt;VarPosMap, StateTuple, Vars&gt;(state)...);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment"> * @brief Helper function to make the call site syntax nicer.</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment"> * This is just a thin wrapper around the struct.</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span> Terms&gt;</div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a1bcb5253214d818aa35c00cf6fa88ac2">  118</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a1bcb5253214d818aa35c00cf6fa88ac2">extract_values_tuple</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="keywordflow">return</span> ValueExtractor&lt;VarPosMap, StateTuple, Terms&gt;::extract(state);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;}</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment"> * @brief Helper functions for extracting values from Hana state map,</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment"> * return a std::array of the values</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment"> * @tparam StateMap The state map type</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment"> * @tparam Vars The variable types to extract</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment"> * @param state The state map</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment"> * @return A std::array of the values</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> StateMap, <span class="keyword">typename</span>... Vars&gt;</div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#ad0197d40d958c2e12204bf26deee7274">  131</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#ad0197d40d958c2e12204bf26deee7274">extract_value_array</a>(<span class="keyword">const</span> StateMap&amp; state, <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::array&lt;Vars...&gt;*) {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::array&lt;Vars...&gt;{state[hana::type_c&lt;Vars&gt;]...};</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment"> * @brief Primary template for ArrayValueExtractor.</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment"> * It remains undefined to force a compile error if a non-array is passed.</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span> ArrayType&gt;</div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="../../d4/d44/structSRDatalog_1_1state_1_1ArrayValueExtractor.html">  140</a></span>&#160;<span class="keyword">struct</span> ArrayValueExtractor;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment"> * @brief Partial specialization for std::array&lt;Vars...&gt;.</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment"> * This &quot;cracks open&quot; the ArrayType to access Vars... directly.</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span>... Vars&gt;</div>
-<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="../../d0/dd6/structSRDatalog_1_1state_1_1ArrayValueExtractor_3_01VarPosMap_00_01StateTuple_00_01std_1_1array_3_01Vars_8_8_8_01_4_01_4.html">  147</a></span>&#160;<span class="keyword">struct</span> ArrayValueExtractor&lt;VarPosMap, StateTuple, <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::array&lt;Vars...&gt;&gt; {</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="comment">// static inline ensures aggressive optimization</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="../../d0/dd6/structSRDatalog_1_1state_1_1ArrayValueExtractor_3_01VarPosMap_00_01StateTuple_00_01std_1_1array_3_01Vars_8_8_8_01_4_01_4.html#ad30e3bf42e3884c7922bcef2a80e80fe">  149</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../d0/dd6/structSRDatalog_1_1state_1_1ArrayValueExtractor_3_01VarPosMap_00_01StateTuple_00_01std_1_1array_3_01Vars_8_8_8_01_4_01_4.html#ad30e3bf42e3884c7922bcef2a80e80fe">extract</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (<span class="keyword">sizeof</span>...(Vars) == 0) {</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::array&lt;Vars...&gt;{};</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      <span class="comment">// Direct expansion without helper functions</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::array&lt;Vars...&gt;{get_value_from_tuple&lt;VarPosMap, StateTuple, Vars&gt;(state)...};</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    }</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  }</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;};</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="comment"> * @brief Helper function to make the call site syntax nicer.</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment"> * This is just a thin wrapper around the struct.</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span> ArrayType&gt;</div>
-<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a0834a6bd7a1ddeae4a44a15293a16d9c">  164</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a0834a6bd7a1ddeae4a44a15293a16d9c">extract_value_array_tuple</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <span class="keywordflow">return</span> ArrayValueExtractor&lt;VarPosMap, StateTuple, ArrayType&gt;::extract(state);</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;}</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment"> * @brief Primary template for DecodedValueExtractor.</span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment"> * It remains undefined to force a compile error if non-tuples are passed.</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span> VarsTuple, <span class="keyword">typename</span> TypesTuple&gt;</div>
-<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="../../d2/d35/structSRDatalog_1_1state_1_1DecodedValueExtractor.html">  173</a></span>&#160;<span class="keyword">struct</span> DecodedValueExtractor;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment"> * @brief Partial specialization for std::tuple&lt;Vars...&gt; and std::tuple&lt;Types...&gt;.</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment"> * This &quot;cracks open&quot; both tuple types to access Vars... and Types... directly.</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">VarPosMap</a>, <span class="keyword">typename</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">StateTuple</a>, <span class="keyword">typename</span>... <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">Vars</a>, <span class="keyword">typename</span>... <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">Types</a>&gt;</div>
-<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a1d8b21eeff5d49900917c49709fd6d0a">  180</a></span>&#160;  <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">requires</a>(<span class="keyword">sizeof</span>...(<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Types</a>) == <span class="keyword">sizeof</span>...(<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Vars</a>) &amp;&amp; (<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Decodable</a>&lt;<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Types</a>&gt; &amp;&amp; ...))</div>
-<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a0cb61673bde418b055796c1f53538e2b">  181</a></span>&#160;<span class="keyword">struct</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">DecodedValueExtractor</a>&lt;<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">VarPosMap</a>, <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">StateTuple</a>, <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">std</a>::<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">tuple</a>&lt;<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Vars</a>...&gt;, <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">std</a>::<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">tuple</a>&lt;<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Types</a>...&gt;&gt; {</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  <span class="comment">// static inline ensures aggressive optimization</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">extract</a>(<span class="keyword">const</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">StateTuple</a>&amp; <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">state</a>) {</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (<span class="keyword">sizeof</span>...(<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Vars</a>) == 0) {</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">std</a>::<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">make_tuple</a>();</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      <span class="comment">// Extract and decode each value directly using the single-value helper</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">std</a>::<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">make_tuple</a>(</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;          <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">decode_from_size_t</a>&lt;<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Types</a>&gt;(<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">get_value_from_tuple</a>&lt;<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">VarPosMap</a>, <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">StateTuple</a>, <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Vars</a>&gt;(<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">state</a>))...);</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    }</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  }</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;};</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment"> * @brief Helper function to make the call site syntax nicer.</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment"> * This is just a thin wrapper around the struct.</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span> VarsTuple, <span class="keyword">typename</span> TypesTuple&gt;</div>
-<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aa1bb570ff137255c0eb3aad4acd523a8">  199</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aa1bb570ff137255c0eb3aad4acd523a8">extract_values_tuple_decoded</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  <span class="keywordflow">return</span> DecodedValueExtractor&lt;VarPosMap, StateTuple, VarsTuple, TypesTuple&gt;::extract(state);</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;}</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="comment"> * @brief Get value for a single term (Var, Const, or CppExpr) from tuple-based state</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment"> * @details Handles different term types:</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment"> * - Var: extracts from StateTuple using VarPosMap</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment"> * - Const: returns compile-time constant value</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="comment"> * - CppExpr: evaluates expression with captured variables (not yet fully supported)</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment"> * @tparam VarPosMap Compile-time hana::map mapping variable types to positions</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment"> * @tparam StateTuple Runtime state as std::tuple&lt;Value1, Value2, ...&gt;</span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment"> * @tparam Term The term type (Var, Const, or CppExpr)</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span> Term&gt;</div>
-<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aa7cf35899a4a1f9139a45c50dfa61488">  216</a></span>&#160;<span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aa7cf35899a4a1f9139a45c50dfa61488">get_term_value_tuple</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (CVar&lt;Term&gt;) {</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="comment">// Case 1: Variable - get value from state tuple</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordflow">return</span> get_value_from_tuple&lt;VarPosMap, StateTuple, Term&gt;(state);</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  } <span class="keywordflow">else</span> <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (CConst&lt;Term&gt;) {</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="comment">// Case 2: Constant - use compile-time constant value</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordflow">return</span> Term::value;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  } <span class="keywordflow">else</span> <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (CCppExpr&lt;Term&gt;) {</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="comment">// Case 3: C++ Expression - would evaluate expression</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keyword">static_assert</span>(!std::is_same_v&lt;Term, Term&gt;, <span class="stringliteral">&quot;CppExpr not yet supported in head position&quot;</span>);</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t(0);  <span class="comment">// unreachable</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="comment">// Case 4: Unknown term type - compile error</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keyword">static_assert</span>(!std::is_same_v&lt;Term, Term&gt;, <span class="stringliteral">&quot;Unknown term type&quot;</span>);</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t(0);  <span class="comment">// unreachable</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  }</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;}</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="comment"> * @brief Extract values from Terms tuple (Vars, Consts, CppExpr) from tuple-based state</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="comment"> * @details Extracts values for each term in the Terms tuple. Handles Vars (from state),</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="comment"> * Consts (compile-time values), and CppExpr (not yet supported).</span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment"> * @tparam VarPosMap Compile-time hana::map mapping variable types to positions</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment"> * @tparam StateTuple Runtime state as std::tuple&lt;Value1, Value2, ...&gt;</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment"> * @tparam Terms The tuple of term types to extract</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, tmp::CTuple Terms&gt;</div>
-<div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a5f7ebc5c4a03ba54e220d9362bc676af">  245</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a5f7ebc5c4a03ba54e220d9362bc676af">extract_term_values_tuple</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="keywordflow">return</span> [&amp;]&lt;std::size_t... Is&gt;(std::index_sequence&lt;Is...&gt;) {</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordflow">return</span> std::make_tuple(</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        get_term_value_tuple&lt;VarPosMap, StateTuple, std::tuple_element_t&lt;Is, Terms&gt;&gt;(state)...);</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  }(std::make_index_sequence&lt;std::tuple_size_v&lt;Terms&gt;&gt;{});</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;}</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="comment"> * @brief Set a value at a specific position in the tuple-based state</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="comment"> * @details Sets the value for a variable at its compile-time determined position.</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="comment"> * The state tuple must be pre-allocated with the correct size based on the join plan.</span></div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="comment"> * All variable positions are known at compile time, so the tuple type is fixed.</span></div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="comment"> * @tparam VarPosMap Compile-time hana::map mapping variable types to positions</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment"> * @tparam StateTuple Runtime state as std::tuple&lt;Value1, Value2, ...&gt; (fixed size)</span></div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="comment"> * @tparam Var The variable type to set</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment"> * @tparam Value The value type</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment"> * @param state The runtime state tuple (passed by reference, will be modified)</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment"> * @param value The value to set</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, CVar Var, <span class="keyword">typename</span> Value&gt;</div>
-<div class="line"><a name="l00267"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a47c54b6d2f62309b143f2acc5ec998d9">  267</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a47c54b6d2f62309b143f2acc5ec998d9">set_value_in_tuple</a>(StateTuple&amp; state, <span class="keyword">const</span> Value&amp; value) {</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  <span class="comment">// Get position from compile-time map</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  <span class="keyword">constexpr</span> <span class="keyword">auto</span> pos = std::decay_t&lt;<span class="keyword">decltype</span>(hana::at_key(VarPosMap{}, hana::type_c&lt;Var&gt;))&gt;::value;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  <span class="keyword">static_assert</span>(pos &lt; std::tuple_size_v&lt;StateTuple&gt;,</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                <span class="stringliteral">&quot;Variable position must be within tuple bounds. Tuple size must match join plan.&quot;</span>);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <span class="comment">// Set value at the position</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  std::get&lt;pos&gt;(state) = value;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;}</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="comment"> * @brief Print the variable-to-position mapping (VarPosMap)</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="comment"> * @details Debug helper to print the compile-time position map showing which</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="comment"> * variable is stored at which position in the state tuple.</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment"> * @tparam VarPosMap Compile-time hana::map mapping variable types to positions</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap&gt;</div>
-<div class="line"><a name="l00285"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#af1e1156d6a4accfbfeed9912cb3aaf71">  285</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#af1e1156d6a4accfbfeed9912cb3aaf71">print_var_pos_map</a>() {</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::cout &lt;&lt; <span class="stringliteral">&quot;VarPosMap: &quot;</span>;</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  hana::for_each(hana::keys(VarPosMap{}), [](<span class="keyword">auto</span> key) {</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keyword">using</span> VarType = <span class="keyword">typename</span> <span class="keyword">decltype</span>(key)::type;</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keyword">constexpr</span> <span class="keyword">auto</span> pos = <span class="keyword">decltype</span>(hana::at_key(VarPosMap{}, key))::value;</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::cout &lt;&lt; var_to_string&lt;VarType&gt;() &lt;&lt; <span class="stringliteral">&quot; -&gt; pos[&quot;</span> &lt;&lt; pos &lt;&lt; <span class="stringliteral">&quot;], &quot;</span>;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  });</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::cout &lt;&lt; <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::endl;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;}</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="comment"> * @brief Print the tuple-based state with variable names</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="comment"> * @details Debug helper to print the runtime state tuple, showing variable names</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="comment"> * and their values. Uses the VarPosMap to map positions back to variable names.</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="comment"> * @tparam VarPosMap Compile-time hana::map mapping variable types to positions</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment"> * @tparam StateTuple Runtime state as std::tuple&lt;Value1, Value2, ...&gt;</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment"> * @param state The runtime state tuple</span></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple&gt;</div>
-<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aeb0112d7fbbf1e430a9f397396cd9cc1">  306</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aeb0112d7fbbf1e430a9f397396cd9cc1">print_state_tuple</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::cout &lt;&lt; <span class="stringliteral">&quot;state: &quot;</span>;</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  hana::for_each(hana::keys(VarPosMap{}), [&amp;](<span class="keyword">auto</span> key) {</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keyword">using</span> VarType = <span class="keyword">typename</span> <span class="keyword">decltype</span>(key)::type;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keyword">constexpr</span> <span class="keyword">auto</span> pos = <span class="keyword">decltype</span>(hana::at_key(VarPosMap{}, key))::value;</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (pos &lt; std::tuple_size_v&lt;StateTuple&gt;) {</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;      <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::cout &lt;&lt; var_to_string&lt;VarType&gt;() &lt;&lt; <span class="stringliteral">&quot; = &quot;</span> &lt;&lt; <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::get&lt;pos&gt;(state) &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    }</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  });</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::cout &lt;&lt; <span class="stringliteral">&quot;;&quot;</span> &lt;&lt; <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::endl;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;}</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="comment"> * @brief Extracts a type that maps to a specific position in a position map.</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment"> * @details Finds the type that maps to the given position by iterating</span></div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment"> * through all keys in the map and checking their position values.</span></div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment"> * Works with any compile-time hana::map that maps types to positions</span></div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="comment"> * (e.g., VarPosMap, IteratorPosMap).</span></div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="comment"> * @tparam PosMap Compile-time hana::map mapping types to positions</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="comment"> * @tparam Pos The position to find</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> PosMap, <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t Pos&gt;</div>
-<div class="line"><a name="l00330"></a><span class="lineno"><a class="line" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">  330</a></span>&#160;<span class="keyword">struct</span> <a class="code" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">FindTypeAtPos</a> {</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;  <span class="comment">// Helper to check if a key maps to position Pos</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Key&gt;</div>
-<div class="line"><a name="l00333"></a><span class="lineno"><a class="line" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html">  333</a></span>&#160;  <span class="keyword">struct</span> <a class="code" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html">KeyMatchesPos</a> {</div>
-<div class="line"><a name="l00334"></a><span class="lineno"><a class="line" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html#a36093d8bccafb7bb8b4f2635f91f574a">  334</a></span>&#160;    <span class="keyword">using</span> AtKeyResult = <span class="keyword">decltype</span>(hana::at_key(PosMap{}, Key{}));</div>
-<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html#a504ccb53664f7ab530f28139c9fc74d4">  335</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html#a504ccb53664f7ab530f28139c9fc74d4">value</a> = <a class="code" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html">std</a>::<a class="code" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html">remove_reference_t</a>&lt;<a class="code" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html">AtKeyResult</a>&gt;::<a class="code" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html">value</a> == <a class="code" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html">Pos</a>;</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  };</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;  <span class="comment">// Recursive search through keys</span></div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;  <span class="comment">// template &lt;typename... Keys&gt;</span></div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;  <span class="comment">// struct FindInKeys;</span></div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  <span class="comment">// template &lt;typename FirstKey, typename... RestKeys&gt;</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;  <span class="comment">// struct FindInKeys&lt;FirstKey, RestKeys...&gt; {</span></div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  <span class="comment">//   using type = std::conditional_t&lt;KeyMatchesPos&lt;FirstKey&gt;::value, FirstKey,</span></div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;  <span class="comment">//                                   typename FindInKeys&lt;RestKeys...&gt;::type&gt;;</span></div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;  <span class="comment">// };</span></div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  <span class="comment">// template &lt;&gt;</span></div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  <span class="comment">// struct FindInKeys&lt;&gt; {</span></div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;  <span class="comment">//   // Should never reach here if Pos is valid</span></div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;  <span class="comment">//   using type = void;</span></div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;  <span class="comment">// };</span></div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; </div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;  <span class="comment">// GCC does not support partial specialization in class scope, so we use a Dummy parameter to</span></div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;  <span class="comment">// allow partial specialization. In clang, you can use above code instead.</span></div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Dummy, <span class="keyword">typename</span>... Keys&gt;</div>
-<div class="line"><a name="l00357"></a><span class="lineno"><a class="line" href="../../d8/d6c/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1FindInKeysImpl.html">  357</a></span>&#160;  <span class="keyword">struct</span> FindInKeysImpl;</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160; </div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Dummy, <span class="keyword">typename</span> FirstKey, <span class="keyword">typename</span>... RestKeys&gt;</div>
-<div class="line"><a name="l00360"></a><span class="lineno"><a class="line" href="../../db/d43/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1FindInKeysImpl_3_01Dummy_00_01FirstKey_00_01RestKeys_8_8_8_01_4.html">  360</a></span>&#160;  <span class="keyword">struct</span> FindInKeysImpl&lt;Dummy, FirstKey, RestKeys...&gt; {</div>
-<div class="line"><a name="l00361"></a><span class="lineno"><a class="line" href="../../db/d43/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1FindInKeysImpl_3_01Dummy_00_01FirstKey_00_01RestKeys_8_8_8_01_4.html#afcb110513ec8c5939f333fdb8c0645a2">  361</a></span>&#160;    <span class="keyword">using</span> type = std::conditional_t&lt;KeyMatchesPos&lt;FirstKey&gt;::value, FirstKey,</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                                    <span class="keyword">typename</span> FindInKeysImpl&lt;Dummy, RestKeys...&gt;::type&gt;;</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;  };</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; </div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Dummy&gt;</div>
-<div class="line"><a name="l00366"></a><span class="lineno"><a class="line" href="../../dd/dff/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1FindInKeysImpl_3_01Dummy_01_4.html">  366</a></span>&#160;  <span class="keyword">struct</span> FindInKeysImpl&lt;Dummy&gt; {</div>
-<div class="line"><a name="l00367"></a><span class="lineno"><a class="line" href="../../dd/dff/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1FindInKeysImpl_3_01Dummy_01_4.html#aa959ec924dabb4ee0dc9bc16c7dab534">  367</a></span>&#160;    <span class="keyword">using</span> type = <span class="keywordtype">void</span>;</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;  };</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160; </div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Keys&gt;</div>
-<div class="line"><a name="l00371"></a><span class="lineno"><a class="line" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html#a214218ca9169a1880d3edc77dfa91028">  371</a></span>&#160;  <span class="keyword">using</span> FindInKeys = FindInKeysImpl&lt;<span class="keywordtype">void</span>, Keys...&gt;;</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; </div>
-<div class="line"><a name="l00373"></a><span class="lineno"><a class="line" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html#ae9f4e5531d4cd60aa743c7c7d9b181c4">  373</a></span>&#160;  <span class="keyword">using</span> KeysTuple = <span class="keyword">decltype</span>(hana::keys(PosMap{}));</div>
-<div class="line"><a name="l00374"></a><span class="lineno"><a class="line" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html#ab4792ae1277dff373f98427853fe51f3">  374</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">type</a> = <span class="keyword">typename</span> <a class="code" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">mp</a>::<a class="code" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">mp_apply</a>&lt;<a class="code" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">FindInKeys</a>, <a class="code" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">KeysTuple</a>&gt;::<a class="code" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">type</a>;</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;};</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160; </div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="comment"> * @brief Extracts types from a position map in position order (0, 1, 2, ...).</span></div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;<span class="comment"> * @details Iterates through positions 0 to N-1 and finds the type that maps</span></div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="comment"> * to each position. This ensures the order matches exactly what&#39;s in the map.</span></div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="comment"> * Works with any compile-time hana::map that maps types to positions.</span></div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="comment"> * @tparam PosMap Compile-time hana::map mapping types to positions</span></div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;<span class="comment"> * @tparam Size The number of entries in the map</span></div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> PosMap, <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t Size&gt;</div>
-<div class="line"><a name="l00388"></a><span class="lineno"><a class="line" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html">  388</a></span>&#160;<span class="keyword">struct</span> <a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html">ExtractTypesFromPosMap</a> {</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;  <span class="comment">// Build tuple for positions 0..Size-1</span></div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;  <span class="keyword">template</span> &lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t... Is&gt;</div>
-<div class="line"><a name="l00391"></a><span class="lineno"><a class="line" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html#a3535633b8a35702076934dd44d8c292e">  391</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html#a3535633b8a35702076934dd44d8c292e">make_tuple_impl</a>(<a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html#a3535633b8a35702076934dd44d8c292e">std</a>::<a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html#a3535633b8a35702076934dd44d8c292e">index_sequence</a>&lt;<a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html#a3535633b8a35702076934dd44d8c292e">Is</a>...&gt;) {</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;<span class="keyword">typename</span> <a class="code" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">FindTypeAtPos</a>&lt;PosMap, Is&gt;::type...&gt;{};</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;  }</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
-<div class="line"><a name="l00395"></a><span class="lineno"><a class="line" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html#afc530be41f9cdf5b78e2e244323f0882">  395</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html">type</a> = <span class="keyword">decltype</span>(<a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html">make_tuple_impl</a>(<a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html">std</a>::<a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html">make_index_sequence</a>&lt;<a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html">Size</a>&gt;{}));</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;};</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160; </div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="comment"> * @brief Gets a mutable reference to an iterator from IteratorTuple using IteratorPosMap.</span></div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="comment"> * @details Looks up the iterator position from IteratorPosMap at compile-time,</span></div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="comment"> * then returns a mutable reference to the iterator at that position in IteratorTuple.</span></div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="comment"> * This allows the caller to modify the iterator in-place (e.g., apply prefixes).</span></div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span class="comment"> * @tparam IteratorPosMap Compile-time hana::map mapping IndexSpecT types to iterator positions</span></div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;<span class="comment"> * @tparam IteratorTuple Runtime tuple of iterators</span></div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;<span class="comment"> * @tparam IndexSpecT The IndexSpecT type to look up</span></div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="comment"> * @param iterators The runtime iterator tuple (passed by reference)</span></div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="comment"> * @return Mutable reference to the iterator at the position specified by IteratorPosMap</span></div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> IteratorPosMap, <span class="keyword">typename</span> IteratorTuple, <span class="keyword">typename</span> IndexSpecT&gt;</div>
-<div class="line"><a name="l00412"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#ab25a72c47b97c27d10de0bbad065b3ea">  412</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span>&amp; <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#ab25a72c47b97c27d10de0bbad065b3ea">get_iterator_ref</a>(IteratorTuple&amp; iterators) {</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;  <span class="comment">// decay for rvalue reference &amp;&amp;</span></div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;  <span class="keyword">constexpr</span> <span class="keyword">auto</span> iter_pos =</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;      std::decay_t&lt;<span class="keyword">decltype</span>(hana::at_key(IteratorPosMap{}, hana::type_c&lt;IndexSpecT&gt;))&gt;::value;</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;  <span class="keywordflow">return</span> std::get&lt;iter_pos&gt;(iterators);</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;}</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160; </div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="comment"> * @brief Updates an iterator in IteratorTuple by replacing it with itself prefixed with a value.</span></div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;<span class="comment"> * @details Looks up the iterator mapped to the given Index and replaces it with itself prefixed</span></div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="comment"> * with the provided value. This is useful for updating iterators when variable bindings change.</span></div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="comment"> * Handles both single values and tuples of values.</span></div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="comment"> * @tparam IteratorPosMap Compile-time hana::map mapping IndexSpecT types to iterator positions</span></div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment"> * @tparam IteratorTuple Runtime tuple of iterators</span></div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="comment"> * @tparam Index The IndexSpecT type whose mapped iterator will be updated</span></div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="comment"> * @param iterators The runtime iterator tuple (passed by reference, will be modified)</span></div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="comment"> * @param prefix_val The prefix value(s) to apply (can be a single value or a tuple)</span></div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> IteratorPosMap, <span class="keyword">typename</span> IteratorTuple, CIndexSpec Index&gt;</div>
-<div class="line"><a name="l00433"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a53d6b92c73d45b349249fa05cb3a0f74">  433</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a53d6b92c73d45b349249fa05cb3a0f74">update_iterator_with_prefixed</a>(IteratorTuple&amp; iterators, <span class="keyword">const</span> <span class="keyword">auto</span>&amp; prefix_val) {</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;  <span class="comment">// Get mutable reference to the iterator mapped to Index</span></div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;  <span class="keyword">auto</span>&amp; iter = get_iterator_ref&lt;IteratorPosMap, IteratorTuple, Index&gt;(iterators);</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160; </div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;  <span class="comment">// Check if prefix_val is a tuple type and handle accordingly</span></div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;  <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (tmp::is_tuple_v&lt;std::decay_t&lt;<span class="keyword">decltype</span>(prefix_val)&gt;&gt;) {</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    <span class="comment">// Apply prefix with multiple values from tuple</span></div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    std::apply([&amp;](<span class="keyword">const</span> <span class="keyword">auto</span>&amp;... vals) { iter = iter.prefix(vals...); }, prefix_val);</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;  } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <span class="comment">// Single value case</span></div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    iter = iter.prefix(prefix_val);</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;  }</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;}</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160; </div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;}  <span class="comment">// namespace state</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">// State Management Helpers (Tuple-based with compile-time position map)</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">// -----------------------------------------------------------------</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"> * @brief Get a single value from tuple-based state for a given variable</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment"> * @details Uses compile-time position map to look up variable position,</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"> * then accesses the tuple at runtime. All Hana operations are compile-time.</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment"> * @tparam VarPosMap Compile-time hana::map mapping variable types to positions</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"> * @tparam StateTuple Runtime state as std::tuple&lt;Value1, Value2, ...&gt;</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"> * @tparam Var The variable type to extract</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment"> * @return The value of the variable from the state tuple</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, CVar Var&gt;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aea7aca45911316e9de02ad3cdfdfdcab">   83</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aea7aca45911316e9de02ad3cdfdfdcab">get_value_from_tuple</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="comment">// Get position from compile-time map, then access tuple at runtime</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="comment">// All Hana operations (at_key, type_c) are evaluated at compile-time</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keyword">constexpr</span> <span class="keyword">auto</span> pos = std::decay_t&lt;<span class="keyword">decltype</span>(hana::at_key(VarPosMap{}, hana::type_c&lt;Var&gt;))&gt;::value;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordflow">return</span> std::get&lt;pos&gt;(state);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"> * @brief Primary template for ValueExtractor.</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment"> * It remains undefined to force a compile error if a non-tuple is passed.</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span> Terms&gt;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../d9/de3/structSRDatalog_1_1state_1_1ValueExtractor.html">   95</a></span>&#160;<span class="keyword">struct</span> ValueExtractor;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment"> * @brief Partial specialization for std::tuple&lt;Vars...&gt;.</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment"> * This &quot;cracks open&quot; the Terms type to access Vars... directly.</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span>... Vars&gt;</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="../../d8/d68/structSRDatalog_1_1state_1_1ValueExtractor_3_01VarPosMap_00_01StateTuple_00_01std_1_1tuple_3_01Vars_8_8_8_01_4_01_4.html">  102</a></span>&#160;<span class="keyword">struct</span> ValueExtractor&lt;VarPosMap, StateTuple, <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;Vars...&gt;&gt; {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="comment">// static inline ensures aggressive optimization</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="../../d8/d68/structSRDatalog_1_1state_1_1ValueExtractor_3_01VarPosMap_00_01StateTuple_00_01std_1_1tuple_3_01Vars_8_8_8_01_4_01_4.html#a955611e3a1356b0e7e45b333998ef7da">  105</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../d8/d68/structSRDatalog_1_1state_1_1ValueExtractor_3_01VarPosMap_00_01StateTuple_00_01std_1_1tuple_3_01Vars_8_8_8_01_4_01_4.html#a955611e3a1356b0e7e45b333998ef7da">extract</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (<span class="keyword">sizeof</span>...(Vars) == 0) {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::make_tuple();</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      <span class="comment">// Direct expansion without helper functions</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::make_tuple(get_value_from_tuple&lt;VarPosMap, StateTuple, Vars&gt;(state)...);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;};</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment"> * @brief Helper function to make the call site syntax nicer.</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment"> * This is just a thin wrapper around the struct.</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span> Terms&gt;</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a1bcb5253214d818aa35c00cf6fa88ac2">  120</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a1bcb5253214d818aa35c00cf6fa88ac2">extract_values_tuple</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <span class="keywordflow">return</span> ValueExtractor&lt;VarPosMap, StateTuple, Terms&gt;::extract(state);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment"> * @brief Helper functions for extracting values from Hana state map,</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment"> * return a std::array of the values</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment"> * @tparam StateMap The state map type</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment"> * @tparam Vars The variable types to extract</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment"> * @param state The state map</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment"> * @return A std::array of the values</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> StateMap, <span class="keyword">typename</span>... Vars&gt;</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#ad0197d40d958c2e12204bf26deee7274">  133</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#ad0197d40d958c2e12204bf26deee7274">extract_value_array</a>(<span class="keyword">const</span> StateMap&amp; state, <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::array&lt;Vars...&gt;*) {</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::array&lt;Vars...&gt;{state[hana::type_c&lt;Vars&gt;]...};</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment"> * @brief Primary template for ArrayValueExtractor.</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment"> * It remains undefined to force a compile error if a non-array is passed.</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span> ArrayType&gt;</div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="../../d4/d44/structSRDatalog_1_1state_1_1ArrayValueExtractor.html">  142</a></span>&#160;<span class="keyword">struct</span> ArrayValueExtractor;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment"> * @brief Partial specialization for std::array&lt;Vars...&gt;.</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment"> * This &quot;cracks open&quot; the ArrayType to access Vars... directly.</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span>... Vars&gt;</div>
+<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="../../d0/dd6/structSRDatalog_1_1state_1_1ArrayValueExtractor_3_01VarPosMap_00_01StateTuple_00_01std_1_1array_3_01Vars_8_8_8_01_4_01_4.html">  149</a></span>&#160;<span class="keyword">struct</span> ArrayValueExtractor&lt;VarPosMap, StateTuple, <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::array&lt;Vars...&gt;&gt; {</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  <span class="comment">// static inline ensures aggressive optimization</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="../../d0/dd6/structSRDatalog_1_1state_1_1ArrayValueExtractor_3_01VarPosMap_00_01StateTuple_00_01std_1_1array_3_01Vars_8_8_8_01_4_01_4.html#ad30e3bf42e3884c7922bcef2a80e80fe">  151</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../d0/dd6/structSRDatalog_1_1state_1_1ArrayValueExtractor_3_01VarPosMap_00_01StateTuple_00_01std_1_1array_3_01Vars_8_8_8_01_4_01_4.html#ad30e3bf42e3884c7922bcef2a80e80fe">extract</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (<span class="keyword">sizeof</span>...(Vars) == 0) {</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::array&lt;Vars...&gt;{};</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      <span class="comment">// Direct expansion without helper functions</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::array&lt;Vars...&gt;{get_value_from_tuple&lt;VarPosMap, StateTuple, Vars&gt;(state)...};</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  }</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;};</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment"> * @brief Helper function to make the call site syntax nicer.</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment"> * This is just a thin wrapper around the struct.</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span> ArrayType&gt;</div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a0834a6bd7a1ddeae4a44a15293a16d9c">  166</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a0834a6bd7a1ddeae4a44a15293a16d9c">extract_value_array_tuple</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="keywordflow">return</span> ArrayValueExtractor&lt;VarPosMap, StateTuple, ArrayType&gt;::extract(state);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;}</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment"> * @brief Primary template for DecodedValueExtractor.</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment"> * It remains undefined to force a compile error if non-tuples are passed.</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span> VarsTuple, <span class="keyword">typename</span> TypesTuple&gt;</div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="../../d2/d35/structSRDatalog_1_1state_1_1DecodedValueExtractor.html">  175</a></span>&#160;<span class="keyword">struct</span> DecodedValueExtractor;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment"> * @brief Partial specialization for std::tuple&lt;Vars...&gt; and std::tuple&lt;Types...&gt;.</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment"> * This &quot;cracks open&quot; both tuple types to access Vars... and Types... directly.</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">VarPosMap</a>, <span class="keyword">typename</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">StateTuple</a>, <span class="keyword">typename</span>... <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">Vars</a>, <span class="keyword">typename</span>... <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">Types</a>&gt;</div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a1d8b21eeff5d49900917c49709fd6d0a">  182</a></span>&#160;  <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a86eb65c8dd33fdf3f653d2110371b80a">requires</a>(<span class="keyword">sizeof</span>...(<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Types</a>) == <span class="keyword">sizeof</span>...(<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Vars</a>) &amp;&amp; (<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Decodable</a>&lt;<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Types</a>&gt; &amp;&amp; ...))</div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a0cb61673bde418b055796c1f53538e2b">  183</a></span>&#160;<span class="keyword">struct</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">DecodedValueExtractor</a>&lt;<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">VarPosMap</a>, <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">StateTuple</a>, <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">std</a>::<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">tuple</a>&lt;<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Vars</a>...&gt;, <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">std</a>::<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">tuple</a>&lt;<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Types</a>...&gt;&gt; {</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="comment">// static inline ensures aggressive optimization</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">extract</a>(<span class="keyword">const</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">StateTuple</a>&amp; <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">state</a>) {</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (<span class="keyword">sizeof</span>...(<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Vars</a>) == 0) {</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">std</a>::<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">make_tuple</a>();</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      <span class="comment">// Extract and decode each value directly using the single-value helper</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">std</a>::<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">make_tuple</a>(</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;          <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">decode_from_size_t</a>&lt;<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Types</a>&gt;(<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">get_value_from_tuple</a>&lt;<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">VarPosMap</a>, <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">StateTuple</a>, <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">Vars</a>&gt;(<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html">state</a>))...);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    }</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  }</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;};</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment"> * @brief Helper function to make the call site syntax nicer.</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment"> * This is just a thin wrapper around the struct.</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span> VarsTuple, <span class="keyword">typename</span> TypesTuple&gt;</div>
+<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aa1bb570ff137255c0eb3aad4acd523a8">  201</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aa1bb570ff137255c0eb3aad4acd523a8">extract_values_tuple_decoded</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  <span class="keywordflow">return</span> DecodedValueExtractor&lt;VarPosMap, StateTuple, VarsTuple, TypesTuple&gt;::extract(state);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;}</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment"> * @brief Get value for a single term (Var, Const, or CppExpr) from tuple-based state</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment"> * @details Handles different term types:</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="comment"> * - Var: extracts from StateTuple using VarPosMap</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment"> * - Const: returns compile-time constant value</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment"> * - CppExpr: evaluates expression with captured variables (not yet fully supported)</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment"> * @tparam VarPosMap Compile-time hana::map mapping variable types to positions</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment"> * @tparam StateTuple Runtime state as std::tuple&lt;Value1, Value2, ...&gt;</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="comment"> * @tparam Term The term type (Var, Const, or CppExpr)</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, <span class="keyword">typename</span> Term&gt;</div>
+<div class="line"><a name="l00218"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aa7cf35899a4a1f9139a45c50dfa61488">  218</a></span>&#160;<span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aa7cf35899a4a1f9139a45c50dfa61488">get_term_value_tuple</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (CVar&lt;Term&gt;) {</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="comment">// Case 1: Variable - get value from state tuple</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">return</span> get_value_from_tuple&lt;VarPosMap, StateTuple, Term&gt;(state);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  } <span class="keywordflow">else</span> <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (CConst&lt;Term&gt;) {</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="comment">// Case 2: Constant - use compile-time constant value</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordflow">return</span> Term::value;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  } <span class="keywordflow">else</span> <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (CCppExpr&lt;Term&gt;) {</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="comment">// Case 3: C++ Expression - would evaluate expression</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keyword">static_assert</span>(!std::is_same_v&lt;Term, Term&gt;, <span class="stringliteral">&quot;CppExpr not yet supported in head position&quot;</span>);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t(0);  <span class="comment">// unreachable</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="comment">// Case 4: Unknown term type - compile error</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keyword">static_assert</span>(!std::is_same_v&lt;Term, Term&gt;, <span class="stringliteral">&quot;Unknown term type&quot;</span>);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t(0);  <span class="comment">// unreachable</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  }</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;}</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="comment"> * @brief Extract values from Terms tuple (Vars, Consts, CppExpr) from tuple-based state</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment"> * @details Extracts values for each term in the Terms tuple. Handles Vars (from state),</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment"> * Consts (compile-time values), and CppExpr (not yet supported).</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment"> * @tparam VarPosMap Compile-time hana::map mapping variable types to positions</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment"> * @tparam StateTuple Runtime state as std::tuple&lt;Value1, Value2, ...&gt;</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment"> * @tparam Terms The tuple of term types to extract</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, tmp::CTuple Terms&gt;</div>
+<div class="line"><a name="l00247"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a5f7ebc5c4a03ba54e220d9362bc676af">  247</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a5f7ebc5c4a03ba54e220d9362bc676af">extract_term_values_tuple</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <span class="keywordflow">return</span> [&amp;]&lt;std::size_t... Is&gt;(std::index_sequence&lt;Is...&gt;) {</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordflow">return</span> std::make_tuple(</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        get_term_value_tuple&lt;VarPosMap, StateTuple, std::tuple_element_t&lt;Is, Terms&gt;&gt;(state)...);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  }(std::make_index_sequence&lt;std::tuple_size_v&lt;Terms&gt;&gt;{});</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;}</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="comment"> * @brief Set a value at a specific position in the tuple-based state</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="comment"> * @details Sets the value for a variable at its compile-time determined position.</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="comment"> * The state tuple must be pre-allocated with the correct size based on the join plan.</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="comment"> * All variable positions are known at compile time, so the tuple type is fixed.</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="comment"> * @tparam VarPosMap Compile-time hana::map mapping variable types to positions</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment"> * @tparam StateTuple Runtime state as std::tuple&lt;Value1, Value2, ...&gt; (fixed size)</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment"> * @tparam Var The variable type to set</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment"> * @tparam Value The value type</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment"> * @param state The runtime state tuple (passed by reference, will be modified)</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment"> * @param value The value to set</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple, CVar Var, <span class="keyword">typename</span> Value&gt;</div>
+<div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a47c54b6d2f62309b143f2acc5ec998d9">  269</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a47c54b6d2f62309b143f2acc5ec998d9">set_value_in_tuple</a>(StateTuple&amp; state, <span class="keyword">const</span> Value&amp; value) {</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  <span class="comment">// Get position from compile-time map</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  <span class="keyword">constexpr</span> <span class="keyword">auto</span> pos = std::decay_t&lt;<span class="keyword">decltype</span>(hana::at_key(VarPosMap{}, hana::type_c&lt;Var&gt;))&gt;::value;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <span class="keyword">static_assert</span>(pos &lt; std::tuple_size_v&lt;StateTuple&gt;,</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                <span class="stringliteral">&quot;Variable position must be within tuple bounds. Tuple size must match join plan.&quot;</span>);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  <span class="comment">// Set value at the position</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  std::get&lt;pos&gt;(state) = value;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;}</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="comment"> * @brief Print the variable-to-position mapping (VarPosMap)</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="comment"> * @details Debug helper to print the compile-time position map showing which</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment"> * variable is stored at which position in the state tuple.</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment"> * @tparam VarPosMap Compile-time hana::map mapping variable types to positions</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap&gt;</div>
+<div class="line"><a name="l00287"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#af1e1156d6a4accfbfeed9912cb3aaf71">  287</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#af1e1156d6a4accfbfeed9912cb3aaf71">print_var_pos_map</a>() {</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::cout &lt;&lt; <span class="stringliteral">&quot;VarPosMap: &quot;</span>;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  hana::for_each(hana::keys(VarPosMap{}), [](<span class="keyword">auto</span> key) {</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keyword">using</span> VarType = <span class="keyword">typename</span> <span class="keyword">decltype</span>(key)::type;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keyword">constexpr</span> <span class="keyword">auto</span> pos = <span class="keyword">decltype</span>(hana::at_key(VarPosMap{}, key))::value;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::cout &lt;&lt; var_to_string&lt;VarType&gt;() &lt;&lt; <span class="stringliteral">&quot; -&gt; pos[&quot;</span> &lt;&lt; pos &lt;&lt; <span class="stringliteral">&quot;], &quot;</span>;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  });</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::cout &lt;&lt; <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::endl;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;}</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="comment"> * @brief Print the tuple-based state with variable names</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="comment"> * @details Debug helper to print the runtime state tuple, showing variable names</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="comment"> * and their values. Uses the VarPosMap to map positions back to variable names.</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment"> * @tparam VarPosMap Compile-time hana::map mapping variable types to positions</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment"> * @tparam StateTuple Runtime state as std::tuple&lt;Value1, Value2, ...&gt;</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment"> * @param state The runtime state tuple</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> StateTuple&gt;</div>
+<div class="line"><a name="l00308"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aeb0112d7fbbf1e430a9f397396cd9cc1">  308</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aeb0112d7fbbf1e430a9f397396cd9cc1">print_state_tuple</a>(<span class="keyword">const</span> StateTuple&amp; state) {</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::cout &lt;&lt; <span class="stringliteral">&quot;state: &quot;</span>;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  hana::for_each(hana::keys(VarPosMap{}), [&amp;](<span class="keyword">auto</span> key) {</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keyword">using</span> VarType = <span class="keyword">typename</span> <span class="keyword">decltype</span>(key)::type;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keyword">constexpr</span> <span class="keyword">auto</span> pos = <span class="keyword">decltype</span>(hana::at_key(VarPosMap{}, key))::value;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (pos &lt; std::tuple_size_v&lt;StateTuple&gt;) {</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;      <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::cout &lt;&lt; var_to_string&lt;VarType&gt;() &lt;&lt; <span class="stringliteral">&quot; = &quot;</span> &lt;&lt; <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::get&lt;pos&gt;(state) &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    }</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  });</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::cout &lt;&lt; <span class="stringliteral">&quot;;&quot;</span> &lt;&lt; <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::endl;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;}</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment"> * @brief Extracts a type that maps to a specific position in a position map.</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment"> * @details Finds the type that maps to the given position by iterating</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="comment"> * through all keys in the map and checking their position values.</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="comment"> * Works with any compile-time hana::map that maps types to positions</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="comment"> * (e.g., VarPosMap, IteratorPosMap).</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="comment"> * @tparam PosMap Compile-time hana::map mapping types to positions</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="comment"> * @tparam Pos The position to find</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> PosMap, <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t Pos&gt;</div>
+<div class="line"><a name="l00332"></a><span class="lineno"><a class="line" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">  332</a></span>&#160;<span class="keyword">struct</span> <a class="code" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">FindTypeAtPos</a> {</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;  <span class="comment">// Helper to check if a key maps to position Pos</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Key&gt;</div>
+<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html">  335</a></span>&#160;  <span class="keyword">struct</span> <a class="code" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html">KeyMatchesPos</a> {</div>
+<div class="line"><a name="l00336"></a><span class="lineno"><a class="line" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html#a36093d8bccafb7bb8b4f2635f91f574a">  336</a></span>&#160;    <span class="keyword">using</span> AtKeyResult = <span class="keyword">decltype</span>(hana::at_key(PosMap{}, Key{}));</div>
+<div class="line"><a name="l00337"></a><span class="lineno"><a class="line" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html#a504ccb53664f7ab530f28139c9fc74d4">  337</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html#a504ccb53664f7ab530f28139c9fc74d4">value</a> = <a class="code" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html">std</a>::<a class="code" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html">remove_reference_t</a>&lt;<a class="code" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html">AtKeyResult</a>&gt;::<a class="code" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html">value</a> == <a class="code" href="../../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html">Pos</a>;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;  };</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;  <span class="comment">// Recursive search through keys</span></div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;  <span class="comment">// template &lt;typename... Keys&gt;</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  <span class="comment">// struct FindInKeys;</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  <span class="comment">// template &lt;typename FirstKey, typename... RestKeys&gt;</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;  <span class="comment">// struct FindInKeys&lt;FirstKey, RestKeys...&gt; {</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;  <span class="comment">//   using type = std::conditional_t&lt;KeyMatchesPos&lt;FirstKey&gt;::value, FirstKey,</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;  <span class="comment">//                                   typename FindInKeys&lt;RestKeys...&gt;::type&gt;;</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  <span class="comment">// };</span></div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; </div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;  <span class="comment">// template &lt;&gt;</span></div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;  <span class="comment">// struct FindInKeys&lt;&gt; {</span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;  <span class="comment">//   // Should never reach here if Pos is valid</span></div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;  <span class="comment">//   using type = void;</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;  <span class="comment">// };</span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; </div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;  <span class="comment">// GCC does not support partial specialization in class scope, so we use a Dummy parameter to</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;  <span class="comment">// allow partial specialization. In clang, you can use above code instead.</span></div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Dummy, <span class="keyword">typename</span>... Keys&gt;</div>
+<div class="line"><a name="l00359"></a><span class="lineno"><a class="line" href="../../d8/d6c/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1FindInKeysImpl.html">  359</a></span>&#160;  <span class="keyword">struct</span> FindInKeysImpl;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Dummy, <span class="keyword">typename</span> FirstKey, <span class="keyword">typename</span>... RestKeys&gt;</div>
+<div class="line"><a name="l00362"></a><span class="lineno"><a class="line" href="../../db/d43/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1FindInKeysImpl_3_01Dummy_00_01FirstKey_00_01RestKeys_8_8_8_01_4.html">  362</a></span>&#160;  <span class="keyword">struct</span> FindInKeysImpl&lt;Dummy, FirstKey, RestKeys...&gt; {</div>
+<div class="line"><a name="l00363"></a><span class="lineno"><a class="line" href="../../db/d43/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1FindInKeysImpl_3_01Dummy_00_01FirstKey_00_01RestKeys_8_8_8_01_4.html#afcb110513ec8c5939f333fdb8c0645a2">  363</a></span>&#160;    <span class="keyword">using</span> type = std::conditional_t&lt;KeyMatchesPos&lt;FirstKey&gt;::value, FirstKey,</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;                                    <span class="keyword">typename</span> FindInKeysImpl&lt;Dummy, RestKeys...&gt;::type&gt;;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;  };</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Dummy&gt;</div>
+<div class="line"><a name="l00368"></a><span class="lineno"><a class="line" href="../../dd/dff/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1FindInKeysImpl_3_01Dummy_01_4.html">  368</a></span>&#160;  <span class="keyword">struct</span> FindInKeysImpl&lt;Dummy&gt; {</div>
+<div class="line"><a name="l00369"></a><span class="lineno"><a class="line" href="../../dd/dff/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1FindInKeysImpl_3_01Dummy_01_4.html#aa959ec924dabb4ee0dc9bc16c7dab534">  369</a></span>&#160;    <span class="keyword">using</span> type = <span class="keywordtype">void</span>;</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;  };</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Keys&gt;</div>
+<div class="line"><a name="l00373"></a><span class="lineno"><a class="line" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html#a214218ca9169a1880d3edc77dfa91028">  373</a></span>&#160;  <span class="keyword">using</span> FindInKeys = FindInKeysImpl&lt;<span class="keywordtype">void</span>, Keys...&gt;;</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; </div>
+<div class="line"><a name="l00375"></a><span class="lineno"><a class="line" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html#ae9f4e5531d4cd60aa743c7c7d9b181c4">  375</a></span>&#160;  <span class="keyword">using</span> KeysTuple = <span class="keyword">decltype</span>(hana::keys(PosMap{}));</div>
+<div class="line"><a name="l00376"></a><span class="lineno"><a class="line" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html#ab4792ae1277dff373f98427853fe51f3">  376</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">type</a> = <span class="keyword">typename</span> <a class="code" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">mp</a>::<a class="code" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">mp_apply</a>&lt;<a class="code" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">FindInKeys</a>, <a class="code" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">KeysTuple</a>&gt;::<a class="code" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">type</a>;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;};</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;<span class="comment"> * @brief Extracts types from a position map in position order (0, 1, 2, ...).</span></div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="comment"> * @details Iterates through positions 0 to N-1 and finds the type that maps</span></div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="comment"> * to each position. This ensures the order matches exactly what&#39;s in the map.</span></div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="comment"> * Works with any compile-time hana::map that maps types to positions.</span></div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="comment"> * @tparam PosMap Compile-time hana::map mapping types to positions</span></div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;<span class="comment"> * @tparam Size The number of entries in the map</span></div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> PosMap, <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t Size&gt;</div>
+<div class="line"><a name="l00390"></a><span class="lineno"><a class="line" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html">  390</a></span>&#160;<span class="keyword">struct</span> <a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html">ExtractTypesFromPosMap</a> {</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;  <span class="comment">// Build tuple for positions 0..Size-1</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;  <span class="keyword">template</span> &lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t... Is&gt;</div>
+<div class="line"><a name="l00393"></a><span class="lineno"><a class="line" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html#a3535633b8a35702076934dd44d8c292e">  393</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html#a3535633b8a35702076934dd44d8c292e">make_tuple_impl</a>(<a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html#a3535633b8a35702076934dd44d8c292e">std</a>::<a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html#a3535633b8a35702076934dd44d8c292e">index_sequence</a>&lt;<a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html#a3535633b8a35702076934dd44d8c292e">Is</a>...&gt;) {</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;<span class="keyword">typename</span> <a class="code" href="../../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html">FindTypeAtPos</a>&lt;PosMap, Is&gt;::type...&gt;{};</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;  }</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; </div>
+<div class="line"><a name="l00397"></a><span class="lineno"><a class="line" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html#afc530be41f9cdf5b78e2e244323f0882">  397</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html">type</a> = <span class="keyword">decltype</span>(<a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html">make_tuple_impl</a>(<a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html">std</a>::<a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html">make_index_sequence</a>&lt;<a class="code" href="../../da/def/structSRDatalog_1_1state_1_1ExtractTypesFromPosMap.html">Size</a>&gt;{}));</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;};</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; </div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="comment"> * @brief Gets a mutable reference to an iterator from IteratorTuple using IteratorPosMap.</span></div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="comment"> * @details Looks up the iterator position from IteratorPosMap at compile-time,</span></div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="comment"> * then returns a mutable reference to the iterator at that position in IteratorTuple.</span></div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span class="comment"> * This allows the caller to modify the iterator in-place (e.g., apply prefixes).</span></div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;<span class="comment"> * @tparam IteratorPosMap Compile-time hana::map mapping IndexSpecT types to iterator positions</span></div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="comment"> * @tparam IteratorTuple Runtime tuple of iterators</span></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="comment"> * @tparam IndexSpecT The IndexSpecT type to look up</span></div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="comment"> * @param iterators The runtime iterator tuple (passed by reference)</span></div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="comment"> * @return Mutable reference to the iterator at the position specified by IteratorPosMap</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> IteratorPosMap, <span class="keyword">typename</span> IteratorTuple, <span class="keyword">typename</span> IndexSpecT&gt;</div>
+<div class="line"><a name="l00414"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#ab25a72c47b97c27d10de0bbad065b3ea">  414</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span>&amp; <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#ab25a72c47b97c27d10de0bbad065b3ea">get_iterator_ref</a>(IteratorTuple&amp; iterators) {</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;  <span class="comment">// decay for rvalue reference &amp;&amp;</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;  <span class="keyword">constexpr</span> <span class="keyword">auto</span> iter_pos =</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;      std::decay_t&lt;<span class="keyword">decltype</span>(hana::at_key(IteratorPosMap{}, hana::type_c&lt;IndexSpecT&gt;))&gt;::value;</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;  <span class="keywordflow">return</span> std::get&lt;iter_pos&gt;(iterators);</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;}</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; </div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;<span class="comment"> * @brief Updates an iterator in IteratorTuple by replacing it with itself prefixed with a value.</span></div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="comment"> * @details Looks up the iterator mapped to the given Index and replaces it with itself prefixed</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="comment"> * with the provided value. This is useful for updating iterators when variable bindings change.</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="comment"> * Handles both single values and tuples of values.</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="comment"> * @tparam IteratorPosMap Compile-time hana::map mapping IndexSpecT types to iterator positions</span></div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="comment"> * @tparam IteratorTuple Runtime tuple of iterators</span></div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="comment"> * @tparam Index The IndexSpecT type whose mapped iterator will be updated</span></div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="comment"> * @param iterators The runtime iterator tuple (passed by reference, will be modified)</span></div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="comment"> * @param prefix_val The prefix value(s) to apply (can be a single value or a tuple)</span></div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> IteratorPosMap, <span class="keyword">typename</span> IteratorTuple, CIndexSpec Index&gt;</div>
+<div class="line"><a name="l00435"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a53d6b92c73d45b349249fa05cb3a0f74">  435</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a53d6b92c73d45b349249fa05cb3a0f74">update_iterator_with_prefixed</a>(IteratorTuple&amp; iterators, <span class="keyword">const</span> <span class="keyword">auto</span>&amp; prefix_val) {</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;  <span class="comment">// Get mutable reference to the iterator mapped to Index</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;  <span class="keyword">auto</span>&amp; iter = get_iterator_ref&lt;IteratorPosMap, IteratorTuple, Index&gt;(iterators);</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160; </div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;  <span class="comment">// Check if prefix_val is a tuple type and handle accordingly</span></div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;  <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (tmp::is_tuple_v&lt;std::decay_t&lt;<span class="keyword">decltype</span>(prefix_val)&gt;&gt;) {</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    <span class="comment">// Apply prefix with multiple values from tuple</span></div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    std::apply([&amp;](<span class="keyword">const</span> <span class="keyword">auto</span>&amp;... vals) { iter = iter.prefix(vals...); }, prefix_val);</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="comment">// Single value case</span></div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    iter = iter.prefix(prefix_val);</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;  }</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;}</div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160; </div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;}  <span class="comment">// namespace SRDatalog</span></div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="comment">// -----------------------------------------------------------------</span></div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;<span class="comment">// Tuple-based Save/Restore optimization</span></div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;<span class="comment">// -----------------------------------------------------------------</span></div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160; </div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="comment"> * @brief Helper to save specific handles to a tuple using compile-time indices.</span></div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;<span class="comment"> * @tparam HandleStore Type of the handle store (must support operator[])</span></div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;<span class="comment"> * @tparam Indices boost::mp11::mp_list of compile-time indices (integral_constant)</span></div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> HandleStore, <span class="keyword">typename</span>... Indices&gt;</div>
+<div class="line"><a name="l00460"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aa324129dac553368a0c22d072b0e508a">  460</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="../../db/d3b/state_8h.html#acb1e9d35d683f55f731f9a2282b0f038">SRD_HOST_DEVICE</a> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aa324129dac553368a0c22d072b0e508a">save_handles_impl</a>(<span class="keyword">const</span> HandleStore&amp; handles,</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;                                              boost::mp11::mp_list&lt;Indices...&gt;) {</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::make_tuple(handles[Indices::value]...);</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;}</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160; </div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Indices, <span class="keyword">typename</span> HandleStore&gt;</div>
+<div class="line"><a name="l00466"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a8b63c8403b1ea8d3f3f2a6d3c01b6e6b">  466</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="../../db/d3b/state_8h.html#acb1e9d35d683f55f731f9a2282b0f038">SRD_HOST_DEVICE</a> <span class="keyword">auto</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a8b63c8403b1ea8d3f3f2a6d3c01b6e6b">save_handles_to_tuple</a>(<span class="keyword">const</span> HandleStore&amp; handles) {</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;  <span class="keywordflow">return</span> save_handles_impl(handles, Indices{});</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;}</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160; </div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="comment"> * @brief Helper to restore handles from a tuple using compile-time indices.</span></div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="comment"> * @tparam HandleStore Type of the handle store</span></div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;<span class="comment"> * @tparam Tuple Type of the saved tuple</span></div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="comment"> * @tparam Indices boost::mp11::mp_list of compile-time indices</span></div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="comment"> * @tparam I Index sequence for tuple access</span></div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> HandleStore, <span class="keyword">typename</span> Tuple, <span class="keyword">typename</span>... Indices, <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t... I&gt;</div>
+<div class="line"><a name="l00479"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a07c2a09cbb824e04f8dd550b71919785">  479</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="../../db/d3b/state_8h.html#acb1e9d35d683f55f731f9a2282b0f038">SRD_HOST_DEVICE</a> <span class="keywordtype">void</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a07c2a09cbb824e04f8dd550b71919785">restore_handles_impl</a>(HandleStore&amp; handles, <span class="keyword">const</span> Tuple&amp; saved,</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                                                 boost::mp11::mp_list&lt;Indices...&gt;,</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;                                                 <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a07c2a09cbb824e04f8dd550b71919785">std</a>::<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a07c2a09cbb824e04f8dd550b71919785">index_sequence</a>&lt;<a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a07c2a09cbb824e04f8dd550b71919785">I</a>...&gt;) {</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;  <span class="comment">// Fold expression to restore each handle</span></div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;  ((handles[Indices::value] = std::get&lt;I&gt;(saved)), ...);</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;}</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160; </div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Indices, <span class="keyword">typename</span> HandleStore, <span class="keyword">typename</span> Tuple&gt;</div>
+<div class="line"><a name="l00487"></a><span class="lineno"><a class="line" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aa7fa7147460d7fb82c55841c7f99ba6f">  487</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="../../db/d3b/state_8h.html#acb1e9d35d683f55f731f9a2282b0f038">SRD_HOST_DEVICE</a> <span class="keywordtype">void</span> <a class="code" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aa7fa7147460d7fb82c55841c7f99ba6f">restore_handles_from_tuple</a>(HandleStore&amp; handles, <span class="keyword">const</span> Tuple&amp; saved) {</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;  restore_handles_impl(handles, saved, Indices{},</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;                       std::make_index_sequence&lt;std::tuple_size_v&lt;Tuple&gt;&gt;{});</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;}</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160; </div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;}  <span class="comment">// namespace state</span></div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160; </div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;}  <span class="comment">// namespace SRDatalog</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

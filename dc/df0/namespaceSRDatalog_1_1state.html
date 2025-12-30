@@ -160,6 +160,20 @@ Functions</h2></td></tr>
 <tr class="memitem:a53d6b92c73d45b349249fa05cb3a0f74"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a53d6b92c73d45b349249fa05cb3a0f74">update_iterator_with_prefixed</a> (IteratorTuple &amp;iterators, const auto &amp;prefix_val)</td></tr>
 <tr class="memdesc:a53d6b92c73d45b349249fa05cb3a0f74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates an iterator in IteratorTuple by replacing it with itself prefixed with a value.  <a href="../../dc/df0/namespaceSRDatalog_1_1state.html#a53d6b92c73d45b349249fa05cb3a0f74">More...</a><br /></td></tr>
 <tr class="separator:a53d6b92c73d45b349249fa05cb3a0f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa324129dac553368a0c22d072b0e508a"><td class="memTemplParams" colspan="2">template&lt;typename HandleStore , typename... Indices&gt; </td></tr>
+<tr class="memitem:aa324129dac553368a0c22d072b0e508a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d3b/state_8h.html#acb1e9d35d683f55f731f9a2282b0f038">SRD_HOST_DEVICE</a> auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aa324129dac553368a0c22d072b0e508a">save_handles_impl</a> (const HandleStore &amp;handles, boost::mp11::mp_list&lt; Indices... &gt;)</td></tr>
+<tr class="memdesc:aa324129dac553368a0c22d072b0e508a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper to save specific handles to a tuple using compile-time indices.  <a href="../../dc/df0/namespaceSRDatalog_1_1state.html#aa324129dac553368a0c22d072b0e508a">More...</a><br /></td></tr>
+<tr class="separator:aa324129dac553368a0c22d072b0e508a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b63c8403b1ea8d3f3f2a6d3c01b6e6b"><td class="memTemplParams" colspan="2">template&lt;typename Indices , typename HandleStore &gt; </td></tr>
+<tr class="memitem:a8b63c8403b1ea8d3f3f2a6d3c01b6e6b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d3b/state_8h.html#acb1e9d35d683f55f731f9a2282b0f038">SRD_HOST_DEVICE</a> auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a8b63c8403b1ea8d3f3f2a6d3c01b6e6b">save_handles_to_tuple</a> (const HandleStore &amp;handles)</td></tr>
+<tr class="separator:a8b63c8403b1ea8d3f3f2a6d3c01b6e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07c2a09cbb824e04f8dd550b71919785"><td class="memTemplParams" colspan="2">template&lt;typename HandleStore , typename Tuple , typename... Indices, std::size_t... I&gt; </td></tr>
+<tr class="memitem:a07c2a09cbb824e04f8dd550b71919785"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d3b/state_8h.html#acb1e9d35d683f55f731f9a2282b0f038">SRD_HOST_DEVICE</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/df0/namespaceSRDatalog_1_1state.html#a07c2a09cbb824e04f8dd550b71919785">restore_handles_impl</a> (HandleStore &amp;handles, const Tuple &amp;saved, boost::mp11::mp_list&lt; Indices... &gt;, std::index_sequence&lt; I... &gt;)</td></tr>
+<tr class="memdesc:a07c2a09cbb824e04f8dd550b71919785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper to restore handles from a tuple using compile-time indices.  <a href="../../dc/df0/namespaceSRDatalog_1_1state.html#a07c2a09cbb824e04f8dd550b71919785">More...</a><br /></td></tr>
+<tr class="separator:a07c2a09cbb824e04f8dd550b71919785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7fa7147460d7fb82c55841c7f99ba6f"><td class="memTemplParams" colspan="2">template&lt;typename Indices , typename HandleStore , typename Tuple &gt; </td></tr>
+<tr class="memitem:aa7fa7147460d7fb82c55841c7f99ba6f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d3b/state_8h.html#acb1e9d35d683f55f731f9a2282b0f038">SRD_HOST_DEVICE</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/df0/namespaceSRDatalog_1_1state.html#aa7fa7147460d7fb82c55841c7f99ba6f">restore_handles_from_tuple</a> (HandleStore &amp;handles, const Tuple &amp;saved)</td></tr>
+<tr class="separator:aa7fa7147460d7fb82c55841c7f99ba6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -623,6 +637,180 @@ template&lt;typename VarPosMap , typename StateTuple , typename... Vars, typenam
 </div><div class="memdoc">
 
 <p>Partial specialization for std::tuple&lt;Vars...&gt; and std::tuple&lt;Types...&gt;. This "cracks open" both tuple types to access Vars... and Types... directly. </p>
+
+</div>
+</div>
+<a id="aa7fa7147460d7fb82c55841c7f99ba6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7fa7147460d7fb82c55841c7f99ba6f">&#9670;&nbsp;</a></span>restore_handles_from_tuple()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Indices , typename HandleStore , typename Tuple &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d3b/state_8h.html#acb1e9d35d683f55f731f9a2282b0f038">SRD_HOST_DEVICE</a> void SRDatalog::state::restore_handles_from_tuple </td>
+          <td>(</td>
+          <td class="paramtype">HandleStore &amp;&#160;</td>
+          <td class="paramname"><em>handles</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Tuple &amp;&#160;</td>
+          <td class="paramname"><em>saved</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a07c2a09cbb824e04f8dd550b71919785"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07c2a09cbb824e04f8dd550b71919785">&#9670;&nbsp;</a></span>restore_handles_impl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HandleStore , typename Tuple , typename... Indices, std::size_t... I&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d3b/state_8h.html#acb1e9d35d683f55f731f9a2282b0f038">SRD_HOST_DEVICE</a> void SRDatalog::state::restore_handles_impl </td>
+          <td>(</td>
+          <td class="paramtype">HandleStore &amp;&#160;</td>
+          <td class="paramname"><em>handles</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Tuple &amp;&#160;</td>
+          <td class="paramname"><em>saved</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">boost::mp11::mp_list&lt; Indices... &gt;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::index_sequence&lt; I... &gt;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper to restore handles from a tuple using compile-time indices. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">HandleStore</td><td>Type of the handle store </td></tr>
+    <tr><td class="paramname">Tuple</td><td>Type of the saved tuple </td></tr>
+    <tr><td class="paramname">Indices</td><td>boost::mp11::mp_list of compile-time indices </td></tr>
+    <tr><td class="paramname">I</td><td>Index sequence for tuple access </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa324129dac553368a0c22d072b0e508a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa324129dac553368a0c22d072b0e508a">&#9670;&nbsp;</a></span>save_handles_impl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HandleStore , typename... Indices&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d3b/state_8h.html#acb1e9d35d683f55f731f9a2282b0f038">SRD_HOST_DEVICE</a> auto SRDatalog::state::save_handles_impl </td>
+          <td>(</td>
+          <td class="paramtype">const HandleStore &amp;&#160;</td>
+          <td class="paramname"><em>handles</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">boost::mp11::mp_list&lt; Indices... &gt;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper to save specific handles to a tuple using compile-time indices. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">HandleStore</td><td>Type of the handle store (must support operator[]) </td></tr>
+    <tr><td class="paramname">Indices</td><td>boost::mp11::mp_list of compile-time indices (integral_constant) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8b63c8403b1ea8d3f3f2a6d3c01b6e6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b63c8403b1ea8d3f3f2a6d3c01b6e6b">&#9670;&nbsp;</a></span>save_handles_to_tuple()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Indices , typename HandleStore &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d3b/state_8h.html#acb1e9d35d683f55f731f9a2282b0f038">SRD_HOST_DEVICE</a> auto SRDatalog::state::save_handles_to_tuple </td>
+          <td>(</td>
+          <td class="paramtype">const HandleStore &amp;&#160;</td>
+          <td class="paramname"><em>handles</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

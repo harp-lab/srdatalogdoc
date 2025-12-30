@@ -67,8 +67,11 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../d9/d0d/structSRDatalog_1_1GPU_1_1GPURootExecutor-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -80,62 +83,157 @@ $(function() {
  <a href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../de/dc5/root__executor_8h_source.html">root_executor.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for SRDatalog::GPU::GPURootExecutor&lt; Pipeline, SR, ValueType, HandleType &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/dcd/structSRDatalog_1_1GPU_1_1GPURootExecutor__coll__graph.png" border="0" usemap="#aSRDatalog_1_1GPU_1_1GPURootExecutor_3_01Pipeline_00_01SR_00_01ValueType_00_01HandleType_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="aSRDatalog_1_1GPU_1_1GPURootExecutor_3_01Pipeline_00_01SR_00_01ValueType_00_01HandleType_01_4_coll__map" id="aSRDatalog_1_1GPU_1_1GPURootExecutor_3_01Pipeline_00_01SR_00_01ValueType_00_01HandleType_01_4_coll__map">
+<area shape="rect" title="Root&#45;level executor &#45; handles first ColumnJoin and kernel launch." alt="" coords="372,125,620,181"/>
+<area shape="rect" href="../../d7/dd3/structSRDatalog_1_1GPU_1_1state_1_1VarStore.html" title=" " alt="" coords="40,5,216,61"/>
+<area shape="rect" href="../../d2/d68/structSRDatalog_1_1GPU_1_1OutputContext.html" title=" " alt="" coords="5,85,251,141"/>
+<area shape="rect" href="../../d2/d68/structSRDatalog_1_1GPU_1_1OutputContext.html" title=" " alt="" coords="9,165,247,221"/>
+<area shape="rect" href="../../d4/d06/structSRDatalog_1_1GPU_1_1state_1_1ProvStore.html" title=" " alt="" coords="19,245,237,301"/>
+</map>
+<center><span class="legend">[<a href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dd1/structSRDatalog_1_1GPU_1_1GPURootExecutor_1_1ExtractRootVar.html">ExtractRootVar</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d47/structSRDatalog_1_1GPU_1_1GPURootExecutor_1_1ExtractRootVar_3_01mir_1_1CartesianJoin_3_01VarsTuple_00_01SourcesTuple_01_4_01_4.html">ExtractRootVar&lt; mir::CartesianJoin&lt; VarsTuple, SourcesTuple &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d50/structSRDatalog_1_1GPU_1_1GPURootExecutor_1_1ExtractRootVars.html">ExtractRootVars</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d0c/structSRDatalog_1_1GPU_1_1GPURootExecutor_1_1ExtractRootVars_3_01mir_1_1CartesianJoin_3_01VarsTuple_00_01SourcesTuple_01_4_01_4.html">ExtractRootVars&lt; mir::CartesianJoin&lt; VarsTuple, SourcesTuple &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a2e0ebd6467f3755acbe8ece222afacb0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a> = typename Pipeline::mir_ops_type</td></tr>
 <tr class="separator:a2e0ebd6467f3755acbe8ece222afacb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35cafc040c71b1cebbab3361b86bd25b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a35cafc040c71b1cebbab3361b86bd25b">VarPosMap</a> = typename Pipeline::var_pos_map_type</td></tr>
 <tr class="separator:a35cafc040c71b1cebbab3361b86bd25b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38f5300c5566417b057c220354d3d1ba"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a38f5300c5566417b057c220354d3d1ba">IteratorPosMap</a> = typename Pipeline::iterator_pos_map_type</td></tr>
-<tr class="separator:a38f5300c5566417b057c220354d3d1ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d133b9f1f7e3af579184f5dc687f3cf"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6d133b9f1f7e3af579184f5dc687f3cf">FirstOp</a> = std::tuple_element_t&lt; 0, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a> &gt;</td></tr>
 <tr class="separator:a6d133b9f1f7e3af579184f5dc687f3cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5963f174387a42de379f6268611c755d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a5963f174387a42de379f6268611c755d">RootVar</a> = typename FirstOp::var_type</td></tr>
-<tr class="separator:a5963f174387a42de379f6268611c755d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9b710e523f94eb0273bf5ad81974193"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ab9b710e523f94eb0273bf5ad81974193">RootVar</a> = typename <a class="el" href="../../d4/dd1/structSRDatalog_1_1GPU_1_1GPURootExecutor_1_1ExtractRootVar.html">ExtractRootVar</a>&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6d133b9f1f7e3af579184f5dc687f3cf">FirstOp</a> &gt;::type</td></tr>
+<tr class="separator:ab9b710e523f94eb0273bf5ad81974193"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56db2708241865585d299f0f2cfb6dbb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a56db2708241865585d299f0f2cfb6dbb">RootVarsTuple</a> = typename <a class="el" href="../../d9/d50/structSRDatalog_1_1GPU_1_1GPURootExecutor_1_1ExtractRootVars.html">ExtractRootVars</a>&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6d133b9f1f7e3af579184f5dc687f3cf">FirstOp</a> &gt;::type</td></tr>
+<tr class="separator:a56db2708241865585d299f0f2cfb6dbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3a42290046a865eb2afe2ee8bb2415a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aa3a42290046a865eb2afe2ee8bb2415a">RootSources</a> = typename FirstOp::sources_type</td></tr>
 <tr class="separator:aa3a42290046a865eb2afe2ee8bb2415a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9de775677aed433b5d0b72771a91304"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ad9de775677aed433b5d0b72771a91304">RemainingOps</a> = <a class="el" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a92fbd9c30b2b508397059704c5dce303">tmp::TupleTail_t</a>&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a> &gt;</td></tr>
-<tr class="separator:ad9de775677aed433b5d0b72771a91304"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7de24d78a6a9b1d4257e3019589ddf3f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7de24d78a6a9b1d4257e3019589ddf3f">AllSchemas</a> = typename <a class="el" href="../../d7/d97/structSRDatalog_1_1mir_1_1ExtractRelationSchemas.html">mir::ExtractRelationSchemas</a>&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a> &gt;::type</td></tr>
+<tr class="memitem:a7f510b20145a563c0cfd386b2e2ca473"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7f510b20145a563c0cfd386b2e2ca473">RemainingOps</a> = <a class="el" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a92fbd9c30b2b508397059704c5dce303">SRDatalog::tmp::TupleTail_t</a>&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a> &gt;</td></tr>
+<tr class="separator:a7f510b20145a563c0cfd386b2e2ca473"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7de24d78a6a9b1d4257e3019589ddf3f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7de24d78a6a9b1d4257e3019589ddf3f">AllSchemas</a> = typename mir::ExtractRelationSchemas&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a> &gt;::type</td></tr>
 <tr class="separator:a7de24d78a6a9b1d4257e3019589ddf3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3c5723ad4105c21d1014cc1e082c7f6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ae3c5723ad4105c21d1014cc1e082c7f6">UniqueSchemas</a> = mp::mp_unique&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7de24d78a6a9b1d4257e3019589ddf3f">AllSchemas</a> &gt;</td></tr>
-<tr class="separator:ae3c5723ad4105c21d1014cc1e082c7f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ef7a85387c48243db6ac4c5a300d213"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2ef7a85387c48243db6ac4c5a300d213">RelationPosMap</a> = typename <a class="el" href="../../df/df5/structSRDatalog_1_1mir_1_1ComputePositionMap.html">mir::ComputePositionMap</a>&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ae3c5723ad4105c21d1014cc1e082c7f6">UniqueSchemas</a> &gt;::type</td></tr>
+<tr class="memitem:a0e3a69c72e99568522dc23bc20db2fff"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a0e3a69c72e99568522dc23bc20db2fff">UniqueSchemas</a> = boost::mp11::mp_unique&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7de24d78a6a9b1d4257e3019589ddf3f">AllSchemas</a> &gt;</td></tr>
+<tr class="separator:a0e3a69c72e99568522dc23bc20db2fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ef7a85387c48243db6ac4c5a300d213"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2ef7a85387c48243db6ac4c5a300d213">RelationPosMap</a> = typename mir::ComputePositionMap&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a0e3a69c72e99568522dc23bc20db2fff">UniqueSchemas</a> &gt;::type</td></tr>
 <tr class="separator:a2ef7a85387c48243db6ac4c5a300d213"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa17b23d63d44acf8819e2e569b1693b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aaa17b23d63d44acf8819e2e569b1693b">DestSchemas</a> = typename <a class="el" href="../../d9/d1b/structSRDatalog_1_1mir_1_1ExtractDestinationSchemas.html">mir::ExtractDestinationSchemas</a>&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a> &gt;::type</td></tr>
+<tr class="memitem:aaa17b23d63d44acf8819e2e569b1693b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aaa17b23d63d44acf8819e2e569b1693b">DestSchemas</a> = typename mir::ExtractDestinationSchemas&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a> &gt;::type</td></tr>
 <tr class="separator:aaa17b23d63d44acf8819e2e569b1693b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b2faae03b534741ac3ee901644c7048"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7b2faae03b534741ac3ee901644c7048">FullHandleMap</a> = typename <a class="el" href="../../df/df5/structSRDatalog_1_1mir_1_1ComputePositionMap.html">mir::ComputePositionMap</a>&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aaa17b23d63d44acf8819e2e569b1693b">DestSchemas</a> &gt;::type</td></tr>
+<tr class="memitem:a7b2faae03b534741ac3ee901644c7048"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7b2faae03b534741ac3ee901644c7048">FullHandleMap</a> = typename mir::ComputePositionMap&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aaa17b23d63d44acf8819e2e569b1693b">DestSchemas</a> &gt;::type</td></tr>
 <tr class="separator:a7b2faae03b534741ac3ee901644c7048"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6abc28ca376f201287680bd63a3df33a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6abc28ca376f201287680bd63a3df33a">OutputCtxType</a> = <a class="el" href="../../d2/d68/structSRDatalog_1_1GPU_1_1OutputContext.html">OutputContext</a>&lt; ValueType, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, false, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7b2faae03b534741ac3ee901644c7048">FullHandleMap</a>, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;</td></tr>
+<tr class="memitem:a6abc28ca376f201287680bd63a3df33a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6abc28ca376f201287680bd63a3df33a">OutputCtxType</a> = <a class="el" href="../../d2/d68/structSRDatalog_1_1GPU_1_1OutputContext.html">OutputContext</a>&lt; ValueType, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, false, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7b2faae03b534741ac3ee901644c7048">FullHandleMap</a>, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;</td></tr>
 <tr class="separator:a6abc28ca376f201287680bd63a3df33a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa394f16655565ebe9cca6e6f4c6ce122"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aa394f16655565ebe9cca6e6f4c6ce122">OutputCtxCountType</a> = <a class="el" href="../../d2/d68/structSRDatalog_1_1GPU_1_1OutputContext.html">OutputContext</a>&lt; ValueType, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, true, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7b2faae03b534741ac3ee901644c7048">FullHandleMap</a>, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;</td></tr>
+<tr class="memitem:aa394f16655565ebe9cca6e6f4c6ce122"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aa394f16655565ebe9cca6e6f4c6ce122">OutputCtxCountType</a> = <a class="el" href="../../d2/d68/structSRDatalog_1_1GPU_1_1OutputContext.html">OutputContext</a>&lt; ValueType, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, true, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7b2faae03b534741ac3ee901644c7048">FullHandleMap</a>, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;</td></tr>
 <tr class="separator:aa394f16655565ebe9cca6e6f4c6ce122"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e2c526e2c73bf6cf7209a2e06b87463"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> = typename HandleType::View</td></tr>
+<tr class="separator:a9e2c526e2c73bf6cf7209a2e06b87463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a1b4b6de51109c0da717e185a38771cb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/da8/structSRDatalog_1_1GPU_1_1state_1_1ViewStore.html">state::ViewStore</a>&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a961febdfa01bb4f3ca4d1c77253213b3">NumHandles</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a1b4b6de51109c0da717e185a38771cb2">view_store</a> (<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a38f44a4d5fff8eb4d4e5c955f3aa969b">root_views</a>)</td></tr>
+<tr class="separator:a1b4b6de51109c0da717e185a38771cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b362f3bc6c911cd38fff4cbfcc91a0c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a5b362f3bc6c911cd38fff4cbfcc91a0c">for</a> (std::size_t i=0;i&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a961febdfa01bb4f3ca4d1c77253213b3">NumHandles</a>;++i)</td></tr>
+<tr class="separator:a5b362f3bc6c911cd38fff4cbfcc91a0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a904533a6ab039281a4cc4d4bd61150b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a904533a6ab039281a4cc4d4bd61150b2">init_full_handles</a> (<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ae0a3dfac2154671c18f5517370a50e1f">output_ctx</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#af88eb76f3761646478881f6d63715e85">full_handles</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6a3d7fdbd00d2fdfd8e2c25bef54dfc8">full_views</a>)</td></tr>
+<tr class="separator:a904533a6ab039281a4cc4d4bd61150b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9dc2341b19e43322573d3042cab4ecf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ac9dc2341b19e43322573d3042cab4ecf">execute_root</a> (<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a818b29545710285ea8dacbcb74e6fda9">tile</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aeadfbd9827fa5f93e49a3d5f437b312d">warp_id</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a520d399f53163a18d487f19be988d330">num_warps</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6fb5d0508e99237adc65f98c04ec709e">root_unique_values</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aeb3d306a7def72da4da186f2ff3ec8a0">num_unique_root_keys</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a8697b0afae41ec7f0f5373f5fca22883">num_root_keys</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6ec27ced958395ad0d36ce8c3ac5afcf">vars</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ad0ff8186c37b8956a363eec51893ccb6">handles</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a382a566cdc01b9772ffa4826fe509b05">provs</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ae0a3dfac2154671c18f5517370a50e1f">output_ctx</a>)</td></tr>
+<tr class="separator:ac9dc2341b19e43322573d3042cab4ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b4b6de51109c0da717e185a38771cb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/da8/structSRDatalog_1_1GPU_1_1state_1_1ViewStore.html">state::ViewStore</a>&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a961febdfa01bb4f3ca4d1c77253213b3">NumHandles</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a1b4b6de51109c0da717e185a38771cb2">view_store</a> (<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a38f44a4d5fff8eb4d4e5c955f3aa969b">root_views</a>)</td></tr>
+<tr class="separator:a1b4b6de51109c0da717e185a38771cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b362f3bc6c911cd38fff4cbfcc91a0c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a5b362f3bc6c911cd38fff4cbfcc91a0c">for</a> (std::size_t i=0;i&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a961febdfa01bb4f3ca4d1c77253213b3">NumHandles</a>;++i)</td></tr>
+<tr class="separator:a5b362f3bc6c911cd38fff4cbfcc91a0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a904533a6ab039281a4cc4d4bd61150b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a904533a6ab039281a4cc4d4bd61150b2">init_full_handles</a> (<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ae0a3dfac2154671c18f5517370a50e1f">output_ctx</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#af88eb76f3761646478881f6d63715e85">full_handles</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6a3d7fdbd00d2fdfd8e2c25bef54dfc8">full_views</a>)</td></tr>
+<tr class="separator:a904533a6ab039281a4cc4d4bd61150b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9dc2341b19e43322573d3042cab4ecf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ac9dc2341b19e43322573d3042cab4ecf">execute_root</a> (<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a818b29545710285ea8dacbcb74e6fda9">tile</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aeadfbd9827fa5f93e49a3d5f437b312d">warp_id</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a520d399f53163a18d487f19be988d330">num_warps</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6fb5d0508e99237adc65f98c04ec709e">root_unique_values</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aeb3d306a7def72da4da186f2ff3ec8a0">num_unique_root_keys</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a8697b0afae41ec7f0f5373f5fca22883">num_root_keys</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6ec27ced958395ad0d36ce8c3ac5afcf">vars</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ad0ff8186c37b8956a363eec51893ccb6">handles</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a382a566cdc01b9772ffa4826fe509b05">provs</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ae0a3dfac2154671c18f5517370a50e1f">output_ctx</a>)</td></tr>
+<tr class="separator:ac9dc2341b19e43322573d3042cab4ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a519367ac1006914d5b0db66de3b26050"><td class="memTemplParams" colspan="2">template&lt;int BlockSize = 256, int GroupSize = 32&gt; </td></tr>
-<tr class="memitem:a519367ac1006914d5b0db66de3b26050"><td class="memTemplItemLeft" align="right" valign="top">static __global__ void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a519367ac1006914d5b0db66de3b26050">kernel_count</a> (const <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ root_handles, const <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ full_handles, uint32_t num_root_keys, uint32_t *__restrict__ thread_counts)</td></tr>
-<tr class="memdesc:a519367ac1006914d5b0db66de3b26050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kernel to count the number of resulting tuples from the root join.  <a href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a519367ac1006914d5b0db66de3b26050">More...</a><br /></td></tr>
-<tr class="separator:a519367ac1006914d5b0db66de3b26050"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9593b289b83c25265804bf7a417ee692"><td class="memTemplParams" colspan="2">template&lt;int BlockSize = 256, int GroupSize = 32&gt; </td></tr>
-<tr class="memitem:a9593b289b83c25265804bf7a417ee692"><td class="memTemplItemLeft" align="right" valign="top">static __global__ void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9593b289b83c25265804bf7a417ee692">kernel_materialize</a> (const <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ root_handles, const <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ full_handles, uint32_t num_root_keys, const uint32_t *__restrict__ thread_offsets, ValueType *__restrict__ output_data, <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt; *__restrict__ output_prov, std::size_t output_stride)</td></tr>
-<tr class="memdesc:a9593b289b83c25265804bf7a417ee692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kernel to materialize the resulting tuples.  <a href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9593b289b83c25265804bf7a417ee692">More...</a><br /></td></tr>
-<tr class="separator:a9593b289b83c25265804bf7a417ee692"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b8a1a17215e3ba29564ef34df720491"><td class="memTemplParams" colspan="2">template&lt;int BlockSize = 256, int GroupSize = 32&gt; </td></tr>
+<tr class="memitem:a4b8a1a17215e3ba29564ef34df720491"><td class="memTemplItemLeft" align="right" valign="top">static __global__ void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a4b8a1a17215e3ba29564ef34df720491">__launch_bounds__</a> (BlockSize) kernel_count(const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ root_handles</td></tr>
+<tr class="memdesc:a4b8a1a17215e3ba29564ef34df720491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kernel to count the number of resulting tuples from the root join.  <a href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a4b8a1a17215e3ba29564ef34df720491">More...</a><br /></td></tr>
+<tr class="separator:a4b8a1a17215e3ba29564ef34df720491"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a396460f1f9d12933d7a2e28a34035ea5"><td class="memTemplParams" colspan="2">template&lt;int BlockSize = 256, int GroupSize = 32&gt; </td></tr>
+<tr class="memitem:a396460f1f9d12933d7a2e28a34035ea5"><td class="memTemplItemLeft" align="right" valign="top">static __global__ void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a396460f1f9d12933d7a2e28a34035ea5">__launch_bounds__</a> (BlockSize) kernel_materialize(const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ root_handles</td></tr>
+<tr class="memdesc:a396460f1f9d12933d7a2e28a34035ea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kernel to materialize the resulting tuples.  <a href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a396460f1f9d12933d7a2e28a34035ea5">More...</a><br /></td></tr>
+<tr class="separator:a396460f1f9d12933d7a2e28a34035ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:af88eb76f3761646478881f6d63715e85"><td class="memItemLeft" align="right" valign="top">static __global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#af88eb76f3761646478881f6d63715e85">full_handles</a></td></tr>
+<tr class="separator:af88eb76f3761646478881f6d63715e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38f44a4d5fff8eb4d4e5c955f3aa969b"><td class="memItemLeft" align="right" valign="top">static __global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a38f44a4d5fff8eb4d4e5c955f3aa969b">root_views</a></td></tr>
+<tr class="separator:a38f44a4d5fff8eb4d4e5c955f3aa969b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a3d7fdbd00d2fdfd8e2c25bef54dfc8"><td class="memItemLeft" align="right" valign="top">static __global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6a3d7fdbd00d2fdfd8e2c25bef54dfc8">full_views</a></td></tr>
+<tr class="separator:a6a3d7fdbd00d2fdfd8e2c25bef54dfc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fb5d0508e99237adc65f98c04ec709e"><td class="memItemLeft" align="right" valign="top">static __global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const ValueType *__restrict__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6fb5d0508e99237adc65f98c04ec709e">root_unique_values</a></td></tr>
+<tr class="separator:a6fb5d0508e99237adc65f98c04ec709e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb3d306a7def72da4da186f2ff3ec8a0"><td class="memItemLeft" align="right" valign="top">static __global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const ValueType *__restrict__ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aeb3d306a7def72da4da186f2ff3ec8a0">num_unique_root_keys</a></td></tr>
+<tr class="separator:aeb3d306a7def72da4da186f2ff3ec8a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8697b0afae41ec7f0f5373f5fca22883"><td class="memItemLeft" align="right" valign="top">static __global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const ValueType *__restrict__ uint32_t uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a8697b0afae41ec7f0f5373f5fca22883">num_root_keys</a></td></tr>
+<tr class="separator:a8697b0afae41ec7f0f5373f5fca22883"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab896ba82764ea0e69563d824fd1ae7ec"><td class="memItemLeft" align="right" valign="top">static __global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const ValueType *__restrict__ uint32_t uint32_t uint32_t *__restrict__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ab896ba82764ea0e69563d824fd1ae7ec">thread_counts</a></td></tr>
+<tr class="separator:ab896ba82764ea0e69563d824fd1ae7ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a818b29545710285ea8dacbcb74e6fda9"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a818b29545710285ea8dacbcb74e6fda9">tile</a> = cg::tiled_partition&lt;GroupSize&gt;(block)</td></tr>
+<tr class="separator:a818b29545710285ea8dacbcb74e6fda9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9a40cf6042c351eb302caa2ae5f195c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ad9a40cf6042c351eb302caa2ae5f195c">thread_id</a> = (<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">blockIdx.x</a> * <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">blockDim.x</a>) + <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">threadIdx.x</a></td></tr>
+<tr class="separator:ad9a40cf6042c351eb302caa2ae5f195c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeadfbd9827fa5f93e49a3d5f437b312d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aeadfbd9827fa5f93e49a3d5f437b312d">warp_id</a> = <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ad9a40cf6042c351eb302caa2ae5f195c">thread_id</a> / GroupSize</td></tr>
+<tr class="separator:aeadfbd9827fa5f93e49a3d5f437b312d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a520d399f53163a18d487f19be988d330"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a520d399f53163a18d487f19be988d330">num_warps</a> = (<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">gridDim.x</a> * <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">blockDim.x</a>) / GroupSize</td></tr>
+<tr class="separator:a520d399f53163a18d487f19be988d330"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ec27ced958395ad0d36ce8c3ac5afcf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dd3/structSRDatalog_1_1GPU_1_1state_1_1VarStore.html">state::VarStore</a>&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a35cafc040c71b1cebbab3361b86bd25b">VarPosMap</a>, ValueType, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2a71dd6bbe3ce9945cabce0e8e1ebab2">NumVars</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6ec27ced958395ad0d36ce8c3ac5afcf">vars</a></td></tr>
+<tr class="separator:a6ec27ced958395ad0d36ce8c3ac5afcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0ff8186c37b8956a363eec51893ccb6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">state::HandleStore</a>&lt; <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a961febdfa01bb4f3ca4d1c77253213b3">NumHandles</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ad0ff8186c37b8956a363eec51893ccb6">handles</a></td></tr>
+<tr class="separator:ad0ff8186c37b8956a363eec51893ccb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a382a566cdc01b9772ffa4826fe509b05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d06/structSRDatalog_1_1GPU_1_1state_1_1ProvStore.html">state::ProvStore</a>&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2ef7a85387c48243db6ac4c5a300d213">RelationPosMap</a>, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aad7ab22316fb3b9f4d466355530237de">NumRelations</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a382a566cdc01b9772ffa4826fe509b05">provs</a></td></tr>
+<tr class="separator:a382a566cdc01b9772ffa4826fe509b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a698f7983bc2fb8d7910d88c4a0aa91d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ad0ff8186c37b8956a363eec51893ccb6">handles</a> set_view_store &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a698f7983bc2fb8d7910d88c4a0aa91d6">view_store</a></td></tr>
+<tr class="separator:a698f7983bc2fb8d7910d88c4a0aa91d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0a3dfac2154671c18f5517370a50e1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aa394f16655565ebe9cca6e6f4c6ce122">OutputCtxCountType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ae0a3dfac2154671c18f5517370a50e1f">output_ctx</a> {nullptr, nullptr, 0, 0}</td></tr>
+<tr class="separator:ae0a3dfac2154671c18f5517370a50e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79d836978bccf2b5b9b81dcea4554d61"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a79d836978bccf2b5b9b81dcea4554d61">thread_counts</a> [<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ad9a40cf6042c351eb302caa2ae5f195c">thread_id</a>] = output_ctx.count()</td></tr>
+<tr class="separator:a79d836978bccf2b5b9b81dcea4554d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75a4c4e41773b33c06b45a6e165c697d"><td class="memItemLeft" align="right" valign="top">static __global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const ValueType *__restrict__ uint32_t uint32_t const uint32_t *__restrict__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a75a4c4e41773b33c06b45a6e165c697d">thread_offsets</a></td></tr>
+<tr class="separator:a75a4c4e41773b33c06b45a6e165c697d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a843d59eb24d945576a5a482fa68c7725"><td class="memItemLeft" align="right" valign="top">static __global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const ValueType *__restrict__ uint32_t uint32_t const uint32_t *__restrict__ ValueType *__restrict__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a843d59eb24d945576a5a482fa68c7725">output_data</a></td></tr>
+<tr class="separator:a843d59eb24d945576a5a482fa68c7725"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0208ff990931513d893ae7e23021eda0"><td class="memItemLeft" align="right" valign="top">static __global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const ValueType *__restrict__ uint32_t uint32_t const uint32_t *__restrict__ ValueType *__restrict__ <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt; *__restrict__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a0208ff990931513d893ae7e23021eda0">output_prov</a></td></tr>
+<tr class="separator:a0208ff990931513d893ae7e23021eda0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94822e5fbd4c1a7015ce44706157aa83"><td class="memItemLeft" align="right" valign="top">static __global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const ValueType *__restrict__ uint32_t uint32_t const uint32_t *__restrict__ ValueType *__restrict__ <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt; *__restrict__ std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a94822e5fbd4c1a7015ce44706157aa83">output_stride</a></td></tr>
+<tr class="separator:a94822e5fbd4c1a7015ce44706157aa83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabff95e996baa7f8ae603a339c6e75ce"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aabff95e996baa7f8ae603a339c6e75ce">write_base</a> = <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a75a4c4e41773b33c06b45a6e165c697d">thread_offsets</a>[<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ad9a40cf6042c351eb302caa2ae5f195c">thread_id</a>]</td></tr>
+<tr class="separator:aabff95e996baa7f8ae603a339c6e75ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af11b84460cf20320b0e445e65cbf403f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6abc28ca376f201287680bd63a3df33a">OutputCtxType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#af11b84460cf20320b0e445e65cbf403f">output_ctx</a> {<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a843d59eb24d945576a5a482fa68c7725">output_data</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a0208ff990931513d893ae7e23021eda0">output_prov</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a94822e5fbd4c1a7015ce44706157aa83">output_stride</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aabff95e996baa7f8ae603a339c6e75ce">write_base</a>}</td></tr>
+<tr class="separator:af11b84460cf20320b0e445e65cbf403f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
+<tr class="memitem:a961febdfa01bb4f3ca4d1c77253213b3"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a961febdfa01bb4f3ca4d1c77253213b3">NumHandles</a> = mir::CountInputIterators&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a>&gt;::value</td></tr>
+<tr class="separator:a961febdfa01bb4f3ca4d1c77253213b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20dce4a37438ec7e14bdd59626a90c11"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a20dce4a37438ec7e14bdd59626a90c11">is_cartesian_root</a> = mir::is_cartesian_join_v&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6d133b9f1f7e3af579184f5dc687f3cf">FirstOp</a>&gt;</td></tr>
+<tr class="separator:a20dce4a37438ec7e14bdd59626a90c11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30f0e045c796ce2dce2994e2af5af829"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a30f0e045c796ce2dce2994e2af5af829">num_root_sources</a> = std::tuple_size_v&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aa3a42290046a865eb2afe2ee8bb2415a">RootSources</a>&gt;</td></tr>
 <tr class="separator:a30f0e045c796ce2dce2994e2af5af829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25625fb6590bafd50eb705a568f8d235"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a25625fb6590bafd50eb705a568f8d235">root_is_intersection</a> = (<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a30f0e045c796ce2dce2994e2af5af829">num_root_sources</a> &gt; 1)</td></tr>
+<tr class="memitem:a25625fb6590bafd50eb705a568f8d235"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a25625fb6590bafd50eb705a568f8d235">root_is_intersection</a> = (!<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a20dce4a37438ec7e14bdd59626a90c11">is_cartesian_root</a>) &amp;&amp; (<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a30f0e045c796ce2dce2994e2af5af829">num_root_sources</a> &gt; 1)</td></tr>
 <tr class="separator:a25625fb6590bafd50eb705a568f8d235"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a71dd6bbe3ce9945cabce0e8e1ebab2"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2a71dd6bbe3ce9945cabce0e8e1ebab2">NumVars</a> = decltype(boost::hana::size(<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a35cafc040c71b1cebbab3361b86bd25b">VarPosMap</a>{}))::value</td></tr>
 <tr class="separator:a2a71dd6bbe3ce9945cabce0e8e1ebab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a961febdfa01bb4f3ca4d1c77253213b3"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a961febdfa01bb4f3ca4d1c77253213b3">NumHandles</a> = decltype(boost::hana::size(<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a38f5300c5566417b057c220354d3d1ba">IteratorPosMap</a>{}))::value</td></tr>
-<tr class="separator:a961febdfa01bb4f3ca4d1c77253213b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad7ab22316fb3b9f4d466355530237de"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aad7ab22316fb3b9f4d466355530237de">NumRelations</a> = mp::mp_size&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ae3c5723ad4105c21d1014cc1e082c7f6">UniqueSchemas</a>&gt;::value</td></tr>
+<tr class="memitem:aad7ab22316fb3b9f4d466355530237de"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aad7ab22316fb3b9f4d466355530237de">NumRelations</a> = boost::mp11::mp_size&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a0e3a69c72e99568522dc23bc20db2fff">UniqueSchemas</a>&gt;::value</td></tr>
 <tr class="separator:aad7ab22316fb3b9f4d466355530237de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69ebaae86b6e9f6fff91eff8d92abffb"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a69ebaae86b6e9f6fff91eff8d92abffb">NumFullHandles</a> = mp::mp_size&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aaa17b23d63d44acf8819e2e569b1693b">DestSchemas</a>&gt;::value</td></tr>
+<tr class="memitem:a69ebaae86b6e9f6fff91eff8d92abffb"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a69ebaae86b6e9f6fff91eff8d92abffb">NumFullHandles</a> = boost::mp11::mp_size&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aaa17b23d63d44acf8819e2e569b1693b">DestSchemas</a>&gt;::value</td></tr>
 <tr class="separator:a69ebaae86b6e9f6fff91eff8d92abffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -153,7 +251,7 @@ struct SRDatalog::GPU::GPURootExecutor&lt; Pipeline, SR, ValueType, HandleType &
 template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7de24d78a6a9b1d4257e3019589ddf3f">AllSchemas</a> =  typename <a class="el" href="../../d7/d97/structSRDatalog_1_1mir_1_1ExtractRelationSchemas.html">mir::ExtractRelationSchemas</a>&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a>&gt;::type</td>
+          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7de24d78a6a9b1d4257e3019589ddf3f">AllSchemas</a> =  typename mir::ExtractRelationSchemas&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a>&gt;::type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -169,7 +267,7 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
 template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aaa17b23d63d44acf8819e2e569b1693b">DestSchemas</a> =  typename <a class="el" href="../../d9/d1b/structSRDatalog_1_1mir_1_1ExtractDestinationSchemas.html">mir::ExtractDestinationSchemas</a>&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a>&gt;::type</td>
+          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aaa17b23d63d44acf8819e2e569b1693b">DestSchemas</a> =  typename mir::ExtractDestinationSchemas&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a>&gt;::type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -185,7 +283,7 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
 template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6d133b9f1f7e3af579184f5dc687f3cf">FirstOp</a> =  std::tuple_element_t&lt;0, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a>&gt;</td>
+          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6d133b9f1f7e3af579184f5dc687f3cf">FirstOp</a> =  std::tuple_element_t&lt;0, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -201,23 +299,7 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
 template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7b2faae03b534741ac3ee901644c7048">FullHandleMap</a> =  typename <a class="el" href="../../df/df5/structSRDatalog_1_1mir_1_1ComputePositionMap.html">mir::ComputePositionMap</a>&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aaa17b23d63d44acf8819e2e569b1693b">DestSchemas</a>&gt;::type</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a38f5300c5566417b057c220354d3d1ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38f5300c5566417b057c220354d3d1ba">&#9670;&nbsp;</a></span>IteratorPosMap</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a38f5300c5566417b057c220354d3d1ba">IteratorPosMap</a> =  typename Pipeline::iterator_pos_map_type</td>
+          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7b2faae03b534741ac3ee901644c7048">FullHandleMap</a> =  typename mir::ComputePositionMap&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aaa17b23d63d44acf8819e2e569b1693b">DestSchemas</a>&gt;::type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -233,7 +315,7 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
 template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a> =  typename Pipeline::mir_ops_type</td>
+          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a> =  typename Pipeline::mir_ops_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -249,7 +331,7 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
 template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aa394f16655565ebe9cca6e6f4c6ce122">OutputCtxCountType</a> =  <a class="el" href="../../d2/d68/structSRDatalog_1_1GPU_1_1OutputContext.html">OutputContext</a>&lt;ValueType, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, true, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7b2faae03b534741ac3ee901644c7048">FullHandleMap</a>, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>&gt;</td>
+          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aa394f16655565ebe9cca6e6f4c6ce122">OutputCtxCountType</a> =  <a class="el" href="../../d2/d68/structSRDatalog_1_1GPU_1_1OutputContext.html">OutputContext</a>&lt;ValueType, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, true, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7b2faae03b534741ac3ee901644c7048">FullHandleMap</a>, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -265,7 +347,7 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
 template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6abc28ca376f201287680bd63a3df33a">OutputCtxType</a> =  <a class="el" href="../../d2/d68/structSRDatalog_1_1GPU_1_1OutputContext.html">OutputContext</a>&lt;ValueType, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, false, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7b2faae03b534741ac3ee901644c7048">FullHandleMap</a>, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>&gt;</td>
+          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6abc28ca376f201287680bd63a3df33a">OutputCtxType</a> =  <a class="el" href="../../d2/d68/structSRDatalog_1_1GPU_1_1OutputContext.html">OutputContext</a>&lt;ValueType, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, false, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7b2faae03b534741ac3ee901644c7048">FullHandleMap</a>, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -281,15 +363,15 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
 template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2ef7a85387c48243db6ac4c5a300d213">RelationPosMap</a> =  typename <a class="el" href="../../df/df5/structSRDatalog_1_1mir_1_1ComputePositionMap.html">mir::ComputePositionMap</a>&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ae3c5723ad4105c21d1014cc1e082c7f6">UniqueSchemas</a>&gt;::type</td>
+          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2ef7a85387c48243db6ac4c5a300d213">RelationPosMap</a> =  typename mir::ComputePositionMap&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a0e3a69c72e99568522dc23bc20db2fff">UniqueSchemas</a>&gt;::type</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ad9de775677aed433b5d0b72771a91304"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9de775677aed433b5d0b72771a91304">&#9670;&nbsp;</a></span>RemainingOps</h2>
+<a id="a7f510b20145a563c0cfd386b2e2ca473"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f510b20145a563c0cfd386b2e2ca473">&#9670;&nbsp;</a></span>RemainingOps</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -297,7 +379,7 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
 template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ad9de775677aed433b5d0b72771a91304">RemainingOps</a> =  <a class="el" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a92fbd9c30b2b508397059704c5dce303">tmp::TupleTail_t</a>&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a>&gt;</td>
+          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7f510b20145a563c0cfd386b2e2ca473">RemainingOps</a> =  <a class="el" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a92fbd9c30b2b508397059704c5dce303">SRDatalog::tmp::TupleTail_t</a>&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -313,15 +395,15 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
 template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aa3a42290046a865eb2afe2ee8bb2415a">RootSources</a> =  typename FirstOp::sources_type</td>
+          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aa3a42290046a865eb2afe2ee8bb2415a">RootSources</a> =  typename FirstOp::sources_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a5963f174387a42de379f6268611c755d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5963f174387a42de379f6268611c755d">&#9670;&nbsp;</a></span>RootVar</h2>
+<a id="ab9b710e523f94eb0273bf5ad81974193"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9b710e523f94eb0273bf5ad81974193">&#9670;&nbsp;</a></span>RootVar</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -329,15 +411,15 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
 template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a5963f174387a42de379f6268611c755d">RootVar</a> =  typename FirstOp::var_type</td>
+          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ab9b710e523f94eb0273bf5ad81974193">RootVar</a> =  typename <a class="el" href="../../d4/dd1/structSRDatalog_1_1GPU_1_1GPURootExecutor_1_1ExtractRootVar.html">ExtractRootVar</a>&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6d133b9f1f7e3af579184f5dc687f3cf">FirstOp</a>&gt;::type</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ae3c5723ad4105c21d1014cc1e082c7f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3c5723ad4105c21d1014cc1e082c7f6">&#9670;&nbsp;</a></span>UniqueSchemas</h2>
+<a id="a56db2708241865585d299f0f2cfb6dbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56db2708241865585d299f0f2cfb6dbb">&#9670;&nbsp;</a></span>RootVarsTuple</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -345,7 +427,23 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
 template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ae3c5723ad4105c21d1014cc1e082c7f6">UniqueSchemas</a> =  mp::mp_unique&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7de24d78a6a9b1d4257e3019589ddf3f">AllSchemas</a>&gt;</td>
+          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a56db2708241865585d299f0f2cfb6dbb">RootVarsTuple</a> =  typename <a class="el" href="../../d9/d50/structSRDatalog_1_1GPU_1_1GPURootExecutor_1_1ExtractRootVars.html">ExtractRootVars</a>&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6d133b9f1f7e3af579184f5dc687f3cf">FirstOp</a>&gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e3a69c72e99568522dc23bc20db2fff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e3a69c72e99568522dc23bc20db2fff">&#9670;&nbsp;</a></span>UniqueSchemas</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a0e3a69c72e99568522dc23bc20db2fff">UniqueSchemas</a> =  boost::mp11::mp_unique&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a7de24d78a6a9b1d4257e3019589ddf3f">AllSchemas</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -361,7 +459,23 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
 template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a35cafc040c71b1cebbab3361b86bd25b">VarPosMap</a> =  typename Pipeline::var_pos_map_type</td>
+          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a35cafc040c71b1cebbab3361b86bd25b">VarPosMap</a> =  typename Pipeline::var_pos_map_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e2c526e2c73bf6cf7209a2e06b87463"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e2c526e2c73bf6cf7209a2e06b87463">&#9670;&nbsp;</a></span>ViewType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> =  typename HandleType::View</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -369,8 +483,8 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a519367ac1006914d5b0db66de3b26050"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a519367ac1006914d5b0db66de3b26050">&#9670;&nbsp;</a></span>kernel_count()</h2>
+<a id="a4b8a1a17215e3ba29564ef34df720491"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b8a1a17215e3ba29564ef34df720491">&#9670;&nbsp;</a></span>__launch_bounds__() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -383,81 +497,26 @@ template&lt;int BlockSize = 256, int GroupSize = 32&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static __global__ void <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::kernel_count </td>
+          <td class="memname">static __global__ void <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::__launch_bounds__ </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__&#160;</td>
-          <td class="paramname"><em>root_handles</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__&#160;</td>
-          <td class="paramname"><em>full_handles</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>num_root_keys</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *__restrict__&#160;</td>
-          <td class="paramname"><em>thread_counts</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">BlockSize&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Kernel to count the number of resulting tuples from the root join. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">BlockSize</td><td>CUDA block size </td></tr>
-    <tr><td class="paramname">GroupSize</td><td>Cooperative group size (default 32) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">root_handles</td><td>Handles to the root relations (first join source) </td></tr>
-    <tr><td class="paramname">full_handles</td><td>Handles to full destination relations (for duplicate checking) </td></tr>
-    <tr><td class="paramname">num_root_keys</td><td>Number of keys in the first root relation </td></tr>
-    <tr><td class="paramname">thread_counts</td><td>Output buffer for per-thread result counts</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Kernel to count the number of resulting tuples from the root join.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">BlockSize</td><td>CUDA block size </td></tr>
-    <tr><td class="paramname">GroupSize</td><td>Cooperative group size (default 32) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">root_handles</td><td>Handles to the root relations (first join source) </td></tr>
-    <tr><td class="paramname">full_handles</td><td>Handles to full destination relations (for duplicate checking) </td></tr>
-    <tr><td class="paramname">num_root_keys</td><td>Number of keys in the first root relation </td></tr>
-    <tr><td class="paramname">thread_counts</td><td>Output buffer for per-thread result counts </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
-<a id="a9593b289b83c25265804bf7a417ee692"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9593b289b83c25265804bf7a417ee692">&#9670;&nbsp;</a></span>kernel_materialize()</h2>
+<a id="a396460f1f9d12933d7a2e28a34035ea5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a396460f1f9d12933d7a2e28a34035ea5">&#9670;&nbsp;</a></span>__launch_bounds__() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -470,46 +529,91 @@ template&lt;int BlockSize = 256, int GroupSize = 32&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static __global__ void <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::kernel_materialize </td>
+          <td class="memname">static __global__ void <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::__launch_bounds__ </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__&#160;</td>
-          <td class="paramname"><em>root_handles</em>, </td>
+          <td class="paramtype">BlockSize&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Kernel to materialize the resulting tuples. </p>
+
+</div>
+</div>
+<a id="ac9dc2341b19e43322573d3042cab4ecf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9dc2341b19e43322573d3042cab4ecf">&#9670;&nbsp;</a></span>execute_root() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::execute_root </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a818b29545710285ea8dacbcb74e6fda9">tile</a>&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__&#160;</td>
-          <td class="paramname"><em>full_handles</em>, </td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aeadfbd9827fa5f93e49a3d5f437b312d">warp_id</a>&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>num_root_keys</em>, </td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a520d399f53163a18d487f19be988d330">num_warps</a>&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const uint32_t *__restrict__&#160;</td>
-          <td class="paramname"><em>thread_offsets</em>, </td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6fb5d0508e99237adc65f98c04ec709e">root_unique_values</a>&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ValueType *__restrict__&#160;</td>
-          <td class="paramname"><em>output_data</em>, </td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aeb3d306a7def72da4da186f2ff3ec8a0">num_unique_root_keys</a>&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt; *__restrict__&#160;</td>
-          <td class="paramname"><em>output_prov</em>, </td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a8697b0afae41ec7f0f5373f5fca22883">num_root_keys</a>&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>output_stride</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6ec27ced958395ad0d36ce8c3ac5afcf">vars</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ad0ff8186c37b8956a363eec51893ccb6">handles</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a382a566cdc01b9772ffa4826fe509b05">provs</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ae0a3dfac2154671c18f5517370a50e1f">output_ctx</a>&#160;</td>
+          <td class="paramname">&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -517,31 +621,343 @@ template&lt;int BlockSize = 256, int GroupSize = 32&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac9dc2341b19e43322573d3042cab4ecf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9dc2341b19e43322573d3042cab4ecf">&#9670;&nbsp;</a></span>execute_root() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::execute_root </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a818b29545710285ea8dacbcb74e6fda9">tile</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aeadfbd9827fa5f93e49a3d5f437b312d">warp_id</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a520d399f53163a18d487f19be988d330">num_warps</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6fb5d0508e99237adc65f98c04ec709e">root_unique_values</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aeb3d306a7def72da4da186f2ff3ec8a0">num_unique_root_keys</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a8697b0afae41ec7f0f5373f5fca22883">num_root_keys</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6ec27ced958395ad0d36ce8c3ac5afcf">vars</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ad0ff8186c37b8956a363eec51893ccb6">handles</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a382a566cdc01b9772ffa4826fe509b05">provs</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ae0a3dfac2154671c18f5517370a50e1f">output_ctx</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b362f3bc6c911cd38fff4cbfcc91a0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b362f3bc6c911cd38fff4cbfcc91a0c">&#9670;&nbsp;</a></span>for() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::for </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Kernel to materialize the resulting tuples. </p>
-<p>Performs the actual join, duplicate check, and writes the results to output_data. Uses thread_offsets computed from an exclusive scan of the counts.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">root_handles</td><td>Handles to the root relations </td></tr>
-    <tr><td class="paramname">full_handles</td><td>Handles to full destination relations </td></tr>
-    <tr><td class="paramname">num_root_keys</td><td>Number of keys in the first root relation </td></tr>
-    <tr><td class="paramname">thread_offsets</td><td>Scanned offsets for where each thread should write </td></tr>
-    <tr><td class="paramname">output_data</td><td>Buffer for output tuple data </td></tr>
-    <tr><td class="paramname">output_prov</td><td>Buffer for output provenance </td></tr>
-    <tr><td class="paramname">output_stride</td><td>Stride of the output buffer columns </td></tr>
-  </table>
-  </dd>
-</dl>
+</div>
+</div>
+<a id="a5b362f3bc6c911cd38fff4cbfcc91a0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b362f3bc6c911cd38fff4cbfcc91a0c">&#9670;&nbsp;</a></span>for() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::for </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a904533a6ab039281a4cc4d4bd61150b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a904533a6ab039281a4cc4d4bd61150b2">&#9670;&nbsp;</a></span>init_full_handles() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::init_full_handles </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ae0a3dfac2154671c18f5517370a50e1f">output_ctx</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#af88eb76f3761646478881f6d63715e85">full_handles</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6a3d7fdbd00d2fdfd8e2c25bef54dfc8">full_views</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a904533a6ab039281a4cc4d4bd61150b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a904533a6ab039281a4cc4d4bd61150b2">&#9670;&nbsp;</a></span>init_full_handles() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::init_full_handles </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ae0a3dfac2154671c18f5517370a50e1f">output_ctx</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#af88eb76f3761646478881f6d63715e85">full_handles</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6a3d7fdbd00d2fdfd8e2c25bef54dfc8">full_views</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b4b6de51109c0da717e185a38771cb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b4b6de51109c0da717e185a38771cb2">&#9670;&nbsp;</a></span>view_store() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/da8/structSRDatalog_1_1GPU_1_1state_1_1ViewStore.html">state::ViewStore</a>&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a961febdfa01bb4f3ca4d1c77253213b3">NumHandles</a>&gt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::view_store </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a38f44a4d5fff8eb4d4e5c955f3aa969b">root_views</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b4b6de51109c0da717e185a38771cb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b4b6de51109c0da717e185a38771cb2">&#9670;&nbsp;</a></span>view_store() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/da8/structSRDatalog_1_1GPU_1_1state_1_1ViewStore.html">state::ViewStore</a>&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a961febdfa01bb4f3ca4d1c77253213b3">NumHandles</a>&gt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::view_store </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a38f44a4d5fff8eb4d4e5c955f3aa969b">root_views</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="af88eb76f3761646478881f6d63715e85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af88eb76f3761646478881f6d63715e85">&#9670;&nbsp;</a></span>full_handles</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">static __global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::full_handles</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a3d7fdbd00d2fdfd8e2c25bef54dfc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a3d7fdbd00d2fdfd8e2c25bef54dfc8">&#9670;&nbsp;</a></span>full_views</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">static __global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::full_views</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad0ff8186c37b8956a363eec51893ccb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0ff8186c37b8956a363eec51893ccb6">&#9670;&nbsp;</a></span>handles</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">state::HandleStore</a>&lt; <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a961febdfa01bb4f3ca4d1c77253213b3">NumHandles</a> &gt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::handles</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a20dce4a37438ec7e14bdd59626a90c11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20dce4a37438ec7e14bdd59626a90c11">&#9670;&nbsp;</a></span>is_cartesian_root</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::is_cartesian_root = mir::is_cartesian_join_v&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6d133b9f1f7e3af579184f5dc687f3cf">FirstOp</a>&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8697b0afae41ec7f0f5373f5fca22883"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8697b0afae41ec7f0f5373f5fca22883">&#9670;&nbsp;</a></span>num_root_keys</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">static __global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const ValueType *__restrict__ uint32_t uint32_t <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::num_root_keys</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a30f0e045c796ce2dce2994e2af5af829"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a30f0e045c796ce2dce2994e2af5af829">&#9670;&nbsp;</a></span>num_root_sources</h2>
 
@@ -554,7 +970,7 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::num_root_sources = std::tuple_size_v&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aa3a42290046a865eb2afe2ee8bb2415a">RootSources</a>&gt;</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::num_root_sources = std::tuple_size_v&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aa3a42290046a865eb2afe2ee8bb2415a">RootSources</a>&gt;</td>
         </tr>
       </table>
   </td>
@@ -562,6 +978,38 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
 <span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb3d306a7def72da4da186f2ff3ec8a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb3d306a7def72da4da186f2ff3ec8a0">&#9670;&nbsp;</a></span>num_unique_root_keys</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">static __global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const ValueType *__restrict__ uint32_t <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::num_unique_root_keys</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a520d399f53163a18d487f19be988d330"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a520d399f53163a18d487f19be988d330">&#9670;&nbsp;</a></span>num_warps</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::num_warps = (<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">gridDim.x</a> * <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">blockDim.x</a>) / GroupSize</td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>
@@ -578,7 +1026,7 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::NumFullHandles = mp::mp_size&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aaa17b23d63d44acf8819e2e569b1693b">DestSchemas</a>&gt;::value</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::NumFullHandles = boost::mp11::mp_size&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aaa17b23d63d44acf8819e2e569b1693b">DestSchemas</a>&gt;::value</td>
         </tr>
       </table>
   </td>
@@ -602,7 +1050,7 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::NumHandles = decltype(boost::hana::size(<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a38f5300c5566417b057c220354d3d1ba">IteratorPosMap</a>{}))::value</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::NumHandles = mir::CountInputIterators&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2e0ebd6467f3755acbe8ece222afacb0">MIROps</a>&gt;::value</td>
         </tr>
       </table>
   </td>
@@ -626,7 +1074,7 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::NumRelations = mp::mp_size&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ae3c5723ad4105c21d1014cc1e082c7f6">UniqueSchemas</a>&gt;::value</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::NumRelations = boost::mp11::mp_size&lt;<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a0e3a69c72e99568522dc23bc20db2fff">UniqueSchemas</a>&gt;::value</td>
         </tr>
       </table>
   </td>
@@ -650,7 +1098,7 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::NumVars = decltype(boost::hana::size(<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a35cafc040c71b1cebbab3361b86bd25b">VarPosMap</a>{}))::value</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::NumVars = decltype(boost::hana::size(<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a35cafc040c71b1cebbab3361b86bd25b">VarPosMap</a>{}))::value</td>
         </tr>
       </table>
   </td>
@@ -658,6 +1106,105 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
 <span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae0a3dfac2154671c18f5517370a50e1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0a3dfac2154671c18f5517370a50e1f">&#9670;&nbsp;</a></span>output_ctx <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aa394f16655565ebe9cca6e6f4c6ce122">OutputCtxCountType</a> <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::output_ctx {nullptr, nullptr, 0, 0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af11b84460cf20320b0e445e65cbf403f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af11b84460cf20320b0e445e65cbf403f">&#9670;&nbsp;</a></span>output_ctx <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6abc28ca376f201287680bd63a3df33a">OutputCtxType</a> <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::output_ctx {<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a843d59eb24d945576a5a482fa68c7725">output_data</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a0208ff990931513d893ae7e23021eda0">output_prov</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a94822e5fbd4c1a7015ce44706157aa83">output_stride</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aabff95e996baa7f8ae603a339c6e75ce">write_base</a>}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a843d59eb24d945576a5a482fa68c7725"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a843d59eb24d945576a5a482fa68c7725">&#9670;&nbsp;</a></span>output_data</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">__global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>* __restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a>* __restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a>* __restrict__ const ValueType* __restrict__ uint32_t uint32_t const uint32_t* __restrict__ ValueType* __restrict__ <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::output_data</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0208ff990931513d893ae7e23021eda0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0208ff990931513d893ae7e23021eda0">&#9670;&nbsp;</a></span>output_prov</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">__global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>* __restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a>* __restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a>* __restrict__ const ValueType* __restrict__ uint32_t uint32_t const uint32_t* __restrict__ ValueType* __restrict__ <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt;<a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>&gt;* __restrict__ <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::output_prov</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a94822e5fbd4c1a7015ce44706157aa83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94822e5fbd4c1a7015ce44706157aa83">&#9670;&nbsp;</a></span>output_stride</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">__global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>* __restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a>* __restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a>* __restrict__ const ValueType* __restrict__ uint32_t uint32_t const uint32_t* __restrict__ ValueType* __restrict__ <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt;<a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>&gt;* __restrict__ std::size_t <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::output_stride</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">auto</span> block = cg::this_thread_block()</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a382a566cdc01b9772ffa4826fe509b05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a382a566cdc01b9772ffa4826fe509b05">&#9670;&nbsp;</a></span>provs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d06/structSRDatalog_1_1GPU_1_1state_1_1ProvStore.html">state::ProvStore</a>&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2ef7a85387c48243db6ac4c5a300d213">RelationPosMap</a>, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aad7ab22316fb3b9f4d466355530237de">NumRelations</a> &gt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::provs</td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>
@@ -674,7 +1221,7 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::root_is_intersection = (<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a30f0e045c796ce2dce2994e2af5af829">num_root_sources</a> &gt; 1)</td>
+          <td class="memname">constexpr bool <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::root_is_intersection = (!<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a20dce4a37438ec7e14bdd59626a90c11">is_cartesian_root</a>) &amp;&amp; (<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a30f0e045c796ce2dce2994e2af5af829">num_root_sources</a> &gt; 1)</td>
         </tr>
       </table>
   </td>
@@ -682,6 +1229,185 @@ template&lt;typename Pipeline , Semiring SR, typename ValueType , typename Handl
 <span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6fb5d0508e99237adc65f98c04ec709e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fb5d0508e99237adc65f98c04ec709e">&#9670;&nbsp;</a></span>root_unique_values</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">static __global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ const ValueType *__restrict__ <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::root_unique_values</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a38f44a4d5fff8eb4d4e5c955f3aa969b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38f44a4d5fff8eb4d4e5c955f3aa969b">&#9670;&nbsp;</a></span>root_views</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">static __global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> *__restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a> *__restrict__ <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::root_views</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab896ba82764ea0e69563d824fd1ae7ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab896ba82764ea0e69563d824fd1ae7ec">&#9670;&nbsp;</a></span>thread_counts <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">__global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>* __restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a>* __restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a>* __restrict__ const ValueType* __restrict__ uint32_t uint32_t uint32_t* __restrict__ <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::thread_counts</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">auto</span> block = cg::this_thread_block()</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a79d836978bccf2b5b9b81dcea4554d61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79d836978bccf2b5b9b81dcea4554d61">&#9670;&nbsp;</a></span>thread_counts <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::thread_counts[<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ad9a40cf6042c351eb302caa2ae5f195c">thread_id</a>] = output_ctx.count()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad9a40cf6042c351eb302caa2ae5f195c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9a40cf6042c351eb302caa2ae5f195c">&#9670;&nbsp;</a></span>thread_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::thread_id = (<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">blockIdx.x</a> * <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">blockDim.x</a>) + <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">threadIdx.x</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75a4c4e41773b33c06b45a6e165c697d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75a4c4e41773b33c06b45a6e165c697d">&#9670;&nbsp;</a></span>thread_offsets</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">__global__ void const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>* __restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a>* __restrict__ const <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">ViewType</a>* __restrict__ const ValueType* __restrict__ uint32_t uint32_t const uint32_t* __restrict__ <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::thread_offsets</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a818b29545710285ea8dacbcb74e6fda9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a818b29545710285ea8dacbcb74e6fda9">&#9670;&nbsp;</a></span>tile</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::tile = cg::tiled_partition&lt;GroupSize&gt;(block)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ec27ced958395ad0d36ce8c3ac5afcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ec27ced958395ad0d36ce8c3ac5afcf">&#9670;&nbsp;</a></span>vars</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/dd3/structSRDatalog_1_1GPU_1_1state_1_1VarStore.html">state::VarStore</a>&lt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a35cafc040c71b1cebbab3361b86bd25b">VarPosMap</a>, ValueType, <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a2a71dd6bbe3ce9945cabce0e8e1ebab2">NumVars</a> &gt; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::vars</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a698f7983bc2fb8d7910d88c4a0aa91d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a698f7983bc2fb8d7910d88c4a0aa91d6">&#9670;&nbsp;</a></span>view_store</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ad0ff8186c37b8956a363eec51893ccb6">handles</a> set_view_store &amp; <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::view_store</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeadfbd9827fa5f93e49a3d5f437b312d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeadfbd9827fa5f93e49a3d5f437b312d">&#9670;&nbsp;</a></span>warp_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::warp_id = <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ad9a40cf6042c351eb302caa2ae5f195c">thread_id</a> / GroupSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aabff95e996baa7f8ae603a339c6e75ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabff95e996baa7f8ae603a339c6e75ce">&#9670;&nbsp;</a></span>write_base</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pipeline , Semiring SR, typename ValueType , typename HandleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html">SRDatalog::GPU::GPURootExecutor</a>&lt; Pipeline, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &gt;::write_base = <a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a75a4c4e41773b33c06b45a6e165c697d">thread_offsets</a>[<a class="el" href="../../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ad9a40cf6042c351eb302caa2ae5f195c">thread_id</a>]</td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>

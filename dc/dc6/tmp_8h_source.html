@@ -140,18 +140,21 @@ $(function() {
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> SetA, <span class="keyword">typename</span> SetB&gt;</div>
 <div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#af56cba2fccd876168a4af721dc31b2a6">   69</a></span>&#160;<span class="keyword">using</span> TupleSetDifference = mp::mp_set_difference&lt;SetA, SetB&gt;;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">// Runtime helpers (keep these)</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a992e7af580bcfe09e1fce5bd7618acde">   73</a></span>&#160;<span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a992e7af580bcfe09e1fce5bd7618acde">tuple_head</a>(<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;Ts...&gt; t) {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::get&lt;0&gt;(t);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Ts&gt;</div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1317bf019f84c1daad5f33319e383979">   78</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1317bf019f84c1daad5f33319e383979">tuple_tail</a>(<span class="keyword">const</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;T, Ts...&gt;&amp; t) {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keywordflow">return</span> std::apply([](<span class="keyword">auto</span> _ <span class="comment">/*first*/</span>, <span class="keyword">auto</span>... rest) { <span class="keywordflow">return</span> std::make_tuple(rest...); }, t);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}  <span class="comment">// namespace SRDatalog::tmp</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">template</span> &lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t N, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a01f94afe4c5a3cae616f9274a5444595">   72</a></span>&#160;<span class="keyword">using</span> take_t = mp::mp_take_c&lt;T, N&gt;;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">// Runtime helpers (keep these)</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a992e7af580bcfe09e1fce5bd7618acde">   76</a></span>&#160;<span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a992e7af580bcfe09e1fce5bd7618acde">tuple_head</a>(<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;Ts...&gt; t) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::get&lt;0&gt;(t);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1317bf019f84c1daad5f33319e383979">   81</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1317bf019f84c1daad5f33319e383979">tuple_tail</a>(<span class="keyword">const</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;T, Ts...&gt;&amp; t) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordflow">return</span> std::apply([](<span class="keyword">auto</span> _ <span class="comment">/*first*/</span>, <span class="keyword">auto</span>... rest) { <span class="keywordflow">return</span> std::make_tuple(rest...); }, t);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}  <span class="comment">// namespace SRDatalog::tmp</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

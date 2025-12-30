@@ -65,19 +65,26 @@ $(function() {
 &#160;
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>ScanTileState
+: <a class="el" href="db/d73/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom.html#a7151b89e47aac16549420d729e250dbf">cuda_cub::__set_operations::SetOpAgentCustom&lt; KeysIt1, KeysIt2, ValuesIt1, ValuesIt2, KeysOutputIt, ValuesOutputIt, Size, CompareOp, SetOp, HAS_VALUES &gt;</a>
+</li>
 <li>Schema
 : <a class="el" href="d1/de2/structSRDatalog_1_1ClauseToAggregate__impl.html#afd5f3e7a4344f22eeb09f0a20eafc9db">SRDatalog::ClauseToAggregate_impl&lt; Clause, VarToBind, BoundVars, JoinPlan &gt;</a>
 , <a class="el" href="d7/d84/structSRDatalog_1_1ClauseToColumnSource__impl.html#ab66f451ec9f5024d8aa937a3a8fc5322">SRDatalog::ClauseToColumnSource_impl&lt; Clause, VarToBind, BoundVars, JoinPlan &gt;</a>
 , <a class="el" href="dc/d81/structSRDatalog_1_1GetIndexForClause_3_01Clause_00_01GlobalJoinPlan_01_4.html#a41648ba9bd6381a1592d1c3a6750a77d">SRDatalog::GetIndexForClause&lt; Clause, GlobalJoinPlan &gt;</a>
+, <a class="el" href="d8/d2b/structSRDatalog_1_1GPU_1_1Adapter_1_1SRDatalogToTVJoinISA.html#a012c487044fb24811eea5ea93ba8c026">SRDatalog::GPU::Adapter::SRDatalogToTVJoinISA&lt; IndexSpecT, ValueType &gt;</a>
+, <a class="el" href="d0/ddf/structSRDatalog_1_1GPU_1_1Adapter_1_1TVJoinToSRDatalogISA.html#a3918f741836adfeaec9502a367767490">SRDatalog::GPU::Adapter::TVJoinToSRDatalogISA&lt; IndexSpecT, ValueType &gt;</a>
 </li>
 <li>schema_type
-: <a class="el" href="d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a8cfe19a728c74990f9185d5cec9c2dd7">SRDatalog::AST::SemiNaiveDatabase&lt; DBType &gt;</a>
+: <a class="el" href="d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a2521f2b626b09ced46339883012d51a8">SRDatalog::AST::SemiNaiveDatabase&lt; DBType, RelationMapper &gt;</a>
 , <a class="el" href="df/d82/structSRDatalog_1_1IndexSpecT.html#af0843f4a7aed4186f433a0de69929985">SRDatalog::IndexSpecT&lt; schema, ColumnIndexes, Ver &gt;</a>
 , <a class="el" href="d9/dd6/structSRDatalog_1_1mir_1_1CheckSize.html#adb7b76a930c96271fabd769a069acf19">SRDatalog::mir::CheckSize</a>
 , <a class="el" href="dd/d74/structSRDatalog_1_1mir_1_1ClearRelation.html#ac030b2061ad721a5a8a630b74ce7e782">SRDatalog::mir::ClearRelation</a>
+, <a class="el" href="db/d23/structSRDatalog_1_1mir_1_1ComputeDeltaAndMerge.html#a1875845c5db77fbdde86b4571befbc0a">SRDatalog::mir::ComputeDeltaAndMerge</a>
 , <a class="el" href="dc/d99/structSRDatalog_1_1mir_1_1InsertFromRelation.html#a3c12f8b67d7580afe7bd6fa8817cc22a">SRDatalog::mir::InsertFromRelation</a>
 , <a class="el" href="d8/d27/structSRDatalog_1_1mir_1_1SetVersion.html#aebf6e795e1999a6510e64532c6871ae4">SRDatalog::mir::SetVersion</a>
 , <a class="el" href="d9/d82/structTaggedRelation.html#ae492bd998a47881ff034aea6cbca3b2c">TaggedRelation&lt; Schema, Rel &gt;</a>
+, <a class="el" href="de/d61/structTestIndexSpec.html#a3dcc9f6d529cc7b7a2e2c91af27629ab">TestIndexSpec</a>
 </li>
 <li>semiring_type
 : <a class="el" href="dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html#ae6e4e41f50f2c5fdc0d9e4e52c575521">SRDatalog::AST::RelationSchema&lt; Name, SR, AttrTsTuple &gt;</a>
@@ -87,7 +94,12 @@ $(function() {
 , <a class="el" href="de/dea/classSRDatalog_1_1GPU_1_1NDDeviceArray.html#ae949f650a222dd90d0a033b1388ec5ab">SRDatalog::GPU::NDDeviceArray&lt; T, N &gt;</a>
 </li>
 <li>sources_type
-: <a class="el" href="da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html#a4af2ce979705010e72f3528e914ada3d">SRDatalog::mir::ColumnJoin</a>
+: <a class="el" href="da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html#a46c73290aed76a9a8aad3748fe9f962d">SRDatalog::mir::ColumnJoin&lt; Var, Sources, Strategy &gt;</a>
+, <a class="el" href="df/dfb/structSRDatalog_1_1mir_1_1gpu__opt_1_1PatternMatchResult.html#a5664eef1d2332c1b0de56a1bba85cd7b">SRDatalog::mir::gpu_opt::PatternMatchResult&lt; JoinCount, Vars, Sources, MiddleOps, RemainingOps &gt;</a>
+</li>
+<li>SourceType
+: <a class="el" href="d3/dd6/structSRDatalog_1_1GPU_1_1detail_1_1GetIndicesForOp_3_01mir_1_1CartesianJoin_3_01VarsTuple_00_0108d434d754413c0e73fa222831b7fa59.html#afe1d60fcba10e4d5a09719230da19267">SRDatalog::GPU::detail::GetIndicesForOp&lt; mir::CartesianJoin&lt; VarsTuple, SourcesTuple &gt;, Var, Offset &gt;</a>
+, <a class="el" href="d0/d21/structSRDatalog_1_1GPU_1_1detail_1_1GetIndicesForOp_3_01mir_1_1ColumnJoin_3_01VarToBind_00_01Sou621b4f865df9ecff0743668a7ae7cd92.html#a9363bc9cec44b8d9aa08dabf1c6801e5">SRDatalog::GPU::detail::GetIndicesForOp&lt; mir::ColumnJoin&lt; VarToBind, SourcesTuple, Strategy &gt;, Var, Offset &gt;</a>
 </li>
 <li>StorageTraits
 : <a class="el" href="dc/de0/structSRDatalog_1_1detail_1_1RelationStorage.html#a5f5b9bcf66bb2c28d063104f213ff9ad">SRDatalog::detail::RelationStorage&lt; SR, AttrTuple, Policy, AnnotationVal &gt;</a>
@@ -95,6 +107,9 @@ $(function() {
 </li>
 <li>StorageType
 : <a class="el" href="dc/de0/structSRDatalog_1_1detail_1_1RelationStorage.html#ac4b116340f845430728312f04cb735e2">SRDatalog::detail::RelationStorage&lt; SR, AttrTuple, Policy, AnnotationVal &gt;</a>
+</li>
+<li>strategy_type
+: <a class="el" href="da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html#af7761b78d59b3dc144c5e922a2ad0de8">SRDatalog::mir::ColumnJoin&lt; Var, Sources, Strategy &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->

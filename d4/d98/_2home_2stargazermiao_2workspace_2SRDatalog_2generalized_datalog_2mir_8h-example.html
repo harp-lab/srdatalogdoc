@@ -78,7 +78,7 @@ $(function() {
 </dl>
 <div class="fragment"><div class="line"><span class="keyword">using</span> EdgeIndex = IndexSpecT&lt;EdgeSchema, std::integer_sequence&lt;int, 0, 1&gt;,</div>
 <div class="line"><a name="a0"></a><a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>&gt;;</div>
-<div class="ttc" id="aast_8h_html_a69450f971feef4fd1281d79c44217e97"><div class="ttname"><a href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a></div><div class="ttdeci">#define FULL_VER</div><div class="ttdef"><b>Definition:</b> ast.h:52</div></div>
+<div class="ttc" id="aast_8h_html_a69450f971feef4fd1281d79c44217e97"><div class="ttname"><a href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a></div><div class="ttdeci">#define FULL_VER</div><div class="ttdef"><b>Definition:</b> ast.h:51</div></div>
 </div><!-- fragment --><div class="fragment"><div class="line"> </div>
 <div class="line"><span class="preprocessor">#pragma once</span></div>
 <div class="line"> </div>
@@ -122,35 +122,57 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CIndexSpec Index, tmp::CTuple BVars&gt;</div>
 <div class="line"><span class="keyword">struct </span>ColumnSource {</div>
-<div class="line">  <span class="keyword">using</span> index_spec_type = <a name="a5"></a><a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a3347aa14094b78614688063f4d47a6af">Index</a>;</div>
+<div class="line">  <span class="keyword">using</span> index_spec_type = <a name="a5"></a><a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a8aae0894012920239067275a3d80c64e">Index</a>;</div>
 <div class="line">  <span class="keyword">using</span> prefix_vars_type = BVars;</div>
 <div class="line">};</div>
 <div class="line"><span class="comment">// Type predicate for column source (Scheme/Racket style: (column-source? x))</span></div>
 <div class="line"><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">DEFINE_TYPE_PREDICATE</a>(is_column_source, ColumnSource, CColumnSource,</div>
-<div class="line">                      (CIndexSpec <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a3347aa14094b78614688063f4d47a6af">Index</a>, <a name="a6"></a><a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> BVars), (<a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a3347aa14094b78614688063f4d47a6af">Index</a>, BVars))</div>
+<div class="line">                      (CIndexSpec <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a8aae0894012920239067275a3d80c64e">Index</a>, <a name="a6"></a><a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> BVars), (<a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a8aae0894012920239067275a3d80c64e">Index</a>, BVars))</div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span> &lt;CVar Var, tmp::CTuple Sources&gt;</div>
+<div class="line"><span class="keyword">struct </span>JoinStrategy {};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">struct </span>DefaultJoinStrategy : JoinStrategy {};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">struct </span>TVJoinStrategy : JoinStrategy {};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;CVar Var, tmp::CTuple Sources, <span class="keyword">typename</span> Strategy = DefaultJoinStrategy&gt;</div>
 <div class="line"><span class="keyword">struct </span>ColumnJoin {</div>
 <div class="line">  <span class="keyword">using</span> var_type = Var;</div>
 <div class="line">  <span class="keyword">using</span> sources_type = Sources;</div>
+<div class="line">  <span class="keyword">using</span> strategy_type = Strategy;</div>
 <div class="line">};</div>
 <div class="line"><span class="comment">// Type predicate for column join (Scheme/Racket style: (column-join? x))</span></div>
-<div class="line"><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">DEFINE_TYPE_PREDICATE</a>(is_column_join, ColumnJoin, CColumnJoin, (CVar Var, <a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> Sources),</div>
-<div class="line">                      (Var, Sources))</div>
+<div class="line"><span class="comment">// Note: We only check Var and Sources for the predicate to remain backward compatible</span></div>
+<div class="line"><span class="comment">// with existing TMP checks that might inspect template args, though define_type_predicate</span></div>
+<div class="line"><span class="comment">// matches the primary template signature.</span></div>
+<div class="line"><span class="comment">// Extended to capture Strategy, but use default for matching if needed?</span></div>
+<div class="line"><span class="comment">// DEFINE_TYPE_PREDICATE expects exact match of template params.</span></div>
+<div class="line"><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">DEFINE_TYPE_PREDICATE</a>(is_column_join, ColumnJoin, CColumnJoin,</div>
+<div class="line">                      (CVar Var, <a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> Sources, <span class="keyword">typename</span> Strategy), (Var, Sources, Strategy))</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;tmp::CTuple Vars, tmp::CTuple Sources&gt;</div>
+<div class="line"><span class="keyword">struct </span>CartesianJoin {</div>
+<div class="line">  <span class="keyword">using</span> vars_type = Vars;</div>
+<div class="line">  <span class="keyword">using</span> sources_type = Sources;</div>
+<div class="line">};</div>
+<div class="line"><span class="comment">// Type predicate for cartesian join (Scheme/Racket style: (cartesian-join? x))</span></div>
+<div class="line"><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">DEFINE_TYPE_PREDICATE</a>(is_cartesian_join, CartesianJoin, CCartesianJoin,</div>
+<div class="line">                      (<a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> Vars, <a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> Sources), (Vars, Sources))</div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CVar VarToBind, CIndexSpec Index, tmp::CTuple PrefixVars, <span class="keyword">typename</span> AggFunc&gt;</div>
 <div class="line"><span class="keyword">struct </span>Aggregate {</div>
 <div class="line">  <span class="keyword">using</span> var_type = VarToBind;</div>
-<div class="line">  <span class="keyword">using</span> index_spec_type = <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a3347aa14094b78614688063f4d47a6af">Index</a>;</div>
-<div class="line">  <span class="keyword">using</span> prefix_vars_type = <a name="a7"></a><a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#aef692e264e379a16ec2b2b9a06c1a622">PrefixVars</a>;</div>
+<div class="line">  <span class="keyword">using</span> index_spec_type = <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a8aae0894012920239067275a3d80c64e">Index</a>;</div>
+<div class="line">  <span class="keyword">using</span> prefix_vars_type = <a name="a7"></a><a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a5803ae82af15df3e4bac4e5493e50545">PrefixVars</a>;</div>
 <div class="line">  <span class="keyword">using</span> agg_func_type = AggFunc;</div>
 <div class="line">};</div>
 <div class="line"><span class="comment">// Type predicate for aggregate (Scheme/Racket style: (aggregate? x))</span></div>
 <div class="line"><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">DEFINE_TYPE_PREDICATE</a>(is_aggregate, Aggregate, CAggregate,</div>
-<div class="line">                      (CVar VarToBind, CIndexSpec <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a3347aa14094b78614688063f4d47a6af">Index</a>, <a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#aef692e264e379a16ec2b2b9a06c1a622">PrefixVars</a>, <span class="keyword">typename</span> AggFunc),</div>
-<div class="line">                      (VarToBind, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a3347aa14094b78614688063f4d47a6af">Index</a>, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#aef692e264e379a16ec2b2b9a06c1a622">PrefixVars</a>, AggFunc))</div>
+<div class="line">                      (CVar VarToBind, CIndexSpec <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a8aae0894012920239067275a3d80c64e">Index</a>, <a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a5803ae82af15df3e4bac4e5493e50545">PrefixVars</a>, <span class="keyword">typename</span> AggFunc),</div>
+<div class="line">                      (VarToBind, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a8aae0894012920239067275a3d80c64e">Index</a>, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a5803ae82af15df3e4bac4e5493e50545">PrefixVars</a>, AggFunc))</div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CRelationSchema Schema, <a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> <a name="a8"></a><a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a12a87377d68a3405d70ac0ef26ef3f12">Terms</a>, std::size_t <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a>,</div>
@@ -232,6 +254,22 @@ $(function() {
 <div class="line">                      (Schema))</div>
 <div class="line"> </div>
 <div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;CRelationSchema Schema, std::size_t <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#afe141324a783aac4824e1f9ae7d1e585">FromVer</a>, std::size_t <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a16d6468ceb5a94d3a93056708093195a">ToVer</a>, std::size_t <a name="a12"></a><a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a88293fa710f197f06fbaf10b07aa646e">DeltaVer</a>,</div>
+<div class="line">          CIndexSpec IndexSpecT&gt;</div>
+<div class="line"><span class="keyword">struct </span>ComputeDeltaAndMerge {</div>
+<div class="line">  <span class="keyword">using</span> schema_type = Schema;</div>
+<div class="line">  <span class="keyword">static</span> constexpr std::size_t FromVersion = <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#afe141324a783aac4824e1f9ae7d1e585">FromVer</a>;</div>
+<div class="line">  <span class="keyword">static</span> constexpr std::size_t ToVersion = <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a16d6468ceb5a94d3a93056708093195a">ToVer</a>;</div>
+<div class="line">  <span class="keyword">static</span> constexpr std::size_t DeltaVersion = <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a88293fa710f197f06fbaf10b07aa646e">DeltaVer</a>;</div>
+<div class="line">  <span class="keyword">using</span> index_spec_type = IndexSpecT;</div>
+<div class="line">};</div>
+<div class="line"><span class="comment">// Type predicate</span></div>
+<div class="line"><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">DEFINE_TYPE_PREDICATE</a>(is_compute_delta_and_merge, ComputeDeltaAndMerge, CComputeDeltaAndMerge,</div>
+<div class="line">                      (CRelationSchema Schema, std::size_t <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#afe141324a783aac4824e1f9ae7d1e585">FromVer</a>, std::size_t <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a16d6468ceb5a94d3a93056708093195a">ToVer</a>,</div>
+<div class="line">                       std::size_t <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a88293fa710f197f06fbaf10b07aa646e">DeltaVer</a>, CIndexSpec IndexSpecT),</div>
+<div class="line">                      (Schema, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#afe141324a783aac4824e1f9ae7d1e585">FromVer</a>, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a16d6468ceb5a94d3a93056708093195a">ToVer</a>, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a88293fa710f197f06fbaf10b07aa646e">DeltaVer</a>, IndexSpecT))</div>
+<div class="line"> </div>
+<div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CRelationSchema Schema, std::<span class="keywordtype">size_t</span> Ver&gt;</div>
 <div class="line"><span class="keyword">struct </span>SetVersion {</div>
 <div class="line">  <span class="keyword">using</span> schema_type = Schema;</div>
@@ -246,7 +284,7 @@ $(function() {
 <div class="line"><span class="keyword">struct </span>ComputeVarPosMap;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Vars&gt;</div>
-<div class="line">  <a name="a12"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c">requires</a>(CVar&lt;Vars&gt; &amp;&amp; ...)</div>
+<div class="line">  <a name="a13"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c">requires</a>(CVar&lt;Vars&gt; &amp;&amp; ...)</div>
 <div class="line"><span class="keyword">struct </span>ComputeVarPosMap&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;Vars...&gt;&gt; {</div>
 <div class="line">  <span class="comment">// Create pairs for all variables with their positions</span></div>
 <div class="line">  <span class="keyword">template</span> &lt;std::size_t... Is&gt;</div>
@@ -255,7 +293,7 @@ $(function() {
 <div class="line">        hana::type_c&lt;std::tuple_element_t&lt;Is, std::tuple&lt;Vars...&gt;&gt;&gt;, hana::int_c&lt;Is&gt;)...);</div>
 <div class="line">  }</div>
 <div class="line"> </div>
-<div class="line">  <span class="keyword">using</span> <a name="a13"></a><a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = decltype(make_map_impl(std::make_index_sequence&lt;<span class="keyword">sizeof</span>...(Vars)&gt;{}));</div>
+<div class="line">  <span class="keyword">using</span> <a name="a14"></a><a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = decltype(make_map_impl(std::make_index_sequence&lt;<span class="keyword">sizeof</span>...(Vars)&gt;{}));</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;tmp::CTuple MIROps&gt;</div>
@@ -284,8 +322,14 @@ $(function() {
 <div class="line">  };</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// Specialization for ColumnJoin (recursively extract from Sources)</span></div>
-<div class="line">  <span class="keyword">template</span> &lt;CVar VarToBind, tmp::CTuple Sources&gt;</div>
-<div class="line">  <span class="keyword">struct </span>ExtractFromOp&lt;mir::ColumnJoin&lt;VarToBind, Sources&gt;&gt; {</div>
+<div class="line">  <span class="keyword">template</span> &lt;CVar VarToBind, tmp::CTuple Sources, <span class="keyword">typename</span> Strategy&gt;</div>
+<div class="line">  <span class="keyword">struct </span>ExtractFromOp&lt;mir::ColumnJoin&lt;VarToBind, Sources, Strategy&gt;&gt; {</div>
+<div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">ExtractIndexSpecsFromMIR&lt;Sources&gt;::type</a>;</div>
+<div class="line">  };</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Specialization for CartesianJoin (recursively extract from Sources)</span></div>
+<div class="line">  <span class="keyword">template</span> &lt;tmp::CTuple Vars, tmp::CTuple Sources&gt;</div>
+<div class="line">  <span class="keyword">struct </span>ExtractFromOp&lt;mir::CartesianJoin&lt;Vars, Sources&gt;&gt; {</div>
 <div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">ExtractIndexSpecsFromMIR&lt;Sources&gt;::type</a>;</div>
 <div class="line">  };</div>
 <div class="line"> </div>
@@ -298,21 +342,7 @@ $(function() {
 <div class="line">  <span class="comment">// Specialization for DestinationRelation</span></div>
 <div class="line">  <span class="keyword">template</span> &lt;CRelationSchema Schema, tmp::CTuple Terms, std::<span class="keywordtype">size_t</span> Ver, CIndexSpec IndexSpec&gt;</div>
 <div class="line">  <span class="keyword">struct </span>ExtractFromOp&lt;mir::DestinationRelation&lt;Schema, Terms, Ver, IndexSpec&gt;&gt; {</div>
-<div class="line">    <span class="comment">// Use the IndexSpec from DestinationRelation, but convert to FULL_VER for index building</span></div>
-<div class="line">    <span class="comment">// DestinationRelation always uses FULL_VER index for deduplication</span></div>
-<div class="line">    <span class="comment">// If the IndexSpec has empty column_indexes_type (placeholder), use canonical index</span></div>
-<div class="line">    <span class="keyword">using</span> ColSeq = <span class="keyword">typename</span> IndexSpec::column_indexes_type;</div>
-<div class="line">    <span class="keyword">using</span> CanonicalSeq = <span class="keyword">typename</span> Schema::canonical_index_type;</div>
-<div class="line">    <span class="comment">// Convert std::index_sequence to std::integer_sequence&lt;int, ...&gt;</span></div>
-<div class="line">    <span class="keyword">template</span> &lt;std::size_t... Is&gt;</div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">auto</span> to_int_seq(std::index_sequence&lt;Is...&gt;)</div>
-<div class="line">        -&gt; std::integer_sequence&lt;int, static_cast&lt;int&gt;(Is)...&gt;;</div>
-<div class="line">    <span class="keyword">using</span> CanonicalIntSeq = decltype(to_int_seq(CanonicalSeq{}));</div>
-<div class="line">    <span class="comment">// Use canonical index if IndexSpec is empty (placeholder), otherwise use IndexSpec&#39;s columns</span></div>
-<div class="line">    <span class="keyword">using</span> FinalColSeq = std::conditional_t&lt;std::is_same_v&lt;ColSeq, std::integer_sequence&lt;int&gt;&gt;,</div>
-<div class="line">                                           CanonicalIntSeq, ColSeq&gt;;</div>
-<div class="line">    <span class="keyword">using</span> FullVerIndexSpec = IndexSpecT&lt;Schema, FinalColSeq, FULL_VER&gt;;</div>
-<div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = std::tuple&lt;FullVerIndexSpec&gt;;</div>
+<div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = std::tuple&lt;&gt;;</div>
 <div class="line">  };</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// Extract from TailOps</span></div>
@@ -321,6 +351,41 @@ $(function() {
 <div class="line"> </div>
 <div class="line"> <span class="keyword">public</span>:</div>
 <div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mp::mp_append&lt;HeadSpecs, TailSpecs&gt;;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><span class="keyword">struct </span>CountInputIterators {</div>
+<div class="line">  <span class="keyword">static</span> constexpr std::size_t value = 0;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Tuple summation</span></div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line"><span class="keyword">struct </span>CountInputIterators&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;Ts...&gt;&gt; {</div>
+<div class="line">  <span class="keyword">static</span> constexpr std::size_t value = (CountInputIterators&lt;Ts&gt;::value + ... + 0);</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ColumnSource -&gt; 1</span></div>
+<div class="line"><span class="keyword">template</span> &lt;CIndexSpec IndexSpecT, tmp::CTuple PrefixVars&gt;</div>
+<div class="line"><span class="keyword">struct </span>CountInputIterators&lt;mir::ColumnSource&lt;IndexSpecT, PrefixVars&gt;&gt; {</div>
+<div class="line">  <span class="keyword">static</span> constexpr std::size_t value = 1;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Aggregate -&gt; 1</span></div>
+<div class="line"><span class="keyword">template</span> &lt;CVar VarToBind, CIndexSpec IndexSpecT, tmp::CTuple PrefixVars, <span class="keyword">typename</span> AggFunc&gt;</div>
+<div class="line"><span class="keyword">struct </span>CountInputIterators&lt;mir::Aggregate&lt;VarToBind, IndexSpecT, PrefixVars, AggFunc&gt;&gt; {</div>
+<div class="line">  <span class="keyword">static</span> constexpr std::size_t value = 1;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ColumnJoin -&gt; Sum of sources</span></div>
+<div class="line"><span class="keyword">template</span> &lt;CVar Var, tmp::CTuple Sources, <span class="keyword">typename</span> Strategy&gt;</div>
+<div class="line"><span class="keyword">struct </span>CountInputIterators&lt;mir::ColumnJoin&lt;Var, Sources, Strategy&gt;&gt; {</div>
+<div class="line">  <span class="keyword">static</span> constexpr std::size_t value = CountInputIterators&lt;Sources&gt;::value;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// CartesianJoin -&gt; Sum of sources</span></div>
+<div class="line"><span class="keyword">template</span> &lt;tmp::CTuple Vars, tmp::CTuple Sources&gt;</div>
+<div class="line"><span class="keyword">struct </span>CountInputIterators&lt;mir::CartesianJoin&lt;Vars, Sources&gt;&gt; {</div>
+<div class="line">  <span class="keyword">static</span> constexpr std::size_t value = CountInputIterators&lt;Sources&gt;::value;</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;tmp::CTuple IndexSpecs&gt;</div>
@@ -341,26 +406,18 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;tmp::CTuple MIROps&gt;</div>
 <div class="line"><span class="keyword">struct </span>ComputePipelineIteratorPosMap {</div>
-<div class="line">  <span class="comment">// Extract all IndexSpecT from MIR operations</span></div>
-<div class="line">  <span class="keyword">using</span> AllIndexSpecs = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">ExtractIndexSpecsFromMIR&lt;MIROps&gt;::type</a>;</div>
-<div class="line">  <span class="comment">// Make them unique (each IndexSpecT appears only once)</span></div>
-<div class="line">  <span class="comment">// mp_unique returns mp_list, convert back to tuple</span></div>
-<div class="line">  <span class="keyword">using</span> UniqueIndexSpecsList = mp::mp_unique&lt;AllIndexSpecs&gt;;</div>
-<div class="line">  <span class="keyword">using</span> UniqueIndexSpecs = mp::mp_rename&lt;UniqueIndexSpecsList, std::tuple&gt;;</div>
-<div class="line">  <span class="comment">// Create the map from IndexSpecT type to position</span></div>
-<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">ComputeIndexSpecToIteratorPosMap&lt;UniqueIndexSpecs&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> ExtractedIndexSpecs = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">ExtractIndexSpecsFromMIR&lt;MIROps&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">ComputeIndexSpecToIteratorPosMap&lt;ExtractedIndexSpecs&gt;::type</a>;</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span> &lt;tmp::CTuple MIROps, <span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> IteratorPosMap&gt;</div>
+<div class="line"><span class="keyword">template</span> &lt;tmp::CTuple MIROps, <span class="keyword">typename</span> VarPosMap&gt;</div>
 <div class="line"><span class="keyword">struct </span>Pipeline {</div>
-<div class="line">  <span class="keyword">using</span> mir_ops_type = <a name="a14"></a><a class="code" href="../../de/db4/runtime__tc__instantiation_8cpp.html#a1ff8d1db7e865b400ee008a4ec8f6eb6">MIROps</a>;</div>
-<div class="line">  <span class="keyword">using</span> var_pos_map_type = <a name="a15"></a><a class="code" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#add4e6314f6277063598c40c406f4de4f">VarPosMap</a>;</div>
-<div class="line">  <span class="keyword">using</span> iterator_pos_map_type = <a name="a16"></a><a class="code" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6aa6c3da4d7a9ef1e1571ebc4170a7cc">IteratorPosMap</a>;</div>
+<div class="line">  <span class="keyword">using</span> mir_ops_type = <a name="a15"></a><a class="code" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a9be3291b6530d4d40c0618f3fc984839">MIROps</a>;</div>
+<div class="line">  <span class="keyword">using</span> var_pos_map_type = <a name="a16"></a><a class="code" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#add4e6314f6277063598c40c406f4de4f">VarPosMap</a>;</div>
 <div class="line">};</div>
 <div class="line"><span class="comment">// Type predicate for pipeline (Scheme/Racket style: (pipeline? x))</span></div>
-<div class="line"><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">DEFINE_TYPE_PREDICATE</a>(is_pipeline, Pipeline, CPipeline,</div>
-<div class="line">                      (<a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> <a class="code" href="../../de/db4/runtime__tc__instantiation_8cpp.html#a1ff8d1db7e865b400ee008a4ec8f6eb6">MIROps</a>, <span class="keyword">typename</span> <a class="code" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#add4e6314f6277063598c40c406f4de4f">VarPosMap</a>, <span class="keyword">typename</span> <a class="code" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6aa6c3da4d7a9ef1e1571ebc4170a7cc">IteratorPosMap</a>),</div>
-<div class="line">                      (<a class="code" href="../../de/db4/runtime__tc__instantiation_8cpp.html#a1ff8d1db7e865b400ee008a4ec8f6eb6">MIROps</a>, <a class="code" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#add4e6314f6277063598c40c406f4de4f">VarPosMap</a>, <a class="code" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6aa6c3da4d7a9ef1e1571ebc4170a7cc">IteratorPosMap</a>))</div>
+<div class="line"><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">DEFINE_TYPE_PREDICATE</a>(is_pipeline, Pipeline, CPipeline, (<a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> <a class="code" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a9be3291b6530d4d40c0618f3fc984839">MIROps</a>, <span class="keyword">typename</span> <a class="code" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#add4e6314f6277063598c40c406f4de4f">VarPosMap</a>),</div>
+<div class="line">                      (<a class="code" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a9be3291b6530d4d40c0618f3fc984839">MIROps</a>, <a class="code" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#add4e6314f6277063598c40c406f4de4f">VarPosMap</a>))</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Ops&gt;</div>
 <div class="line"><span class="keyword">struct </span>HasMoreColumnJoins;</div>
@@ -370,7 +427,7 @@ $(function() {
 <div class="line">  <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> value = <span class="keyword">false</span>;</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Head, <span class="keyword">typename</span>... Tail&gt;</div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> <a name="a17"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a>, <span class="keyword">typename</span>... Tail&gt;</div>
 <div class="line"><span class="keyword">struct </span>HasMoreColumnJoins&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;Head, Tail...&gt;&gt; {</div>
 <div class="line">  <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> value =</div>
 <div class="line">      is_column_join_v&lt;Head&gt; || HasMoreColumnJoins&lt;std::tuple&lt;Tail...&gt;&gt;::value;</div>
@@ -384,7 +441,7 @@ $(function() {
 <div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = std::tuple&lt;&gt;;</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Head, <span class="keyword">typename</span>... Tail&gt;</div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a>, <span class="keyword">typename</span>... Tail&gt;</div>
 <div class="line"><span class="keyword">struct </span>ExtractRelationSchemas&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;Head, Tail...&gt;&gt; {</div>
 <div class="line"> <span class="keyword">private</span>:</div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Op&gt;</div>
@@ -393,17 +450,22 @@ $(function() {
 <div class="line">  };</div>
 <div class="line"> </div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> IndexSpec, <span class="keyword">typename</span> PrefixVars&gt;</div>
-<div class="line">  <span class="keyword">struct </span>Extract&lt;ColumnSource&lt;<a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">IndexSpec</a>, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#aef692e264e379a16ec2b2b9a06c1a622">PrefixVars</a>&gt;&gt; {</div>
+<div class="line">  <span class="keyword">struct </span>Extract&lt;ColumnSource&lt;<a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">IndexSpec</a>, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a5803ae82af15df3e4bac4e5493e50545">PrefixVars</a>&gt;&gt; {</div>
 <div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = std::tuple&lt;typename IndexSpec::schema_type&gt;;</div>
 <div class="line">  };</div>
 <div class="line"> </div>
-<div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Var, <span class="keyword">typename</span> Sources&gt;</div>
-<div class="line">  <span class="keyword">struct </span>Extract&lt;ColumnJoin&lt;Var, Sources&gt;&gt; {</div>
+<div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Var, <span class="keyword">typename</span> Sources, <span class="keyword">typename</span> Strategy&gt;</div>
+<div class="line">  <span class="keyword">struct </span>Extract&lt;ColumnJoin&lt;Var, Sources, Strategy&gt;&gt; {</div>
 <div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">ExtractRelationSchemas&lt;Sources&gt;::type</a>;</div>
 <div class="line">  };</div>
 <div class="line"> </div>
+<div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarsTuple, <span class="keyword">typename</span> SourcesTuple&gt;</div>
+<div class="line">  <span class="keyword">struct </span>Extract&lt;CartesianJoin&lt;VarsTuple, SourcesTuple&gt;&gt; {</div>
+<div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">ExtractRelationSchemas&lt;SourcesTuple&gt;::type</a>;</div>
+<div class="line">  };</div>
+<div class="line"> </div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarToBind, <span class="keyword">typename</span> IndexSpec, <span class="keyword">typename</span> PrefixVars, <span class="keyword">typename</span> AggFunc&gt;</div>
-<div class="line">  <span class="keyword">struct </span>Extract&lt;Aggregate&lt;VarToBind, <a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">IndexSpec</a>, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#aef692e264e379a16ec2b2b9a06c1a622">PrefixVars</a>, AggFunc&gt;&gt; {</div>
+<div class="line">  <span class="keyword">struct </span>Extract&lt;Aggregate&lt;VarToBind, <a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">IndexSpec</a>, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a5803ae82af15df3e4bac4e5493e50545">PrefixVars</a>, AggFunc&gt;&gt; {</div>
 <div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = std::tuple&lt;typename IndexSpec::schema_type&gt;;</div>
 <div class="line">  };</div>
 <div class="line"> </div>
@@ -422,7 +484,7 @@ $(function() {
 <div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = std::tuple&lt;&gt;;</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Head, <span class="keyword">typename</span>... Tail&gt;</div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a>, <span class="keyword">typename</span>... Tail&gt;</div>
 <div class="line"><span class="keyword">struct </span>ExtractDestinationSchemas&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;Head, Tail...&gt;&gt; {</div>
 <div class="line"> <span class="keyword">private</span>:</div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Op&gt;</div>
@@ -462,7 +524,7 @@ $(function() {
 <div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = std::tuple&lt;&gt;;</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Head, <span class="keyword">typename</span>... Tail, <span class="keyword">typename</span> Var&gt;</div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a>, <span class="keyword">typename</span>... Tail, <span class="keyword">typename</span> Var&gt;</div>
 <div class="line"><span class="keyword">struct </span>ExtractColumnSourcesWithVarInPrefix&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;Head, Tail...&gt;, Var&gt; {</div>
 <div class="line"> <span class="keyword">private</span>:</div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Op&gt;</div>
@@ -471,18 +533,18 @@ $(function() {
 <div class="line">  };</div>
 <div class="line"> </div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> IndexSpec, <span class="keyword">typename</span> PrefixVars&gt;</div>
-<div class="line">  <span class="keyword">struct </span>Extract&lt;ColumnSource&lt;<a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">IndexSpec</a>, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#aef692e264e379a16ec2b2b9a06c1a622">PrefixVars</a>&gt;&gt; {</div>
+<div class="line">  <span class="keyword">struct </span>Extract&lt;ColumnSource&lt;<a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">IndexSpec</a>, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a5803ae82af15df3e4bac4e5493e50545">PrefixVars</a>&gt;&gt; {</div>
 <div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = std::conditional_t&lt;tmp::contains_v&lt;Var, PrefixVars&gt;,</div>
 <div class="line">                                    std::tuple&lt;ColumnSource&lt;IndexSpec, PrefixVars&gt;&gt;, std::tuple&lt;&gt;&gt;;</div>
 <div class="line">  };</div>
 <div class="line"> </div>
-<div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> V, <span class="keyword">typename</span> Sources&gt;</div>
-<div class="line">  <span class="keyword">struct </span>Extract&lt;ColumnJoin&lt;V, Sources&gt;&gt; {</div>
+<div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> V, <span class="keyword">typename</span> Sources, <span class="keyword">typename</span> Strategy&gt;</div>
+<div class="line">  <span class="keyword">struct </span>Extract&lt;ColumnJoin&lt;V, Sources, Strategy&gt;&gt; {</div>
 <div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">ExtractColumnSourcesWithVarInPrefix&lt;Sources, Var&gt;::type</a>;</div>
 <div class="line">  };</div>
 <div class="line"> </div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VarToBind, <span class="keyword">typename</span> IndexSpec, <span class="keyword">typename</span> PrefixVars, <span class="keyword">typename</span> AggFunc&gt;</div>
-<div class="line">  <span class="keyword">struct </span>Extract&lt;Aggregate&lt;VarToBind, <a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">IndexSpec</a>, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#aef692e264e379a16ec2b2b9a06c1a622">PrefixVars</a>, AggFunc&gt;&gt; {</div>
+<div class="line">  <span class="keyword">struct </span>Extract&lt;Aggregate&lt;VarToBind, <a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">IndexSpec</a>, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a5803ae82af15df3e4bac4e5493e50545">PrefixVars</a>, AggFunc&gt;&gt; {</div>
 <div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> =</div>
 <div class="line">        std::conditional_t&lt;tmp::contains_v&lt;Var, PrefixVars&gt;,</div>
 <div class="line">                           std::tuple&lt;Aggregate&lt;VarToBind, IndexSpec, PrefixVars, AggFunc&gt;&gt;,</div>
@@ -508,9 +570,9 @@ $(function() {
 <div class="line">  <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c">requires</a> is_pipeline_v&lt;Pipeline&gt;</div>
 <div class="line"><span class="keyword">struct </span>is_execute_pipeline&lt;ExecutePipeline&lt;Pipeline&gt;&gt; : std::true_type {};</div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><span class="keyword">inline</span> constexpr <span class="keywordtype">bool</span> <a name="a17"></a><a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a948b19a5dff01841981bd6543f745d69">is_execute_pipeline_v</a> = is_execute_pipeline&lt;T&gt;::value;</div>
+<div class="line"><span class="keyword">inline</span> constexpr <span class="keywordtype">bool</span> <a name="a18"></a><a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a948b19a5dff01841981bd6543f745d69">is_execute_pipeline_v</a> = is_execute_pipeline&lt;T&gt;::value;</div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line">concept <a name="a18"></a><a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#aef07bf936f4bf432a9ced053311a9cd7">CExecutePipeline</a> = is_execute_pipeline&lt;T&gt;::value;</div>
+<div class="line">concept <a name="a19"></a><a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#aef07bf936f4bf432a9ced053311a9cd7">CExecutePipeline</a> = is_execute_pipeline&lt;T&gt;::value;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> IndexSpecList, <span class="keyword">typename</span> IncrementalRelations&gt;</div>
 <div class="line"><span class="keyword">struct </span>FilterIndexSpecsByRelations;</div>
@@ -523,7 +585,7 @@ $(function() {
 <div class="line">  <span class="comment">// Predicate: check if IndexSpecT&#39;s schema_type is in RelationList</span></div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> IndexSpecT&gt;</div>
 <div class="line">  <span class="keyword">struct </span>SchemaInList {</div>
-<div class="line">    <span class="keyword">using</span> Schema = <span class="keyword">typename</span> <a name="a19"></a><a class="code" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#af0843f4a7aed4186f433a0de69929985">IndexSpecT::schema_type</a>;</div>
+<div class="line">    <span class="keyword">using</span> Schema = <span class="keyword">typename</span> <a name="a20"></a><a class="code" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#af0843f4a7aed4186f433a0de69929985">IndexSpecT::schema_type</a>;</div>
 <div class="line">    <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> value = mp::mp_contains&lt;RelationList, Schema&gt;::value;</div>
 <div class="line">  };</div>
 <div class="line"> </div>
@@ -535,6 +597,411 @@ $(function() {
 <div class="line"><span class="keyword">struct </span>FixpointPlan {</div>
 <div class="line">  <span class="keyword">using</span> instructions_type = Instructions;</div>
 <div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>gpu_opt {</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"><span class="comment">// Pattern Match Result</span></div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;std::size_t JoinCount, <span class="keyword">typename</span> Vars, <span class="keyword">typename</span> Sources, <span class="keyword">typename</span> MiddleOps,</div>
+<div class="line">          <span class="keyword">typename</span> RemainingOps&gt;</div>
+<div class="line"><span class="keyword">struct </span>PatternMatchResult {</div>
+<div class="line">  <span class="keyword">static</span> constexpr std::size_t join_count = JoinCount;</div>
+<div class="line">  <span class="keyword">using</span> vars_type = Vars;</div>
+<div class="line">  <span class="keyword">using</span> sources_type = Sources;</div>
+<div class="line">  <span class="keyword">using</span> middle_ops_type = MiddleOps;</div>
+<div class="line">  <span class="keyword">using</span> remaining_ops_type = RemainingOps;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using</span> <a name="a21"></a><a class="code" href="../../d6/d1e/namespaceSRDatalog_1_1mir_1_1gpu__opt.html#afdda6981052a29970fbf634562c50262">NoMatch</a> = PatternMatchResult&lt;0, std::tuple&lt;&gt;, std::tuple&lt;&gt;, std::tuple&lt;&gt;, std::tuple&lt;&gt;&gt;;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"><span class="comment">// Predicates (modern constexpr style)</span></div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Source&gt;</div>
+<div class="line">constexpr <span class="keywordtype">bool</span> <a name="a22"></a><a class="code" href="../../d6/d1e/namespaceSRDatalog_1_1mir_1_1gpu__opt.html#a7fb6cbc97d1403191e0b2cde89d7ec5b">hasEmptyPrefix</a>() {</div>
+<div class="line">  <span class="keywordflow">if</span> constexpr (<a class="code" href="../../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c">requires</a> { <span class="keyword">typename</span> Source::prefix_vars_type; }) {</div>
+<div class="line">    <span class="keywordflow">return</span> std::tuple_size_v&lt;typename Source::prefix_vars_type&gt; == 0;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Op&gt;</div>
+<div class="line">constexpr <span class="keywordtype">bool</span> <a name="a23"></a><a class="code" href="../../d6/d1e/namespaceSRDatalog_1_1mir_1_1gpu__opt.html#a67a5ce1d2f420e61015d4d0ea9218721">isLetOrIf</a>() {</div>
+<div class="line">  <span class="keywordflow">return</span> CLetClause&lt;Op&gt; || CIfClause&lt;Op&gt;;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Op&gt;</div>
+<div class="line">constexpr <span class="keywordtype">bool</span> <a name="a24"></a><a class="code" href="../../d6/d1e/namespaceSRDatalog_1_1mir_1_1gpu__opt.html#a29eb0f1737a9d9374e718ed78247309f">isDestinationRelation</a>() {</div>
+<div class="line">  <span class="keywordflow">return</span> mir::is_destination_relation_v&lt;Op&gt;;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Op, <span class="keyword">typename</span> CollectedVars&gt;</div>
+<div class="line">constexpr <span class="keywordtype">bool</span> <a name="a25"></a><a class="code" href="../../d6/d1e/namespaceSRDatalog_1_1mir_1_1gpu__opt.html#a4e7995c44dcc78ad9c45e1c6954d18c3">isIndependentJoin</a>() {</div>
+<div class="line">  <span class="keywordflow">if</span> constexpr (<a class="code" href="../../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c">requires</a> { <span class="keyword">typename</span> Op::sources_type; }) {</div>
+<div class="line">    <span class="keyword">using</span> Sources = <span class="keyword">typename</span> Op::sources_type;</div>
+<div class="line">    <span class="keywordflow">if</span> constexpr (std::tuple_size_v&lt;Sources&gt; == 1) {</div>
+<div class="line">      <span class="keyword">using</span> Source = std::tuple_element_t&lt;0, Sources&gt;;</div>
+<div class="line">      <span class="keywordflow">if</span> constexpr (<a class="code" href="../../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c">requires</a> { <span class="keyword">typename</span> Source::prefix_vars_type; }) {</div>
+<div class="line">        <span class="keyword">using</span> <a name="a26"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#ab59e8a4e02b366488a7763e33d2b17aa">Prefix</a> = <span class="keyword">typename</span> Source::prefix_vars_type;</div>
+<div class="line">        <span class="comment">// Check if any collected variable is in the prefix</span></div>
+<div class="line">        <span class="keywordflow">return</span> []&lt;<span class="keyword">typename</span>... Vars&gt;(std::tuple&lt;Vars...&gt;) {</div>
+<div class="line">          <span class="keywordflow">return</span> (!SRDatalog::tmp::contains_v&lt;Vars, Prefix&gt; &amp;&amp; ...);</div>
+<div class="line">        }(CollectedVars{});</div>
+<div class="line">      }</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"><span class="comment">// MatchPattern: Use specialization for extraction, constexpr for dispatch</span></div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> OpsTuple, <span class="keyword">typename</span> CollectedVars, <span class="keyword">typename</span> CollectedSources&gt;</div>
+<div class="line"><span class="keyword">struct </span>MatchPattern {</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = <a class="code" href="../../d6/d1e/namespaceSRDatalog_1_1mir_1_1gpu__opt.html#afdda6981052a29970fbf634562c50262">NoMatch</a>;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Base case: empty tuple</span></div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> CollectedVars, <span class="keyword">typename</span> CollectedSources&gt;</div>
+<div class="line"><span class="keyword">struct </span>MatchPattern&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;&gt;, CollectedVars, CollectedSources&gt; {</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = <a class="code" href="../../d6/d1e/namespaceSRDatalog_1_1mir_1_1gpu__opt.html#afdda6981052a29970fbf634562c50262">NoMatch</a>;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"><span class="comment">// Case 1: ColumnJoin - use specialization to extract Var, Source</span></div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Var, <span class="keyword">typename</span> <a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">IndexSpec</a>, <span class="keyword">typename</span> <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a5803ae82af15df3e4bac4e5493e50545">PrefixVars</a>, <span class="keyword">typename</span> Strategy,</div>
+<div class="line">          <span class="keyword">typename</span>... Tail, <span class="keyword">typename</span> CollectedVars, <span class="keyword">typename</span> CollectedSources&gt;</div>
+<div class="line"><span class="keyword">struct </span>MatchPattern&lt;</div>
+<div class="line">    <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;mir::ColumnJoin&lt;Var, std::tuple&lt;mir::ColumnSource&lt;IndexSpec, PrefixVars&gt;&gt;, Strategy&gt;,</div>
+<div class="line">               Tail...&gt;,</div>
+<div class="line">    CollectedVars, CollectedSources&gt; {</div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  <span class="keyword">using</span> CurrentJoin =</div>
+<div class="line">      mir::ColumnJoin&lt;Var, std::tuple&lt;mir::ColumnSource&lt;IndexSpec, PrefixVars&gt;&gt;, Strategy&gt;;</div>
+<div class="line">  <span class="keyword">using</span> CurrentSource = mir::ColumnSource&lt;IndexSpec, PrefixVars&gt;;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Modern: use constexpr bool instead of nested structs for condition</span></div>
+<div class="line">  <span class="comment">// Match single-source joins regardless of prefix, as long as they&#39;re independent</span></div>
+<div class="line">  <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> isIndependent = isIndependentJoin&lt;CurrentJoin, CollectedVars&gt;();</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Modern: use if constexpr in a constexpr lambda to compute type</span></div>
+<div class="line">  <span class="keyword">static</span> constexpr <span class="keyword">auto</span> computeResult() {</div>
+<div class="line">    <span class="keywordflow">if</span> constexpr (isIndependent) {</div>
+<div class="line">      <span class="keyword">using</span> NewVars = Mp::mp_push_back&lt;CollectedVars, Var&gt;;</div>
+<div class="line">      <span class="keyword">using</span> NewSources = Mp::mp_push_back&lt;CollectedSources, CurrentSource&gt;;</div>
+<div class="line">      <span class="keyword">using</span> TailMatch = <span class="keyword">typename</span> MatchPattern&lt;std::tuple&lt;Tail...&gt;, NewVars, NewSources&gt;<a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">::type</a>;</div>
+<div class="line"> </div>
+<div class="line">      <span class="keywordflow">return</span> PatternMatchResult&lt;</div>
+<div class="line">          TailMatch::join_count, <span class="keyword">typename</span> TailMatch::vars_type, <span class="keyword">typename</span> TailMatch::sources_type,</div>
+<div class="line">          <span class="keyword">typename</span> TailMatch::middle_ops_type, <span class="keyword">typename</span> TailMatch::remaining_ops_type&gt;{};</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">      <span class="keywordflow">return</span> PatternMatchResult&lt;0, std::tuple&lt;&gt;, std::tuple&lt;&gt;, std::tuple&lt;&gt;,</div>
+<div class="line">                                std::tuple&lt;CurrentJoin, Tail...&gt;&gt;{};</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = decltype(computeResult());</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"><span class="comment">// Case 2: LetClause - use concept constraint</span></div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;CVar V, CCppExpr E, <span class="keyword">typename</span>... Tail, <span class="keyword">typename</span> CollectedVars, <span class="keyword">typename</span> CollectedSources&gt;</div>
+<div class="line"><span class="keyword">struct </span>MatchPattern&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;AST::LetClause&lt;V, E&gt;, Tail...&gt;, CollectedVars, CollectedSources&gt; {</div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a> = <a name="_a27"></a><a class="code" href="../../d6/d47/structSRDatalog_1_1AST_1_1LetClause.html">AST::LetClause&lt;V, E&gt;</a>;</div>
+<div class="line">  <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> hasJoins = (std::tuple_size_v&lt;CollectedVars&gt; &gt;= 2);</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">using</span> TailMatch =</div>
+<div class="line">      <span class="keyword">typename</span> MatchPattern&lt;std::tuple&lt;Tail...&gt;, CollectedVars, CollectedSources&gt;<a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">::type</a>;</div>
+<div class="line">  <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> tailHasPattern = (TailMatch::join_count &gt; 0);</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">static</span> constexpr <span class="keyword">auto</span> computeResult() {</div>
+<div class="line">    <span class="keywordflow">if</span> constexpr (hasJoins || tailHasPattern) {</div>
+<div class="line">      <span class="keywordflow">return</span> PatternMatchResult&lt;TailMatch::join_count, <span class="keyword">typename</span> TailMatch::vars_type,</div>
+<div class="line">                                <span class="keyword">typename</span> TailMatch::sources_type,</div>
+<div class="line">                                Mp::mp_push_front&lt;typename TailMatch::middle_ops_type, Head&gt;,</div>
+<div class="line">                                <span class="keyword">typename</span> TailMatch::remaining_ops_type&gt;{};</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">      <span class="keywordflow">return</span> PatternMatchResult&lt;0, std::tuple&lt;&gt;, std::tuple&lt;&gt;, std::tuple&lt;&gt;,</div>
+<div class="line">                                std::tuple&lt;<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a>, Tail...&gt;&gt;{};</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = decltype(computeResult());</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"><span class="comment">// Case 3: IfClause - similar to LetClause</span></div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;CCppExpr E, <span class="keyword">typename</span>... Tail, <span class="keyword">typename</span> CollectedVars, <span class="keyword">typename</span> CollectedSources&gt;</div>
+<div class="line"><span class="keyword">struct </span>MatchPattern&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;AST::IfClause&lt;E&gt;, Tail...&gt;, CollectedVars, CollectedSources&gt; {</div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a> = AST::IfClause&lt;E&gt;;</div>
+<div class="line">  <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> hasJoins = (std::tuple_size_v&lt;CollectedVars&gt; &gt;= 2);</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">using</span> TailMatch =</div>
+<div class="line">      <span class="keyword">typename</span> MatchPattern&lt;std::tuple&lt;Tail...&gt;, CollectedVars, CollectedSources&gt;<a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">::type</a>;</div>
+<div class="line">  <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> tailHasPattern = (TailMatch::join_count &gt; 0);</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">static</span> constexpr <span class="keyword">auto</span> computeResult() {</div>
+<div class="line">    <span class="keywordflow">if</span> constexpr (hasJoins || tailHasPattern) {</div>
+<div class="line">      <span class="keywordflow">return</span> PatternMatchResult&lt;TailMatch::join_count, <span class="keyword">typename</span> TailMatch::vars_type,</div>
+<div class="line">                                <span class="keyword">typename</span> TailMatch::sources_type,</div>
+<div class="line">                                Mp::mp_push_front&lt;typename TailMatch::middle_ops_type, Head&gt;,</div>
+<div class="line">                                <span class="keyword">typename</span> TailMatch::remaining_ops_type&gt;{};</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">      <span class="keywordflow">return</span> PatternMatchResult&lt;0, std::tuple&lt;&gt;, std::tuple&lt;&gt;, std::tuple&lt;&gt;,</div>
+<div class="line">                                std::tuple&lt;<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a>, Tail...&gt;&gt;{};</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = decltype(computeResult());</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"><span class="comment">// Case 4: DestinationRelation - use specialization to match structure</span></div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;CRelationSchema Schema, <span class="keyword">typename</span> <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a12a87377d68a3405d70ac0ef26ef3f12">Terms</a>, std::size_t <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a>, CIndexSpec IdxSpec,</div>
+<div class="line">          <span class="keyword">typename</span>... Tail, <span class="keyword">typename</span> CollectedVars, <span class="keyword">typename</span> CollectedSources&gt;</div>
+<div class="line"><span class="keyword">struct </span>MatchPattern&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;mir::DestinationRelation&lt;Schema, Terms, Ver, IdxSpec&gt;, Tail...&gt;,</div>
+<div class="line">                    CollectedVars, CollectedSources&gt; {</div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a> = mir::DestinationRelation&lt;Schema, Terms, Ver, IdxSpec&gt;;</div>
+<div class="line">  <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> hasPattern = (std::tuple_size_v&lt;CollectedVars&gt; &gt;= 2);</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">static</span> constexpr <span class="keyword">auto</span> computeResult() {</div>
+<div class="line">    <span class="keywordflow">if</span> constexpr (hasPattern) {</div>
+<div class="line">      <span class="keywordflow">return</span> PatternMatchResult&lt;std::tuple_size_v&lt;CollectedVars&gt;, CollectedVars, CollectedSources,</div>
+<div class="line">                                std::tuple&lt;&gt;, std::tuple&lt;<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a>, Tail...&gt;&gt;{};</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">      <span class="keywordflow">return</span> PatternMatchResult&lt;0, std::tuple&lt;&gt;, std::tuple&lt;&gt;, std::tuple&lt;&gt;,</div>
+<div class="line">                                std::tuple&lt;<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a>, Tail...&gt;&gt;{};</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = decltype(computeResult());</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"><span class="comment">// Transformation (modern style)</span></div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> OpsTuple&gt;</div>
+<div class="line"><span class="keyword">struct </span>TransformToCartesian;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><span class="keyword">struct </span>TransformToCartesian&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;&gt;&gt; {</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = std::tuple&lt;&gt;;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a>, <span class="keyword">typename</span>... Tail&gt;</div>
+<div class="line"><span class="keyword">struct </span>TransformToCartesian&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;Head, Tail...&gt;&gt; {</div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  <span class="keyword">using</span> Match = <span class="keyword">typename</span> MatchPattern&lt;std::tuple&lt;<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a>, Tail...&gt;, std::tuple&lt;&gt;, std::tuple&lt;&gt;&gt;<a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">::type</a>;</div>
+<div class="line">  <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> hasMatch = (Match::join_count &gt;= 2);</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">static</span> constexpr <span class="keyword">auto</span> computeResult() {</div>
+<div class="line">    <span class="keywordflow">if</span> constexpr (hasMatch) {</div>
+<div class="line">      <span class="keyword">using</span> Cartesian = mir::CartesianJoin&lt;typename Match::vars_type, typename Match::sources_type&gt;;</div>
+<div class="line">      <span class="keyword">using</span> RemainingTransformed =</div>
+<div class="line">          <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">TransformToCartesian&lt;typename Match::remaining_ops_type&gt;::type</a>;</div>
+<div class="line">      <span class="keyword">using</span> WithMiddle = Mp::mp_append&lt;typename Match::middle_ops_type, RemainingTransformed&gt;;</div>
+<div class="line"> </div>
+<div class="line">      <span class="keywordflow">return</span> Mp::mp_push_front&lt;WithMiddle, Cartesian&gt;{};</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">      <span class="keyword">using</span> TailTransformed = <span class="keyword">typename</span> TransformToCartesian&lt;std::tuple&lt;Tail...&gt;&gt;<a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">::type</a>;</div>
+<div class="line">      <span class="keywordflow">return</span> Mp::mp_push_front&lt;TailTransformed, Head&gt;{};</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = decltype(computeResult());</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"><span class="comment">// Public API</span></div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> MIROps&gt;</div>
+<div class="line"><span class="keyword">struct </span>OptimizeMIRForGPU {</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">TransformToCartesian&lt;MIROps&gt;::type</a>;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Pipeline&gt;</div>
+<div class="line"><span class="keyword">struct </span>OptimizePipelineForGPU {</div>
+<div class="line">  static_assert(mir::is_pipeline_v&lt;Pipeline&gt;, <span class="stringliteral">&quot;Pipeline must satisfy CPipeline&quot;</span>);</div>
+<div class="line">  <span class="keyword">using</span> OptimizedOps = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">OptimizeMIRForGPU&lt;typename Pipeline::mir_ops_type&gt;::type</a>;</div>
+<div class="line">  <span class="comment">// Preserve var_pos_map from the original pipeline</span></div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mir::Pipeline&lt;OptimizedOps, typename Pipeline::var_pos_map_type&gt;;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Remove RebuildIndex (specialization inside OptimizeInstructionsForGPU)</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"><span class="comment">// Fixpoint instruction predicates using concepts</span></div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line">concept <a name="a28"></a><a class="code" href="../../d6/d1e/namespaceSRDatalog_1_1mir_1_1gpu__opt.html#a1b2df8bb8fd0ae57ae46c000b8abb100">FixpointInstruction</a> =</div>
+<div class="line">    mir::is_execute_pipeline_v&lt;T&gt; || mir::is_build_index_v&lt;T&gt; || mir::is_rebuild_index_v&lt;T&gt; ||</div>
+<div class="line">    mir::is_clear_relation_v&lt;T&gt; || mir::is_check_size_v&lt;T&gt; || mir::is_insert_from_relation_v&lt;T&gt; ||</div>
+<div class="line">    mir::is_swap_relations_v&lt;T&gt; || mir::is_set_version_v&lt;T&gt; || mir::is_compute_delta_and_merge_v&lt;T&gt;;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"><span class="comment">// Instruction optimization</span></div>
+<div class="line"><span class="comment">// ============================================================================</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;tmp::CTuple Instructions&gt;</div>
+<div class="line"><span class="keyword">struct </span>OptimizeInstructionsForGPU;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Base case: empty tuple</span></div>
+<div class="line"><span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><span class="keyword">struct </span>OptimizeInstructionsForGPU&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;&gt;&gt; {</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = std::tuple&lt;&gt;;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Process one fixpoint-level instruction</span></div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a>, <span class="keyword">typename</span>... Tail&gt;</div>
+<div class="line"><span class="keyword">struct </span>OptimizeInstructionsForGPU&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;Head, Tail...&gt;&gt; {</div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  <span class="comment">// Optimize fixpoint-level instructions (not rule-level MIR operations)</span></div>
+<div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Inst&gt;</div>
+<div class="line">  <span class="keyword">struct </span>OptimizeInstruction {</div>
+<div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = Inst;  <span class="comment">// Default: keep instruction as-is</span></div>
+<div class="line">  };</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Specialization: Optimize ExecutePipeline by optimizing its Pipeline&#39;s MIROps</span></div>
+<div class="line">  <span class="keyword">template</span> &lt;mir::CPipeline Pipeline&gt;</div>
+<div class="line">  <span class="keyword">struct </span>OptimizeInstruction&lt;mir::ExecutePipeline&lt;Pipeline&gt;&gt; {</div>
+<div class="line">    <span class="comment">// Optimize the Pipeline&#39;s rule-level MIR operations (ColumnJoin -&gt; CartesianJoin, etc.)</span></div>
+<div class="line">    <span class="keyword">using</span> OptimizedPipeline = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">OptimizePipelineForGPU&lt;Pipeline&gt;::type</a>;</div>
+<div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mir::ExecutePipeline&lt;OptimizedPipeline&gt;;</div>
+<div class="line">  };</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// GPU-specific optimization: Remove FULL_VER RebuildIndex operations</span></div>
+<div class="line">  <span class="comment">// On GPU, we merge indexes to FULL instead of rebuilding FULL indexes from scratch</span></div>
+<div class="line">  <span class="comment">// However, we keep NEW_VER RebuildIndex operations because they&#39;re needed to</span></div>
+<div class="line">  <span class="comment">// reconstruct NEW_VER from index before merge</span></div>
+<div class="line">  <span class="keyword">template</span> &lt;CIndexSpec IndexSpecT&gt;</div>
+<div class="line">  <span class="keyword">struct </span>OptimizeInstruction&lt;mir::RebuildIndex&lt;IndexSpecT&gt;&gt; {</div>
+<div class="line">    <span class="comment">// Remove if FULL_VER, keep if NEW_VER</span></div>
+<div class="line">    <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> is_full_ver = (<a name="a29"></a><a class="code" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#ade03fd17775a1fbacabca9fe625aa0ad">IndexSpecT::kVersion</a> == <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>);</div>
+<div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = std::conditional_t&lt;is_full_ver, void, mir::RebuildIndex&lt;IndexSpecT&gt;&gt;;</div>
+<div class="line">  };</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Helper to check for InsertFromRelation -&gt; SwapRelations pattern</span></div>
+<div class="line">  <span class="keyword">struct </span>PatternMatcher {</div>
+<div class="line">    <span class="comment">// Check if Head is InsertFromRelation and Next is SwapRelations for same Schema</span></div>
+<div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> H, <span class="keyword">typename</span> T&gt;</div>
+<div class="line">    <span class="keyword">struct </span>Check {</div>
+<div class="line">      <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> value = <span class="keyword">false</span>;</div>
+<div class="line">      <span class="keyword">using</span> OptimizedHead = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">OptimizeInstruction&lt;H&gt;::type</a>;</div>
+<div class="line">      <span class="keyword">using</span> RemainingTail = std::tuple&lt;T&gt;;</div>
+<div class="line">    };</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Specialization for the pattern</span></div>
+<div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Schema, std::<span class="keywordtype">size_t</span> FromVer, std::<span class="keywordtype">size_t</span> ToVer, <span class="keyword">typename</span> IndexSpec&gt;</div>
+<div class="line">    <span class="keyword">struct </span>Check&lt;mir::InsertFromRelation&lt;Schema, FromVer, ToVer, IndexSpec&gt;,</div>
+<div class="line">                 mir::SwapRelations&lt;Schema&gt;&gt; {</div>
+<div class="line">      <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> value = <span class="keyword">true</span>;</div>
+<div class="line">      <span class="comment">// Replace with ComputeDeltaAndMerge + ClearRelation&lt;NEW&gt;</span></div>
+<div class="line">      <span class="comment">// We assume DeltaVer is DELTA_VER (1)</span></div>
+<div class="line">      <span class="keyword">using</span> OptimizedHead =</div>
+<div class="line">          std::tuple&lt;mir::ComputeDeltaAndMerge&lt;Schema, FromVer, ToVer, DELTA_VER, IndexSpec&gt;,</div>
+<div class="line">                     mir::ClearRelation&lt;Schema, FromVer&gt;&gt;;</div>
+<div class="line">      <span class="keyword">using</span> RemainingTail = std::tuple&lt;&gt;;  <span class="comment">// Consumed SwapRelations</span></div>
+<div class="line">    };</div>
+<div class="line">  };</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Filter out void (removed instructions)</span></div>
+<div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TailTuple&gt;</div>
+<div class="line">  <span class="keyword">struct </span>PushFront {</div>
+<div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = TailTuple;  <span class="comment">// Default: if T is void, just return TailTuple</span></div>
+<div class="line">  };</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Specialization: when T is not void, prepend it to the tuple</span></div>
+<div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line">    <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c">requires</a>(!std::is_same_v&lt;T, void&gt;)</div>
+<div class="line">  <span class="keyword">struct </span>PushFront&lt;T, <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;Ts...&gt;&gt; {</div>
+<div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = std::tuple&lt;T, Ts...&gt;;</div>
+<div class="line">  };</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Helper to access next element safely</span></div>
+<div class="line">  <span class="keyword">using</span> TailTuple = std::tuple&lt;Tail...&gt;;</div>
+<div class="line">  <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> has_next = (<span class="keyword">sizeof</span>...(Tail) &gt; 0);</div>
+<div class="line">  <span class="keyword">struct </span>DummyOp {};</div>
+<div class="line">  <span class="keyword">using</span> NextOp = std::conditional_t&lt;</div>
+<div class="line">      has_next,</div>
+<div class="line">      std::tuple_element_t&lt;0, std::conditional_t&lt;has_next, TailTuple, std::tuple&lt;DummyOp&gt;&gt;&gt;,</div>
+<div class="line">      DummyOp&gt;;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">using</span> Matcher = <span class="keyword">typename</span> PatternMatcher::template Check&lt;Head, NextOp&gt;;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Lazy evaluation wrappers to avoid instantiating invalid types</span></div>
+<div class="line">  <span class="keyword">struct </span>ApplyPeephole {</div>
+<div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mp::mp_append&lt;</div>
+<div class="line">        <span class="keyword">typename</span> Matcher::OptimizedHead,</div>
+<div class="line">        <span class="keyword">typename</span> OptimizeInstructionsForGPU&lt;typename SRDatalog::tmp::TupleTail_t&lt;TailTuple&gt;&gt;<a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">::type</a>&gt;;</div>
+<div class="line">  };</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">struct </span>RecurseStandard {</div>
+<div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">PushFront&lt;typename OptimizeInstruction&lt;Head&gt;::type</a>,</div>
+<div class="line">                                    <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">OptimizeInstructionsForGPU&lt;TailTuple&gt;::type</a>&gt;<a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">::type</a>;</div>
+<div class="line">  };</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">std::conditional_t&lt;Matcher::value, ApplyPeephole, RecurseStandard&gt;::type</a>;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Plan&gt;</div>
+<div class="line"><span class="keyword">struct </span>OptimizeFixpointPlanForGPU {</div>
+<div class="line">  <span class="comment">// Note: is_fixpoint_plan_v is defined outside mir namespace, so we check manually</span></div>
+<div class="line">  <span class="comment">// Just assume Plan has instructions_type (it&#39;s a FixpointPlan)</span></div>
+<div class="line">  <span class="keyword">using</span> Instructions = <span class="keyword">typename</span> Plan::instructions_type;</div>
+<div class="line">  <span class="keyword">using</span> OptimizedInstructions = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">OptimizeInstructionsForGPU&lt;Instructions&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mir::FixpointPlan&lt;OptimizedInstructions&gt;;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> OpsTuple&gt;</div>
+<div class="line"><span class="keyword">struct </span>HasCartesianJoin {</div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Op&gt;</div>
+<div class="line">  <span class="keyword">struct </span>CheckOp {</div>
+<div class="line">    <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> value = mir::is_cartesian_join_v&lt;Op&gt;;</div>
+<div class="line">  };</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> MIROps, <span class="keyword">typename</span> VarPosMap&gt;</div>
+<div class="line">  <span class="keyword">struct </span>CheckOp&lt;mir::ExecutePipeline&lt;mir::Pipeline&lt;MIROps, VarPosMap&gt;&gt;&gt; {</div>
+<div class="line">    <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> value = HasCartesianJoin&lt;MIROps&gt;::value;</div>
+<div class="line">  };</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Alternatives&gt;</div>
+<div class="line">  <span class="keyword">struct </span>CheckOp&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::variant&lt;Alternatives...&gt;&gt; {</div>
+<div class="line">    <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> value = (CheckOp&lt;Alternatives&gt;::value || ...);</div>
+<div class="line">  };</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> value = []&lt;<span class="keyword">typename</span>... Ops&gt;(std::tuple&lt;Ops...&gt;) {</div>
+<div class="line">    <span class="keywordflow">return</span> (CheckOp&lt;Ops&gt;::value || ...);</div>
+<div class="line">  }(OpsTuple{});</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">}  <span class="comment">// namespace gpu_opt</span></div>
+<div class="line"> </div>
 <div class="line">}  <span class="comment">// namespace mir</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Type predicate for fixpoint plan (Scheme/Racket style: (fixpoint-plan? x))</span></div>
@@ -543,9 +1010,9 @@ $(function() {
 <div class="line"><span class="keyword">template</span> &lt;tmp::CTuple Instructions&gt;</div>
 <div class="line"><span class="keyword">struct </span>is_fixpoint_plan&lt;mir::FixpointPlan&lt;Instructions&gt;&gt; : std::true_type {};</div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><span class="keyword">inline</span> constexpr <span class="keywordtype">bool</span> <a name="a20"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#afeb2930d564331d6557162bc20c06914">is_fixpoint_plan_v</a> = is_fixpoint_plan&lt;T&gt;::value;</div>
+<div class="line"><span class="keyword">inline</span> constexpr <span class="keywordtype">bool</span> <a name="a30"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#afeb2930d564331d6557162bc20c06914">is_fixpoint_plan_v</a> = is_fixpoint_plan&lt;T&gt;::value;</div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line">concept <a name="a21"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a3cacb5ea82458fd6bb70a52d141e9137">CFixpointPlan</a> = is_fixpoint_plan&lt;T&gt;::value;</div>
+<div class="line">concept <a name="a31"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a3cacb5ea82458fd6bb70a52d141e9137">CFixpointPlan</a> = is_fixpoint_plan&lt;T&gt;::value;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Forward declarations for compilation helpers</span></div>
 <div class="line"><span class="keyword">template</span> &lt;CVar Var, tmp::CTuple BodyClauses&gt;</div>
@@ -603,10 +1070,10 @@ $(function() {
 <div class="line"><span class="keyword">struct </span>GetIndexForClause&lt;Clause, GlobalJoinPlan&gt; {</div>
 <div class="line">  <span class="comment">// For normal clauses, usage depends on join plan intersection</span></div>
 <div class="line">  <span class="keyword">using</span> ClauseTerms = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">GetClauseTerms&lt;Clause&gt;::type</a>;</div>
-<div class="line">  <span class="keyword">using</span> ClauseVars = <span class="keyword">typename</span> <a name="a22"></a><a class="code" href="../../d7/d14/structSRDatalog_1_1AST_1_1GetVarsFromTerms.html#a819ecf285120c649ce1ab7e793f2cbee">GetVarsFromTerms&lt;ClauseTerms&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> ClauseVars = <span class="keyword">typename</span> <a name="a32"></a><a class="code" href="../../d7/d14/structSRDatalog_1_1AST_1_1GetVarsFromTerms.html#a819ecf285120c649ce1ab7e793f2cbee">GetVarsFromTerms&lt;ClauseTerms&gt;::type</a>;</div>
 <div class="line">  <span class="keyword">using</span> RelevantPlan = tmp::TupleSetIntersection&lt;GlobalJoinPlan, ClauseVars&gt;;</div>
 <div class="line"> </div>
-<div class="line">  <span class="keyword">using</span> ColumnIndexes = <span class="keyword">typename</span> <a name="a23"></a><a class="code" href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#ad2ca48de4b6dd7008dfc7adbc2849425">MapVarsToColumnIndexes&lt;ClauseTerms, RelevantPlan&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> ColumnIndexes = <span class="keyword">typename</span> <a name="a33"></a><a class="code" href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#ad2ca48de4b6dd7008dfc7adbc2849425">MapVarsToColumnIndexes&lt;ClauseTerms, RelevantPlan&gt;::type</a>;</div>
 <div class="line">  <span class="keyword">using</span> Schema = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">GetClauseSchema&lt;Clause&gt;::type</a>;</div>
 <div class="line">  <span class="keyword">static</span> constexpr std::size_t ClauseVer = GetClauseVersion&lt;Clause&gt;::value;</div>
 <div class="line"> </div>
@@ -629,7 +1096,7 @@ $(function() {
 <div class="line">  <span class="keyword">using</span> ClauseVars = <span class="keyword">typename</span> <a class="code" href="../../d7/d14/structSRDatalog_1_1AST_1_1GetVarsFromTerms.html#a819ecf285120c649ce1ab7e793f2cbee">GetVarsFromTerms&lt;ClauseTerms&gt;::type</a>;</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// Prefix vars are those in the join plan</span></div>
-<div class="line">  <span class="keyword">using</span> <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#aef692e264e379a16ec2b2b9a06c1a622">PrefixVars</a> = <span class="keyword">typename</span> tmp::TupleSetIntersection&lt;GlobalJoinPlan, ClauseVars&gt;;</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a5803ae82af15df3e4bac4e5493e50545">PrefixVars</a> = <span class="keyword">typename</span> tmp::TupleSetIntersection&lt;GlobalJoinPlan, ClauseVars&gt;;</div>
 <div class="line">  <span class="comment">// Free vars are the rest</span></div>
 <div class="line">  <span class="keyword">using</span> FreeVars = <span class="keyword">typename</span> tmp::TupleSetDifference&lt;ClauseVars, PrefixVars&gt;;</div>
 <div class="line"> </div>
@@ -653,7 +1120,7 @@ $(function() {
 <div class="line">  <span class="keyword">using</span> ClausesToIndex = mp::mp_copy_if&lt;BodyClauses, is_clause_needing_index&gt;;</div>
 <div class="line"> </div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Clause&gt;</div>
-<div class="line">  <span class="keyword">using</span> ToSpec = <span class="keyword">typename</span> <a name="a24"></a><a class="code" href="../../dc/d81/structSRDatalog_1_1GetIndexForClause_3_01Clause_00_01GlobalJoinPlan_01_4.html#acba2be5451673b8c388a50bf3930f319">GetIndexForClause&lt;Clause, GlobalJoinPlan&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> ToSpec = <span class="keyword">typename</span> <a name="a34"></a><a class="code" href="../../dc/d81/structSRDatalog_1_1GetIndexForClause_3_01Clause_00_01GlobalJoinPlan_01_4.html#acba2be5451673b8c388a50bf3930f319">GetIndexForClause&lt;Clause, GlobalJoinPlan&gt;::type</a>;</div>
 <div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mp::mp_transform&lt;ToSpec, ClausesToIndex&gt;;</div>
 <div class="line">};</div>
 <div class="line"> </div>
@@ -661,12 +1128,12 @@ $(function() {
 <div class="line"><span class="keyword">struct </span>ComputeNaiveIndices;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;tmp::CTuple Head, tmp::CTuple Body, CJoinPlan JoinPlan&gt;</div>
-<div class="line"><span class="keyword">struct </span>ComputeNaiveIndices&lt;Rule&lt;Head, Body, JoinPlan&gt;&gt; {</div>
+<div class="line"><span class="keyword">struct </span>ComputeNaiveIndices&lt;Rule&lt;<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a>, <a name="a35"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a6047b5950006dc9567fa9f186adc0dbe">Body</a>, JoinPlan&gt;&gt; {</div>
 <div class="line">  <span class="comment">// Pass 1: Get the global join plan (appearance order)</span></div>
 <div class="line">  <span class="comment">// TODO: consider adding better TMP to handle this</span></div>
-<div class="line">  <span class="keyword">using</span> GlobalJoinPlan = <span class="keyword">typename</span> <a name="a25"></a><a class="code" href="../../d4/dd0/structSRDatalog_1_1AST_1_1JoinPlan.html#a261529e3e02cfc3c1a61ca0d2c3b3606">JoinPlan::vars_type</a>;</div>
+<div class="line">  <span class="keyword">using</span> GlobalJoinPlan = <span class="keyword">typename</span> <a name="a36"></a><a class="code" href="../../d4/dd0/structSRDatalog_1_1AST_1_1JoinPlan.html#a261529e3e02cfc3c1a61ca0d2c3b3606">JoinPlan::vars_type</a>;</div>
 <div class="line">  <span class="comment">// Pass 2: Map all body clauses to IndexSpecs using that plan</span></div>
-<div class="line">  <span class="keyword">using</span> AllSpecs = <span class="keyword">typename</span> <a name="a26"></a><a class="code" href="../../da/db5/structSRDatalog_1_1MapClausesToSpecs__Impl.html#a1ac98e801606b216410d8fc01936810d">MapClausesToSpecs_Impl&lt;Body, GlobalJoinPlan&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> AllSpecs = <span class="keyword">typename</span> <a name="a37"></a><a class="code" href="../../da/db5/structSRDatalog_1_1MapClausesToSpecs__Impl.html#a1ac98e801606b216410d8fc01936810d">MapClausesToSpecs_Impl&lt;Body, GlobalJoinPlan&gt;::type</a>;</div>
 <div class="line"> </div>
 <div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = <span class="keyword">typename</span> tmp::TupleUnique&lt;AllSpecs&gt;;</div>
 <div class="line">};</div>
@@ -687,16 +1154,16 @@ $(function() {
 <div class="line"><span class="keyword">template</span> &lt;CVar Var, tmp::CTuple BodyClauses&gt;</div>
 <div class="line"><span class="keyword">struct </span>FindNormalClausesWithVar {</div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Clause&gt;</div>
-<div class="line">  <span class="keyword">using</span> predicate = mp::mp_eval_if_not&lt;is_normal_clause&lt;Clause&gt;, mp::mp_bool&lt;false&gt;, <a name="a27"></a><a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a65995894c662488a7c6d9f6e2485d164">tmp::Contains</a>,</div>
+<div class="line">  <span class="keyword">using</span> predicate = mp::mp_eval_if_not&lt;is_normal_clause&lt;Clause&gt;, mp::mp_bool&lt;false&gt;, <a name="a38"></a><a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a65995894c662488a7c6d9f6e2485d164">tmp::Contains</a>,</div>
 <div class="line">                                       Var, <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">GetClauseVars&lt;Clause&gt;::type</a>&gt;;</div>
 <div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mp::mp_copy_if&lt;BodyClauses, predicate&gt;;</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// create a concept for all other clauses</span></div>
 <div class="line"><span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Clause&gt;</div>
-<div class="line">concept <a name="a28"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a28cc957e4cb578bf3abf1fe3fc654b6b">COtherClause</a> = CLetClause&lt;Clause&gt; || CIfClause&lt;Clause&gt;;</div>
+<div class="line">concept <a name="a39"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a28cc957e4cb578bf3abf1fe3fc654b6b">COtherClause</a> = CLetClause&lt;Clause&gt; || CIfClause&lt;Clause&gt;;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span> &lt;CVar Var, <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a28cc957e4cb578bf3abf1fe3fc654b6b">COtherClause</a> Head, <span class="keyword">typename</span>... Tail&gt;</div>
+<div class="line"><span class="keyword">template</span> &lt;CVar Var, <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a28cc957e4cb578bf3abf1fe3fc654b6b">COtherClause</a> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a>, <span class="keyword">typename</span>... Tail&gt;</div>
 <div class="line"><span class="keyword">struct </span>FindNormalClausesWithVar&lt;Var, <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;Head, Tail...&gt;&gt; {</div>
 <div class="line">  <span class="comment">// Skip all other clauses - they&#39;re not normal clauses and don&#39;t generate ColumnSources</span></div>
 <div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = <span class="keyword">typename</span> FindNormalClausesWithVar&lt;Var, std::tuple&lt;Tail...&gt;&gt;<a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">::type</a>;</div>
@@ -716,7 +1183,7 @@ $(function() {
 <div class="line">  <span class="keyword">using</span> Schema = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">GetNormalClauseSchema&lt;Clause&gt;::type</a>;</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// 1. Find the prefix vars (those *already* bound)</span></div>
-<div class="line">  <span class="keyword">using</span> <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#aef692e264e379a16ec2b2b9a06c1a622">PrefixVars</a> = <span class="keyword">typename</span> tmp::TupleSetIntersection&lt;BoundVars, ClauseVars&gt;;</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a5803ae82af15df3e4bac4e5493e50545">PrefixVars</a> = <span class="keyword">typename</span> tmp::TupleSetIntersection&lt;BoundVars, ClauseVars&gt;;</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// 2. Find the free vars</span></div>
 <div class="line">  <span class="keyword">using</span> FreeVars = <span class="keyword">typename</span> tmp::TupleSetDifference&lt;ClauseVars, PrefixVars&gt;;</div>
@@ -731,7 +1198,7 @@ $(function() {
 <div class="line"> </div>
 <div class="line">  <span class="comment">// 5. Extract version from clause and create IndexSpec ADT</span></div>
 <div class="line">  <span class="keyword">static</span> constexpr std::size_t ClauseVer = GetNormalClauseVersion&lt;Clause&gt;::value;</div>
-<div class="line">  <span class="keyword">using</span> <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a3347aa14094b78614688063f4d47a6af">Index</a> = IndexSpecT&lt;Schema, ColumnIndexes, ClauseVer&gt;;</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a8aae0894012920239067275a3d80c64e">Index</a> = IndexSpecT&lt;Schema, ColumnIndexes, ClauseVer&gt;;</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// 6. The new ColumnSource MIR op (version is now in IndexSpec)</span></div>
 <div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mir::ColumnSource&lt;Index, PrefixVars&gt;;</div>
@@ -741,7 +1208,7 @@ $(function() {
 <div class="line"><span class="keyword">struct </span>MapClausesToColumnSources {</div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Clause&gt;</div>
 <div class="line">  <span class="keyword">using</span> ToColumnSource =</div>
-<div class="line">      <span class="keyword">typename</span> <a name="a29"></a><a class="code" href="../../d7/d84/structSRDatalog_1_1ClauseToColumnSource__impl.html#a332eb11054ba4d66c94b9c60cdada13a">ClauseToColumnSource_impl&lt;Clause, VarToBind, BoundVars, JoinPlan&gt;::type</a>;</div>
+<div class="line">      <span class="keyword">typename</span> <a name="a40"></a><a class="code" href="../../d7/d84/structSRDatalog_1_1ClauseToColumnSource__impl.html#a332eb11054ba4d66c94b9c60cdada13a">ClauseToColumnSource_impl&lt;Clause, VarToBind, BoundVars, JoinPlan&gt;::type</a>;</div>
 <div class="line"> </div>
 <div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mp::mp_transform&lt;ToColumnSource, NormalClauses&gt;;</div>
 <div class="line">};</div>
@@ -749,7 +1216,7 @@ $(function() {
 <div class="line"><span class="keyword">template</span> &lt;CVar Var, <span class="keyword">typename</span> Clause&gt;</div>
 <div class="line"><span class="keyword">struct </span>is_agg_clause_for_var_impl : std::false_type {};</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span> &lt;CVar Var, <span class="keyword">typename</span> AggFunc, <span class="keyword">typename</span> <a name="a30"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7570db70f90568eaea69d349592f64b1">RelSchema</a>, std::size_t <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a>, <span class="keyword">typename</span>... <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a12a87377d68a3405d70ac0ef26ef3f12">Terms</a>&gt;</div>
+<div class="line"><span class="keyword">template</span> &lt;CVar Var, <span class="keyword">typename</span> AggFunc, <span class="keyword">typename</span> <a name="a41"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7570db70f90568eaea69d349592f64b1">RelSchema</a>, std::size_t <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a>, <span class="keyword">typename</span>... <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a12a87377d68a3405d70ac0ef26ef3f12">Terms</a>&gt;</div>
 <div class="line"><span class="keyword">struct </span>is_agg_clause_for_var_impl&lt;Var, AggClause&lt;Var, AggFunc, <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7570db70f90568eaea69d349592f64b1">RelSchema</a>, <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a>, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a12a87377d68a3405d70ac0ef26ef3f12">Terms</a>...&gt;&gt;</div>
 <div class="line">    : std::true_type {};</div>
 <div class="line"> </div>
@@ -768,7 +1235,7 @@ $(function() {
 <div class="line">  <span class="keyword">using</span> ClauseVars = <span class="keyword">typename</span> <a class="code" href="../../d7/d14/structSRDatalog_1_1AST_1_1GetVarsFromTerms.html#a819ecf285120c649ce1ab7e793f2cbee">GetVarsFromTerms&lt;ClauseTerms&gt;::type</a>;</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// 1. Prefix vars (already bound)</span></div>
-<div class="line">  <span class="keyword">using</span> <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#aef692e264e379a16ec2b2b9a06c1a622">PrefixVars</a> = <span class="keyword">typename</span> tmp::TupleSetIntersection&lt;BoundVars, ClauseVars&gt;;</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a5803ae82af15df3e4bac4e5493e50545">PrefixVars</a> = <span class="keyword">typename</span> tmp::TupleSetIntersection&lt;BoundVars, ClauseVars&gt;;</div>
 <div class="line">  <span class="comment">// 2. The unbound var (aggregation target)</span></div>
 <div class="line">  <span class="keyword">using</span> FreeVars = <span class="keyword">typename</span> tmp::TupleSetDifference&lt;ClauseVars, PrefixVars&gt;;</div>
 <div class="line"> </div>
@@ -778,8 +1245,8 @@ $(function() {
 <div class="line">  <span class="comment">// 4. Column Indexes</span></div>
 <div class="line">  <span class="keyword">using</span> ColumnIndexes = <span class="keyword">typename</span> <a class="code" href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#ad2ca48de4b6dd7008dfc7adbc2849425">MapVarsToColumnIndexes&lt;ClauseTerms, AccessOrder&gt;::type</a>;</div>
 <div class="line"> </div>
-<div class="line">  <span class="keyword">static</span> constexpr std::size_t ClauseVer = <a name="a31"></a><a class="code" href="../../d0/dd6/structSRDatalog_1_1AST_1_1Clause.html#a9ec79b80c888fbf20729b3484c807df2">Clause::version</a>;</div>
-<div class="line">  <span class="keyword">using</span> <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a3347aa14094b78614688063f4d47a6af">Index</a> = IndexSpecT&lt;Schema, ColumnIndexes, ClauseVer&gt;;</div>
+<div class="line">  <span class="keyword">static</span> constexpr std::size_t ClauseVer = <a name="a42"></a><a class="code" href="../../d0/dd6/structSRDatalog_1_1AST_1_1Clause.html#a9ec79b80c888fbf20729b3484c807df2">Clause::version</a>;</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a8aae0894012920239067275a3d80c64e">Index</a> = IndexSpecT&lt;Schema, ColumnIndexes, ClauseVer&gt;;</div>
 <div class="line"> </div>
 <div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mir::Aggregate&lt;VarToBind, Index, PrefixVars, typename Clause::agg_func&gt;;</div>
 <div class="line">};</div>
@@ -787,7 +1254,7 @@ $(function() {
 <div class="line"><span class="keyword">template</span> &lt;CVar VarToBind, tmp::CTuple AggClauses, tmp::CTuple BoundVars, tmp::CTuple JoinPlan&gt;</div>
 <div class="line"><span class="keyword">struct </span>MapAggClausesToAggregate {</div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Clause&gt;</div>
-<div class="line">  <span class="keyword">using</span> ToAgg = <span class="keyword">typename</span> <a name="a32"></a><a class="code" href="../../d1/de2/structSRDatalog_1_1ClauseToAggregate__impl.html#a8169472a71d9de95ba8be6279b8a145f">ClauseToAggregate_impl&lt;Clause, VarToBind, BoundVars, JoinPlan&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> ToAgg = <span class="keyword">typename</span> <a name="a43"></a><a class="code" href="../../d1/de2/structSRDatalog_1_1ClauseToAggregate__impl.html#a8169472a71d9de95ba8be6279b8a145f">ClauseToAggregate_impl&lt;Clause, VarToBind, BoundVars, JoinPlan&gt;::type</a>;</div>
 <div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mp::mp_transform&lt;ToAgg, AggClauses&gt;;</div>
 <div class="line">};</div>
 <div class="line"> </div>
@@ -797,7 +1264,7 @@ $(function() {
 <div class="line"><span class="keyword">struct </span>GetVersionFromSources&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;mir::ColumnSource&lt;Index, BVars&gt;&gt;&gt; {</div>
 <div class="line">  <span class="keyword">static</span> constexpr std::size_t value = Index::kVersion;</div>
 <div class="line">};</div>
-<div class="line"><span class="keyword">template</span> &lt;CIndexSpec <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a3347aa14094b78614688063f4d47a6af">Index</a>, <a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> BVars, <span class="keyword">typename</span>... Rest&gt;</div>
+<div class="line"><span class="keyword">template</span> &lt;CIndexSpec <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a8aae0894012920239067275a3d80c64e">Index</a>, <a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> BVars, <span class="keyword">typename</span>... Rest&gt;</div>
 <div class="line"><span class="keyword">struct </span>GetVersionFromSources&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;mir::ColumnSource&lt;Index, BVars&gt;, Rest...&gt;&gt; {</div>
 <div class="line">  <span class="keyword">static</span> constexpr std::size_t value = Index::kVersion;</div>
 <div class="line">};</div>
@@ -827,14 +1294,14 @@ $(function() {
 <div class="line">  <span class="keyword">using</span> <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a0f654ad7243263308eaa10a328558c92">BoundVars</a> = <span class="keyword">typename</span> State::bound_vars;</div>
 <div class="line">  <span class="keyword">using</span> AccumulatedOps = <span class="keyword">typename</span> State::ops;</div>
 <div class="line">  <span class="comment">// Find operations for this variable</span></div>
-<div class="line">  <span class="keyword">using</span> LetOps = <span class="keyword">typename</span> <a name="a33"></a><a class="code" href="../../dc/d25/structSRDatalog_1_1FindLetClauses.html#a851e3d8038c42580e0a2e712477f3811">FindLetClauses&lt;VarToBind, AllBodyClauses&gt;::type</a>;</div>
-<div class="line">  <span class="keyword">using</span> AggClauses = <span class="keyword">typename</span> <a name="a34"></a><a class="code" href="../../db/d16/structSRDatalog_1_1FindAggClauses.html#a49a72aa8adfed433f6848a48861e1aa7">FindAggClauses&lt;VarToBind, AllBodyClauses&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> LetOps = <span class="keyword">typename</span> <a name="a44"></a><a class="code" href="../../dc/d25/structSRDatalog_1_1FindLetClauses.html#a851e3d8038c42580e0a2e712477f3811">FindLetClauses&lt;VarToBind, AllBodyClauses&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> AggClauses = <span class="keyword">typename</span> <a name="a45"></a><a class="code" href="../../db/d16/structSRDatalog_1_1FindAggClauses.html#a49a72aa8adfed433f6848a48861e1aa7">FindAggClauses&lt;VarToBind, AllBodyClauses&gt;::type</a>;</div>
 <div class="line">  <span class="keyword">using</span> AggOps =</div>
-<div class="line">      <span class="keyword">typename</span> <a name="a35"></a><a class="code" href="../../db/d3d/structSRDatalog_1_1MapAggClausesToAggregate.html#a3fe574b34a4646d9509f20fd38c1ca82">MapAggClausesToAggregate&lt;VarToBind, AggClauses, BoundVars, AllJoinPlan&gt;::type</a>;</div>
+<div class="line">      <span class="keyword">typename</span> <a name="a46"></a><a class="code" href="../../db/d3d/structSRDatalog_1_1MapAggClausesToAggregate.html#a3fe574b34a4646d9509f20fd38c1ca82">MapAggClausesToAggregate&lt;VarToBind, AggClauses, BoundVars, AllJoinPlan&gt;::type</a>;</div>
 <div class="line"> </div>
-<div class="line">  <span class="keyword">using</span> NormalClauses = <span class="keyword">typename</span> <a name="a36"></a><a class="code" href="../../d5/d4b/structSRDatalog_1_1FindNormalClausesWithVar.html#a9e2d7a66c413e70c9fa34152d09ede4f">FindNormalClausesWithVar&lt;VarToBind, AllBodyClauses&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> NormalClauses = <span class="keyword">typename</span> <a name="a47"></a><a class="code" href="../../d5/d4b/structSRDatalog_1_1FindNormalClausesWithVar.html#a9e2d7a66c413e70c9fa34152d09ede4f">FindNormalClausesWithVar&lt;VarToBind, AllBodyClauses&gt;::type</a>;</div>
 <div class="line">  <span class="keyword">using</span> ColumnSources =</div>
-<div class="line">      <span class="keyword">typename</span> <a name="a37"></a><a class="code" href="../../d2/d24/structSRDatalog_1_1MapClausesToColumnSources.html#af3c8df3301b3c99620374139d7a1e73b">MapClausesToColumnSources&lt;VarToBind, NormalClauses, BoundVars, AllJoinPlan&gt;::type</a>;</div>
+<div class="line">      <span class="keyword">typename</span> <a name="a48"></a><a class="code" href="../../d2/d24/structSRDatalog_1_1MapClausesToColumnSources.html#af3c8df3301b3c99620374139d7a1e73b">MapClausesToColumnSources&lt;VarToBind, NormalClauses, BoundVars, AllJoinPlan&gt;::type</a>;</div>
 <div class="line">  <span class="comment">// Create join op if sources exist</span></div>
 <div class="line">  <span class="keyword">using</span> MaybeJoin = mp::mp_if&lt;mp::mp_empty&lt;ColumnSources&gt;, std::tuple&lt;&gt;,</div>
 <div class="line">                              std::tuple&lt;mir::ColumnJoin&lt;VarToBind, ColumnSources&gt;&gt;&gt;;</div>
@@ -849,7 +1316,7 @@ $(function() {
 <div class="line">                                   ProcessOneVariable&lt;GlobalJoinPlan, BodyClauses, Indices&gt;&gt;;</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// Find all IfClause operations in the body</span></div>
-<div class="line">  <span class="keyword">using</span> IfClauses = <span class="keyword">typename</span> <a name="a38"></a><a class="code" href="../../d6/d34/structSRDatalog_1_1FindIfClauses.html#a70b0d37a06aa4f909b0382aabadd19a8">FindIfClauses&lt;BodyClauses&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> IfClauses = <span class="keyword">typename</span> <a name="a49"></a><a class="code" href="../../d6/d34/structSRDatalog_1_1FindIfClauses.html#a70b0d37a06aa4f909b0382aabadd19a8">FindIfClauses&lt;BodyClauses&gt;::type</a>;</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// Convert IfClause AST operations to MIR IfClause operations</span></div>
 <div class="line">  <span class="comment">// IfClause&lt;CppExpr&lt;BoundVars, Func&gt;&gt; in AST becomes IfClause&lt;CppExpr&lt;BoundVars, Func&gt;&gt; in MIR</span></div>
@@ -876,26 +1343,25 @@ $(function() {
 <div class="line"><span class="keyword">struct </span>CompileRuleToMIR;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;tmp::CTuple Head, tmp::CTuple Body, CJoinPlan JoinPlan&gt;</div>
-<div class="line"><span class="keyword">struct </span>CompileRuleToMIR&lt;Rule&lt;Head, Body, JoinPlan&gt;&gt; {</div>
+<div class="line"><span class="keyword">struct </span>CompileRuleToMIR&lt;Rule&lt;<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a>, <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a6047b5950006dc9567fa9f186adc0dbe">Body</a>, JoinPlan&gt;&gt; {</div>
 <div class="line">  <span class="keyword">using</span> IdxRes = ComputeNaiveIndices&lt;Rule&lt;Head, Body, JoinPlan&gt;&gt;;</div>
 <div class="line">  <span class="keyword">using</span> Indices = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">IdxRes::type</a>;</div>
 <div class="line">  <span class="keyword">using</span> GlobalJoinPlan = <span class="keyword">typename</span> IdxRes::GlobalJoinPlan;</div>
 <div class="line"> </div>
 <div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">mp::mp_append&lt;typename CompileBodiesToMIR&lt;Body, GlobalJoinPlan, Indices&gt;::type</a>,</div>
-<div class="line">                             <span class="keyword">typename</span> <a name="a39"></a><a class="code" href="../../d7/d13/structSRDatalog_1_1CompileHeadsToMIR.html#a2ce5c75885d6f52b1840e318114022c8">CompileHeadsToMIR&lt;Head&gt;::type</a>&gt;;</div>
+<div class="line">                             <span class="keyword">typename</span> <a name="a50"></a><a class="code" href="../../d7/d13/structSRDatalog_1_1CompileHeadsToMIR.html#a2ce5c75885d6f52b1840e318114022c8">CompileHeadsToMIR&lt;Head&gt;::type</a>&gt;;</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CRule Rule&gt;</div>
 <div class="line"><span class="keyword">struct </span>CompileRuleToPipeline {</div>
-<div class="line">  <span class="keyword">using</span> <a class="code" href="../../de/db4/runtime__tc__instantiation_8cpp.html#a1ff8d1db7e865b400ee008a4ec8f6eb6">MIROps</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">CompileRuleToMIR&lt;Rule&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a9be3291b6530d4d40c0618f3fc984839">MIROps</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">CompileRuleToMIR&lt;Rule&gt;::type</a>;</div>
 <div class="line">  <span class="comment">// Extract the join plan from the rule to compute variable positions</span></div>
 <div class="line">  <span class="comment">// Rule::join_plan_type is already the tuple of variables (JoinPlan::vars_type)</span></div>
 <div class="line">  <span class="keyword">using</span> GlobalJoinPlan = <span class="keyword">typename</span> Rule::join_plan_type;</div>
 <div class="line">  <span class="comment">// Compute the variable-to-position map</span></div>
 <div class="line">  <span class="keyword">using</span> <a class="code" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#add4e6314f6277063598c40c406f4de4f">VarPosMap</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">mir::ComputeVarPosMap&lt;GlobalJoinPlan&gt;::type</a>;</div>
-<div class="line">  <span class="comment">// Compute the IndexSpecT-to-iterator-position map</span></div>
-<div class="line">  <span class="keyword">using</span> <a class="code" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6aa6c3da4d7a9ef1e1571ebc4170a7cc">IteratorPosMap</a> = <span class="keyword">typename</span> <a name="a40"></a><a class="code" href="../../d9/db4/structSRDatalog_1_1mir_1_1ComputePipelineIteratorPosMap.html#ac1716ad65a032da33ceaaaa66d77b4fd">mir::ComputePipelineIteratorPosMap&lt;MIROps&gt;::type</a>;</div>
-<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mir::Pipeline&lt;MIROps, VarPosMap, IteratorPosMap&gt;;</div>
+<div class="line">  <span class="comment">// IteratorPosMap no longer used</span></div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mir::Pipeline&lt;MIROps, VarPosMap&gt;;</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;tmp::CTuple IndexSpecs&gt;</div>
@@ -912,16 +1378,14 @@ $(function() {
 <div class="line">  <span class="keyword">template</span> &lt;CIndexSpec IndexSpecT&gt;</div>
 <div class="line">  <span class="keyword">struct </span>ToRebuildNewVer {</div>
 <div class="line">    <span class="keyword">using</span> Schema = <span class="keyword">typename</span> <a class="code" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#af0843f4a7aed4186f433a0de69929985">IndexSpecT::schema_type</a>;</div>
-<div class="line">    <span class="keyword">using</span> ColSeq = <span class="keyword">typename</span> <a name="a41"></a><a class="code" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#a43072acbd80c0e205f40aec1117a4838">IndexSpecT::column_indexes_type</a>;</div>
-<div class="line">    <span class="keyword">using</span> NewVerIndexSpec = <a name="_a42"></a><a class="code" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html">SRDatalog::IndexSpecT&lt;Schema, ColSeq, NEW_VER&gt;</a>;</div>
+<div class="line">    <span class="keyword">using</span> ColSeq = <span class="keyword">typename</span> <a name="a51"></a><a class="code" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#a43072acbd80c0e205f40aec1117a4838">IndexSpecT::column_indexes_type</a>;</div>
+<div class="line">    <span class="keyword">using</span> NewVerIndexSpec = <a name="_a52"></a><a class="code" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html">SRDatalog::IndexSpecT&lt;Schema, ColSeq, NEW_VER&gt;</a>;</div>
 <div class="line">    <span class="keyword">using</span> RebuildNewVer = mir::RebuildIndex&lt;NewVerIndexSpec&gt;;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Generate NEW_VER rebuild if IndexSpecT is DELTA_VER or NEW_VER (not FULL_VER)</span></div>
-<div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> =</div>
-<div class="line">        std::conditional_t&lt;(<a name="a43"></a><a class="code" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#ade03fd17775a1fbacabca9fe625aa0ad">IndexSpecT::kVersion</a> == <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>),</div>
-<div class="line">                           std::tuple&lt;&gt;,              <span class="comment">// FULL_VER: no NEW_VER rebuild needed</span></div>
-<div class="line">                           std::tuple&lt;RebuildNewVer&gt;  <span class="comment">// DELTA_VER or NEW_VER: rebuild NEW_VER</span></div>
-<div class="line">                           &gt;;</div>
+<div class="line">    <span class="comment">// Always generate NEW_VER rebuild for incremental relations</span></div>
+<div class="line">    <span class="comment">// The version in IndexSpecT doesn&#39;t matter - we use it to find the canonical column sequence</span></div>
+<div class="line">    <span class="comment">// but always rebuild NEW_VER index (which is where pipeline writes)</span></div>
+<div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = std::tuple&lt;RebuildNewVer&gt;;</div>
 <div class="line">  };</div>
 <div class="line"> </div>
 <div class="line"> <span class="keyword">public</span>:</div>
@@ -988,7 +1452,7 @@ $(function() {
 <div class="line"><span class="keyword">struct </span>ReplaceDestinationRelationWithCanonicalIndex&lt;</div>
 <div class="line">    mir::DestinationRelation&lt;Schema, Terms, Ver, OldIndex&gt;, CanonicalIndexSpecs&gt; {</div>
 <div class="line"> <span class="keyword">private</span>:</div>
-<div class="line">  <span class="keyword">using</span> FoundCanonical = <span class="keyword">typename</span> <a name="a44"></a><a class="code" href="../../d6/d08/structSRDatalog_1_1FindCanonicalIndexForSchema.html#adc126617d01a3dfe17b3c1321eda1685">FindCanonicalIndexForSchema&lt;Schema, CanonicalIndexSpecs&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> FoundCanonical = <span class="keyword">typename</span> <a name="a53"></a><a class="code" href="../../d6/d08/structSRDatalog_1_1FindCanonicalIndexForSchema.html#adc126617d01a3dfe17b3c1321eda1685">FindCanonicalIndexForSchema&lt;Schema, CanonicalIndexSpecs&gt;::type</a>;</div>
 <div class="line">  <span class="comment">// Preserve the version from the original DestinationRelation</span></div>
 <div class="line">  <span class="keyword">using</span> CanonicalIndex = IndexSpecT&lt;<span class="keyword">typename</span> FoundCanonical::schema_type,</div>
 <div class="line">                                    <span class="keyword">typename</span> FoundCanonical::column_indexes_type, <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a>&gt;;</div>
@@ -1007,7 +1471,7 @@ $(function() {
 <div class="line"><span class="keyword">struct </span>ReplaceDestinationRelationsInTuple {</div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Op&gt;</div>
 <div class="line">  <span class="keyword">using</span> ReplaceOp =</div>
-<div class="line">      <span class="keyword">typename</span> <a name="a45"></a><a class="code" href="../../de/df0/structSRDatalog_1_1ReplaceDestinationRelationWithCanonicalIndex.html#a3450607d9b3e98bf0a33ebed42e6609d">ReplaceDestinationRelationWithCanonicalIndex&lt;Op, CanonicalIndexSpecs&gt;::type</a>;</div>
+<div class="line">      <span class="keyword">typename</span> <a name="a54"></a><a class="code" href="../../de/df0/structSRDatalog_1_1ReplaceDestinationRelationWithCanonicalIndex.html#a3450607d9b3e98bf0a33ebed42e6609d">ReplaceDestinationRelationWithCanonicalIndex&lt;Op, CanonicalIndexSpecs&gt;::type</a>;</div>
 <div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mp::mp_transform&lt;ReplaceOp, MIROps&gt;;</div>
 <div class="line">};</div>
 <div class="line"> </div>
@@ -1016,11 +1480,8 @@ $(function() {
 <div class="line">  static_assert(mir::is_pipeline_v&lt;Pipeline&gt;, <span class="stringliteral">&quot;Pipeline must satisfy CPipeline&quot;</span>);</div>
 <div class="line">  <span class="keyword">using</span> ReplacedOps = <span class="keyword">typename</span> ReplaceDestinationRelationsInTuple&lt;<span class="keyword">typename</span> Pipeline::mir_ops_type,</div>
 <div class="line">                                                                  CanonicalIndexSpecs&gt;<a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">::type</a>;</div>
-<div class="line">  <span class="comment">// Preserve both maps from the original pipeline</span></div>
-<div class="line">  <span class="comment">// Note: IteratorPosMap is preserved because ColumnSource operations (which create iterators)</span></div>
-<div class="line">  <span class="comment">// don&#39;t change, only DestinationRelation operations are replaced</span></div>
-<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mir::Pipeline&lt;ReplacedOps, <span class="keyword">typename</span> Pipeline::var_pos_map_type,</div>
-<div class="line">                             <span class="keyword">typename</span> Pipeline::iterator_pos_map_type&gt;;</div>
+<div class="line">  <span class="comment">// Preserve var_pos_map from the original pipeline</span></div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mir::Pipeline&lt;ReplacedOps, typename Pipeline::var_pos_map_type&gt;;</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CFixpo<span class="keywordtype">int</span> FP&gt;</div>
@@ -1045,7 +1506,7 @@ $(function() {
 <div class="line"> </div>
 <div class="line">  <span class="comment">// Compile each rule to a Pipeline (these execute in nested for-loops)</span></div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Rule&gt;</div>
-<div class="line">  <span class="keyword">using</span> ToPipeline = <span class="keyword">typename</span> <a name="a46"></a><a class="code" href="../../db/d54/structSRDatalog_1_1CompileRuleToPipeline.html#a1d4f72d363ea2fb98b1987dd7c2c5041">CompileRuleToPipeline&lt;Rule&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> ToPipeline = <span class="keyword">typename</span> <a name="a55"></a><a class="code" href="../../db/d54/structSRDatalog_1_1CompileRuleToPipeline.html#ac96a43c843ae9506e2d5fef7d2f2d083">CompileRuleToPipeline&lt;Rule&gt;::type</a>;</div>
 <div class="line">  <span class="keyword">using</span> InitialPipelines = mp::mp_transform&lt;ToPipeline, RulesTuple&gt;;</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// Collect all IndexSpecs from all rules</span></div>
@@ -1065,7 +1526,7 @@ $(function() {
 <div class="line">  <span class="comment">// Replace DestinationRelation operations in Pipelines with canonical indices</span></div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Pipeline&gt;</div>
 <div class="line">  <span class="keyword">using</span> ReplaceDestRels =</div>
-<div class="line">      <span class="keyword">typename</span> <a name="a47"></a><a class="code" href="../../d8/d97/structSRDatalog_1_1ReplaceDestinationRelationsInPipeline.html#a5c56161066736b004fec325a4a87df78">ReplaceDestinationRelationsInPipeline&lt;Pipeline, CanonicalIndexSpecs&gt;::type</a>;</div>
+<div class="line">      <span class="keyword">typename</span> <a name="a56"></a><a class="code" href="../../d8/d97/structSRDatalog_1_1ReplaceDestinationRelationsInPipeline.html#a859d0fe103592ccd1b18329ff276e6d9">ReplaceDestinationRelationsInPipeline&lt;Pipeline, CanonicalIndexSpecs&gt;::type</a>;</div>
 <div class="line">  <span class="keyword">using</span> Pipelines = mp::mp_transform&lt;ReplaceDestRels, InitialPipelines&gt;;</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// Filter AllIndexSpecs to only include incremental relations (for index rebuilding)</span></div>
@@ -1079,9 +1540,12 @@ $(function() {
 <div class="line">  <span class="comment">// RebuildIndex ops: split into NEW_VER (before ComputeDeltaOps) and FULL_VER (after</span></div>
 <div class="line">  <span class="comment">// ComputeDeltaOps) NEW_VER rebuilds: executed BEFORE ComputeDeltaOps (after pipeline execution,</span></div>
 <div class="line">  <span class="comment">// before swap)</span></div>
-<div class="line">  <span class="keyword">using</span> RebuildNewVerOps = <span class="keyword">typename</span> <a name="a48"></a><a class="code" href="../../d4/d7d/structSRDatalog_1_1IndexSpecsToRebuildNewVerOps.html#a83c12ae4c18ad068159bf4476a589896">IndexSpecsToRebuildNewVerOps&lt;FilteredIndexSpecs&gt;::type</a>;</div>
+<div class="line">  <span class="comment">// CRITICAL: Use CanonicalIndexSpecs instead of FilteredIndexSpecs to ensure NEW_VER has canonical</span></div>
+<div class="line">  <span class="comment">// indexes. After SwapRelations, DELTA becomes NEW, and InsertFromRelation uses canonical</span></div>
+<div class="line">  <span class="comment">// IndexForInsert. If NEW has non-canonical indexes, reconstruct_from_index will fail.</span></div>
+<div class="line">  <span class="keyword">using</span> RebuildNewVerOps = <span class="keyword">typename</span> <a name="a57"></a><a class="code" href="../../d4/d7d/structSRDatalog_1_1IndexSpecsToRebuildNewVerOps.html#a83c12ae4c18ad068159bf4476a589896">IndexSpecsToRebuildNewVerOps&lt;CanonicalIndexSpecs&gt;::type</a>;</div>
 <div class="line">  <span class="comment">// FULL_VER rebuilds: executed AFTER ComputeDeltaOps (after merging NEW_VER into FULL_VER)</span></div>
-<div class="line">  <span class="keyword">using</span> RebuildFullVerOps = <span class="keyword">typename</span> <a name="a49"></a><a class="code" href="../../d0/d99/structSRDatalog_1_1IndexSpecsToRebuildFullVerOps.html#add600651df81d3ad781128b1ff276c8c">IndexSpecsToRebuildFullVerOps&lt;FilteredIndexSpecs&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> RebuildFullVerOps = <span class="keyword">typename</span> <a name="a58"></a><a class="code" href="../../d0/d99/structSRDatalog_1_1IndexSpecsToRebuildFullVerOps.html#add600651df81d3ad781128b1ff276c8c">IndexSpecsToRebuildFullVerOps&lt;FilteredIndexSpecs&gt;::type</a>;</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// Convert Pipelines to ExecutePipeline operations</span></div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Pipeline&gt;</div>
@@ -1120,9 +1584,15 @@ $(function() {
 <div class="line">    <span class="keyword">using</span> IndexForInsert =</div>
 <div class="line">        IndexSpecT&lt;Schema, typename FoundCanonical::column_indexes_type, FULL_VER&gt;;</div>
 <div class="line"> </div>
+<div class="line">    <span class="comment">// Create NEW_VER index spec for reconstruction after merge (before swap)</span></div>
+<div class="line">    <span class="keyword">using</span> NewVerIndexSpec =</div>
+<div class="line">        IndexSpecT&lt;Schema, typename FoundCanonical::column_indexes_type, NEW_VER&gt;;</div>
+<div class="line"> </div>
 <div class="line">    <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = std::tuple&lt;</div>
 <div class="line">        mir::ClearRelation&lt;Schema, DELTA_VER&gt;,  <span class="comment">// Always clear delta first</span></div>
 <div class="line">        mir::CheckSize&lt;Schema, NEW_VER&gt;,        <span class="comment">// Early return if empty (after clearing delta)</span></div>
+<div class="line">        mir::RebuildIndex&lt;NewVerIndexSpec&gt;,     <span class="comment">// Rebuild NEW_VER index before InsertFromRelation</span></div>
+<div class="line">                                             <span class="comment">// (ensures canonical index exists for merge operation)</span></div>
 <div class="line">        mir::InsertFromRelation&lt;Schema, NEW_VER, FULL_VER, IndexForInsert&gt;,  <span class="comment">// Insert newt -&gt; full</span></div>
 <div class="line">        mir::SwapRelations&lt;Schema&gt;,                                          <span class="comment">// Swap delta and newt</span></div>
 <div class="line">        mir::SetVersion&lt;Schema, DELTA_VER&gt;,                                  <span class="comment">// Set delta version</span></div>
@@ -1134,12 +1604,13 @@ $(function() {
 <div class="line">  <span class="keyword">using</span> ComputeDeltaOpsPerSchema = mp::mp_transform&lt;CompileComputeDeltaOp, IncrementalRelations&gt;;</div>
 <div class="line">  <span class="keyword">using</span> ComputeDeltaOps = mp::mp_flatten&lt;ComputeDeltaOpsPerSchema&gt;;</div>
 <div class="line"> </div>
-<div class="line">  <span class="comment">// Create flat instruction list: BuildIndexOps + ExecutePipelineOps + RebuildNewVerOps +</span></div>
-<div class="line">  <span class="comment">// ComputeDeltaOps + RebuildFullVerOps</span></div>
-<div class="line">  <span class="comment">// Note: RebuildNewVerOps runs BEFORE ComputeDeltaOps (after pipeline execution, before swap)</span></div>
+<div class="line">  <span class="comment">// Create flat instruction list: BuildIndexOps + ExecutePipelineOps + ComputeDeltaOps +</span></div>
+<div class="line">  <span class="comment">// RebuildFullVerOps</span></div>
+<div class="line">  <span class="comment">// Note: RebuildNewVerOps is removed - NEW_VER is rebuilt inside ComputeDeltaOps before swap</span></div>
+<div class="line">  <span class="comment">//       (this is more efficient and avoids duplicate rebuilds)</span></div>
 <div class="line">  <span class="comment">//       RebuildFullVerOps runs AFTER ComputeDeltaOps (after merging NEW_VER into FULL_VER)</span></div>
-<div class="line">  <span class="keyword">using</span> Instructions = mp::mp_append&lt;BuildIndexOps, ExecutePipelineOpsFlattened, RebuildNewVerOps,</div>
-<div class="line">                                     ComputeDeltaOps, RebuildFullVerOps&gt;;</div>
+<div class="line">  <span class="keyword">using</span> Instructions =</div>
+<div class="line">      mp::mp_append&lt;BuildIndexOps, ExecutePipelineOpsFlattened, ComputeDeltaOps, RebuildFullVerOps&gt;;</div>
 <div class="line"> </div>
 <div class="line"> <span class="keyword">public</span>:</div>
 <div class="line">  <span class="comment">// FixpointPlan is now monadic - just a flat list of instructions</span></div>
@@ -1149,57 +1620,66 @@ $(function() {
 <div class="line">}  <span class="comment">// namespace SRDatalog</span></div>
 <div class="ttc" id="aast_8h_html"><div class="ttname"><a href="../../db/df0/ast_8h.html">ast.h</a></div><div class="ttdoc">Abstract Syntax Tree (AST) for Datalog using Template Metaprogramming.</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1AST_html"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html">SRDatalog::AST</a></div><div class="ttdef"><b>Definition:</b> ast.h:56</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a7570db70f90568eaea69d349592f64b1"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7570db70f90568eaea69d349592f64b1">SRDatalog::AST::RelSchema</a></div><div class="ttdeci">CRelationSchema RelSchema</div><div class="ttdef"><b>Definition:</b> ast.h:375</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a6047b5950006dc9567fa9f186adc0dbe"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a6047b5950006dc9567fa9f186adc0dbe">SRDatalog::AST::Body</a></div><div class="ttdeci">std::tuple&lt; Clauses... &gt; Body</div><div class="ttdef"><b>Definition:</b> ast.h:519</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a7570db70f90568eaea69d349592f64b1"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7570db70f90568eaea69d349592f64b1">SRDatalog::AST::RelSchema</a></div><div class="ttdeci">CRelationSchema RelSchema</div><div class="ttdef"><b>Definition:</b> ast.h:387</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a8e836519ddad330ed11c6d71825844fb"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">SRDatalog::AST::Head</a></div><div class="ttdeci">std::tuple&lt; Clauses... &gt; Head</div><div class="ttdef"><b>Definition:</b> ast.h:517</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1AST_html_aa4baed37e24d026329809dde124e577a"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">SRDatalog::AST::DEFINE_TYPE_PREDICATE</a></div><div class="ttdeci">DEFINE_TYPE_PREDICATE(IsTstring, TString, CTString,(char... chars),(chars...)) template&lt; CTString T &gt; struct TStringToStringImpl</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_ad59d2fc2c37668ffd3093befaec5671f"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">SRDatalog::AST::Ver</a></div><div class="ttdeci">CRelationSchema std::size_t Ver</div><div class="ttdef"><b>Definition:</b> ast.h:375</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1GPU_html_acd0e9dde4687ece128684cdb2bf1db12"><div class="ttname"><a href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">SRDatalog::GPU::IndexSpec</a></div><div class="ttdeci">SRDatalog::IndexSpec IndexSpec</div><div class="ttdef"><b>Definition:</b> device_sorted_array_index.h:49</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_ad59d2fc2c37668ffd3093befaec5671f"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">SRDatalog::AST::Ver</a></div><div class="ttdeci">CRelationSchema std::size_t Ver</div><div class="ttdef"><b>Definition:</b> ast.h:387</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1GPU_html_acd0e9dde4687ece128684cdb2bf1db12"><div class="ttname"><a href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">SRDatalog::GPU::IndexSpec</a></div><div class="ttdeci">SRDatalog::IndexSpec IndexSpec</div><div class="ttdef"><b>Definition:</b> device_sorted_array_index.h:50</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1index_1_1detail_html_ab8bf84636c981103c4efa6cac4712799"><div class="ttname"><a href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">SRDatalog::index::detail::type</a></div><div class="ttdeci">Map&lt; KeyType, ValueSetType &gt; type</div><div class="ttdef"><b>Definition:</b> hashmap.h:56</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1mir_1_1gpu__opt_html_a1b2df8bb8fd0ae57ae46c000b8abb100"><div class="ttname"><a href="../../d6/d1e/namespaceSRDatalog_1_1mir_1_1gpu__opt.html#a1b2df8bb8fd0ae57ae46c000b8abb100">SRDatalog::mir::gpu_opt::FixpointInstruction</a></div><div class="ttdeci">concept FixpointInstruction</div><div class="ttdoc">Concept for fixpoint-level instructions (not rule-level MIR operations)</div><div class="ttdef"><b>Definition:</b> mir.h:1162</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1mir_1_1gpu__opt_html_a29eb0f1737a9d9374e718ed78247309f"><div class="ttname"><a href="../../d6/d1e/namespaceSRDatalog_1_1mir_1_1gpu__opt.html#a29eb0f1737a9d9374e718ed78247309f">SRDatalog::mir::gpu_opt::isDestinationRelation</a></div><div class="ttdeci">constexpr bool isDestinationRelation()</div><div class="ttdoc">Check if an operation is a DestinationRelation.</div><div class="ttdef"><b>Definition:</b> mir.h:889</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1mir_1_1gpu__opt_html_a4e7995c44dcc78ad9c45e1c6954d18c3"><div class="ttname"><a href="../../d6/d1e/namespaceSRDatalog_1_1mir_1_1gpu__opt.html#a4e7995c44dcc78ad9c45e1c6954d18c3">SRDatalog::mir::gpu_opt::isIndependentJoin</a></div><div class="ttdeci">constexpr bool isIndependentJoin()</div><div class="ttdoc">Check if a join is independent of collected variables.</div><div class="ttdef"><b>Definition:</b> mir.h:901</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1mir_1_1gpu__opt_html_a67a5ce1d2f420e61015d4d0ea9218721"><div class="ttname"><a href="../../d6/d1e/namespaceSRDatalog_1_1mir_1_1gpu__opt.html#a67a5ce1d2f420e61015d4d0ea9218721">SRDatalog::mir::gpu_opt::isLetOrIf</a></div><div class="ttdeci">constexpr bool isLetOrIf()</div><div class="ttdoc">Check if an operation is a Let or If clause.</div><div class="ttdef"><b>Definition:</b> mir.h:881</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1mir_1_1gpu__opt_html_a7fb6cbc97d1403191e0b2cde89d7ec5b"><div class="ttname"><a href="../../d6/d1e/namespaceSRDatalog_1_1mir_1_1gpu__opt.html#a7fb6cbc97d1403191e0b2cde89d7ec5b">SRDatalog::mir::gpu_opt::hasEmptyPrefix</a></div><div class="ttdeci">constexpr bool hasEmptyPrefix()</div><div class="ttdoc">Check if a ColumnSource has an empty prefix (no dependencies)</div><div class="ttdef"><b>Definition:</b> mir.h:870</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1mir_1_1gpu__opt_html_afdda6981052a29970fbf634562c50262"><div class="ttname"><a href="../../d6/d1e/namespaceSRDatalog_1_1mir_1_1gpu__opt.html#afdda6981052a29970fbf634562c50262">SRDatalog::mir::gpu_opt::NoMatch</a></div><div class="ttdeci">PatternMatchResult&lt; 0, std::tuple&lt;&gt;, std::tuple&lt;&gt;, std::tuple&lt;&gt;, std::tuple&lt;&gt; &gt; NoMatch</div><div class="ttdef"><b>Definition:</b> mir.h:860</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1mir_html_a0f654ad7243263308eaa10a328558c92"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a0f654ad7243263308eaa10a328558c92">SRDatalog::mir::BoundVars</a></div><div class="ttdeci">std::tuple&lt; Vars... &gt; BoundVars</div><div class="ttdoc">Abstract Data Type (ADT) for a list of bound variables.</div><div class="ttdef"><b>Definition:</b> mir.h:85</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_a12a87377d68a3405d70ac0ef26ef3f12"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a12a87377d68a3405d70ac0ef26ef3f12">SRDatalog::mir::Terms</a></div><div class="ttdeci">tmp::CTuple Terms</div><div class="ttdef"><b>Definition:</b> mir.h:174</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_a16d6468ceb5a94d3a93056708093195a"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a16d6468ceb5a94d3a93056708093195a">SRDatalog::mir::ToVer</a></div><div class="ttdeci">std::size_t std::size_t ToVer</div><div class="ttdef"><b>Definition:</b> mir.h:275</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_a3347aa14094b78614688063f4d47a6af"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a3347aa14094b78614688063f4d47a6af">SRDatalog::mir::Index</a></div><div class="ttdeci">CIndexSpec Index</div><div class="ttdef"><b>Definition:</b> mir.h:148</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_a12a87377d68a3405d70ac0ef26ef3f12"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a12a87377d68a3405d70ac0ef26ef3f12">SRDatalog::mir::Terms</a></div><div class="ttdeci">tmp::CTuple Terms</div><div class="ttdef"><b>Definition:</b> mir.h:230</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_a16d6468ceb5a94d3a93056708093195a"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a16d6468ceb5a94d3a93056708093195a">SRDatalog::mir::ToVer</a></div><div class="ttdeci">std::size_t std::size_t ToVer</div><div class="ttdef"><b>Definition:</b> mir.h:331</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1mir_html_a36675e5e1576338a49e7210602a0fefb"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a36675e5e1576338a49e7210602a0fefb">SRDatalog::mir::CBoundVars</a></div><div class="ttdeci">concept CBoundVars</div><div class="ttdef"><b>Definition:</b> mir.h:94</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_a948b19a5dff01841981bd6543f745d69"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a948b19a5dff01841981bd6543f745d69">SRDatalog::mir::is_execute_pipeline_v</a></div><div class="ttdeci">constexpr bool is_execute_pipeline_v</div><div class="ttdef"><b>Definition:</b> mir.h:659</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_a5803ae82af15df3e4bac4e5493e50545"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a5803ae82af15df3e4bac4e5493e50545">SRDatalog::mir::PrefixVars</a></div><div class="ttdeci">template&lt; tmp CIndexSpec tmp::CTuple PrefixVars</div><div class="ttdef"><b>Definition:</b> mir.h:204</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_a88293fa710f197f06fbaf10b07aa646e"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a88293fa710f197f06fbaf10b07aa646e">SRDatalog::mir::DeltaVer</a></div><div class="ttdeci">std::size_t std::size_t std::size_t DeltaVer</div><div class="ttdef"><b>Definition:</b> mir.h:380</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_a8aae0894012920239067275a3d80c64e"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a8aae0894012920239067275a3d80c64e">SRDatalog::mir::Index</a></div><div class="ttdeci">template&lt; tmp CIndexSpec Index</div><div class="ttdef"><b>Definition:</b> mir.h:204</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_a948b19a5dff01841981bd6543f745d69"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a948b19a5dff01841981bd6543f745d69">SRDatalog::mir::is_execute_pipeline_v</a></div><div class="ttdeci">constexpr bool is_execute_pipeline_v</div><div class="ttdef"><b>Definition:</b> mir.h:777</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1mir_html_ab3f8046d2f93688e1df4c2f19ac1439b"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#ab3f8046d2f93688e1df4c2f19ac1439b">SRDatalog::mir::is_bound_vars_v</a></div><div class="ttdeci">constexpr bool is_bound_vars_v</div><div class="ttdef"><b>Definition:</b> mir.h:92</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_aef07bf936f4bf432a9ced053311a9cd7"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#aef07bf936f4bf432a9ced053311a9cd7">SRDatalog::mir::CExecutePipeline</a></div><div class="ttdeci">concept CExecutePipeline</div><div class="ttdef"><b>Definition:</b> mir.h:661</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_aef692e264e379a16ec2b2b9a06c1a622"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#aef692e264e379a16ec2b2b9a06c1a622">SRDatalog::mir::PrefixVars</a></div><div class="ttdeci">CIndexSpec tmp::CTuple PrefixVars</div><div class="ttdef"><b>Definition:</b> mir.h:148</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_afe141324a783aac4824e1f9ae7d1e585"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#afe141324a783aac4824e1f9ae7d1e585">SRDatalog::mir::FromVer</a></div><div class="ttdeci">std::size_t FromVer</div><div class="ttdef"><b>Definition:</b> mir.h:275</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_aef07bf936f4bf432a9ced053311a9cd7"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#aef07bf936f4bf432a9ced053311a9cd7">SRDatalog::mir::CExecutePipeline</a></div><div class="ttdeci">concept CExecutePipeline</div><div class="ttdef"><b>Definition:</b> mir.h:779</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_afe141324a783aac4824e1f9ae7d1e585"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#afe141324a783aac4824e1f9ae7d1e585">SRDatalog::mir::FromVer</a></div><div class="ttdeci">std::size_t FromVer</div><div class="ttdef"><b>Definition:</b> mir.h:331</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1tmp_html_a1ae03d2c0241e00c3c65ca34c2f73a1f"><div class="ttname"><a href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">SRDatalog::tmp::CTuple</a></div><div class="ttdeci">concept CTuple</div><div class="ttdoc">Concept for tuple types.</div><div class="ttdef"><b>Definition:</b> tmp.h:33</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1tmp_html_a65995894c662488a7c6d9f6e2485d164"><div class="ttname"><a href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a65995894c662488a7c6d9f6e2485d164">SRDatalog::tmp::Contains</a></div><div class="ttdeci">mp::mp_contains&lt; Tuple, T &gt; Contains</div><div class="ttdef"><b>Definition:</b> tmp.h:54</div></div>
-<div class="ttc" id="anamespaceSRDatalog_html"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html">SRDatalog</a></div><div class="ttdef"><b>Definition:</b> device_array.h:24</div></div>
-<div class="ttc" id="anamespaceSRDatalog_html_a28cc957e4cb578bf3abf1fe3fc654b6b"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#a28cc957e4cb578bf3abf1fe3fc654b6b">SRDatalog::COtherClause</a></div><div class="ttdeci">concept COtherClause</div><div class="ttdef"><b>Definition:</b> mir.h:949</div></div>
-<div class="ttc" id="anamespaceSRDatalog_html_a3cacb5ea82458fd6bb70a52d141e9137"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#a3cacb5ea82458fd6bb70a52d141e9137">SRDatalog::CFixpointPlan</a></div><div class="ttdeci">concept CFixpointPlan</div><div class="ttdef"><b>Definition:</b> mir.h:723</div></div>
+<div class="ttc" id="anamespaceSRDatalog_html"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html">SRDatalog</a></div><div class="ttdef"><b>Definition:</b> ast.h:56</div></div>
+<div class="ttc" id="anamespaceSRDatalog_html_a28cc957e4cb578bf3abf1fe3fc654b6b"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#a28cc957e4cb578bf3abf1fe3fc654b6b">SRDatalog::COtherClause</a></div><div class="ttdeci">concept COtherClause</div><div class="ttdef"><b>Definition:</b> mir.h:1559</div></div>
+<div class="ttc" id="anamespaceSRDatalog_html_a3cacb5ea82458fd6bb70a52d141e9137"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#a3cacb5ea82458fd6bb70a52d141e9137">SRDatalog::CFixpointPlan</a></div><div class="ttdeci">concept CFixpointPlan</div><div class="ttdef"><b>Definition:</b> mir.h:1333</div></div>
 <div class="ttc" id="anamespaceSRDatalog_html_a8840025cc1f1f494e70817737843187c"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c">SRDatalog::requires</a></div><div class="ttdeci">requires requires</div><div class="ttdef"><b>Definition:</b> relation_col.ipp:37</div></div>
-<div class="ttc" id="anamespaceSRDatalog_html_afeb2930d564331d6557162bc20c06914"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#afeb2930d564331d6557162bc20c06914">SRDatalog::is_fixpoint_plan_v</a></div><div class="ttdeci">constexpr bool is_fixpoint_plan_v</div><div class="ttdef"><b>Definition:</b> mir.h:721</div></div>
+<div class="ttc" id="anamespaceSRDatalog_html_ab59e8a4e02b366488a7763e33d2b17aa"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#ab59e8a4e02b366488a7763e33d2b17aa">SRDatalog::Prefix</a></div><div class="ttdeci">Prefix(Ts...) -&gt; Prefix&lt; Ts... &gt;</div></div>
+<div class="ttc" id="anamespaceSRDatalog_html_afeb2930d564331d6557162bc20c06914"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#afeb2930d564331d6557162bc20c06914">SRDatalog::is_fixpoint_plan_v</a></div><div class="ttdeci">constexpr bool is_fixpoint_plan_v</div><div class="ttdef"><b>Definition:</b> mir.h:1331</div></div>
 <div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="../../d8/dcc/namespacestd.html">std</a></div><div class="ttdef"><b>Definition:</b> test_gpu_pipeline_executor.cpp:29</div></div>
-<div class="ttc" id="aruntime__tc__instantiation_8cpp_html_a1ff8d1db7e865b400ee008a4ec8f6eb6"><div class="ttname"><a href="../../de/db4/runtime__tc__instantiation_8cpp.html#a1ff8d1db7e865b400ee008a4ec8f6eb6">MIROps</a></div><div class="ttdeci">std::tuple&lt; JoinY, JoinX, JoinZ, DestOut &gt; MIROps</div><div class="ttdef"><b>Definition:</b> runtime_tc_instantiation.cpp:93</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1Clause_html_a9ec79b80c888fbf20729b3484c807df2"><div class="ttname"><a href="../../d0/dd6/structSRDatalog_1_1AST_1_1Clause.html#a9ec79b80c888fbf20729b3484c807df2">SRDatalog::AST::Clause::version</a></div><div class="ttdeci">static constexpr std::size_t version</div><div class="ttdoc">The version number for semi-naive evaluation.</div><div class="ttdef"><b>Definition:</b> ast.h:333</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1GetVarsFromTerms_html_a819ecf285120c649ce1ab7e793f2cbee"><div class="ttname"><a href="../../d7/d14/structSRDatalog_1_1AST_1_1GetVarsFromTerms.html#a819ecf285120c649ce1ab7e793f2cbee">SRDatalog::AST::GetVarsFromTerms::type</a></div><div class="ttdeci">tmp::TupleUnique&lt; mp::mp_apply&lt; mp::mp_append, mp::mp_transform&lt; ExtractVars, Terms &gt; &gt;&gt; type</div><div class="ttdef"><b>Definition:</b> ast.h:738</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1JoinPlan_html_a261529e3e02cfc3c1a61ca0d2c3b3606"><div class="ttname"><a href="../../d4/dd0/structSRDatalog_1_1AST_1_1JoinPlan.html#a261529e3e02cfc3c1a61ca0d2c3b3606">SRDatalog::AST::JoinPlan::vars_type</a></div><div class="ttdeci">Vars vars_type</div><div class="ttdoc">The tuple of variables in join order.</div><div class="ttdef"><b>Definition:</b> ast.h:420</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1MapVarsToColumnIndexes_html_ad2ca48de4b6dd7008dfc7adbc2849425"><div class="ttname"><a href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#ad2ca48de4b6dd7008dfc7adbc2849425">SRDatalog::AST::MapVarsToColumnIndexes::type</a></div><div class="ttdeci">decltype(to_seq(mp::mp_rename&lt; IndexList, mp::mp_list &gt;{})) type</div><div class="ttdoc">The integer sequence of column indexes.</div><div class="ttdef"><b>Definition:</b> ast.h:950</div></div>
-<div class="ttc" id="astructSRDatalog_1_1ClauseToAggregate__impl_html_a8169472a71d9de95ba8be6279b8a145f"><div class="ttname"><a href="../../d1/de2/structSRDatalog_1_1ClauseToAggregate__impl.html#a8169472a71d9de95ba8be6279b8a145f">SRDatalog::ClauseToAggregate_impl::type</a></div><div class="ttdeci">mir::Aggregate&lt; VarToBind, Index, PrefixVars, typename Clause::agg_func &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1075</div></div>
-<div class="ttc" id="astructSRDatalog_1_1ClauseToColumnSource__impl_html_a332eb11054ba4d66c94b9c60cdada13a"><div class="ttname"><a href="../../d7/d84/structSRDatalog_1_1ClauseToColumnSource__impl.html#a332eb11054ba4d66c94b9c60cdada13a">SRDatalog::ClauseToColumnSource_impl::type</a></div><div class="ttdeci">mir::ColumnSource&lt; Index, PrefixVars &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1010</div></div>
-<div class="ttc" id="astructSRDatalog_1_1CompileHeadsToMIR_html_a2ce5c75885d6f52b1840e318114022c8"><div class="ttname"><a href="../../d7/d13/structSRDatalog_1_1CompileHeadsToMIR.html#a2ce5c75885d6f52b1840e318114022c8">SRDatalog::CompileHeadsToMIR::type</a></div><div class="ttdeci">mp::mp_transform&lt; ToDestRel, HeadClauses &gt; type</div><div class="ttdoc">The tuple of DestinationRelation MIR operations.</div><div class="ttdef"><b>Definition:</b> mir.h:1236</div></div>
-<div class="ttc" id="astructSRDatalog_1_1CompileRuleToPipeline_html_a1d4f72d363ea2fb98b1987dd7c2c5041"><div class="ttname"><a href="../../db/d54/structSRDatalog_1_1CompileRuleToPipeline.html#a1d4f72d363ea2fb98b1987dd7c2c5041">SRDatalog::CompileRuleToPipeline::type</a></div><div class="ttdeci">mir::Pipeline&lt; MIROps, VarPosMap, IteratorPosMap &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1289</div></div>
-<div class="ttc" id="astructSRDatalog_1_1FindAggClauses_html_a49a72aa8adfed433f6848a48861e1aa7"><div class="ttname"><a href="../../db/d16/structSRDatalog_1_1FindAggClauses.html#a49a72aa8adfed433f6848a48861e1aa7">SRDatalog::FindAggClauses::type</a></div><div class="ttdeci">mp::mp_copy_if&lt; BodyClauses, predicate &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1051</div></div>
-<div class="ttc" id="astructSRDatalog_1_1FindCanonicalIndexForSchema_html_adc126617d01a3dfe17b3c1321eda1685"><div class="ttname"><a href="../../d6/d08/structSRDatalog_1_1FindCanonicalIndexForSchema.html#adc126617d01a3dfe17b3c1321eda1685">SRDatalog::FindCanonicalIndexForSchema::type</a></div><div class="ttdeci">std::conditional_t&lt; found, mp::mp_at_c&lt; CanonicalIndexSpecs, found_idx &gt;, DefaultCanonicalIndex &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1400</div></div>
-<div class="ttc" id="astructSRDatalog_1_1FindIfClauses_html_a70b0d37a06aa4f909b0382aabadd19a8"><div class="ttname"><a href="../../d6/d34/structSRDatalog_1_1FindIfClauses.html#a70b0d37a06aa4f909b0382aabadd19a8">SRDatalog::FindIfClauses::type</a></div><div class="ttdeci">mp::mp_copy_if&lt; BodyClauses, predicate &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:970</div></div>
-<div class="ttc" id="astructSRDatalog_1_1FindLetClauses_html_a851e3d8038c42580e0a2e712477f3811"><div class="ttname"><a href="../../dc/d25/structSRDatalog_1_1FindLetClauses.html#a851e3d8038c42580e0a2e712477f3811">SRDatalog::FindLetClauses::type</a></div><div class="ttdeci">mp::mp_copy_if&lt; BodyClauses, predicate &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:924</div></div>
-<div class="ttc" id="astructSRDatalog_1_1FindNormalClausesWithVar_html_a9e2d7a66c413e70c9fa34152d09ede4f"><div class="ttname"><a href="../../d5/d4b/structSRDatalog_1_1FindNormalClausesWithVar.html#a9e2d7a66c413e70c9fa34152d09ede4f">SRDatalog::FindNormalClausesWithVar::type</a></div><div class="ttdeci">mp::mp_copy_if&lt; BodyClauses, predicate &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:942</div></div>
-<div class="ttc" id="astructSRDatalog_1_1GetIndexForClause_3_01Clause_00_01GlobalJoinPlan_01_4_html_acba2be5451673b8c388a50bf3930f319"><div class="ttname"><a href="../../dc/d81/structSRDatalog_1_1GetIndexForClause_3_01Clause_00_01GlobalJoinPlan_01_4.html#acba2be5451673b8c388a50bf3930f319">SRDatalog::GetIndexForClause&lt; Clause, GlobalJoinPlan &gt;::type</a></div><div class="ttdeci">IndexSpecT&lt; Schema, ColumnIndexes, ClauseVer &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:805</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1Clause_html_a9ec79b80c888fbf20729b3484c807df2"><div class="ttname"><a href="../../d0/dd6/structSRDatalog_1_1AST_1_1Clause.html#a9ec79b80c888fbf20729b3484c807df2">SRDatalog::AST::Clause::version</a></div><div class="ttdeci">static constexpr std::size_t version</div><div class="ttdoc">The version number for semi-naive evaluation.</div><div class="ttdef"><b>Definition:</b> ast.h:345</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1GetVarsFromTerms_html_a819ecf285120c649ce1ab7e793f2cbee"><div class="ttname"><a href="../../d7/d14/structSRDatalog_1_1AST_1_1GetVarsFromTerms.html#a819ecf285120c649ce1ab7e793f2cbee">SRDatalog::AST::GetVarsFromTerms::type</a></div><div class="ttdeci">tmp::TupleUnique&lt; mp::mp_apply&lt; mp::mp_append, mp::mp_transform&lt; ExtractVars, Terms &gt; &gt;&gt; type</div><div class="ttdef"><b>Definition:</b> ast.h:794</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1JoinPlan_html_a261529e3e02cfc3c1a61ca0d2c3b3606"><div class="ttname"><a href="../../d4/dd0/structSRDatalog_1_1AST_1_1JoinPlan.html#a261529e3e02cfc3c1a61ca0d2c3b3606">SRDatalog::AST::JoinPlan::vars_type</a></div><div class="ttdeci">Vars vars_type</div><div class="ttdoc">The tuple of variables in join order.</div><div class="ttdef"><b>Definition:</b> ast.h:432</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1LetClause_html"><div class="ttname"><a href="../../d6/d47/structSRDatalog_1_1AST_1_1LetClause.html">SRDatalog::AST::LetClause</a></div><div class="ttdef"><b>Definition:</b> ast.h:374</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1MapVarsToColumnIndexes_html_ad2ca48de4b6dd7008dfc7adbc2849425"><div class="ttname"><a href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#ad2ca48de4b6dd7008dfc7adbc2849425">SRDatalog::AST::MapVarsToColumnIndexes::type</a></div><div class="ttdeci">decltype(to_seq(mp::mp_rename&lt; IndexList, mp::mp_list &gt;{})) type</div><div class="ttdoc">The integer sequence of column indexes.</div><div class="ttdef"><b>Definition:</b> ast.h:1006</div></div>
+<div class="ttc" id="astructSRDatalog_1_1ClauseToAggregate__impl_html_a8169472a71d9de95ba8be6279b8a145f"><div class="ttname"><a href="../../d1/de2/structSRDatalog_1_1ClauseToAggregate__impl.html#a8169472a71d9de95ba8be6279b8a145f">SRDatalog::ClauseToAggregate_impl::type</a></div><div class="ttdeci">mir::Aggregate&lt; VarToBind, Index, PrefixVars, typename Clause::agg_func &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1685</div></div>
+<div class="ttc" id="astructSRDatalog_1_1ClauseToColumnSource__impl_html_a332eb11054ba4d66c94b9c60cdada13a"><div class="ttname"><a href="../../d7/d84/structSRDatalog_1_1ClauseToColumnSource__impl.html#a332eb11054ba4d66c94b9c60cdada13a">SRDatalog::ClauseToColumnSource_impl::type</a></div><div class="ttdeci">mir::ColumnSource&lt; Index, PrefixVars &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1620</div></div>
+<div class="ttc" id="astructSRDatalog_1_1CompileHeadsToMIR_html_a2ce5c75885d6f52b1840e318114022c8"><div class="ttname"><a href="../../d7/d13/structSRDatalog_1_1CompileHeadsToMIR.html#a2ce5c75885d6f52b1840e318114022c8">SRDatalog::CompileHeadsToMIR::type</a></div><div class="ttdeci">mp::mp_transform&lt; ToDestRel, HeadClauses &gt; type</div><div class="ttdoc">The tuple of DestinationRelation MIR operations.</div><div class="ttdef"><b>Definition:</b> mir.h:1846</div></div>
+<div class="ttc" id="astructSRDatalog_1_1CompileRuleToPipeline_html_ac96a43c843ae9506e2d5fef7d2f2d083"><div class="ttname"><a href="../../db/d54/structSRDatalog_1_1CompileRuleToPipeline.html#ac96a43c843ae9506e2d5fef7d2f2d083">SRDatalog::CompileRuleToPipeline::type</a></div><div class="ttdeci">mir::Pipeline&lt; MIROps, VarPosMap &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1898</div></div>
+<div class="ttc" id="astructSRDatalog_1_1FindAggClauses_html_a49a72aa8adfed433f6848a48861e1aa7"><div class="ttname"><a href="../../db/d16/structSRDatalog_1_1FindAggClauses.html#a49a72aa8adfed433f6848a48861e1aa7">SRDatalog::FindAggClauses::type</a></div><div class="ttdeci">mp::mp_copy_if&lt; BodyClauses, predicate &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1661</div></div>
+<div class="ttc" id="astructSRDatalog_1_1FindCanonicalIndexForSchema_html_adc126617d01a3dfe17b3c1321eda1685"><div class="ttname"><a href="../../d6/d08/structSRDatalog_1_1FindCanonicalIndexForSchema.html#adc126617d01a3dfe17b3c1321eda1685">SRDatalog::FindCanonicalIndexForSchema::type</a></div><div class="ttdeci">std::conditional_t&lt; found, mp::mp_at_c&lt; CanonicalIndexSpecs, found_idx &gt;, DefaultCanonicalIndex &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:2007</div></div>
+<div class="ttc" id="astructSRDatalog_1_1FindIfClauses_html_a70b0d37a06aa4f909b0382aabadd19a8"><div class="ttname"><a href="../../d6/d34/structSRDatalog_1_1FindIfClauses.html#a70b0d37a06aa4f909b0382aabadd19a8">SRDatalog::FindIfClauses::type</a></div><div class="ttdeci">mp::mp_copy_if&lt; BodyClauses, predicate &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1580</div></div>
+<div class="ttc" id="astructSRDatalog_1_1FindLetClauses_html_a851e3d8038c42580e0a2e712477f3811"><div class="ttname"><a href="../../dc/d25/structSRDatalog_1_1FindLetClauses.html#a851e3d8038c42580e0a2e712477f3811">SRDatalog::FindLetClauses::type</a></div><div class="ttdeci">mp::mp_copy_if&lt; BodyClauses, predicate &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1534</div></div>
+<div class="ttc" id="astructSRDatalog_1_1FindNormalClausesWithVar_html_a9e2d7a66c413e70c9fa34152d09ede4f"><div class="ttname"><a href="../../d5/d4b/structSRDatalog_1_1FindNormalClausesWithVar.html#a9e2d7a66c413e70c9fa34152d09ede4f">SRDatalog::FindNormalClausesWithVar::type</a></div><div class="ttdeci">mp::mp_copy_if&lt; BodyClauses, predicate &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1552</div></div>
+<div class="ttc" id="astructSRDatalog_1_1GetIndexForClause_3_01Clause_00_01GlobalJoinPlan_01_4_html_acba2be5451673b8c388a50bf3930f319"><div class="ttname"><a href="../../dc/d81/structSRDatalog_1_1GetIndexForClause_3_01Clause_00_01GlobalJoinPlan_01_4.html#acba2be5451673b8c388a50bf3930f319">SRDatalog::GetIndexForClause&lt; Clause, GlobalJoinPlan &gt;::type</a></div><div class="ttdeci">IndexSpecT&lt; Schema, ColumnIndexes, ClauseVer &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1415</div></div>
 <div class="ttc" id="astructSRDatalog_1_1IndexSpecT_html"><div class="ttname"><a href="../../df/d82/structSRDatalog_1_1IndexSpecT.html">SRDatalog::IndexSpecT</a></div><div class="ttdef"><b>Definition:</b> mir.h:51</div></div>
 <div class="ttc" id="astructSRDatalog_1_1IndexSpecT_html_a43072acbd80c0e205f40aec1117a4838"><div class="ttname"><a href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#a43072acbd80c0e205f40aec1117a4838">SRDatalog::IndexSpecT::column_indexes_type</a></div><div class="ttdeci">ColumnIndexes column_indexes_type</div><div class="ttdoc">The column indexes sequence type.</div><div class="ttdef"><b>Definition:</b> mir.h:55</div></div>
 <div class="ttc" id="astructSRDatalog_1_1IndexSpecT_html_ade03fd17775a1fbacabca9fe625aa0ad"><div class="ttname"><a href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#ade03fd17775a1fbacabca9fe625aa0ad">SRDatalog::IndexSpecT::kVersion</a></div><div class="ttdeci">static constexpr std::size_t kVersion</div><div class="ttdoc">The version number for semi-naive evaluation.</div><div class="ttdef"><b>Definition:</b> mir.h:57</div></div>
 <div class="ttc" id="astructSRDatalog_1_1IndexSpecT_html_af0843f4a7aed4186f433a0de69929985"><div class="ttname"><a href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#af0843f4a7aed4186f433a0de69929985">SRDatalog::IndexSpecT::schema_type</a></div><div class="ttdeci">schema schema_type</div><div class="ttdoc">The relation schema type.</div><div class="ttdef"><b>Definition:</b> mir.h:53</div></div>
-<div class="ttc" id="astructSRDatalog_1_1IndexSpecsToRebuildFullVerOps_html_add600651df81d3ad781128b1ff276c8c"><div class="ttname"><a href="../../d0/d99/structSRDatalog_1_1IndexSpecsToRebuildFullVerOps.html#add600651df81d3ad781128b1ff276c8c">SRDatalog::IndexSpecsToRebuildFullVerOps::type</a></div><div class="ttdeci">mp::mp_flatten&lt; RebuildFullVerOpsPerSpec &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1363</div></div>
-<div class="ttc" id="astructSRDatalog_1_1IndexSpecsToRebuildNewVerOps_html_a83c12ae4c18ad068159bf4476a589896"><div class="ttname"><a href="../../d4/d7d/structSRDatalog_1_1IndexSpecsToRebuildNewVerOps.html#a83c12ae4c18ad068159bf4476a589896">SRDatalog::IndexSpecsToRebuildNewVerOps::type</a></div><div class="ttdeci">mp::mp_flatten&lt; RebuildNewVerOpsPerSpec &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1341</div></div>
-<div class="ttc" id="astructSRDatalog_1_1MapAggClausesToAggregate_html_a3fe574b34a4646d9509f20fd38c1ca82"><div class="ttname"><a href="../../db/d3d/structSRDatalog_1_1MapAggClausesToAggregate.html#a3fe574b34a4646d9509f20fd38c1ca82">SRDatalog::MapAggClausesToAggregate::type</a></div><div class="ttdeci">mp::mp_transform&lt; ToAgg, AggClauses &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1082</div></div>
-<div class="ttc" id="astructSRDatalog_1_1MapClausesToColumnSources_html_af3c8df3301b3c99620374139d7a1e73b"><div class="ttname"><a href="../../d2/d24/structSRDatalog_1_1MapClausesToColumnSources.html#af3c8df3301b3c99620374139d7a1e73b">SRDatalog::MapClausesToColumnSources::type</a></div><div class="ttdeci">mp::mp_transform&lt; ToColumnSource, NormalClauses &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1031</div></div>
-<div class="ttc" id="astructSRDatalog_1_1MapClausesToSpecs__Impl_html_a1ac98e801606b216410d8fc01936810d"><div class="ttname"><a href="../../da/db5/structSRDatalog_1_1MapClausesToSpecs__Impl.html#a1ac98e801606b216410d8fc01936810d">SRDatalog::MapClausesToSpecs_Impl::type</a></div><div class="ttdeci">mp::mp_transform&lt; ToSpec, ClausesToIndex &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:859</div></div>
-<div class="ttc" id="astructSRDatalog_1_1ReplaceDestinationRelationWithCanonicalIndex_html_a3450607d9b3e98bf0a33ebed42e6609d"><div class="ttname"><a href="../../de/df0/structSRDatalog_1_1ReplaceDestinationRelationWithCanonicalIndex.html#a3450607d9b3e98bf0a33ebed42e6609d">SRDatalog::ReplaceDestinationRelationWithCanonicalIndex::type</a></div><div class="ttdeci">T type</div><div class="ttdef"><b>Definition:</b> mir.h:1433</div></div>
-<div class="ttc" id="astructSRDatalog_1_1ReplaceDestinationRelationsInPipeline_html_a5c56161066736b004fec325a4a87df78"><div class="ttname"><a href="../../d8/d97/structSRDatalog_1_1ReplaceDestinationRelationsInPipeline.html#a5c56161066736b004fec325a4a87df78">SRDatalog::ReplaceDestinationRelationsInPipeline::type</a></div><div class="ttdeci">mir::Pipeline&lt; ReplacedOps, typename Pipeline::var_pos_map_type, typename Pipeline::iterator_pos_map_type &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1471</div></div>
-<div class="ttc" id="astructSRDatalog_1_1mir_1_1ComputePipelineIteratorPosMap_html_ac1716ad65a032da33ceaaaa66d77b4fd"><div class="ttname"><a href="../../d9/db4/structSRDatalog_1_1mir_1_1ComputePipelineIteratorPosMap.html#ac1716ad65a032da33ceaaaa66d77b4fd">SRDatalog::mir::ComputePipelineIteratorPosMap::type</a></div><div class="ttdeci">typename ComputeIndexSpecToIteratorPosMap&lt; UniqueIndexSpecs &gt;::type type</div><div class="ttdef"><b>Definition:</b> mir.h:468</div></div>
-<div class="ttc" id="atest__gpu__fixpoint__executor_8cpp_html_a6aa6c3da4d7a9ef1e1571ebc4170a7cc"><div class="ttname"><a href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6aa6c3da4d7a9ef1e1571ebc4170a7cc">IteratorPosMap</a></div><div class="ttdeci">typename mir::ComputePipelineIteratorPosMap&lt; MIROps &gt;::type IteratorPosMap</div><div class="ttdef"><b>Definition:</b> test_gpu_fixpoint_executor.cpp:88</div></div>
+<div class="ttc" id="astructSRDatalog_1_1IndexSpecsToRebuildFullVerOps_html_add600651df81d3ad781128b1ff276c8c"><div class="ttname"><a href="../../d0/d99/structSRDatalog_1_1IndexSpecsToRebuildFullVerOps.html#add600651df81d3ad781128b1ff276c8c">SRDatalog::IndexSpecsToRebuildFullVerOps::type</a></div><div class="ttdeci">mp::mp_flatten&lt; RebuildFullVerOpsPerSpec &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1970</div></div>
+<div class="ttc" id="astructSRDatalog_1_1IndexSpecsToRebuildNewVerOps_html_a83c12ae4c18ad068159bf4476a589896"><div class="ttname"><a href="../../d4/d7d/structSRDatalog_1_1IndexSpecsToRebuildNewVerOps.html#a83c12ae4c18ad068159bf4476a589896">SRDatalog::IndexSpecsToRebuildNewVerOps::type</a></div><div class="ttdeci">mp::mp_flatten&lt; RebuildNewVerOpsPerSpec &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1948</div></div>
+<div class="ttc" id="astructSRDatalog_1_1MapAggClausesToAggregate_html_a3fe574b34a4646d9509f20fd38c1ca82"><div class="ttname"><a href="../../db/d3d/structSRDatalog_1_1MapAggClausesToAggregate.html#a3fe574b34a4646d9509f20fd38c1ca82">SRDatalog::MapAggClausesToAggregate::type</a></div><div class="ttdeci">mp::mp_transform&lt; ToAgg, AggClauses &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1692</div></div>
+<div class="ttc" id="astructSRDatalog_1_1MapClausesToColumnSources_html_af3c8df3301b3c99620374139d7a1e73b"><div class="ttname"><a href="../../d2/d24/structSRDatalog_1_1MapClausesToColumnSources.html#af3c8df3301b3c99620374139d7a1e73b">SRDatalog::MapClausesToColumnSources::type</a></div><div class="ttdeci">mp::mp_transform&lt; ToColumnSource, NormalClauses &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1641</div></div>
+<div class="ttc" id="astructSRDatalog_1_1MapClausesToSpecs__Impl_html_a1ac98e801606b216410d8fc01936810d"><div class="ttname"><a href="../../da/db5/structSRDatalog_1_1MapClausesToSpecs__Impl.html#a1ac98e801606b216410d8fc01936810d">SRDatalog::MapClausesToSpecs_Impl::type</a></div><div class="ttdeci">mp::mp_transform&lt; ToSpec, ClausesToIndex &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1469</div></div>
+<div class="ttc" id="astructSRDatalog_1_1ReplaceDestinationRelationWithCanonicalIndex_html_a3450607d9b3e98bf0a33ebed42e6609d"><div class="ttname"><a href="../../de/df0/structSRDatalog_1_1ReplaceDestinationRelationWithCanonicalIndex.html#a3450607d9b3e98bf0a33ebed42e6609d">SRDatalog::ReplaceDestinationRelationWithCanonicalIndex::type</a></div><div class="ttdeci">T type</div><div class="ttdef"><b>Definition:</b> mir.h:2040</div></div>
+<div class="ttc" id="astructSRDatalog_1_1ReplaceDestinationRelationsInPipeline_html_a859d0fe103592ccd1b18329ff276e6d9"><div class="ttname"><a href="../../d8/d97/structSRDatalog_1_1ReplaceDestinationRelationsInPipeline.html#a859d0fe103592ccd1b18329ff276e6d9">SRDatalog::ReplaceDestinationRelationsInPipeline::type</a></div><div class="ttdeci">mir::Pipeline&lt; ReplacedOps, typename Pipeline::var_pos_map_type &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:2075</div></div>
+<div class="ttc" id="atest__gpu__fixpoint__executor_8cpp_html_a9be3291b6530d4d40c0618f3fc984839"><div class="ttname"><a href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a9be3291b6530d4d40c0618f3fc984839">MIROps</a></div><div class="ttdeci">std::tuple&lt; JoinY, JoinX, JoinZ, DestPath &gt; MIROps</div><div class="ttdef"><b>Definition:</b> test_gpu_fixpoint_executor.cpp:83</div></div>
 <div class="ttc" id="atest__gpu__fixpoint__executor_8cpp_html_add4e6314f6277063598c40c406f4de4f"><div class="ttname"><a href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#add4e6314f6277063598c40c406f4de4f">VarPosMap</a></div><div class="ttdeci">typename mir::ComputeVarPosMap&lt; JoinPlanVars &gt;::type VarPosMap</div><div class="ttdef"><b>Definition:</b> test_gpu_fixpoint_executor.cpp:87</div></div>
 <div class="ttc" id="atmp_8h_html"><div class="ttname"><a href="../../dc/dc6/tmp_8h.html">tmp.h</a></div><div class="ttdoc">Template metaprogramming utilities for SRDatalog.</div></div>
 </div><!-- fragment --> </div><!-- contents -->

@@ -78,6 +78,7 @@ $(function() {
 : <a class="el" href="d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a235eca411bdd71845641a5c76ffc1cbe">SRDatalog::ExecuteQuery&lt; Q &gt;</a>
 , <a class="el" href="de/da3/structSRDatalog_1_1ExecuteRulesForFixpoint.html#a780d70525262f6d944fffe7eb3651031">SRDatalog::ExecuteRulesForFixpoint&lt; FP &gt;</a>
 , <a class="el" href="d7/d5f/structSRDatalog_1_1ExecuteRulesForNonIterativeRuleSets.html#a839f41466a9addfd969b0814248a04dd">SRDatalog::ExecuteRulesForNonIterativeRuleSets&lt; Rules &gt;</a>
+, <a class="el" href="dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a85b7af87fcce1f53d4714298e42314a8">SRDatalog::GPU::GPUQueryExecutor&lt; FP &gt;</a>
 </li>
 <li>Index
 : <a class="el" href="d2/d6e/structIndexConfig_3_012_01_4.html#a35a8a15386709ad650c1c1c47b116ea7">IndexConfig&lt; 2 &gt;</a>
@@ -89,9 +90,9 @@ $(function() {
 , <a class="el" href="d5/d2a/classSRDatalog_1_1index_1_1HashmapIndex.html#a981c9cf9447f859618169fb634c63e9b">SRDatalog::index::HashmapIndex&lt; SR, AttrTuple, ValueType, RowIdType, IndexType &gt;</a>
 </li>
 <li>index_spec_type
-: <a class="el" href="d1/da9/structSRDatalog_1_1detail_1_1ColumnSourceInfo.html#ac24f8f271915974e7a11038e1ee0b81c">SRDatalog::detail::ColumnSourceInfo&lt; IndexSpecT, PrefixVars &gt;</a>
-, <a class="el" href="d9/d84/structSRDatalog_1_1mir_1_1Aggregate.html#a0349c02809852b42777abfa79a70564d">SRDatalog::mir::Aggregate</a>
+: <a class="el" href="d9/d84/structSRDatalog_1_1mir_1_1Aggregate.html#a0349c02809852b42777abfa79a70564d">SRDatalog::mir::Aggregate</a>
 , <a class="el" href="d9/dc5/structSRDatalog_1_1mir_1_1ColumnSource.html#a7f1b18181095b0434bb4b16272a691b6">SRDatalog::mir::ColumnSource&lt; Index, BVars &gt;</a>
+, <a class="el" href="db/d23/structSRDatalog_1_1mir_1_1ComputeDeltaAndMerge.html#a930d9902a1667fd87eb6975f873fddb2">SRDatalog::mir::ComputeDeltaAndMerge</a>
 , <a class="el" href="d2/dfc/structSRDatalog_1_1mir_1_1CreateIndex.html#a16cd18c82fec4c018eccaa2bde646e8e">SRDatalog::mir::CreateIndex&lt; IndexSpecT &gt;</a>
 , <a class="el" href="dc/d99/structSRDatalog_1_1mir_1_1InsertFromRelation.html#a341984d0bba0caa215d8cfbdfbd1c95c">SRDatalog::mir::InsertFromRelation</a>
 </li>
@@ -103,12 +104,21 @@ $(function() {
 </li>
 <li>Indices
 : <a class="el" href="dd/d2b/structSRDatalog_1_1CompileRuleToMIR_3_01Rule_3_01Head_00_01Body_00_01JoinPlan_01_4_01_4.html#aa89108617c68f69984f64c5883ff6f12">SRDatalog::CompileRuleToMIR&lt; Rule&lt; Head, Body, JoinPlan &gt; &gt;</a>
+, <a class="el" href="d3/dd6/structSRDatalog_1_1GPU_1_1detail_1_1GetIndicesForOp_3_01mir_1_1CartesianJoin_3_01VarsTuple_00_0108d434d754413c0e73fa222831b7fa59.html#aff01ab057ece420b1380eb41913535e7">SRDatalog::GPU::detail::GetIndicesForOp&lt; mir::CartesianJoin&lt; VarsTuple, SourcesTuple &gt;, Var, Offset &gt;</a>
+, <a class="el" href="d0/d21/structSRDatalog_1_1GPU_1_1detail_1_1GetIndicesForOp_3_01mir_1_1ColumnJoin_3_01VarToBind_00_01Sou621b4f865df9ecff0743668a7ae7cd92.html#ab636582160a4fc1c1476fc84917da55f">SRDatalog::GPU::detail::GetIndicesForOp&lt; mir::ColumnJoin&lt; VarToBind, SourcesTuple, Strategy &gt;, Var, Offset &gt;</a>
+</li>
+<li>InitialPlan
+: <a class="el" href="dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a03dcffbe1cf58932c914cdf7ce760b78">SRDatalog::GPU::GPUQueryExecutor&lt; FP &gt;</a>
 </li>
 <li>Instructions
 : <a class="el" href="dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a7140643555affbcfa177ea94d1b378d2">SRDatalog::GPU::GPUQueryExecutor&lt; FP &gt;</a>
+, <a class="el" href="df/d91/structSRDatalog_1_1mir_1_1gpu__opt_1_1OptimizeFixpointPlanForGPU.html#a7ddaf7383cc94ee7f8f643faada41b6e">SRDatalog::mir::gpu_opt::OptimizeFixpointPlanForGPU&lt; Plan &gt;</a>
 </li>
 <li>instructions_type
 : <a class="el" href="d7/db8/structSRDatalog_1_1mir_1_1FixpointPlan.html#af3b898d8c02151182400292c9a9e1734">SRDatalog::mir::FixpointPlan&lt; Instructions &gt;</a>
+</li>
+<li>internal_storage_type
+: <a class="el" href="df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#adab0a9f4b236eb91d60f432743cc01cc">SRDatalog::GPU::DeviceArray&lt; T &gt;</a>
 </li>
 <li>InverseMap
 : <a class="el" href="de/da8/classSRDatalog_1_1DictionaryCodec.html#a2a52dd9331f0baca2451c60aaa8ba234">SRDatalog::DictionaryCodec&lt; T &gt;</a>
@@ -116,6 +126,9 @@ $(function() {
 <li>is_avalanching
 : <a class="el" href="dd/d83/structSRDatalog_1_1FibonacciHash.html#aa99ee9c2b6c7369a856d8987bb41c9db">SRDatalog::FibonacciHash</a>
 , <a class="el" href="df/d10/structSRDatalog_1_1IdentityHash.html#ac244578e0978331794f0e4720c0ce21d">SRDatalog::IdentityHash</a>
+</li>
+<li>ISAType
+: <a class="el" href="d8/d2b/structSRDatalog_1_1GPU_1_1Adapter_1_1SRDatalogToTVJoinISA.html#ac5262a2a8f629bd003931a1605a97e05">SRDatalog::GPU::Adapter::SRDatalogToTVJoinISA&lt; IndexSpecT, ValueType &gt;</a>
 </li>
 <li>Iterator
 : <a class="el" href="dc/d73/structSRDatalog_1_1AcceleratedDedupRange.html#a76acd00b44e5d85019a8b7d3f355d92d">SRDatalog::AcceleratedDedupRange&lt; T, BlockSize &gt;</a>
@@ -128,13 +141,6 @@ $(function() {
 : <a class="el" href="df/df8/classSRDatalog_1_1AcceleratedArrayIterator.html#aa991a97c39ec198fe56d5b7eaa786db8">SRDatalog::AcceleratedArrayIterator&lt; T, BlockSize &gt;</a>
 , <a class="el" href="db/d5f/structSRDatalog_1_1DedupRange_1_1Iterator.html#a44d50a2e08ffc701d28579b04a862b6c">SRDatalog::DedupRange&lt; T &gt;::Iterator</a>
 , <a class="el" href="d5/deb/classSRDatalog_1_1LeapfrogView_1_1Iterator.html#a8adf63cefc284ca4b3f6cc8843a48a1f">SRDatalog::LeapfrogView&lt; Iterators &gt;::Iterator</a>
-</li>
-<li>iterator_pos_map_type
-: <a class="el" href="d5/dff/structSRDatalog_1_1mir_1_1Pipeline.html#acf789104cb1a307f312267c6c3267c53">SRDatalog::mir::Pipeline&lt; MIROps, VarPosMap, IteratorPosMap &gt;</a>
-</li>
-<li>IteratorPosMap
-: <a class="el" href="db/d54/structSRDatalog_1_1CompileRuleToPipeline.html#a79691841052f9143277669fc55e8fc7c">SRDatalog::CompileRuleToPipeline&lt; Rule &gt;</a>
-, <a class="el" href="d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a38f5300c5566417b057c220354d3d1ba">SRDatalog::GPU::GPURootExecutor&lt; Pipeline, SR, ValueType, HandleType &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->

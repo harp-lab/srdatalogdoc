@@ -68,6 +68,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">init.h File Reference</div>  </div>
@@ -78,17 +79,19 @@ $(function() {
 <code>#include &lt;mutex&gt;</code><br />
 <code>#include &lt;stdexcept&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;rmm/mr/device/per_device_resource.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for init.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d3/dab/init_8h__incl.png" border="0" usemap="#ageneralized__datalog_2gpu_2init_8h" alt=""/></div>
 <map name="ageneralized__datalog_2gpu_2init_8h" id="ageneralized__datalog_2gpu_2init_8h">
-<area shape="rect" title=" " alt="" coords="211,5,365,47"/>
-<area shape="rect" title=" " alt="" coords="5,95,128,121"/>
-<area shape="rect" title=" " alt="" coords="152,95,232,121"/>
-<area shape="rect" title=" " alt="" coords="256,95,320,121"/>
-<area shape="rect" title=" " alt="" coords="345,95,431,121"/>
-<area shape="rect" title=" " alt="" coords="456,95,515,121"/>
+<area shape="rect" title=" " alt="" coords="260,5,415,47"/>
+<area shape="rect" title=" " alt="" coords="5,102,128,129"/>
+<area shape="rect" title=" " alt="" coords="152,102,232,129"/>
+<area shape="rect" title=" " alt="" coords="256,102,320,129"/>
+<area shape="rect" title=" " alt="" coords="345,102,431,129"/>
+<area shape="rect" title=" " alt="" coords="456,102,515,129"/>
+<area shape="rect" title=" " alt="" coords="539,95,736,136"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -96,11 +99,19 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../de/ddb/init_8h__dep__incl.png" border="0" usemap="#ageneralized__datalog_2gpu_2init_8hdep" alt=""/></div>
 <map name="ageneralized__datalog_2gpu_2init_8hdep" id="ageneralized__datalog_2gpu_2init_8hdep">
-<area shape="rect" title=" " alt="" coords="303,5,457,47"/>
-<area shape="rect" href="../../de/db4/runtime__tc__instantiation_8cpp.html" title=" " alt="" coords="5,95,179,151"/>
-<area shape="rect" href="../../d0/d27/tc__device__benchmark_8cpp.html" title=" " alt="" coords="203,95,368,151"/>
-<area shape="rect" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html" title=" " alt="" coords="393,95,559,151"/>
-<area shape="rect" href="../../d8/d53/test__gpu__query_8cpp.html" title=" " alt="" coords="583,102,763,143"/>
+<area shape="rect" title=" " alt="" coords="1095,5,1249,47"/>
+<area shape="rect" href="../../d7/d92/andersen__benchmark_8cpp.html" title=" " alt="" coords="5,95,168,151"/>
+<area shape="rect" href="../../de/db4/runtime__tc__instantiation_8cpp.html" title=" " alt="" coords="192,95,365,151"/>
+<area shape="rect" href="../../d7/d40/sg__device__benchmark_8cpp.html" title=" " alt="" coords="389,95,557,151"/>
+<area shape="rect" href="../../d0/d27/tc__device__benchmark_8cpp.html" title=" " alt="" coords="581,95,747,151"/>
+<area shape="rect" href="../../db/dcf/tc__lower__device__benchmark_8cpp.html" title=" " alt="" coords="771,95,949,151"/>
+<area shape="rect" href="../../d7/dc9/test__gpu__append_8cpp.html" title=" " alt="" coords="974,102,1167,143"/>
+<area shape="rect" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html" title=" " alt="" coords="1191,95,1358,151"/>
+<area shape="rect" href="../../d8/d53/test__gpu__query_8cpp.html" title=" " alt="" coords="1382,102,1562,143"/>
+<area shape="rect" href="../../df/d85/test__gpu__sg_8cpp.html" title=" " alt="" coords="1587,102,1747,143"/>
+<area shape="rect" href="../../dc/d77/test__gpu__sg__deduplication_8cpp.html" title="Test to expose deduplication bugs in GPU SG fixpoint execution." alt="" coords="1771,102,2026,143"/>
+<area shape="rect" href="../../d7/d68/test__gpu__sg__fixpoint_8cpp.html" title="Test SG fixpoint query matching the benchmark to debug deduplication issue." alt="" coords="2051,102,2267,143"/>
+<area shape="rect" href="../../df/d6f/test__gpu__sg__pipeline_8cpp.html" title="Test SG fixpoint pipeline to debug join producing 0 results." alt="" coords="2291,102,2509,143"/>
 </map>
 </div>
 </div>
@@ -113,12 +124,38 @@ Namespaces</h2></td></tr>
 <tr class="memitem:df/dcf/namespaceSRDatalog_1_1GPU"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">SRDatalog::GPU</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a23c1b5fda3e58b1e81ab3125061765ff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dc0/init_8h.html#a23c1b5fda3e58b1e81ab3125061765ff">SPDLOG_USE_STD_FORMAT</a></td></tr>
+<tr class="separator:a23c1b5fda3e58b1e81ab3125061765ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a69dc9271b5d964333ed498cdeaf09b67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#a69dc9271b5d964333ed498cdeaf09b67">SRDatalog::GPU::init_rmm_pool</a> ()</td></tr>
+<tr class="memdesc:a69dc9271b5d964333ed498cdeaf09b67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize and set up the global RMM pool memory resource.  <a href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#a69dc9271b5d964333ed498cdeaf09b67">More...</a><br /></td></tr>
+<tr class="separator:a69dc9271b5d964333ed498cdeaf09b67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab14070592f4c45cfde028bdd83261a9f"><td class="memItemLeft" align="right" valign="top">rmm::mr::device_memory_resource *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#ab14070592f4c45cfde028bdd83261a9f">SRDatalog::GPU::get_gpu_pool_memory_resource</a> ()</td></tr>
+<tr class="memdesc:ab14070592f4c45cfde028bdd83261a9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread-safe singleton that provides a global <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a> pool memory resource.  <a href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#ab14070592f4c45cfde028bdd83261a9f">More...</a><br /></td></tr>
+<tr class="separator:ab14070592f4c45cfde028bdd83261a9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14728c46a0dc20ee09c45b70e3f9e971"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#a14728c46a0dc20ee09c45b70e3f9e971">SRDatalog::GPU::init_cuda</a> (int device_id=0)</td></tr>
 <tr class="memdesc:a14728c46a0dc20ee09c45b70e3f9e971"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread-safe CUDA device initialization.  <a href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#a14728c46a0dc20ee09c45b70e3f9e971">More...</a><br /></td></tr>
 <tr class="separator:a14728c46a0dc20ee09c45b70e3f9e971"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a23c1b5fda3e58b1e81ab3125061765ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23c1b5fda3e58b1e81ab3125061765ff">&#9670;&nbsp;</a></span>SPDLOG_USE_STD_FORMAT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPDLOG_USE_STD_FORMAT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

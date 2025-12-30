@@ -1,0 +1,4 @@
+<map id="SRDatalog::GPU::state::HandleStore&lt; HandleType, NumHandles &gt;" name="SRDatalog::GPU::state::HandleStore&lt; HandleType, NumHandles &gt;">
+<area shape="rect" id="node1" title="HandleStore &#45; Stores iterator handles in a linear array." alt="" coords="5,124,211,180"/>
+<area shape="rect" id="node2" href="$d5/da8/structSRDatalog_1_1GPU_1_1state_1_1ViewStore.html" title="Handle store &#45; maps IndexSpec to NodeHandle via compile&#45;time position lookup." alt="" coords="19,5,197,61"/>
+</map>

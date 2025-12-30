@@ -90,7 +90,7 @@ Public Types</h2></td></tr>
 <tr class="separator:ada77a8e35425df54e8c29e20b65822c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d9b925bc21fe7343b226a4e4e8c0c0c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#a7d9b925bc21fe7343b226a4e4e8c0c0c">RowId</a> = std::size_t</td></tr>
 <tr class="separator:a7d9b925bc21fe7343b226a4e4e8c0c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae35fac871ced4acca334b955587130b8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#ae35fac871ced4acca334b955587130b8">IndexTypeInst</a> = <a class="el" href="../../d6/d03/namespaceSRDatalog_1_1detail.html#ac32ece2b1c75ec83f2729094d5fe543d">detail::SelectIndexType</a>&lt; <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;</td></tr>
+<tr class="memitem:ae35fac871ced4acca334b955587130b8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#ae35fac871ced4acca334b955587130b8">IndexTypeInst</a> = <a class="el" href="../../d6/d03/namespaceSRDatalog_1_1detail.html#ac32ece2b1c75ec83f2729094d5fe543d">detail::SelectIndexType</a>&lt; <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType &gt;</td></tr>
 <tr class="separator:ae35fac871ced4acca334b955587130b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada3bbcf882c009de5db7623c02a0cd69"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#ada3bbcf882c009de5db7623c02a0cd69">StorageTraits</a> = <a class="el" href="../../df/d0d/structSRDatalog_1_1detail_1_1RelationStorageTraits.html">detail::RelationStorageTraits</a>&lt; Policy &gt;</td></tr>
 <tr class="separator:ada3bbcf882c009de5db7623c02a0cd69"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -249,11 +249,11 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a29ca93faf8b149862054df0452b65c10"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename, typename, typename... &gt; class DeviceIndexType, typename DevicePolicy , typename DeviceValueType  = std::size_t, typename DeviceRowIdType  = uint32_t&gt; </td></tr>
-<tr class="memitem:a29ca93faf8b149862054df0452b65c10"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, <a class="el" href="../../dc/d33/namespaceSRDatalog.html#a579d447a242cd4eed3ea98f47bcc9ee4">HostRelationPolicy</a>, ValueType, RowIdType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#a29ca93faf8b149862054df0452b65c10">to_host</a> (const <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, DeviceIndexType, DevicePolicy, DeviceValueType, DeviceRowIdType &gt; &amp;device_rel, <a class="el" href="../../dc/d33/namespaceSRDatalog.html#a43bc1ecf5ffd3218efaafb0d722fecc4">memory_resource</a> *resource=nullptr)</td></tr>
+<tr class="memitem:a29ca93faf8b149862054df0452b65c10"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, <a class="el" href="../../dc/d33/namespaceSRDatalog.html#a579d447a242cd4eed3ea98f47bcc9ee4">HostRelationPolicy</a>, ValueType, RowIdType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#a29ca93faf8b149862054df0452b65c10">to_host</a> (const <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, DeviceIndexType, DevicePolicy, DeviceValueType, DeviceRowIdType &gt; &amp;device_rel, <a class="el" href="../../dc/d33/namespaceSRDatalog.html#a43bc1ecf5ffd3218efaafb0d722fecc4">memory_resource</a> *resource=nullptr)</td></tr>
 <tr class="memdesc:a29ca93faf8b149862054df0452b65c10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a host relation from a device relation.  <a href="../../d0/d00/classSRDatalog_1_1Relation.html#a29ca93faf8b149862054df0452b65c10">More...</a><br /></td></tr>
 <tr class="separator:a29ca93faf8b149862054df0452b65c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e223f41b46053a1d2dc170618d8aedc"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename, typename, typename... &gt; class HostIndexType, typename HostPolicy , typename HostValueType  = std::size_t, typename HostRowIdType  = uint32_t&gt; </td></tr>
-<tr class="memitem:a4e223f41b46053a1d2dc170618d8aedc"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, <a class="el" href="../../dc/d33/namespaceSRDatalog.html#a29466c3a7e1356865ace9c885e82c66c">DeviceRelationPolicy</a>, ValueType, RowIdType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#a4e223f41b46053a1d2dc170618d8aedc">to_device</a> (const <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, HostIndexType, HostPolicy, HostValueType, HostRowIdType &gt; &amp;host_rel)</td></tr>
+<tr class="memitem:a4e223f41b46053a1d2dc170618d8aedc"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, <a class="el" href="../../dc/d33/namespaceSRDatalog.html#a29466c3a7e1356865ace9c885e82c66c">DeviceRelationPolicy</a>, ValueType, RowIdType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#a4e223f41b46053a1d2dc170618d8aedc">to_device</a> (const <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, HostIndexType, HostPolicy, HostValueType, HostRowIdType &gt; &amp;host_rel)</td></tr>
 <tr class="memdesc:a4e223f41b46053a1d2dc170618d8aedc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a device relation from a host relation.  <a href="../../d0/d00/classSRDatalog_1_1Relation.html#a4e223f41b46053a1d2dc170618d8aedc">More...</a><br /></td></tr>
 <tr class="separator:a4e223f41b46053a1d2dc170618d8aedc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -293,7 +293,7 @@ class SRDatalog::Relation&lt; SR, AttrTuple, IndexType, Policy, ValueType, RowId
 template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, ColumnElementTuple, typename... &gt; class IndexType = HashTrieIndex, typename Policy  = HostRelationPolicy, typename ValueType  = std::size_t, typename RowIdType  = uint32_t&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#ada77a8e35425df54e8c29e20b65822c5">AnnotationVal</a> =  typename <a class="el" href="../../d3/d43/structBooleanSR.html#affbf07cce1f0cb312435e17653631aa1">SR::value_type</a></td>
+          <td class="memname">using <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#ada77a8e35425df54e8c29e20b65822c5">AnnotationVal</a> =  typename <a class="el" href="../../d3/d43/structBooleanSR.html#affbf07cce1f0cb312435e17653631aa1">SR::value_type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -309,7 +309,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
 template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, ColumnElementTuple, typename... &gt; class IndexType = HashTrieIndex, typename Policy  = HostRelationPolicy, typename ValueType  = std::size_t, typename RowIdType  = uint32_t&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#ae35fac871ced4acca334b955587130b8">IndexTypeInst</a> =  <a class="el" href="../../d6/d03/namespaceSRDatalog_1_1detail.html#ac32ece2b1c75ec83f2729094d5fe543d">detail::SelectIndexType</a>&lt;<a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType&gt;</td>
+          <td class="memname">using <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#ae35fac871ced4acca334b955587130b8">IndexTypeInst</a> =  <a class="el" href="../../d6/d03/namespaceSRDatalog_1_1detail.html#ac32ece2b1c75ec83f2729094d5fe543d">detail::SelectIndexType</a>&lt;<a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, ValueType, RowIdType&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -325,7 +325,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
 template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, ColumnElementTuple, typename... &gt; class IndexType = HashTrieIndex, typename Policy  = HostRelationPolicy, typename ValueType  = std::size_t, typename RowIdType  = uint32_t&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#a7d9b925bc21fe7343b226a4e4e8c0c0c">RowId</a> =  std::size_t</td>
+          <td class="memname">using <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#a7d9b925bc21fe7343b226a4e4e8c0c0c">RowId</a> =  std::size_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -341,7 +341,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
 template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, ColumnElementTuple, typename... &gt; class IndexType = HashTrieIndex, typename Policy  = HostRelationPolicy, typename ValueType  = std::size_t, typename RowIdType  = uint32_t&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#a064a3f2709280bbc24fbcf491e9d441a">RowRange</a> =  std::span&lt;const <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#a7d9b925bc21fe7343b226a4e4e8c0c0c">RowId</a>&gt;</td>
+          <td class="memname">using <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#a064a3f2709280bbc24fbcf491e9d441a">RowRange</a> =  std::span&lt;const <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#a7d9b925bc21fe7343b226a4e4e8c0c0c">RowId</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -369,7 +369,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
 template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, ColumnElementTuple, typename... &gt; class IndexType = HashTrieIndex, typename Policy  = HostRelationPolicy, typename ValueType  = std::size_t, typename RowIdType  = uint32_t&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#ada3bbcf882c009de5db7623c02a0cd69">StorageTraits</a> =  <a class="el" href="../../df/d0d/structSRDatalog_1_1detail_1_1RelationStorageTraits.html">detail::RelationStorageTraits</a>&lt;Policy&gt;</td>
+          <td class="memname">using <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#ada3bbcf882c009de5db7623c02a0cd69">StorageTraits</a> =  <a class="el" href="../../df/d0d/structSRDatalog_1_1detail_1_1RelationStorageTraits.html">detail::RelationStorageTraits</a>&lt;Policy&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -385,7 +385,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
 template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, ColumnElementTuple, typename... &gt; class IndexType = HashTrieIndex, typename Policy  = HostRelationPolicy, typename ValueType  = std::size_t, typename RowIdType  = uint32_t&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#a035581ee72366f56b5f134fd3c1db0fa">ValueRange</a> =  std::span&lt;const std::size_t&gt;</td>
+          <td class="memname">using <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#a035581ee72366f56b5f134fd3c1db0fa">ValueRange</a> =  std::span&lt;const std::size_t&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -408,7 +408,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a> </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -435,7 +435,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a> </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a> </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>version</em></td><td>)</td>
@@ -465,7 +465,7 @@ template&lt;typename P  = Policy&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a> </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../dc/d33/namespaceSRDatalog.html#a43bc1ecf5ffd3218efaafb0d722fecc4">memory_resource</a> *&#160;</td>
           <td class="paramname"><em>resource</em>, </td>
@@ -505,7 +505,7 @@ template&lt;typename P  = Policy&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a> </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a> </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>version</em> = <code>10</code></td><td>)</td>
@@ -533,7 +533,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a> </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a> </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -577,7 +577,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a> </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a> </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -615,9 +615,9 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a> </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt; &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -643,9 +643,9 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a> </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::<a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt; &amp;&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt; &amp;&amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -672,7 +672,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::build_all_indexes </td>
+          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::build_all_indexes </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -699,7 +699,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::clear</td>
+          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::clear</td>
         </tr>
       </table>
   </td>
@@ -728,7 +728,7 @@ template&lt;std::size_t I&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#a0c85668829f30e13b800bb822b5672b3">requires</a> <a class="el" href="../../d1/d48/structSRDatalog_1_1detail_1_1RelationStorageTraits_3_01Policy_01_4.html#a913e4aa93190be4cf2309579c0b38246">StorageTraits::is_device</a> auto <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::column </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#a0c85668829f30e13b800bb822b5672b3">requires</a> <a class="el" href="../../d1/d48/structSRDatalog_1_1detail_1_1RelationStorageTraits_3_01Policy_01_4.html#a913e4aa93190be4cf2309579c0b38246">StorageTraits::is_device</a> auto <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::column </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -755,7 +755,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::vector&lt;std::string&gt;&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::column_names </td>
+          <td class="memname">const std::vector&lt;std::string&gt;&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::column_names </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -787,9 +787,9 @@ template&lt;typename OtherRelation &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::concat </td>
+          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::concat </td>
           <td>(</td>
-          <td class="paramtype">const OtherRelation&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt; &amp;&#160;</td>
+          <td class="paramtype">const OtherRelation&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt; &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -823,7 +823,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::encoded_rows </td>
+          <td class="memname">auto <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::encoded_rows </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>start</em>, </td>
@@ -920,7 +920,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::ensure_index </td>
+          <td class="memname">auto <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::ensure_index </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html">IndexSpec</a> &amp;&#160;</td>
           <td class="paramname"><em>spec</em>, </td>
@@ -965,7 +965,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::ensure_index_nc_ </td>
+          <td class="memname">auto <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::ensure_index_nc_ </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html">IndexSpec</a> &amp;&#160;</td>
           <td class="paramname"><em>spec</em>, </td>
@@ -1033,7 +1033,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::vector&lt;<a class="el" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html">IndexSpec</a>&gt;&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::get_all_indexes </td>
+          <td class="memname">const std::vector&lt;<a class="el" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html">IndexSpec</a>&gt;&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::get_all_indexes </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1061,7 +1061,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html">IndexSpec</a>&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::get_default_index </td>
+          <td class="memname">const <a class="el" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html">IndexSpec</a>&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::get_default_index </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1089,7 +1089,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#ae35fac871ced4acca334b955587130b8">IndexTypeInst</a>&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::get_index </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#ae35fac871ced4acca334b955587130b8">IndexTypeInst</a>&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::get_index </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html">IndexSpec</a> &amp;&#160;</td>
           <td class="paramname"><em>spec</em></td><td>)</td>
@@ -1124,7 +1124,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#ae35fac871ced4acca334b955587130b8">IndexTypeInst</a>&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::get_index </td>
+          <td class="memname">const <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#ae35fac871ced4acca334b955587130b8">IndexTypeInst</a>&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::get_index </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html">IndexSpec</a> &amp;&#160;</td>
           <td class="paramname"><em>spec</em></td><td>)</td>
@@ -1159,7 +1159,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::head </td>
+          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::head </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>n</em>, </td>
@@ -1206,7 +1206,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html">IndexSpec</a>&gt;&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::index_specs </td>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html">IndexSpec</a>&gt;&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::index_specs </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1236,7 +1236,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::vector&lt;<a class="el" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html">IndexSpec</a>&gt;&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::index_specs </td>
+          <td class="memname">const std::vector&lt;<a class="el" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html">IndexSpec</a>&gt;&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::index_specs </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1268,7 +1268,7 @@ template&lt;std::size_t N&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::indexed_range_query </td>
+          <td class="memname">auto <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::indexed_range_query </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html">IndexSpec</a> &amp;&#160;</td>
           <td class="paramname"><em>spec</em>, </td>
@@ -1318,7 +1318,7 @@ template&lt;std::size_t I&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#a0c85668829f30e13b800bb822b5672b3">requires</a> <a class="el" href="../../d1/d48/structSRDatalog_1_1detail_1_1RelationStorageTraits_3_01Policy_01_4.html#a913e4aa93190be4cf2309579c0b38246">StorageTraits::is_device</a> auto <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::interned_column </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#a0c85668829f30e13b800bb822b5672b3">requires</a> <a class="el" href="../../d1/d48/structSRDatalog_1_1detail_1_1RelationStorageTraits_3_01Policy_01_4.html#a913e4aa93190be4cf2309579c0b38246">StorageTraits::is_device</a> auto <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::interned_column </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1345,7 +1345,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::interned_size </td>
+          <td class="memname">std::size_t <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::interned_size </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1375,7 +1375,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::interned_stride </td>
+          <td class="memname">std::size_t <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::interned_stride </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1404,7 +1404,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::is_dirty </td>
+          <td class="memname">bool <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::is_dirty </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html">IndexSpec</a> &amp;&#160;</td>
           <td class="paramname"><em>spec</em></td><td>)</td>
@@ -1432,7 +1432,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::name </td>
+          <td class="memname">const std::string&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::name </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1462,9 +1462,9 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::operator= </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt; &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1490,9 +1490,9 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::operator= </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt; &amp;&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt; &amp;&amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1518,7 +1518,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const auto&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::provenance </td>
+          <td class="memname">const auto&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::provenance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1550,7 +1550,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::provenance </td>
+          <td class="memname">auto&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::provenance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1577,7 +1577,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::push_intern_row </td>
+          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::push_intern_row </td>
           <td>(</td>
           <td class="paramtype">const std::array&lt; std::size_t, <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html#ad31e59a2dbf6f2a1a6c81d978139e4e8">arity</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>interned_tup</em>, </td>
@@ -1624,7 +1624,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::push_row </td>
+          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::push_row </td>
           <td>(</td>
           <td class="paramtype">const AttrTuple &amp;&#160;</td>
           <td class="paramname"><em>tup</em>, </td>
@@ -1672,7 +1672,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::reconstruct_columns_from_interned </td>
+          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::reconstruct_columns_from_interned </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1706,7 +1706,7 @@ template&lt;std::size_t I&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::requires </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::requires </td>
           <td>(</td>
           <td class="paramtype">!<a class="el" href="../../d1/d48/structSRDatalog_1_1detail_1_1RelationStorageTraits_3_01Policy_01_4.html#a913e4aa93190be4cf2309579c0b38246">StorageTraits::is_device</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -1746,7 +1746,7 @@ template&lt;std::size_t I&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::requires </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::requires </td>
           <td>(</td>
           <td class="paramtype">!<a class="el" href="../../d1/d48/structSRDatalog_1_1detail_1_1RelationStorageTraits_3_01Policy_01_4.html#a913e4aa93190be4cf2309579c0b38246">StorageTraits::is_device</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -1776,7 +1776,7 @@ template&lt;std::size_t I&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::requires </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::requires </td>
           <td>(</td>
           <td class="paramtype">!<a class="el" href="../../d1/d48/structSRDatalog_1_1detail_1_1RelationStorageTraits_3_01Policy_01_4.html#a913e4aa93190be4cf2309579c0b38246">StorageTraits::is_device</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -1806,7 +1806,7 @@ template&lt;std::size_t I&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::requires </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::requires </td>
           <td>(</td>
           <td class="paramtype">!<a class="el" href="../../d1/d48/structSRDatalog_1_1detail_1_1RelationStorageTraits_3_01Policy_01_4.html#a913e4aa93190be4cf2309579c0b38246">StorageTraits::is_device</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -1847,7 +1847,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::reserve </td>
+          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::reserve </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>n</em></td><td>)</td>
@@ -1885,7 +1885,7 @@ template&lt;std::size_t... Is&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::reserve_impl_ </td>
+          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::reserve_impl_ </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>n</em>, </td>
@@ -1923,7 +1923,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::reserve_interned </td>
+          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::reserve_interned </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>n</em></td><td>)</td>
@@ -1951,7 +1951,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::resize_interned_columns </td>
+          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::resize_interned_columns </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>n</em></td><td>)</td>
@@ -1987,7 +1987,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::set_column_names </td>
+          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::set_column_names </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; std::string &gt;&#160;</td>
           <td class="paramname"><em>names</em></td><td>)</td>
@@ -2029,7 +2029,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::set_name </td>
+          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::set_name </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em></td><td>)</td>
@@ -2065,7 +2065,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::set_version </td>
+          <td class="memname">void <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::set_version </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>version</em></td><td>)</td>
@@ -2101,7 +2101,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::size </td>
+          <td class="memname">std::size_t <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::size </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -2134,9 +2134,9 @@ template&lt;template&lt; typename, typename, typename... &gt; class HostIndexTyp
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, <a class="el" href="../../dc/d33/namespaceSRDatalog.html#a29466c3a7e1356865ace9c885e82c66c">DeviceRelationPolicy</a>, ValueType, RowIdType &gt; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::to_device </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, <a class="el" href="../../dc/d33/namespaceSRDatalog.html#a29466c3a7e1356865ace9c885e82c66c">DeviceRelationPolicy</a>, ValueType, RowIdType &gt; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::to_device </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, HostIndexType, HostPolicy, HostValueType, HostRowIdType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, HostIndexType, HostPolicy, HostValueType, HostRowIdType &gt; &amp;&#160;</td>
           <td class="paramname"><em>host_rel</em></td><td>)</td>
           <td></td>
         </tr>
@@ -2182,9 +2182,9 @@ template&lt;template&lt; typename, typename, typename... &gt; class DeviceIndexT
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, <a class="el" href="../../dc/d33/namespaceSRDatalog.html#a579d447a242cd4eed3ea98f47bcc9ee4">HostRelationPolicy</a>, ValueType, RowIdType &gt; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::to_host </td>
+          <td class="memname"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, <a class="el" href="../../dc/d33/namespaceSRDatalog.html#a579d447a242cd4eed3ea98f47bcc9ee4">HostRelationPolicy</a>, ValueType, RowIdType &gt; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::to_host </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, DeviceIndexType, DevicePolicy, DeviceValueType, DeviceRowIdType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, DeviceIndexType, DevicePolicy, DeviceValueType, DeviceRowIdType &gt; &amp;&#160;</td>
           <td class="paramname"><em>device_rel</em>, </td>
         </tr>
         <tr>
@@ -2239,7 +2239,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::unsafe_attribute_columns </td>
+          <td class="memname">auto&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::unsafe_attribute_columns </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2269,7 +2269,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const auto&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::unsafe_attribute_columns </td>
+          <td class="memname">const auto&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::unsafe_attribute_columns </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -2299,7 +2299,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const auto&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::unsafe_interned_columns </td>
+          <td class="memname">const auto&amp; <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::unsafe_interned_columns </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -2329,7 +2329,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::version </td>
+          <td class="memname">std::size_t <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::version </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -2362,13 +2362,13 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
         <tr>
           <td class="memname">void swap </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt; &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt; &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -2399,7 +2399,7 @@ template&lt;Semiring SR, ColumnElementTuple AttrTuple, template&lt; Semiring, Co
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abbbb5b89d1d5d5dac2dab15ea2014df5">IndexType</a>, Policy, ValueType, RowIdType &gt;::arity = std::tuple_size_v&lt;AttrTuple&gt;</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html">SRDatalog::Relation</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTuple, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#acd8b45a8d7c455e1fc02bdffd0a21135">IndexType</a>, Policy, ValueType, RowIdType &gt;::arity = std::tuple_size_v&lt;AttrTuple&gt;</td>
         </tr>
       </table>
   </td>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['x_1214',['x',['../d8/d43/structPoint.html#a8c779e11e694b20e0946105a9f5de842',1,'Point']]],
-  ['x_5f_1215',['x_',['../df/d65/tc__benchmark_8cpp.html#a7156f021f7e8e9fe831f71a9f139afbf',1,'tc_benchmark.cpp']]]
+  ['x_1562',['x',['../d8/d43/structPoint.html#a8c779e11e694b20e0946105a9f5de842',1,'Point::x()'],['../d7/d92/andersen__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d',1,'x():&#160;andersen_benchmark.cpp'],['../df/d65/tc__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d',1,'x():&#160;tc_benchmark.cpp'],['../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d',1,'x():&#160;tc_device_benchmark.cpp']]],
+  ['x_5f_1563',['x_',['../df/db0/join__benchmark_8cpp.html#a471a0d203758a40874d210e3741c4394',1,'x_():&#160;join_benchmark.cpp'],['../d7/d40/sg__device__benchmark_8cpp.html#aa6a03d28efd71a3f3977929d2cd4d56d',1,'x_():&#160;sg_device_benchmark.cpp'],['../dc/d77/test__gpu__sg__deduplication_8cpp.html#aa6a03d28efd71a3f3977929d2cd4d56d',1,'x_():&#160;test_gpu_sg_deduplication.cpp'],['../d7/d68/test__gpu__sg__fixpoint_8cpp.html#aa6a03d28efd71a3f3977929d2cd4d56d',1,'x_():&#160;test_gpu_sg_fixpoint.cpp'],['../df/d6f/test__gpu__sg__pipeline_8cpp.html#aa6a03d28efd71a3f3977929d2cd4d56d',1,'x_():&#160;test_gpu_sg_pipeline.cpp']]]
 ];

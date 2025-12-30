@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SRDatalog: SRDatalog::GPU::state::HandleStore&lt; IteratorPosMap, HandleType, NumHandles &gt; Struct Template Reference</title>
+<title>SRDatalog: SRDatalog::GPU::state::HandleStore&lt; HandleType, NumHandles &gt; Struct Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -67,69 +67,117 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../d6/d20/structSRDatalog_1_1GPU_1_1state_1_1HandleStore-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">SRDatalog::GPU::state::HandleStore&lt; IteratorPosMap, HandleType, NumHandles &gt; Struct Template Reference</div>  </div>
+<div class="title">SRDatalog::GPU::state::HandleStore&lt; HandleType, NumHandles &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Handle store - maps <a class="el" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html" title="Specification for a multi-column index on a relation.">IndexSpec</a> to <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html" title="POD-style Handle for GPU kernel usage (fatty pointer, need slim down in future)">NodeHandle</a> via compile-time position lookup.  
+<p><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html" title="HandleStore - Stores iterator handles in a linear array.">HandleStore</a> - Stores iterator handles in a linear array.  
  <a href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d5/d3f/store_8h_source.html">store.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for SRDatalog::GPU::state::HandleStore&lt; HandleType, NumHandles &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dd/d06/structSRDatalog_1_1GPU_1_1state_1_1HandleStore__coll__graph.png" border="0" usemap="#aSRDatalog_1_1GPU_1_1state_1_1HandleStore_3_01HandleType_00_01NumHandles_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="aSRDatalog_1_1GPU_1_1state_1_1HandleStore_3_01HandleType_00_01NumHandles_01_4_coll__map" id="aSRDatalog_1_1GPU_1_1state_1_1HandleStore_3_01HandleType_00_01NumHandles_01_4_coll__map">
+<area shape="rect" title="HandleStore &#45; Stores iterator handles in a linear array." alt="" coords="5,124,211,180"/>
+<area shape="rect" href="../../d5/da8/structSRDatalog_1_1GPU_1_1state_1_1ViewStore.html" title="Handle store &#45; maps IndexSpec to NodeHandle via compile&#45;time position lookup." alt="" coords="19,5,197,61"/>
+</map>
+<center><span class="legend">[<a href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a49484dc3717dbfab768e50297c256931"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a49484dc3717dbfab768e50297c256931">ViewType</a> = typename HandleType::View</td></tr>
+<tr class="separator:a49484dc3717dbfab768e50297c256931"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52c12a5f46f629dc4a9c4f05927a5ffa"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a52c12a5f46f629dc4a9c4f05927a5ffa">ViewStoreType</a> = <a class="el" href="../../d5/da8/structSRDatalog_1_1GPU_1_1state_1_1ViewStore.html">ViewStore</a>&lt; <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a49484dc3717dbfab768e50297c256931">ViewType</a>, NumHandles &gt;</td></tr>
+<tr class="separator:a52c12a5f46f629dc4a9c4f05927a5ffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a57d9a76f15177905fe2e9ef44912c4d0"><td class="memItemLeft" align="right" valign="top">__device__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a57d9a76f15177905fe2e9ef44912c4d0">HandleStore</a> ()=default</td></tr>
-<tr class="separator:a57d9a76f15177905fe2e9ef44912c4d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a995a7e4d5976ce42b5f3cd423b5b3de9"><td class="memTemplParams" colspan="2">template&lt;typename IndexSpec &gt; </td></tr>
-<tr class="memitem:a995a7e4d5976ce42b5f3cd423b5b3de9"><td class="memTemplItemLeft" align="right" valign="top">__device__ void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a995a7e4d5976ce42b5f3cd423b5b3de9">set</a> (const <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &amp;handle)</td></tr>
-<tr class="separator:a995a7e4d5976ce42b5f3cd423b5b3de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbffde22b08b3a96d1b4cea808670ad5"><td class="memTemplParams" colspan="2">template&lt;typename IndexSpec &gt; </td></tr>
-<tr class="memitem:acbffde22b08b3a96d1b4cea808670ad5"><td class="memTemplItemLeft" align="right" valign="top">__device__ <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#acbffde22b08b3a96d1b4cea808670ad5">get</a> ()</td></tr>
-<tr class="separator:acbffde22b08b3a96d1b4cea808670ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b5f70288a0a496010bc33997c0d1b5e"><td class="memTemplParams" colspan="2">template&lt;typename IndexSpec &gt; </td></tr>
-<tr class="memitem:a9b5f70288a0a496010bc33997c0d1b5e"><td class="memTemplItemLeft" align="right" valign="top">__device__ const <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a9b5f70288a0a496010bc33997c0d1b5e">get</a> () const</td></tr>
-<tr class="separator:a9b5f70288a0a496010bc33997c0d1b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b1b084e244b319e311b62e63abef02b"><td class="memItemLeft" align="right" valign="top">__device__ <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a2b1b084e244b319e311b62e63abef02b">operator[]</a> (std::size_t idx)</td></tr>
-<tr class="separator:a2b1b084e244b319e311b62e63abef02b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acae6ac8e0db306c21872f37af043326b"><td class="memItemLeft" align="right" valign="top">__device__ const <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#acae6ac8e0db306c21872f37af043326b">operator[]</a> (std::size_t idx) const</td></tr>
-<tr class="separator:acae6ac8e0db306c21872f37af043326b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b6dc195580291dc70dea8624e5276ff"><td class="memItemLeft" align="right" valign="top">__device__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a4b6dc195580291dc70dea8624e5276ff">copy_from</a> (const <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">HandleStore</a> &amp;other)</td></tr>
-<tr class="separator:a4b6dc195580291dc70dea8624e5276ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51d39a234a46fa88ba0ebad047e932ca"><td class="memItemLeft" align="right" valign="top">__device__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a51d39a234a46fa88ba0ebad047e932ca">HandleStore</a> ()=default</td></tr>
+<tr class="separator:a51d39a234a46fa88ba0ebad047e932ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6764a80551470679a716331d7377677d"><td class="memItemLeft" align="right" valign="top">__device__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a6764a80551470679a716331d7377677d">set_view_store</a> (const <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a52c12a5f46f629dc4a9c4f05927a5ffa">ViewStoreType</a> *vs)</td></tr>
+<tr class="separator:a6764a80551470679a716331d7377677d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7a9f4ddce474b485d265b9e75530a48"><td class="memItemLeft" align="right" valign="top">__device__ const <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a49484dc3717dbfab768e50297c256931">ViewType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#ac7a9f4ddce474b485d265b9e75530a48">get_view</a> (std::size_t idx) const</td></tr>
+<tr class="separator:ac7a9f4ddce474b485d265b9e75530a48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fe514471ae3269dd9011f0d89cdb5eb"><td class="memItemLeft" align="right" valign="top">__device__ <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a3fe514471ae3269dd9011f0d89cdb5eb">operator[]</a> (std::size_t idx)</td></tr>
+<tr class="separator:a3fe514471ae3269dd9011f0d89cdb5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a5578bc254a1158b6897d2f7f18bd8f"><td class="memItemLeft" align="right" valign="top">__device__ const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a0a5578bc254a1158b6897d2f7f18bd8f">operator[]</a> (std::size_t idx) const</td></tr>
+<tr class="separator:a0a5578bc254a1158b6897d2f7f18bd8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f93f976af678b3a7d343c2f82d19785"><td class="memItemLeft" align="right" valign="top">__device__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a2f93f976af678b3a7d343c2f82d19785">copy_from</a> (const <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">HandleStore</a> &amp;other)</td></tr>
+<tr class="separator:a2f93f976af678b3a7d343c2f82d19785"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a13297e2f2c6a8a9595409ed719dd3d28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a13297e2f2c6a8a9595409ed719dd3d28">handles_</a> [NumHandles]</td></tr>
-<tr class="separator:a13297e2f2c6a8a9595409ed719dd3d28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6125ada637105caeff6d31b43a5d14b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a6125ada637105caeff6d31b43a5d14b8">handles_</a> [NumHandles]</td></tr>
+<tr class="separator:a6125ada637105caeff6d31b43a5d14b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3de7278fcc01a1a42e2b0bf81c697ef"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a52c12a5f46f629dc4a9c4f05927a5ffa">ViewStoreType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#ad3de7278fcc01a1a42e2b0bf81c697ef">view_store_</a> {nullptr}</td></tr>
+<tr class="separator:ad3de7278fcc01a1a42e2b0bf81c697ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a29b323a3d26fe5aad8e4afabcc4de26f"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a29b323a3d26fe5aad8e4afabcc4de26f">num_handles</a> = NumHandles</td></tr>
-<tr class="separator:a29b323a3d26fe5aad8e4afabcc4de26f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0520dc2fe0e973d917e4c71682b58a26"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a0520dc2fe0e973d917e4c71682b58a26">num_handles</a> = NumHandles</td></tr>
+<tr class="separator:a0520dc2fe0e973d917e4c71682b58a26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename IteratorPosMap, typename HandleType, std::size_t NumHandles = decltype(boost::hana::size(IteratorPosMap{}))::value&gt;<br />
-struct SRDatalog::GPU::state::HandleStore&lt; IteratorPosMap, HandleType, NumHandles &gt;</h3>
+<div class="textblock"><h3>template&lt;typename HandleType, std::size_t NumHandles&gt;<br />
+struct SRDatalog::GPU::state::HandleStore&lt; HandleType, NumHandles &gt;</h3>
 
-<p>Handle store - maps <a class="el" href="../../d1/d33/structSRDatalog_1_1IndexSpec.html" title="Specification for a multi-column index on a relation.">IndexSpec</a> to <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html" title="POD-style Handle for GPU kernel usage (fatty pointer, need slim down in future)">NodeHandle</a> via compile-time position lookup. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a57d9a76f15177905fe2e9ef44912c4d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57d9a76f15177905fe2e9ef44912c4d0">&#9670;&nbsp;</a></span>HandleStore()</h2>
+<p><a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html" title="HandleStore - Stores iterator handles in a linear array.">HandleStore</a> - Stores iterator handles in a linear array. </p>
+<p>accessing handles is done by index (0 to NumHandles-1). </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a52c12a5f46f629dc4a9c4f05927a5ffa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52c12a5f46f629dc4a9c4f05927a5ffa">&#9670;&nbsp;</a></span>ViewStoreType</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorPosMap , typename HandleType , std::size_t NumHandles = decltype(boost::hana::size(IteratorPosMap{}))::value&gt; </div>
+template&lt;typename HandleType , std::size_t NumHandles&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::<a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a52c12a5f46f629dc4a9c4f05927a5ffa">ViewStoreType</a> =  <a class="el" href="../../d5/da8/structSRDatalog_1_1GPU_1_1state_1_1ViewStore.html">ViewStore</a>&lt;<a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a49484dc3717dbfab768e50297c256931">ViewType</a>, NumHandles&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a49484dc3717dbfab768e50297c256931"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49484dc3717dbfab768e50297c256931">&#9670;&nbsp;</a></span>ViewType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HandleType , std::size_t NumHandles&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::<a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a49484dc3717dbfab768e50297c256931">ViewType</a> =  typename HandleType::View</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a51d39a234a46fa88ba0ebad047e932ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51d39a234a46fa88ba0ebad047e932ca">&#9670;&nbsp;</a></span>HandleStore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HandleType , std::size_t NumHandles&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">__device__ <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6aa6c3da4d7a9ef1e1571ebc4170a7cc">IteratorPosMap</a>, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::<a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">HandleStore</a> </td>
+          <td class="memname">__device__ <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::<a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">HandleStore</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -145,21 +193,21 @@ template&lt;typename IteratorPosMap , typename HandleType , std::size_t NumHandl
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4b6dc195580291dc70dea8624e5276ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b6dc195580291dc70dea8624e5276ff">&#9670;&nbsp;</a></span>copy_from()</h2>
+<a id="a2f93f976af678b3a7d343c2f82d19785"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f93f976af678b3a7d343c2f82d19785">&#9670;&nbsp;</a></span>copy_from()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorPosMap , typename HandleType , std::size_t NumHandles = decltype(boost::hana::size(IteratorPosMap{}))::value&gt; </div>
+template&lt;typename HandleType , std::size_t NumHandles&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">__device__ void <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6aa6c3da4d7a9ef1e1571ebc4170a7cc">IteratorPosMap</a>, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::copy_from </td>
+          <td class="memname">__device__ void <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::copy_from </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">HandleStore</a>&lt; <a class="el" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6aa6c3da4d7a9ef1e1571ebc4170a7cc">IteratorPosMap</a>, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">HandleStore</a>&lt; <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt; &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -173,105 +221,19 @@ template&lt;typename IteratorPosMap , typename HandleType , std::size_t NumHandl
 
 </div>
 </div>
-<a id="acbffde22b08b3a96d1b4cea808670ad5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbffde22b08b3a96d1b4cea808670ad5">&#9670;&nbsp;</a></span>get() <span class="overload">[1/2]</span></h2>
+<a id="ac7a9f4ddce474b485d265b9e75530a48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7a9f4ddce474b485d265b9e75530a48">&#9670;&nbsp;</a></span>get_view()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorPosMap , typename HandleType , std::size_t NumHandles = decltype(boost::hana::size(IteratorPosMap{}))::value&gt; </div>
-<div class="memtemplate">
-template&lt;typename IndexSpec &gt; </div>
+template&lt;typename HandleType , std::size_t NumHandles&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">__device__ <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>&amp; <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6aa6c3da4d7a9ef1e1571ebc4170a7cc">IteratorPosMap</a>, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::get </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9b5f70288a0a496010bc33997c0d1b5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b5f70288a0a496010bc33997c0d1b5e">&#9670;&nbsp;</a></span>get() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename IteratorPosMap , typename HandleType , std::size_t NumHandles = decltype(boost::hana::size(IteratorPosMap{}))::value&gt; </div>
-<div class="memtemplate">
-template&lt;typename IndexSpec &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">__device__ const <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>&amp; <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6aa6c3da4d7a9ef1e1571ebc4170a7cc">IteratorPosMap</a>, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::get </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2b1b084e244b319e311b62e63abef02b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b1b084e244b319e311b62e63abef02b">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename IteratorPosMap , typename HandleType , std::size_t NumHandles = decltype(boost::hana::size(IteratorPosMap{}))::value&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">__device__ <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>&amp; <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6aa6c3da4d7a9ef1e1571ebc4170a7cc">IteratorPosMap</a>, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::operator[] </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>idx</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acae6ac8e0db306c21872f37af043326b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acae6ac8e0db306c21872f37af043326b">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename IteratorPosMap , typename HandleType , std::size_t NumHandles = decltype(boost::hana::size(IteratorPosMap{}))::value&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">__device__ const <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>&amp; <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6aa6c3da4d7a9ef1e1571ebc4170a7cc">IteratorPosMap</a>, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::operator[] </td>
+          <td class="memname">__device__ const <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a49484dc3717dbfab768e50297c256931">ViewType</a>&amp; <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::get_view </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>idx</em></td><td>)</td>
@@ -287,24 +249,78 @@ template&lt;typename IteratorPosMap , typename HandleType , std::size_t NumHandl
 
 </div>
 </div>
-<a id="a995a7e4d5976ce42b5f3cd423b5b3de9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a995a7e4d5976ce42b5f3cd423b5b3de9">&#9670;&nbsp;</a></span>set()</h2>
+<a id="a3fe514471ae3269dd9011f0d89cdb5eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fe514471ae3269dd9011f0d89cdb5eb">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorPosMap , typename HandleType , std::size_t NumHandles = decltype(boost::hana::size(IteratorPosMap{}))::value&gt; </div>
-<div class="memtemplate">
-template&lt;typename IndexSpec &gt; </div>
+template&lt;typename HandleType , std::size_t NumHandles&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">__device__ void <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6aa6c3da4d7a9ef1e1571ebc4170a7cc">IteratorPosMap</a>, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::set </td>
+          <td class="memname">__device__ <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>&amp; <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::operator[] </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> &amp;&#160;</td>
-          <td class="paramname"><em>handle</em></td><td>)</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a5578bc254a1158b6897d2f7f18bd8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a5578bc254a1158b6897d2f7f18bd8f">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HandleType , std::size_t NumHandles&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">__device__ const <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>&amp; <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6764a80551470679a716331d7377677d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6764a80551470679a716331d7377677d">&#9670;&nbsp;</a></span>set_view_store()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HandleType , std::size_t NumHandles&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">__device__ void <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::set_view_store </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a52c12a5f46f629dc4a9c4f05927a5ffa">ViewStoreType</a> *&#160;</td>
+          <td class="paramname"><em>vs</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -318,35 +334,35 @@ template&lt;typename IndexSpec &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a13297e2f2c6a8a9595409ed719dd3d28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13297e2f2c6a8a9595409ed719dd3d28">&#9670;&nbsp;</a></span>handles_</h2>
+<a id="a6125ada637105caeff6d31b43a5d14b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6125ada637105caeff6d31b43a5d14b8">&#9670;&nbsp;</a></span>handles_</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorPosMap , typename HandleType , std::size_t NumHandles = decltype(boost::hana::size(IteratorPosMap{}))::value&gt; </div>
+template&lt;typename HandleType , std::size_t NumHandles&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6aa6c3da4d7a9ef1e1571ebc4170a7cc">IteratorPosMap</a>, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::handles_[NumHandles]</td>
+          <td class="memname"><a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::handles_[NumHandles]</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a29b323a3d26fe5aad8e4afabcc4de26f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29b323a3d26fe5aad8e4afabcc4de26f">&#9670;&nbsp;</a></span>num_handles</h2>
+<a id="a0520dc2fe0e973d917e4c71682b58a26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0520dc2fe0e973d917e4c71682b58a26">&#9670;&nbsp;</a></span>num_handles</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorPosMap , typename HandleType , std::size_t NumHandles = decltype(boost::hana::size(IteratorPosMap{}))::value&gt; </div>
+template&lt;typename HandleType , std::size_t NumHandles&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6aa6c3da4d7a9ef1e1571ebc4170a7cc">IteratorPosMap</a>, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::num_handles = NumHandles</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::num_handles = NumHandles</td>
         </tr>
       </table>
   </td>
@@ -354,6 +370,22 @@ template&lt;typename IteratorPosMap , typename HandleType , std::size_t NumHandl
 <span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad3de7278fcc01a1a42e2b0bf81c697ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3de7278fcc01a1a42e2b0bf81c697ef">&#9670;&nbsp;</a></span>view_store_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HandleType , std::size_t NumHandles&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a52c12a5f46f629dc4a9c4f05927a5ffa">ViewStoreType</a>* <a class="el" href="../../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html">SRDatalog::GPU::state::HandleStore</a>&lt; <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, NumHandles &gt;::view_store_ {nullptr}</td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>

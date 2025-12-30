@@ -81,46 +81,57 @@ $(function() {
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&quot;../semiring.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&quot;./store.h&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace</span> SRDatalog::<a class="code" href="../../dc/d33/namespaceSRDatalog.html">GPU</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace</span> SRDatalog::<a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a> {</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> * @brief Check if tuple should be emitted (not duplicate in full relation)</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Schema, <span class="keyword">typename</span> Terms, <span class="keyword">typename</span> VarPosMap, <span class="keyword">typename</span> ValueType,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;          <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t NumVars, <span class="keyword">typename</span> HandleType, Semiring SR&gt;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;          <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t NumVars, <span class="keyword">typename</span> HandleType, Semiring SR, <span class="keyword">typename</span> IndexSpec&gt;</div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html">   19</a></span>&#160;<span class="keyword">struct</span> <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html">FilterAgainstFull</a> {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Group&gt;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#ac6c5dbdc77054be9729ef8db586da1ba">   22</a></span>&#160;  <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#ac6c5dbdc77054be9729ef8db586da1ba">__device__</a> <span class="keyword">__attribute__</span>((always_inline)) <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#ac6c5dbdc77054be9729ef8db586da1ba">should_emit</a>(</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      <span class="keyword">const</span> <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#ac6c5dbdc77054be9729ef8db586da1ba">state</a>::<a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#ac6c5dbdc77054be9729ef8db586da1ba">VarStore</a>&lt;<a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#ac6c5dbdc77054be9729ef8db586da1ba">VarPosMap</a>, <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#ac6c5dbdc77054be9729ef8db586da1ba">ValueType</a>, <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#ac6c5dbdc77054be9729ef8db586da1ba">NumVars</a>&gt;&amp; <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#ac6c5dbdc77054be9729ef8db586da1ba">vars</a>, <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#ac6c5dbdc77054be9729ef8db586da1ba">HandleType</a> <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#ac6c5dbdc77054be9729ef8db586da1ba">full_handle</a>,</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#ac6c5dbdc77054be9729ef8db586da1ba">semiring_value_t</a>&lt;<a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#ac6c5dbdc77054be9729ef8db586da1ba">SR</a>&gt; <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#ac6c5dbdc77054be9729ef8db586da1ba">new_prov</a>, <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#ac6c5dbdc77054be9729ef8db586da1ba">Group</a> <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#ac6c5dbdc77054be9729ef8db586da1ba">tile</a>) {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// Navigate through index using prefix lookups</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    HandleType current = full_handle;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    [&amp;]&lt;std::size_t... Is&gt;(std::index_sequence&lt;Is...&gt;) {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      ((current.valid()</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            ? (current = current.prefix(vars.<span class="keyword">template</span> get&lt;std::tuple_element_t&lt;Is, Terms&gt;&gt;(), tile),</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;               0)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            : 0),</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;       ...);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }(std::make_index_sequence&lt;std::tuple_size_v&lt;Terms&gt;&gt;{});</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">if</span> (!current.valid()) {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;  <span class="comment">// Tuple doesn&#39;t exist -&gt; emit</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::is_same_v&lt;SR, BooleanSR&gt;) {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">false</span>;  <span class="comment">// Boolean: exists means skip</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="comment">// Check if new provenance improves result</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keyword">auto</span> existing_prov = current.<span class="keyword">template</span> prov&lt;Group::size()&gt;();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="keyword">auto</span> combined = sr_add&lt;SR&gt;(existing_prov, new_prov);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="keywordflow">return</span> combined != existing_prov;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}  <span class="comment">// namespace SRDatalog::GPU</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">   22</a></span>&#160;  <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">__device__</a> <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">should_emit</a>(<span class="keyword">const</span> <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">state</a>::<a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">VarStore</a>&lt;<a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">VarPosMap</a>, <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">ValueType</a>, <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">NumVars</a>&gt;&amp; <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">vars</a>,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                     <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">HandleType</a> <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">full_handle</a>,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                     <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">HandleType</a>::<a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">View</a>&amp; <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">full_view</a>,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                     <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">semiring_value_t</a>&lt;<a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">SR</a>&gt; <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">new_prov</a>, <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">Group</a> <a class="code" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">tile</a>) {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">// Navigate through index using prefix lookups of IndexSpec column order</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">// IndexSpec::column_indexes_type is integer_sequence&lt;int, Col1, Col0...&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// These int indices refer to the position in Terms tuple (which matches Schema order)</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">using</span> ColSeq = <span class="keyword">typename</span> IndexSpec::column_indexes_type;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    HandleType current = full_handle;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">// Helper to short-circuit: if we become invalid, stops further prefix calls</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">auto</span> traverse = [&amp;]&lt;<span class="keywordtype">int</span>... Is&gt;(std::integer_sequence&lt;<span class="keywordtype">int</span>, Is...&gt;) {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      ((current.valid()</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            ? (current = current.prefix(vars.<span class="keyword">template</span> get&lt;std::tuple_element_t&lt;Is, Terms&gt;&gt;(), tile,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                        full_view),</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;               0)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            : 0),</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;       ...);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    };</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    traverse(ColSeq{});</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">if</span> (!current.valid()) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;  <span class="comment">// Tuple doesn&#39;t exist -&gt; emit</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">// Tuple exists in FULL - should NOT emit (it&#39;s a duplicate)</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::is_same_v&lt;SR, BooleanSR&gt;) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">false</span>;  <span class="comment">// Boolean: exists means skip</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="comment">// Check if new provenance improves result</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="keyword">auto</span> existing_prov = current.<span class="keyword">template</span> prov&lt;Group::size()&gt;(full_view);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keyword">auto</span> combined = sr_add&lt;SR&gt;(existing_prov, new_prov);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keywordflow">return</span> combined != existing_prov;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}  <span class="comment">// namespace SRDatalog::GPU</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

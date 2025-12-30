@@ -91,7 +91,7 @@ $(function() {
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">iostream</span><span class="preprocessor">&gt;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace</span> SRDatalog {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">using</span> <span class="keyword">namespace</span> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html">AST</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">using</span> <span class="keyword">namespace</span> <a class="code" href="../../dc/d33/namespaceSRDatalog.html">AST</a>;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace</span> <a class="code" href="../../d6/d03/namespaceSRDatalog_1_1detail.html">detail</a> {</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">// Forward declaration for IterateInsertFull (defined later in this namespace)</span></div>
@@ -943,117 +943,116 @@ $(function() {
 <div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;      <span class="comment">// Compute the variable-to-position map</span></div>
 <div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;      <span class="keyword">using</span> VarPosMap = <span class="keyword">typename</span> mir::ComputeVarPosMap&lt;GlobalJoinPlan&gt;::type;</div>
 <div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;      <span class="comment">// Compute the IndexSpecT-to-iterator-position map</span></div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;      <span class="keyword">using</span> IteratorPosMap = <span class="keyword">typename</span> mir::ComputePipelineIteratorPosMap&lt;MIR&gt;::type;</div>
-<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;      <span class="comment">// Create Pipeline</span></div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;      <span class="keyword">using</span> Pipeline = mir::Pipeline&lt;MIR, VarPosMap, IteratorPosMap&gt;;</div>
-<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160; </div>
-<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;      <span class="comment">// Execute using the new tuple-based pipeline execution engine</span></div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;      execute_pipeline&lt;Pipeline&gt;(db, 0, <span class="keyword">true</span>);  <span class="comment">// non_iterative = true</span></div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;    });</div>
-<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160; </div>
-<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;    <span class="comment">// Rebuild indexes only for IncrementalRelations (relations in rule heads) on FULL_VER</span></div>
-<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;    mp::mp_for_each&lt;FilteredIndexSpecs&gt;([&amp;]&lt;<span class="keyword">typename</span> IndexSpecT&gt;(IndexSpecT) {</div>
-<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;      <span class="keyword">using</span> Schema = <span class="keyword">typename</span> IndexSpecT::schema_type;</div>
-<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;      <span class="keyword">using</span> ColSeq = <span class="keyword">typename</span> IndexSpecT::column_indexes_type;</div>
-<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;      <span class="keyword">auto</span>&amp; rel = get_relation_by_schema&lt;Schema, <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>&gt;(db);</div>
-<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;      <span class="keyword">auto</span> runtime_spec = []&lt;<span class="keywordtype">int</span>... Cols&gt;(std::integer_sequence&lt;<span class="keywordtype">int</span>, Cols...&gt;) {</div>
-<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;        <span class="keywordflow">return</span> IndexSpec{{Cols...}};</div>
-<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;      }(ColSeq{});</div>
-<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;      rel.ensure_index(runtime_spec);</div>
-<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;    });</div>
-<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160; </div>
-<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;    <span class="comment">// For debugging: clear all indexes after query execution</span></div>
-<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;    detail::clear_all_indexes_for_debug(db);</div>
-<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;  }</div>
-<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;};</div>
-<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160; </div>
-<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;<span class="comment"> * @brief Functor for executing queries (non-iterative rule sets or fixpoint).</span></div>
-<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;<span class="comment"> * @details This is the main entry point for executing queries. It dispatches</span></div>
-<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;<span class="comment"> *          to the appropriate execution functor based on the query type:</span></div>
-<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;<span class="comment"> *          - CFixpoint: uses ExecuteRulesForFixpoint functor</span></div>
-<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;<span class="comment"> *          - CNonIterativeRuleSets: uses ExecuteRulesForNonIterativeRuleSets functor</span></div>
-<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;<span class="comment"> *          Exposes compile-time types for debugging and clarity by providing</span></div>
-<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;<span class="comment"> *          access to the underlying executor types.</span></div>
-<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;<span class="comment"> * @tparam Q A CQuery type (either CFixpoint or CNonIterativeRuleSets)</span></div>
-<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;<span class="keyword">template</span> &lt;CQuery Q&gt;</div>
-<div class="line"><a name="l00912"></a><span class="lineno"><a class="line" href="../../d9/d0e/structSRDatalog_1_1ExecuteQuery.html">  912</a></span>&#160;<span class="keyword">struct</span> <a class="code" href="../../d9/d0e/structSRDatalog_1_1ExecuteQuery.html">ExecuteQuery</a> {</div>
-<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;  <span class="comment">/**</span></div>
-<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;<span class="comment">   * @brief Execute the query.</span></div>
-<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;<span class="comment">   *</span></div>
-<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;<span class="comment">   * @tparam DB The semi-naive database type</span></div>
-<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;<span class="comment">   * @param db The runtime database</span></div>
-<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;<span class="comment">   * @param max_iterations Maximum number of iterations for fixpoint queries (default: unlimited)</span></div>
-<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;<span class="comment">   * @return Number of iterations executed</span></div>
-<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;  <span class="keyword">template</span> &lt;AST::CSemiNaiveDatabase DB&gt;</div>
-<div class="line"><a name="l00922"></a><span class="lineno"><a class="line" href="../../d9/d0e/structSRDatalog_1_1ExecuteQuery.html#a406555bc24a19fd7a9a2e0e570137a53">  922</a></span>&#160;  <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t <a class="code" href="../../d9/d0e/structSRDatalog_1_1ExecuteQuery.html#a406555bc24a19fd7a9a2e0e570137a53">operator</a>()(DB&amp; db, <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t max_iterations = SIZE_MAX) <span class="keyword">const</span> {</div>
-<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (CFixpoint&lt;Q&gt;) {</div>
-<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;      <span class="keywordflow">return</span> ExecuteRulesForFixpoint&lt;Q&gt;{}(db, max_iterations);</div>
-<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (CNonIterativeRuleSets&lt;Q&gt;) {</div>
-<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;      ExecuteRulesForNonIterativeRuleSets&lt;Q&gt;{}(db);</div>
-<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;      <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;      <span class="keyword">static_assert</span>(<span class="keyword">false</span>, <span class="stringliteral">&quot;Unknown query type&quot;</span>);</div>
-<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;    }</div>
-<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;  }</div>
-<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;};</div>
-<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160; </div>
-<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;<span class="comment">// Specialization for CFixpoint to expose plan types</span></div>
-<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;<span class="keyword">template</span> &lt;CFixpoint Q&gt;</div>
-<div class="line"><a name="l00936"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html">  936</a></span>&#160;<span class="keyword">struct</span> ExecuteQuery&lt;Q&gt; {</div>
-<div class="line"><a name="l00937"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a754a23093ed41f75b21b6302eb56a6a0">  937</a></span>&#160;  <span class="keyword">using</span> Executor = ExecuteRulesForFixpoint&lt;Q&gt;;</div>
-<div class="line"><a name="l00938"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a6522a12c6d2ca80903a7b31fa8917ce1">  938</a></span>&#160;  <span class="keyword">using</span> Plan = <span class="keyword">typename</span> Executor::Plan;</div>
-<div class="line"><a name="l00939"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a235eca411bdd71845641a5c76ffc1cbe">  939</a></span>&#160;  <span class="keyword">using</span> IncrementalRelations = <span class="keyword">typename</span> Executor::IncrementalRelations;</div>
-<div class="line"><a name="l00940"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a9977f4d569396fe156fdb80120d14993">  940</a></span>&#160;  <span class="keyword">using</span> AllIndexSpecs = <span class="keyword">typename</span> Executor::AllIndexSpecs;</div>
-<div class="line"><a name="l00941"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a4f0714b6f83f5b40d8ff642cf73d2ef7">  941</a></span>&#160;  <span class="keyword">using</span> CanonicalIndexSpecs = <span class="keyword">typename</span> Executor::CanonicalIndexSpecs;</div>
-<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160; </div>
-<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;  <span class="keyword">template</span> &lt;AST::CSemiNaiveDatabase DB&gt;</div>
-<div class="line"><a name="l00944"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a406555bc24a19fd7a9a2e0e570137a53">  944</a></span>&#160;  std::size_t operator()(DB&amp; db, std::size_t max_iterations = SIZE_MAX) <span class="keyword">const</span> {</div>
-<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;    <span class="keywordflow">return</span> Executor{}(db, max_iterations);</div>
-<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;  }</div>
-<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;};</div>
-<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160; </div>
-<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;<span class="comment">// Specialization for CNonIterativeRuleSets to expose plan types</span></div>
-<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;<span class="keyword">template</span> &lt;CNonIterativeRuleSets Q&gt;</div>
-<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;<span class="keyword">struct</span> ExecuteQuery&lt;Q&gt; {</div>
-<div class="line"><a name="l00952"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a176f7137fd8547fab2a25b554cf6a439">  952</a></span>&#160;  <span class="keyword">using</span> Executor = ExecuteRulesForNonIterativeRuleSets&lt;Q&gt;;</div>
-<div class="line"><a name="l00953"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a48f19a38d17c182a4b8b05376a9e157f">  953</a></span>&#160;  <span class="keyword">using</span> RuleList = <span class="keyword">typename</span> Executor::RuleList;</div>
-<div class="line"><a name="l00954"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a235eca411bdd71845641a5c76ffc1cbe">  954</a></span>&#160;  <span class="keyword">using</span> IncrementalRelations = <span class="keyword">typename</span> Executor::IncrementalRelations;</div>
-<div class="line"><a name="l00955"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a9977f4d569396fe156fdb80120d14993">  955</a></span>&#160;  <span class="keyword">using</span> AllIndexSpecs = <span class="keyword">typename</span> Executor::AllIndexSpecs;</div>
-<div class="line"><a name="l00956"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a4f0714b6f83f5b40d8ff642cf73d2ef7">  956</a></span>&#160;  <span class="keyword">using</span> CanonicalIndexSpecs = <span class="keyword">typename</span> Executor::CanonicalIndexSpecs;</div>
-<div class="line"><a name="l00957"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#af6fb92feeefd010c54cfd9896621b25a">  957</a></span>&#160;  <span class="keyword">using</span> MIRPlans = <span class="keyword">typename</span> Executor::MIRPlans;</div>
-<div class="line"><a name="l00958"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#adffe4f4b21f7453ff7f09e8f7971847b">  958</a></span>&#160;  <span class="keyword">using</span> FilteredIndexSpecs = <span class="keyword">typename</span> Executor::FilteredIndexSpecs;</div>
-<div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160; </div>
-<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;  <span class="keyword">template</span> &lt;AST::CSemiNaiveDatabase DB&gt;</div>
-<div class="line"><a name="l00961"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a406555bc24a19fd7a9a2e0e570137a53">  961</a></span>&#160;  std::size_t operator()(DB&amp; db, std::size_t max_iterations = SIZE_MAX) <span class="keyword">const</span> {</div>
-<div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;    Executor{}(db);</div>
-<div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160;    <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160;  }</div>
-<div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160;};</div>
-<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160; </div>
-<div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;<span class="comment"> * @brief Convenience function wrapper for ExecuteQuery functor (API compatibility).</span></div>
-<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;<span class="comment"> * @details This function provides backward compatibility for code that uses</span></div>
-<div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;<span class="comment"> *          the function-style API. It simply instantiates the functor and calls it.</span></div>
-<div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;<span class="comment"> * @tparam Q A CQuery type (either CFixpoint or CNonIterativeRuleSets)</span></div>
-<div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160;<span class="comment"> * @tparam DB The semi-naive database type</span></div>
-<div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160;<span class="comment"> * @param db The runtime database</span></div>
-<div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;<span class="comment"> * @param max_iterations Maximum number of iterations for fixpoint queries (default: unlimited)</span></div>
-<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;<span class="comment"> * @return Number of iterations executed</span></div>
-<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;<span class="keyword">template</span> &lt;<a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">CQuery</a> <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">Q</a>, <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">AST</a>::<a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">CSemiNaiveDatabase</a> <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">DB</a>&gt;</div>
-<div class="line"><a name="l00980"></a><span class="lineno"><a class="line" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">  980</a></span>&#160;<a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">std</a>::<a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">size_t</a> <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">execute_query</a>(DB&amp; db, std::size_t max_iterations = SIZE_MAX) {</div>
-<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;  <span class="keywordflow">return</span> ExecuteQuery&lt;Q&gt;{}(db, max_iterations);</div>
-<div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;}</div>
-<div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160; </div>
-<div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;}  <span class="comment">// namespace SRDatalog</span></div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;      <span class="comment">// Create Pipeline</span></div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;      <span class="keyword">using</span> Pipeline = mir::Pipeline&lt;MIR, VarPosMap&gt;;</div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160; </div>
+<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;      <span class="comment">// Execute using the new tuple-based pipeline execution engine</span></div>
+<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;      execute_pipeline&lt;Pipeline&gt;(db, 0, <span class="keyword">true</span>);  <span class="comment">// non_iterative = true</span></div>
+<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;    });</div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160; </div>
+<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;    <span class="comment">// Rebuild indexes only for IncrementalRelations (relations in rule heads) on FULL_VER</span></div>
+<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;    mp::mp_for_each&lt;FilteredIndexSpecs&gt;([&amp;]&lt;<span class="keyword">typename</span> IndexSpecT&gt;(IndexSpecT) {</div>
+<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;      <span class="keyword">using</span> Schema = <span class="keyword">typename</span> IndexSpecT::schema_type;</div>
+<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;      <span class="keyword">using</span> ColSeq = <span class="keyword">typename</span> IndexSpecT::column_indexes_type;</div>
+<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;      <span class="keyword">auto</span>&amp; rel = get_relation_by_schema&lt;Schema, <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>&gt;(db);</div>
+<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;      <span class="keyword">auto</span> runtime_spec = []&lt;<span class="keywordtype">int</span>... Cols&gt;(std::integer_sequence&lt;<span class="keywordtype">int</span>, Cols...&gt;) {</div>
+<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;        <span class="keywordflow">return</span> IndexSpec{{Cols...}};</div>
+<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;      }(ColSeq{});</div>
+<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;      rel.ensure_index(runtime_spec);</div>
+<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;    });</div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160; </div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;    <span class="comment">// For debugging: clear all indexes after query execution</span></div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;    detail::clear_all_indexes_for_debug(db);</div>
+<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;  }</div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;};</div>
+<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160; </div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;<span class="comment"> * @brief Functor for executing queries (non-iterative rule sets or fixpoint).</span></div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;<span class="comment"> * @details This is the main entry point for executing queries. It dispatches</span></div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;<span class="comment"> *          to the appropriate execution functor based on the query type:</span></div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;<span class="comment"> *          - CFixpoint: uses ExecuteRulesForFixpoint functor</span></div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;<span class="comment"> *          - CNonIterativeRuleSets: uses ExecuteRulesForNonIterativeRuleSets functor</span></div>
+<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;<span class="comment"> *          Exposes compile-time types for debugging and clarity by providing</span></div>
+<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;<span class="comment"> *          access to the underlying executor types.</span></div>
+<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;<span class="comment"> * @tparam Q A CQuery type (either CFixpoint or CNonIterativeRuleSets)</span></div>
+<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;<span class="keyword">template</span> &lt;CQuery Q&gt;</div>
+<div class="line"><a name="l00911"></a><span class="lineno"><a class="line" href="../../d9/d0e/structSRDatalog_1_1ExecuteQuery.html">  911</a></span>&#160;<span class="keyword">struct</span> <a class="code" href="../../d9/d0e/structSRDatalog_1_1ExecuteQuery.html">ExecuteQuery</a> {</div>
+<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;  <span class="comment">/**</span></div>
+<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;<span class="comment">   * @brief Execute the query.</span></div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;<span class="comment">   * @tparam DB The semi-naive database type</span></div>
+<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;<span class="comment">   * @param db The runtime database</span></div>
+<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;<span class="comment">   * @param max_iterations Maximum number of iterations for fixpoint queries (default: unlimited)</span></div>
+<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;<span class="comment">   * @return Number of iterations executed</span></div>
+<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;  <span class="keyword">template</span> &lt;AST::CSemiNaiveDatabase DB&gt;</div>
+<div class="line"><a name="l00921"></a><span class="lineno"><a class="line" href="../../d9/d0e/structSRDatalog_1_1ExecuteQuery.html#a406555bc24a19fd7a9a2e0e570137a53">  921</a></span>&#160;  <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t <a class="code" href="../../d9/d0e/structSRDatalog_1_1ExecuteQuery.html#a406555bc24a19fd7a9a2e0e570137a53">operator</a>()(DB&amp; db, <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t max_iterations = SIZE_MAX) <span class="keyword">const</span> {</div>
+<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (CFixpoint&lt;Q&gt;) {</div>
+<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;      <span class="keywordflow">return</span> ExecuteRulesForFixpoint&lt;Q&gt;{}(db, max_iterations);</div>
+<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (CNonIterativeRuleSets&lt;Q&gt;) {</div>
+<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;      ExecuteRulesForNonIterativeRuleSets&lt;Q&gt;{}(db);</div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;      <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;      <span class="keyword">static_assert</span>(<span class="keyword">false</span>, <span class="stringliteral">&quot;Unknown query type&quot;</span>);</div>
+<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;    }</div>
+<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;  }</div>
+<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;};</div>
+<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160; </div>
+<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;<span class="comment">// Specialization for CFixpoint to expose plan types</span></div>
+<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;<span class="keyword">template</span> &lt;CFixpoint Q&gt;</div>
+<div class="line"><a name="l00935"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html">  935</a></span>&#160;<span class="keyword">struct</span> ExecuteQuery&lt;Q&gt; {</div>
+<div class="line"><a name="l00936"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a754a23093ed41f75b21b6302eb56a6a0">  936</a></span>&#160;  <span class="keyword">using</span> Executor = ExecuteRulesForFixpoint&lt;Q&gt;;</div>
+<div class="line"><a name="l00937"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a6522a12c6d2ca80903a7b31fa8917ce1">  937</a></span>&#160;  <span class="keyword">using</span> Plan = <span class="keyword">typename</span> Executor::Plan;</div>
+<div class="line"><a name="l00938"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a235eca411bdd71845641a5c76ffc1cbe">  938</a></span>&#160;  <span class="keyword">using</span> IncrementalRelations = <span class="keyword">typename</span> Executor::IncrementalRelations;</div>
+<div class="line"><a name="l00939"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a9977f4d569396fe156fdb80120d14993">  939</a></span>&#160;  <span class="keyword">using</span> AllIndexSpecs = <span class="keyword">typename</span> Executor::AllIndexSpecs;</div>
+<div class="line"><a name="l00940"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a4f0714b6f83f5b40d8ff642cf73d2ef7">  940</a></span>&#160;  <span class="keyword">using</span> CanonicalIndexSpecs = <span class="keyword">typename</span> Executor::CanonicalIndexSpecs;</div>
+<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160; </div>
+<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;  <span class="keyword">template</span> &lt;AST::CSemiNaiveDatabase DB&gt;</div>
+<div class="line"><a name="l00943"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a406555bc24a19fd7a9a2e0e570137a53">  943</a></span>&#160;  std::size_t operator()(DB&amp; db, std::size_t max_iterations = SIZE_MAX) <span class="keyword">const</span> {</div>
+<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;    <span class="keywordflow">return</span> Executor{}(db, max_iterations);</div>
+<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;  }</div>
+<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;};</div>
+<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160; </div>
+<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;<span class="comment">// Specialization for CNonIterativeRuleSets to expose plan types</span></div>
+<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;<span class="keyword">template</span> &lt;CNonIterativeRuleSets Q&gt;</div>
+<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;<span class="keyword">struct</span> ExecuteQuery&lt;Q&gt; {</div>
+<div class="line"><a name="l00951"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a176f7137fd8547fab2a25b554cf6a439">  951</a></span>&#160;  <span class="keyword">using</span> Executor = ExecuteRulesForNonIterativeRuleSets&lt;Q&gt;;</div>
+<div class="line"><a name="l00952"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a48f19a38d17c182a4b8b05376a9e157f">  952</a></span>&#160;  <span class="keyword">using</span> RuleList = <span class="keyword">typename</span> Executor::RuleList;</div>
+<div class="line"><a name="l00953"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a235eca411bdd71845641a5c76ffc1cbe">  953</a></span>&#160;  <span class="keyword">using</span> IncrementalRelations = <span class="keyword">typename</span> Executor::IncrementalRelations;</div>
+<div class="line"><a name="l00954"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a9977f4d569396fe156fdb80120d14993">  954</a></span>&#160;  <span class="keyword">using</span> AllIndexSpecs = <span class="keyword">typename</span> Executor::AllIndexSpecs;</div>
+<div class="line"><a name="l00955"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a4f0714b6f83f5b40d8ff642cf73d2ef7">  955</a></span>&#160;  <span class="keyword">using</span> CanonicalIndexSpecs = <span class="keyword">typename</span> Executor::CanonicalIndexSpecs;</div>
+<div class="line"><a name="l00956"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#af6fb92feeefd010c54cfd9896621b25a">  956</a></span>&#160;  <span class="keyword">using</span> MIRPlans = <span class="keyword">typename</span> Executor::MIRPlans;</div>
+<div class="line"><a name="l00957"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#adffe4f4b21f7453ff7f09e8f7971847b">  957</a></span>&#160;  <span class="keyword">using</span> FilteredIndexSpecs = <span class="keyword">typename</span> Executor::FilteredIndexSpecs;</div>
+<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160; </div>
+<div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;  <span class="keyword">template</span> &lt;AST::CSemiNaiveDatabase DB&gt;</div>
+<div class="line"><a name="l00960"></a><span class="lineno"><a class="line" href="../../d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a406555bc24a19fd7a9a2e0e570137a53">  960</a></span>&#160;  std::size_t operator()(DB&amp; db, std::size_t max_iterations = SIZE_MAX) <span class="keyword">const</span> {</div>
+<div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160;    Executor{}(db);</div>
+<div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160;  }</div>
+<div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160;};</div>
+<div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160; </div>
+<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;<span class="comment"> * @brief Convenience function wrapper for ExecuteQuery functor (API compatibility).</span></div>
+<div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;<span class="comment"> * @details This function provides backward compatibility for code that uses</span></div>
+<div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;<span class="comment"> *          the function-style API. It simply instantiates the functor and calls it.</span></div>
+<div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;<span class="comment"> * @tparam Q A CQuery type (either CFixpoint or CNonIterativeRuleSets)</span></div>
+<div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;<span class="comment"> * @tparam DB The semi-naive database type</span></div>
+<div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160;<span class="comment"> * @param db The runtime database</span></div>
+<div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160;<span class="comment"> * @param max_iterations Maximum number of iterations for fixpoint queries (default: unlimited)</span></div>
+<div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;<span class="comment"> * @return Number of iterations executed</span></div>
+<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;<span class="keyword">template</span> &lt;<a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">CQuery</a> <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">Q</a>, <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">AST</a>::<a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">CSemiNaiveDatabase</a> <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">DB</a>&gt;</div>
+<div class="line"><a name="l00979"></a><span class="lineno"><a class="line" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">  979</a></span>&#160;<a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">std</a>::<a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">size_t</a> <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">execute_query</a>(DB&amp; db, std::size_t max_iterations = SIZE_MAX) {</div>
+<div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;  <span class="keywordflow">return</span> ExecuteQuery&lt;Q&gt;{}(db, max_iterations);</div>
+<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;}</div>
+<div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160; </div>
+<div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;}  <span class="comment">// namespace SRDatalog</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

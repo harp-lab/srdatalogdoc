@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SRDatalog: SRDatalog::GPU::FilterAgainstFull&lt; Schema, Terms, VarPosMap, ValueType, NumVars, HandleType, SR &gt; Struct Template Reference</title>
+<title>SRDatalog: SRDatalog::GPU::FilterAgainstFull&lt; Schema, Terms, VarPosMap, ValueType, NumVars, HandleType, SR, IndexSpec &gt; Struct Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -67,10 +67,10 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="../../d5/d9d/structSRDatalog_1_1GPU_1_1FilterAgainstFull-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">SRDatalog::GPU::FilterAgainstFull&lt; Schema, Terms, VarPosMap, ValueType, NumVars, HandleType, SR &gt; Struct Template Reference</div>  </div>
+<div class="title">SRDatalog::GPU::FilterAgainstFull&lt; Schema, Terms, VarPosMap, ValueType, NumVars, HandleType, SR, IndexSpec &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -79,25 +79,25 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="../../dd/dd0/runtime_2deduplication_8h_source.html">deduplication.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ac6c5dbdc77054be9729ef8db586da1ba"><td class="memTemplParams" colspan="2">template&lt;typename Group &gt; </td></tr>
-<tr class="memitem:ac6c5dbdc77054be9729ef8db586da1ba"><td class="memTemplItemLeft" align="right" valign="top">__device__&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#ac6c5dbdc77054be9729ef8db586da1ba">__attribute__</a> ((always_inline)) static bool should_emit(const state</td></tr>
-<tr class="separator:ac6c5dbdc77054be9729ef8db586da1ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a0ce4874a9564c87d5d527c6aebb29295"><td class="memTemplParams" colspan="2">template&lt;typename Group &gt; </td></tr>
+<tr class="memitem:a0ce4874a9564c87d5d527c6aebb29295"><td class="memTemplItemLeft" align="right" valign="top">static __device__ bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html#a0ce4874a9564c87d5d527c6aebb29295">should_emit</a> (const <a class="el" href="../../d7/dd3/structSRDatalog_1_1GPU_1_1state_1_1VarStore.html">state::VarStore</a>&lt; <a class="el" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#add4e6314f6277063598c40c406f4de4f">VarPosMap</a>, ValueType, NumVars &gt; &amp;vars, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a> full_handle, const typename HandleType::View &amp;full_view, <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt; new_prov, Group tile)</td></tr>
+<tr class="separator:a0ce4874a9564c87d5d527c6aebb29295"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename Schema, typename Terms, typename VarPosMap, typename ValueType, std::size_t NumVars, typename HandleType, Semiring SR&gt;<br />
-struct SRDatalog::GPU::FilterAgainstFull&lt; Schema, Terms, VarPosMap, ValueType, NumVars, HandleType, SR &gt;</h3>
+<div class="textblock"><h3>template&lt;typename Schema, typename Terms, typename VarPosMap, typename ValueType, std::size_t NumVars, typename HandleType, Semiring SR, typename IndexSpec&gt;<br />
+struct SRDatalog::GPU::FilterAgainstFull&lt; Schema, Terms, VarPosMap, ValueType, NumVars, HandleType, SR, IndexSpec &gt;</h3>
 
 <p>Check if tuple should be emitted (not duplicate in full relation) </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac6c5dbdc77054be9729ef8db586da1ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6c5dbdc77054be9729ef8db586da1ba">&#9670;&nbsp;</a></span>__attribute__()</h2>
+<a id="a0ce4874a9564c87d5d527c6aebb29295"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ce4874a9564c87d5d527c6aebb29295">&#9670;&nbsp;</a></span>should_emit()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Schema , typename Terms , typename VarPosMap , typename ValueType , std::size_t NumVars, typename HandleType , Semiring SR&gt; </div>
+template&lt;typename Schema , typename Terms , typename VarPosMap , typename ValueType , std::size_t NumVars, typename HandleType , Semiring SR, typename IndexSpec &gt; </div>
 <div class="memtemplate">
 template&lt;typename Group &gt; </div>
 <table class="mlabels">
@@ -105,16 +105,44 @@ template&lt;typename Group &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">__device__ <a class="el" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html">SRDatalog::GPU::FilterAgainstFull</a>&lt; Schema, Terms, <a class="el" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#add4e6314f6277063598c40c406f4de4f">VarPosMap</a>, ValueType, NumVars, <a class="el" href="../../de/db4/runtime__tc__instantiation_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt;::__attribute__ </td>
+          <td class="memname">static __device__ bool <a class="el" href="../../d0/d49/structSRDatalog_1_1GPU_1_1FilterAgainstFull.html">SRDatalog::GPU::FilterAgainstFull</a>&lt; Schema, Terms, <a class="el" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#add4e6314f6277063598c40c406f4de4f">VarPosMap</a>, ValueType, NumVars, <a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">IndexSpec</a> &gt;::should_emit </td>
           <td>(</td>
-          <td class="paramtype">(always_inline)&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const <a class="el" href="../../d7/dd3/structSRDatalog_1_1GPU_1_1state_1_1VarStore.html">state::VarStore</a>&lt; <a class="el" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#add4e6314f6277063598c40c406f4de4f">VarPosMap</a>, ValueType, NumVars &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vars</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/dad/test__gpu__self__join_8cpp.html#abc9332c7c44b6dfe13593dd2d913e5bb">HandleType</a>&#160;</td>
+          <td class="paramname"><em>full_handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename HandleType::View &amp;&#160;</td>
+          <td class="paramname"><em>full_view</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt;&#160;</td>
+          <td class="paramname"><em>new_prov</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Group&#160;</td>
+          <td class="paramname"><em>tile</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

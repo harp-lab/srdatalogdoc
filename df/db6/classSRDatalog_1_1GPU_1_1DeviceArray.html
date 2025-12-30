@@ -75,7 +75,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a> device array wrapper using Umpire allocator.  
+<p><a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a> device array wrapper using RMM device_uvector.  
  <a href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d8/d5d/device__array_8h_source.html">device_array.h</a>&gt;</code></p>
@@ -100,17 +100,20 @@ Public Types</h2></td></tr>
 <tr class="separator:aefa900e9b16f0af980b5025e9f149ff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ae48e0bfc84b56d9af73b0e8a334565"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a2ae48e0bfc84b56d9af73b0e8a334565">const_iterator</a> = <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#ab48846aebcd2eb4fa1c0d9feb7ad7d35">const_device_ptr_type</a></td></tr>
 <tr class="separator:a2ae48e0bfc84b56d9af73b0e8a334565"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adab0a9f4b236eb91d60f432743cc01cc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#adab0a9f4b236eb91d60f432743cc01cc">internal_storage_type</a> = rmm::device_uvector&lt; uint32_t &gt;</td></tr>
+<tr class="separator:adab0a9f4b236eb91d60f432743cc01cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a402b0ab78fc03592c58d4103105d3304"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a402b0ab78fc03592c58d4103105d3304">DeviceArray</a> ()</td></tr>
-<tr class="memdesc:a402b0ab78fc03592c58d4103105d3304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an empty device array.  <a href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a402b0ab78fc03592c58d4103105d3304">More...</a><br /></td></tr>
-<tr class="separator:a402b0ab78fc03592c58d4103105d3304"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8430bc6f717d778483d047271109bc48"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a8430bc6f717d778483d047271109bc48">DeviceArray</a> (<a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#ab174cfe1c1178b6218853788f3cb9e72">size_type</a> <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a968721baf5ea854203d3c5347b9b89cc">size</a>)</td></tr>
-<tr class="memdesc:a8430bc6f717d778483d047271109bc48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a device array with specified size.  <a href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a8430bc6f717d778483d047271109bc48">More...</a><br /></td></tr>
-<tr class="separator:a8430bc6f717d778483d047271109bc48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee904ac4c7bf1b238bf760e64644a905"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#aee904ac4c7bf1b238bf760e64644a905">~DeviceArray</a> ()</td></tr>
-<tr class="separator:aee904ac4c7bf1b238bf760e64644a905"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a7be3ed737821b99a53437c7b823168"><td class="memItemLeft" align="right" valign="top">__host__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a8a7be3ed737821b99a53437c7b823168">DeviceArray</a> ()</td></tr>
+<tr class="memdesc:a8a7be3ed737821b99a53437c7b823168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an empty device array.  <a href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a8a7be3ed737821b99a53437c7b823168">More...</a><br /></td></tr>
+<tr class="separator:a8a7be3ed737821b99a53437c7b823168"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a193e3dea2c234605f313905ca252d1ee"><td class="memItemLeft" align="right" valign="top">__host__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a193e3dea2c234605f313905ca252d1ee">DeviceArray</a> (<a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#ab174cfe1c1178b6218853788f3cb9e72">size_type</a> <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a968721baf5ea854203d3c5347b9b89cc">size</a>)</td></tr>
+<tr class="memdesc:a193e3dea2c234605f313905ca252d1ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a device array with specified size.  <a href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a193e3dea2c234605f313905ca252d1ee">More...</a><br /></td></tr>
+<tr class="separator:a193e3dea2c234605f313905ca252d1ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7131edce8752ddaf4dfe1a1557f7540"><td class="memItemLeft" align="right" valign="top">__host__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#aa7131edce8752ddaf4dfe1a1557f7540">~DeviceArray</a> ()=default</td></tr>
+<tr class="memdesc:aa7131edce8752ddaf4dfe1a1557f7540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor - deallocates device memory.  <a href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#aa7131edce8752ddaf4dfe1a1557f7540">More...</a><br /></td></tr>
+<tr class="separator:aa7131edce8752ddaf4dfe1a1557f7540"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb9bc33af73e7e0e3b56d1d2bd15a262"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#afb9bc33af73e7e0e3b56d1d2bd15a262">DeviceArray</a> (const <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">DeviceArray</a> &amp;)=delete</td></tr>
 <tr class="separator:afb9bc33af73e7e0e3b56d1d2bd15a262"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acda9dd40660917c32846e66650d5b3aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">DeviceArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#acda9dd40660917c32846e66650d5b3aa">operator=</a> (const <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">DeviceArray</a> &amp;)=delete</td></tr>
@@ -186,10 +189,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aca57a609550855b1dce6034079b97749"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#aca57a609550855b1dce6034079b97749">swap</a> (<a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">DeviceArray</a> &amp;other) noexcept</td></tr>
 <tr class="memdesc:aca57a609550855b1dce6034079b97749"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap contents with another array.  <a href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#aca57a609550855b1dce6034079b97749">More...</a><br /></td></tr>
 <tr class="separator:aca57a609550855b1dce6034079b97749"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f9addcd5fbc97220b89c8e8c62baf4b"><td class="memItemLeft" align="right" valign="top">umpire::Allocator &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a9f9addcd5fbc97220b89c8e8c62baf4b">allocator</a> () noexcept</td></tr>
-<tr class="separator:a9f9addcd5fbc97220b89c8e8c62baf4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e585f50488dddb698c90d2b301748d1"><td class="memItemLeft" align="right" valign="top">const umpire::Allocator &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a7e585f50488dddb698c90d2b301748d1">allocator</a> () const noexcept</td></tr>
-<tr class="separator:a7e585f50488dddb698c90d2b301748d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19ec532d55702dae2bcce990bd6c37da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a19ec532d55702dae2bcce990bd6c37da">swap_internal_data</a> (<a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#adab0a9f4b236eb91d60f432743cc01cc">internal_storage_type</a> &amp;other_vec, <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#ab174cfe1c1178b6218853788f3cb9e72">size_type</a> new_logical_size) noexcept</td></tr>
+<tr class="memdesc:a19ec532d55702dae2bcce990bd6c37da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap internal device_uvector data with external vector.  <a href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a19ec532d55702dae2bcce990bd6c37da">More...</a><br /></td></tr>
+<tr class="separator:a19ec532d55702dae2bcce990bd6c37da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4c246d7072c5e0351e4addae4540044"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#adab0a9f4b236eb91d60f432743cc01cc">internal_storage_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#af4c246d7072c5e0351e4addae4540044">internal_vector</a> () noexcept</td></tr>
+<tr class="memdesc:af4c246d7072c5e0351e4addae4540044"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get reference to internal device_uvector (for advanced usage)  <a href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#af4c246d7072c5e0351e4addae4540044">More...</a><br /></td></tr>
+<tr class="separator:af4c246d7072c5e0351e4addae4540044"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa11a46585c51b25aed4b802d04af716e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#adab0a9f4b236eb91d60f432743cc01cc">internal_storage_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#aa11a46585c51b25aed4b802d04af716e">internal_vector</a> () const noexcept</td></tr>
+<tr class="separator:aa11a46585c51b25aed4b802d04af716e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abce6f2f4be0f9a39eade216b3bf6e68f"><td class="memItemLeft" align="right" valign="top">rmm::mr::device_memory_resource *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#abce6f2f4be0f9a39eade216b3bf6e68f">memory_resource</a> () noexcept</td></tr>
+<tr class="separator:abce6f2f4be0f9a39eade216b3bf6e68f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5ae99c4271f5a08d26bd0eb84468004"><td class="memItemLeft" align="right" valign="top">const rmm::mr::device_memory_resource *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#ad5ae99c4271f5a08d26bd0eb84468004">memory_resource</a> () const noexcept</td></tr>
+<tr class="separator:ad5ae99c4271f5a08d26bd0eb84468004"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab52507d13b83f7df26bd5466a9a0f1d7"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#ab52507d13b83f7df26bd5466a9a0f1d7">bytes_used</a> () const noexcept</td></tr>
 <tr class="separator:ab52507d13b83f7df26bd5466a9a0f1d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23d8dfa4e9e3ad54f36d6d796f9c867d"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a23d8dfa4e9e3ad54f36d6d796f9c867d">bytes_allocated</a> () const noexcept</td></tr>
@@ -202,14 +213,14 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
 class SRDatalog::GPU::DeviceArray&lt; T &gt;</h3>
 
-<p><a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a> device array wrapper using Umpire allocator. </p>
+<p><a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a> device array wrapper using RMM device_uvector. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Element type</td></tr>
   </table>
   </dd>
 </dl>
-<p>Similar to std::vector but for device memory. Tracks size and capacity separately to avoid reallocation on shrink. </p>
+<p>Similar to std::vector but for device memory. Uses rmm::device_uvector&lt;uint32_t&gt; internally to store raw data, with default pooling memory resource. </p><dl class="section note"><dt>Note</dt><dd>This class is host-only (all methods are <b>host</b>) </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ab48846aebcd2eb4fa1c0d9feb7ad7d35"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab48846aebcd2eb4fa1c0d9feb7ad7d35">&#9670;&nbsp;</a></span>const_device_ptr_type</h2>
@@ -291,6 +302,22 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="adab0a9f4b236eb91d60f432743cc01cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adab0a9f4b236eb91d60f432743cc01cc">&#9670;&nbsp;</a></span>internal_storage_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">SRDatalog::GPU::DeviceArray</a>&lt; T &gt;::<a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#adab0a9f4b236eb91d60f432743cc01cc">internal_storage_type</a> =  rmm::device_uvector&lt;uint32_t&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aefa900e9b16f0af980b5025e9f149ff9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aefa900e9b16f0af980b5025e9f149ff9">&#9670;&nbsp;</a></span>iterator</h2>
 
@@ -356,8 +383,8 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a402b0ab78fc03592c58d4103105d3304"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a402b0ab78fc03592c58d4103105d3304">&#9670;&nbsp;</a></span>DeviceArray() <span class="overload">[1/4]</span></h2>
+<a id="a8a7be3ed737821b99a53437c7b823168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a7be3ed737821b99a53437c7b823168">&#9670;&nbsp;</a></span>DeviceArray() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -368,7 +395,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">SRDatalog::GPU::DeviceArray</a>&lt; T &gt;::<a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">DeviceArray</a> </td>
+          <td class="memname">__host__ <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">SRDatalog::GPU::DeviceArray</a>&lt; T &gt;::<a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">DeviceArray</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -382,11 +409,14 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Construct an empty device array. </p>
+<dl class="section note"><dt>Note</dt><dd>Host-only: allocates device memory from host </dd>
+<dd>
+Uses default pooling memory resource (set via rmm::mr::set_current_device_resource) </dd></dl>
 
 </div>
 </div>
-<a id="a8430bc6f717d778483d047271109bc48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8430bc6f717d778483d047271109bc48">&#9670;&nbsp;</a></span>DeviceArray() <span class="overload">[2/4]</span></h2>
+<a id="a193e3dea2c234605f313905ca252d1ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a193e3dea2c234605f313905ca252d1ee">&#9670;&nbsp;</a></span>DeviceArray() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -397,7 +427,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">SRDatalog::GPU::DeviceArray</a>&lt; T &gt;::<a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">DeviceArray</a> </td>
+          <td class="memname">__host__ <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">SRDatalog::GPU::DeviceArray</a>&lt; T &gt;::<a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">DeviceArray</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#ab174cfe1c1178b6218853788f3cb9e72">size_type</a>&#160;</td>
           <td class="paramname"><em>size</em></td><td>)</td>
@@ -412,11 +442,22 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Construct a device array with specified size. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Number of elements of type T </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Host-only: allocates device memory from host </dd>
+<dd>
+Uses default pooling memory resource (set via rmm::mr::set_current_device_resource) </dd>
+<dd>
+Internally stores data as uint32_t, so size is calculated as bytes rounded up to uint32_t </dd></dl>
 
 </div>
 </div>
-<a id="aee904ac4c7bf1b238bf760e64644a905"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee904ac4c7bf1b238bf760e64644a905">&#9670;&nbsp;</a></span>~DeviceArray()</h2>
+<a id="aa7131edce8752ddaf4dfe1a1557f7540"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7131edce8752ddaf4dfe1a1557f7540">&#9670;&nbsp;</a></span>~DeviceArray()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -427,7 +468,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">SRDatalog::GPU::DeviceArray</a>&lt; T &gt;::~<a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">DeviceArray</a> </td>
+          <td class="memname">__host__ <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">SRDatalog::GPU::DeviceArray</a>&lt; T &gt;::~<a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">DeviceArray</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -435,10 +476,13 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Destructor - deallocates device memory. </p>
+<dl class="section note"><dt>Note</dt><dd>Host-only: deallocates device memory from host </dd></dl>
 
 </div>
 </div>
@@ -499,60 +543,6 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7e585f50488dddb698c90d2b301748d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e585f50488dddb698c90d2b301748d1">&#9670;&nbsp;</a></span>allocator() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const umpire::Allocator&amp; <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">SRDatalog::GPU::DeviceArray</a>&lt; T &gt;::allocator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9f9addcd5fbc97220b89c8e8c62baf4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f9addcd5fbc97220b89c8e8c62baf4b">&#9670;&nbsp;</a></span>allocator() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">umpire::Allocator&amp; <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">SRDatalog::GPU::DeviceArray</a>&lt; T &gt;::allocator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a40271d0b8fc724b410e1a53993f4915c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a40271d0b8fc724b410e1a53993f4915c">&#9670;&nbsp;</a></span>assign_from_host()</h2>
 
@@ -1119,6 +1109,118 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="aa11a46585c51b25aed4b802d04af716e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa11a46585c51b25aed4b802d04af716e">&#9670;&nbsp;</a></span>internal_vector() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#adab0a9f4b236eb91d60f432743cc01cc">internal_storage_type</a>&amp; <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">SRDatalog::GPU::DeviceArray</a>&lt; T &gt;::internal_vector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af4c246d7072c5e0351e4addae4540044"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4c246d7072c5e0351e4addae4540044">&#9670;&nbsp;</a></span>internal_vector() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#adab0a9f4b236eb91d60f432743cc01cc">internal_storage_type</a>&amp; <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">SRDatalog::GPU::DeviceArray</a>&lt; T &gt;::internal_vector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get reference to internal device_uvector (for advanced usage) </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to internal storage vector </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Modifying the internal vector directly can break <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a968721baf5ea854203d3c5347b9b89cc">size()</a> consistency. Use <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a19ec532d55702dae2bcce990bd6c37da" title="Swap internal device_uvector data with external vector.">swap_internal_data()</a> or <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#afad5f735e56953087ab65b04703d924d" title="Resize array. Only reallocates if growing beyond capacity.">resize()</a> instead when possible. </dd></dl>
+
+</div>
+</div>
+<a id="ad5ae99c4271f5a08d26bd0eb84468004"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5ae99c4271f5a08d26bd0eb84468004">&#9670;&nbsp;</a></span>memory_resource() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const rmm::mr::device_memory_resource* <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">SRDatalog::GPU::DeviceArray</a>&lt; T &gt;::<a class="el" href="../../dc/d33/namespaceSRDatalog.html#a43bc1ecf5ffd3218efaafb0d722fecc4">memory_resource</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abce6f2f4be0f9a39eade216b3bf6e68f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abce6f2f4be0f9a39eade216b3bf6e68f">&#9670;&nbsp;</a></span>memory_resource() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">rmm::mr::device_memory_resource* <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">SRDatalog::GPU::DeviceArray</a>&lt; T &gt;::<a class="el" href="../../dc/d33/namespaceSRDatalog.html#a43bc1ecf5ffd3218efaafb0d722fecc4">memory_resource</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="acda9dd40660917c32846e66650d5b3aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acda9dd40660917c32846e66650d5b3aa">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
@@ -1377,6 +1479,12 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Reserve capacity without changing size. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">new_capacity</td><td>New capacity in T elements </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1448,11 +1556,12 @@ template&lt;typename T &gt; </div>
 <p>Resize array. Only reallocates if growing beyond capacity. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">new_size</td><td>New logical size </td></tr>
+    <tr><td class="paramname">new_size</td><td>New logical size (number of T elements) </td></tr>
     <tr><td class="paramname">preserve_data</td><td>If true, copy existing data when reallocating (default: false) </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>device_uvector handles reallocation automatically </dd></dl>
 
 </div>
 </div>
@@ -1539,6 +1648,55 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Swap contents with another array. </p>
+
+</div>
+</div>
+<a id="a19ec532d55702dae2bcce990bd6c37da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19ec532d55702dae2bcce990bd6c37da">&#9670;&nbsp;</a></span>swap_internal_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">SRDatalog::GPU::DeviceArray</a>&lt; T &gt;::swap_internal_data </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#adab0a9f4b236eb91d60f432743cc01cc">internal_storage_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>other_vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#ab174cfe1c1178b6218853788f3cb9e72">size_type</a>&#160;</td>
+          <td class="paramname"><em>new_logical_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Swap internal device_uvector data with external vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other_vec</td><td>External device_uvector to swap with </td></tr>
+    <tr><td class="paramname">new_logical_size</td><td>Logical size (number of T elements) after swap </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This allows swapping with external buffers while maintaining correct logical size </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The caller must ensure new_logical_size matches the actual data in other_vec (i.e., new_logical_size * <a class="el" href="../../dc/d33/namespaceSRDatalog.html#aec1750b57434d93cce4496428d641c21" title="Encode a floating-point value to size_t.">sizeof(T)</a> &lt;= other_vec.size() * sizeof(uint32_t)) </dd></dl>
 
 </div>
 </div>

@@ -69,6 +69,7 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="../../d4/dd1/structSRDatalog_1_1GPU_1_1GPUQueryExecutor-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -76,27 +77,218 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Executor for running fixpoint queries on <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a>.  
+ <a href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../da/d33/gpu_2runtime_2query_8h_source.html">query.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5a/structSRDatalog_1_1GPU_1_1GPUQueryExecutor_1_1ResultReflector.html">ResultReflector</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper struct to iterate over relations and copy them back to host.  <a href="../../d6/d5a/structSRDatalog_1_1GPU_1_1GPUQueryExecutor_1_1ResultReflector.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a63d6d67a6337543865537df73f4690a3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a63d6d67a6337543865537df73f4690a3">Plan</a> = typename <a class="el" href="../../d3/df9/structSRDatalog_1_1CompileFixpointToPlan.html">SRDatalog::CompileFixpointToPlan</a>&lt; FP &gt;::type</td></tr>
-<tr class="separator:a63d6d67a6337543865537df73f4690a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03dcffbe1cf58932c914cdf7ce760b78"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a03dcffbe1cf58932c914cdf7ce760b78">InitialPlan</a> = typename <a class="el" href="../../d3/df9/structSRDatalog_1_1CompileFixpointToPlan.html">SRDatalog::CompileFixpointToPlan</a>&lt; FP &gt;::type</td></tr>
+<tr class="memdesc:a03dcffbe1cf58932c914cdf7ce760b78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile the fixpoint query into an execution plan.  <a href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a03dcffbe1cf58932c914cdf7ce760b78">More...</a><br /></td></tr>
+<tr class="separator:a03dcffbe1cf58932c914cdf7ce760b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a404e789a11fc71f0c4d61dd525b30907"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a404e789a11fc71f0c4d61dd525b30907">Plan</a> = typename <a class="el" href="../../df/d91/structSRDatalog_1_1mir_1_1gpu__opt_1_1OptimizeFixpointPlanForGPU.html">mir::gpu_opt::OptimizeFixpointPlanForGPU</a>&lt; <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a03dcffbe1cf58932c914cdf7ce760b78">InitialPlan</a> &gt;::type</td></tr>
+<tr class="memdesc:a404e789a11fc71f0c4d61dd525b30907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply GPU-specific MIR optimizations.  <a href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a404e789a11fc71f0c4d61dd525b30907">More...</a><br /></td></tr>
+<tr class="separator:a404e789a11fc71f0c4d61dd525b30907"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7140643555affbcfa177ea94d1b378d2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a7140643555affbcfa177ea94d1b378d2">Instructions</a> = typename Plan::instructions_type</td></tr>
+<tr class="memdesc:a7140643555affbcfa177ea94d1b378d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The sequence of instructions derived from the optimized plan.  <a href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a7140643555affbcfa177ea94d1b378d2">More...</a><br /></td></tr>
 <tr class="separator:a7140643555affbcfa177ea94d1b378d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9ea2c513eeb66f3c9ff7ae35f730757"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#af9ea2c513eeb66f3c9ff7ae35f730757">RulesTuple</a> = typename <a class="el" href="../../d5/db1/structSRDatalog_1_1ExtractRulesFromFixpoint.html">ExtractRulesFromFixpoint</a>&lt; FP &gt;::type</td></tr>
+<tr class="separator:af9ea2c513eeb66f3c9ff7ae35f730757"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af41c60a8106e6ad8a71892f68baa92de"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#af41c60a8106e6ad8a71892f68baa92de">AllIndexSpecs</a> = typename <a class="el" href="../../d9/d4f/structSRDatalog_1_1detail_1_1CollectAllIndexSpecs.html">SRDatalog::detail::CollectAllIndexSpecs</a>&lt; <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#af9ea2c513eeb66f3c9ff7ae35f730757">RulesTuple</a> &gt;::type</td></tr>
+<tr class="separator:af41c60a8106e6ad8a71892f68baa92de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85b7af87fcce1f53d4714298e42314a8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a85b7af87fcce1f53d4714298e42314a8">IncrementalRelations</a> = typename <a class="el" href="../../dc/d1d/structSRDatalog_1_1GetIncrementalRelationsFromFixpoint.html">GetIncrementalRelationsFromFixpoint</a>&lt; FP &gt;::type</td></tr>
+<tr class="separator:a85b7af87fcce1f53d4714298e42314a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a003d21da35e8898da80b1403bf8d15df"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a003d21da35e8898da80b1403bf8d15df">CanonicalIndexSpecs</a> = typename <a class="el" href="../../d1/d08/structSRDatalog_1_1detail_1_1CollectCanonicalIndexSpecs.html">SRDatalog::detail::CollectCanonicalIndexSpecs</a>&lt; <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a85b7af87fcce1f53d4714298e42314a8">IncrementalRelations</a>, <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#af41c60a8106e6ad8a71892f68baa92de">AllIndexSpecs</a> &gt;::type</td></tr>
+<tr class="separator:a003d21da35e8898da80b1403bf8d15df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58e53248a452e43cee6e163a9ba8859c"><td class="memTemplParams" colspan="2">template&lt;AST::CDatabase SchemaTuple&gt; </td></tr>
+<tr class="memitem:a58e53248a452e43cee6e163a9ba8859c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a58e53248a452e43cee6e163a9ba8859c">DeviceDB</a> = <a class="el" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html">AST::SemiNaiveDatabase</a>&lt; SchemaTuple, <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#a9da218cef7b6c235d61fb8060344084e">DeviceRelationType</a> &gt;</td></tr>
+<tr class="memdesc:a58e53248a452e43cee6e163a9ba8859c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type alias for the Device Database.  <a href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a58e53248a452e43cee6e163a9ba8859c">More...</a><br /></td></tr>
+<tr class="separator:a58e53248a452e43cee6e163a9ba8859c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55936c926c9bac9734f82f86e1b77809"><td class="memTemplParams" colspan="2">template&lt;typename HostDB &gt; </td></tr>
+<tr class="memitem:a55936c926c9bac9734f82f86e1b77809"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a55936c926c9bac9734f82f86e1b77809">DeviceDBFromHost</a> = <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a58e53248a452e43cee6e163a9ba8859c">DeviceDB</a>&lt; typename HostDB::schema_type &gt;</td></tr>
+<tr class="memdesc:a55936c926c9bac9734f82f86e1b77809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper alias that extracts schema from HostDB (for convenience).  <a href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a55936c926c9bac9734f82f86e1b77809">More...</a><br /></td></tr>
+<tr class="separator:a55936c926c9bac9734f82f86e1b77809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ac9147392dfc554af8e51b731e122cf15"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#ac9147392dfc554af8e51b731e122cf15">execute_kernel</a> (device_db, max_iterations)</td></tr>
+<tr class="separator:ac9147392dfc554af8e51b731e122cf15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a8cc50c98c321ab35637c54e7dddd707e"><td class="memTemplParams" colspan="2">template&lt;typename DB &gt; </td></tr>
-<tr class="memitem:a8cc50c98c321ab35637c54e7dddd707e"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a8cc50c98c321ab35637c54e7dddd707e">execute</a> (DB &amp;host_db, std::size_t max_iterations=100)</td></tr>
-<tr class="separator:a8cc50c98c321ab35637c54e7dddd707e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7637b426c15f72d1a94263572c9fa1e9"><td class="memTemplParams" colspan="2">template&lt;typename HostDB &gt; </td></tr>
+<tr class="memitem:a7637b426c15f72d1a94263572c9fa1e9"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a55936c926c9bac9734f82f86e1b77809">DeviceDBFromHost</a>&lt; HostDB &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a7637b426c15f72d1a94263572c9fa1e9">prepare</a> (HostDB &amp;host_db)</td></tr>
+<tr class="memdesc:a7637b426c15f72d1a94263572c9fa1e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the Device Database by copying data from the Host Database.  <a href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a7637b426c15f72d1a94263572c9fa1e9">More...</a><br /></td></tr>
+<tr class="separator:a7637b426c15f72d1a94263572c9fa1e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13add890ea292b199be952cf0e71c3fe"><td class="memTemplParams" colspan="2">template&lt;AST::CDatabase SchemaTuple&gt; </td></tr>
+<tr class="memitem:a13add890ea292b199be952cf0e71c3fe"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a13add890ea292b199be952cf0e71c3fe">execute_kernel</a> (<a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a58e53248a452e43cee6e163a9ba8859c">DeviceDB</a>&lt; SchemaTuple &gt; &amp;device_db, std::size_t max_iterations=100)</td></tr>
+<tr class="memdesc:a13add890ea292b199be952cf0e71c3fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the fixpoint loop on the <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a>.  <a href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a13add890ea292b199be952cf0e71c3fe">More...</a><br /></td></tr>
+<tr class="separator:a13add890ea292b199be952cf0e71c3fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe73cdf453ae0815cecd1539c6c47d1a"><td class="memTemplParams" colspan="2">template&lt;typename DeviceDBType &gt; </td></tr>
+<tr class="memitem:abe73cdf453ae0815cecd1539c6c47d1a"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#abe73cdf453ae0815cecd1539c6c47d1a">execute_kernel</a> (DeviceDBType &amp;device_db, std::size_t max_iterations=100) <a class="el" href="../../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c">requires</a> <a class="el" href="../../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c">requires</a></td></tr>
+<tr class="memdesc:abe73cdf453ae0815cecd1539c6c47d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload that deduces Host DB type from Device DB.  <a href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#abe73cdf453ae0815cecd1539c6c47d1a">More...</a><br /></td></tr>
+<tr class="separator:abe73cdf453ae0815cecd1539c6c47d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41b868fce31ba51dcabeca715b4ca818"><td class="memTemplParams" colspan="2">template&lt;typename HostDB &gt; </td></tr>
+<tr class="memitem:a41b868fce31ba51dcabeca715b4ca818"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a41b868fce31ba51dcabeca715b4ca818">reflect</a> (HostDB &amp;host_db, <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a55936c926c9bac9734f82f86e1b77809">DeviceDBFromHost</a>&lt; HostDB &gt; &amp;device_db)</td></tr>
+<tr class="memdesc:a41b868fce31ba51dcabeca715b4ca818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reflects results back from Device Database to Host Database.  <a href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a41b868fce31ba51dcabeca715b4ca818">More...</a><br /></td></tr>
+<tr class="separator:a41b868fce31ba51dcabeca715b4ca818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07ad9a726935d0510cf6f13e1fbeaced"><td class="memTemplParams" colspan="2">template&lt;typename HostDB &gt; </td></tr>
+<tr class="memitem:a07ad9a726935d0510cf6f13e1fbeaced"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a07ad9a726935d0510cf6f13e1fbeaced">execute</a> (HostDB &amp;host_db, std::size_t max_iterations=100)</td></tr>
+<tr class="memdesc:a07ad9a726935d0510cf6f13e1fbeaced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Full execution pipeline: Prepare -&gt; Kernel -&gt; Reflect.  <a href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a07ad9a726935d0510cf6f13e1fbeaced">More...</a><br /></td></tr>
+<tr class="separator:a07ad9a726935d0510cf6f13e1fbeaced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;AST::CFixpoint FP&gt;<br />
+struct SRDatalog::GPU::GPUQueryExecutor&lt; FP &gt;</h3>
+
+<p>Executor for running fixpoint queries on <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a>. </p>
+<p>Handles the lifecycle of a <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a> query execution:</p><ol type="1">
+<li><code>prepare</code>: Copies data from Host DB to Device DB.</li>
+<li><code>execute_kernel</code>: Runs the fixpoint iteration loop on <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a>.</li>
+<li><code>reflect</code>: Copies results back from Device DB to Host DB.</li>
+</ol>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">FP</td><td>The fixpoint query type (AST::Fixpoint) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/d52/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2runtime_2query_8h-example.html#_a26">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/runtime/query.h</a>.</dd>
+</dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="af41c60a8106e6ad8a71892f68baa92de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af41c60a8106e6ad8a71892f68baa92de">&#9670;&nbsp;</a></span>AllIndexSpecs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;AST::CFixpoint FP&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a>&lt; FP &gt;::<a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#af41c60a8106e6ad8a71892f68baa92de">AllIndexSpecs</a> =  typename <a class="el" href="../../d9/d4f/structSRDatalog_1_1detail_1_1CollectAllIndexSpecs.html">SRDatalog::detail::CollectAllIndexSpecs</a>&lt;<a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#af9ea2c513eeb66f3c9ff7ae35f730757">RulesTuple</a>&gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/d52/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2runtime_2query_8h-example.html#a29">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/runtime/query.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a003d21da35e8898da80b1403bf8d15df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a003d21da35e8898da80b1403bf8d15df">&#9670;&nbsp;</a></span>CanonicalIndexSpecs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;AST::CFixpoint FP&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a>&lt; FP &gt;::<a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a003d21da35e8898da80b1403bf8d15df">CanonicalIndexSpecs</a> =  typename <a class="el" href="../../d1/d08/structSRDatalog_1_1detail_1_1CollectCanonicalIndexSpecs.html">SRDatalog::detail::CollectCanonicalIndexSpecs</a>&lt;<a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a85b7af87fcce1f53d4714298e42314a8">IncrementalRelations</a>, <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#af41c60a8106e6ad8a71892f68baa92de">AllIndexSpecs</a>&gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/d52/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2runtime_2query_8h-example.html#a30">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/runtime/query.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a58e53248a452e43cee6e163a9ba8859c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58e53248a452e43cee6e163a9ba8859c">&#9670;&nbsp;</a></span>DeviceDB</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;AST::CFixpoint FP&gt; </div>
+<div class="memtemplate">
+template&lt;AST::CDatabase SchemaTuple&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a>&lt; FP &gt;::<a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a58e53248a452e43cee6e163a9ba8859c">DeviceDB</a> =  <a class="el" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html">AST::SemiNaiveDatabase</a>&lt;SchemaTuple, <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#a9da218cef7b6c235d61fb8060344084e">DeviceRelationType</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type alias for the Device Database. </p>
+<p>Creates a SemiNaiveDatabase with the given schema blueprint, using <code>DeviceRelationType</code> to store relations on the <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a> using <code><a class="el" href="../../d3/dc1/classSRDatalog_1_1GPU_1_1DeviceSortedArrayIndex.html" title="GPU Sorted Array Index.">DeviceSortedArrayIndex</a></code>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SchemaTuple</td><td>The database schema blueprint (CDatabase type, tuple of schemas) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a55936c926c9bac9734f82f86e1b77809"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55936c926c9bac9734f82f86e1b77809">&#9670;&nbsp;</a></span>DeviceDBFromHost</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;AST::CFixpoint FP&gt; </div>
+<div class="memtemplate">
+template&lt;typename HostDB &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a>&lt; FP &gt;::<a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a55936c926c9bac9734f82f86e1b77809">DeviceDBFromHost</a> =  <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a58e53248a452e43cee6e163a9ba8859c">DeviceDB</a>&lt;typename HostDB::schema_type&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Helper alias that extracts schema from HostDB (for convenience). </p>
+<p>This is a convenience wrapper that extracts schema_type from HostDB. The actual DeviceDB only needs the schema, not the full HostDB type.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">HostDB</td><td>The Host Database type (used only to extract schema_type) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a85b7af87fcce1f53d4714298e42314a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85b7af87fcce1f53d4714298e42314a8">&#9670;&nbsp;</a></span>IncrementalRelations</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;AST::CFixpoint FP&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a>&lt; FP &gt;::<a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a85b7af87fcce1f53d4714298e42314a8">IncrementalRelations</a> =  typename <a class="el" href="../../dc/d1d/structSRDatalog_1_1GetIncrementalRelationsFromFixpoint.html">GetIncrementalRelationsFromFixpoint</a>&lt;FP&gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/d52/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2runtime_2query_8h-example.html#a28">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/runtime/query.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a03dcffbe1cf58932c914cdf7ce760b78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03dcffbe1cf58932c914cdf7ce760b78">&#9670;&nbsp;</a></span>InitialPlan</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;AST::CFixpoint FP&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a>&lt; FP &gt;::<a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a03dcffbe1cf58932c914cdf7ce760b78">InitialPlan</a> =  typename <a class="el" href="../../d3/df9/structSRDatalog_1_1CompileFixpointToPlan.html">SRDatalog::CompileFixpointToPlan</a>&lt;FP&gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compile the fixpoint query into an execution plan. </p>
+
+</div>
+</div>
 <a id="a7140643555affbcfa177ea94d1b378d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7140643555affbcfa177ea94d1b378d2">&#9670;&nbsp;</a></span>Instructions</h2>
 
@@ -111,10 +303,12 @@ template&lt;AST::CFixpoint FP&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>The sequence of instructions derived from the optimized plan. </p>
+
 </div>
 </div>
-<a id="a63d6d67a6337543865537df73f4690a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63d6d67a6337543865537df73f4690a3">&#9670;&nbsp;</a></span>Plan</h2>
+<a id="a404e789a11fc71f0c4d61dd525b30907"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a404e789a11fc71f0c4d61dd525b30907">&#9670;&nbsp;</a></span>Plan</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -122,7 +316,27 @@ template&lt;AST::CFixpoint FP&gt; </div>
 template&lt;AST::CFixpoint FP&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a>&lt; FP &gt;::<a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a63d6d67a6337543865537df73f4690a3">Plan</a> =  typename <a class="el" href="../../d3/df9/structSRDatalog_1_1CompileFixpointToPlan.html">SRDatalog::CompileFixpointToPlan</a>&lt;FP&gt;::type</td>
+          <td class="memname">using <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a>&lt; FP &gt;::<a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a404e789a11fc71f0c4d61dd525b30907">Plan</a> =  typename <a class="el" href="../../df/d91/structSRDatalog_1_1mir_1_1gpu__opt_1_1OptimizeFixpointPlanForGPU.html">mir::gpu_opt::OptimizeFixpointPlanForGPU</a>&lt;<a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a03dcffbe1cf58932c914cdf7ce760b78">InitialPlan</a>&gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Apply GPU-specific MIR optimizations. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/d52/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2runtime_2query_8h-example.html#a27">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/runtime/query.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="af9ea2c513eeb66f3c9ff7ae35f730757"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9ea2c513eeb66f3c9ff7ae35f730757">&#9670;&nbsp;</a></span>RulesTuple</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;AST::CFixpoint FP&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a>&lt; FP &gt;::<a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#af9ea2c513eeb66f3c9ff7ae35f730757">RulesTuple</a> =  typename <a class="el" href="../../d5/db1/structSRDatalog_1_1ExtractRulesFromFixpoint.html">ExtractRulesFromFixpoint</a>&lt;FP&gt;::type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -130,15 +344,15 @@ template&lt;AST::CFixpoint FP&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8cc50c98c321ab35637c54e7dddd707e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cc50c98c321ab35637c54e7dddd707e">&#9670;&nbsp;</a></span>execute()</h2>
+<a id="a07ad9a726935d0510cf6f13e1fbeaced"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07ad9a726935d0510cf6f13e1fbeaced">&#9670;&nbsp;</a></span>execute()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;AST::CFixpoint FP&gt; </div>
 <div class="memtemplate">
-template&lt;typename DB &gt; </div>
+template&lt;typename HostDB &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -146,7 +360,7 @@ template&lt;typename DB &gt; </div>
         <tr>
           <td class="memname">static void <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a>&lt; FP &gt;::execute </td>
           <td>(</td>
-          <td class="paramtype">DB &amp;&#160;</td>
+          <td class="paramtype">HostDB &amp;&#160;</td>
           <td class="paramname"><em>host_db</em>, </td>
         </tr>
         <tr>
@@ -167,6 +381,260 @@ template&lt;typename DB &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Full execution pipeline: Prepare -&gt; Kernel -&gt; Reflect. </p>
+<p>Convenience method to run the entire <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a> query process.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">HostDB</td><td>The Host Database type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">host_db</td><td>The Host Database (input and output, CPU memory) </td></tr>
+    <tr><td class="paramname">max_iterations</td><td>Maximum iterations for the fixpoint loop </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac9147392dfc554af8e51b731e122cf15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9147392dfc554af8e51b731e122cf15">&#9670;&nbsp;</a></span>execute_kernel() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;AST::CFixpoint FP&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a>&lt; FP &gt;::execute_kernel </td>
+          <td>(</td>
+          <td class="paramtype">device_db&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">max_iterations&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a13add890ea292b199be952cf0e71c3fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13add890ea292b199be952cf0e71c3fe">&#9670;&nbsp;</a></span>execute_kernel() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;AST::CFixpoint FP&gt; </div>
+<div class="memtemplate">
+template&lt;AST::CDatabase SchemaTuple&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a>&lt; FP &gt;::execute_kernel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a58e53248a452e43cee6e163a9ba8859c">DeviceDB</a>&lt; SchemaTuple &gt; &amp;&#160;</td>
+          <td class="paramname"><em>device_db</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>max_iterations</em> = <code>100</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Executes the fixpoint loop on the <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a>. </p>
+<p>Iterates up to <code>max_iterations</code>, calling <code><a class="el" href="../../d6/d65/structSRDatalog_1_1GPU_1_1GPUFixpointExecutor.html">GPUFixpointExecutor</a></code> for each iteration. Synchronizes the device after completion.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SchemaTuple</td><td>The database schema blueprint (CDatabase type) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device_db</td><td>The Device Database to operate on (<a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a> memory) </td></tr>
+    <tr><td class="paramname">max_iterations</td><td>Maximum number of iterations to run </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abe73cdf453ae0815cecd1539c6c47d1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe73cdf453ae0815cecd1539c6c47d1a">&#9670;&nbsp;</a></span>execute_kernel() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;AST::CFixpoint FP&gt; </div>
+<div class="memtemplate">
+template&lt;typename DeviceDBType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a>&lt; FP &gt;::execute_kernel </td>
+          <td>(</td>
+          <td class="paramtype">DeviceDBType &amp;&#160;</td>
+          <td class="paramname"><em>device_db</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>max_iterations</em> = <code>100</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Overload that deduces Host DB type from Device DB. </p>
+<p>This overload allows calling execute_kernel without explicitly specifying the template parameter. It extracts the schema_type from the device DB and reconstructs the host DB type.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device_db</td><td>The Device Database to operate on </td></tr>
+    <tr><td class="paramname">max_iterations</td><td>Maximum number of iterations to run </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7637b426c15f72d1a94263572c9fa1e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7637b426c15f72d1a94263572c9fa1e9">&#9670;&nbsp;</a></span>prepare()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;AST::CFixpoint FP&gt; </div>
+<div class="memtemplate">
+template&lt;typename HostDB &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a55936c926c9bac9734f82f86e1b77809">DeviceDBFromHost</a>&lt;HostDB&gt; <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a>&lt; FP &gt;::prepare </td>
+          <td>(</td>
+          <td class="paramtype">HostDB &amp;&#160;</td>
+          <td class="paramname"><em>host_db</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prepares the Device Database by copying data from the Host Database. </p>
+<p>Creates a new <code>DeviceDB</code> and uses <code>DatabaseInitializer</code> to transfer all relations (FULL, DELTA, NEWT) from host to device.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">HostDB</td><td>The Host Database type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">host_db</td><td>Reference to the source Host Database (CPU memory) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A fully initialized DeviceDB instance residing on <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a> memory </dd></dl>
+
+</div>
+</div>
+<a id="a41b868fce31ba51dcabeca715b4ca818"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41b868fce31ba51dcabeca715b4ca818">&#9670;&nbsp;</a></span>reflect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;AST::CFixpoint FP&gt; </div>
+<div class="memtemplate">
+template&lt;typename HostDB &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a>&lt; FP &gt;::reflect </td>
+          <td>(</td>
+          <td class="paramtype">HostDB &amp;&#160;</td>
+          <td class="paramname"><em>host_db</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a55936c926c9bac9734f82f86e1b77809">DeviceDBFromHost</a>&lt; HostDB &gt; &amp;&#160;</td>
+          <td class="paramname"><em>device_db</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reflects results back from Device Database to Host Database. </p>
+<p>Copies the content of FULL relations from the Device DB back to the Host DB. Uses <code><a class="el" href="../../d6/d5a/structSRDatalog_1_1GPU_1_1GPUQueryExecutor_1_1ResultReflector.html" title="Helper struct to iterate over relations and copy them back to host.">ResultReflector</a></code> to handle the transfer and columns definition.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DB</td><td>The Host Database type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">host_db</td><td>The target Host Database to update </td></tr>
+    <tr><td class="paramname">device_db</td><td>The source Device Database </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

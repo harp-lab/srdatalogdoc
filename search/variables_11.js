@@ -1,14 +1,13 @@
 var searchData=
 [
-  ['seed_2181',['seed',['../d6/d7f/namespaceconfig.html#a8ccac9df7a99fb324b8f2efafc4d9dd7',1,'config']]],
-  ['semiring_2182',['Semiring',['../d7/d69/semiring_8h.html#a70712094cc4840a9899f19a0d28d5f98',1,'semiring.h']]],
-  ['sentinel_2183',['SENTINEL',['../d4/d9e/macro_8h.html#a09e977ab7b227470367f7fb62c53c0f5',1,'macro.h']]],
-  ['set_5fptr_5f_2184',['set_ptr_',['../d2/df5/structSRDatalog_1_1index_1_1HashmapIndex_1_1ValueRange_1_1type.html#a876c4e8387cbebb3090dddf93d4a20bd',1,'SRDatalog::index::HashmapIndex::ValueRange::type']]],
-  ['single_5fchar_2185',['single_char',['../dd/d10/structSRDatalog_1_1DelimiterInfo.html#a31a0a888b4ba8c8931f2e8aadc08e14b',1,'SRDatalog::DelimiterInfo']]],
-  ['sorted_5forder_2186',['sorted_order',['../d8/ddf/structhwy__lexsort_1_1SortContext.html#a032defc980f19c97586f3fde7d8055c0',1,'hwy_lexsort::SortContext']]],
-  ['spec_2187',['spec',['../d2/d6e/structIndexConfig_3_012_01_4.html#aac0a3c312e7902ba73bcd7bae82ae3d5',1,'IndexConfig&lt; 2 &gt;::spec()'],['../de/d28/structIndexConfig_3_013_01_4.html#a0b4025c56aaa722d031bb8c44f85af69',1,'IndexConfig&lt; 3 &gt;::spec()'],['../d9/d1d/structIndexConfig_3_014_01_4.html#a5af8e2ca39aecd1d879af638b2a02df2',1,'IndexConfig&lt; 4 &gt;::spec()']]],
-  ['statetuple_2188',['StateTuple',['../dc/df0/namespaceSRDatalog_1_1state.html#a0cb61673bde418b055796c1f53538e2b',1,'SRDatalog::state']]],
-  ['stored_5fcols_2189',['stored_cols',['../d8/d8b/structSRDatalog_1_1SortedArrayIndex_1_1Impl.html#ac2e90e7213d3e8e9c53a8b7823e872f0',1,'SRDatalog::SortedArrayIndex::Impl']]],
-  ['str_5f_2190',['str_',['../d1/d33/structSRDatalog_1_1IndexSpec.html#aff33a013007930decc743de746aed446',1,'SRDatalog::IndexSpec']]],
-  ['stride_2191',['stride',['../da/d07/structSRDatalog_1_1GPU_1_1NDArrayView.html#a6745d75816983ab29e9613177156db64',1,'SRDatalog::GPU::NDArrayView']]]
+  ['rel_2770',['rel',['../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45',1,'SRDatalog::AST']]],
+  ['relschema_2771',['RelSchema',['../d6/da1/namespaceSRDatalog_1_1AST.html#a7570db70f90568eaea69d349592f64b1',1,'SRDatalog::AST']]],
+  ['requires_2772',['requires',['../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c',1,'SRDatalog']]],
+  ['resource_5f_2773',['resource_',['../d0/d60/structSRDatalog_1_1detail_1_1RelationStorage_1_1HostStorage.html#ae4d82ac0a79a053519e566939554ba58',1,'SRDatalog::detail::RelationStorage::HostStorage::resource_()'],['../d4/dd8/structSRDatalog_1_1Relation_1_1StorageUnion_1_1HostData.html#a49fb4deebca615982f0d0cf9d896d4d0',1,'SRDatalog::Relation::StorageUnion::HostData::resource_()'],['../db/d3c/structSRDatalog_1_1HashTrieIndex_1_1Impl.html#ab395e67932df7113fc2f61b698ab2b73',1,'SRDatalog::HashTrieIndex::Impl::resource_()'],['../d8/d8b/structSRDatalog_1_1SortedArrayIndex_1_1Impl.html#addac1aef5035c2f3c7b45d19378caf5b',1,'SRDatalog::SortedArrayIndex::Impl::resource_()'],['../d2/d40/structSRDatalog_1_1ThreadLocalMergeBuffers.html#ad997041288b91c3b01d197a984a2659d',1,'SRDatalog::ThreadLocalMergeBuffers::resource_()']]],
+  ['rest_2774',['rest',['../d4/d46/classSRDatalog_1_1LeapfrogView.html#adc74c84176570fb8d03a5a3da7440752',1,'SRDatalog::LeapfrogView']]],
+  ['root_5fis_5fintersection_2775',['root_is_intersection',['../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a25625fb6590bafd50eb705a568f8d235',1,'SRDatalog::GPU::GPURootExecutor']]],
+  ['root_5funique_5fvalues_2776',['root_unique_values',['../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6fb5d0508e99237adc65f98c04ec709e',1,'SRDatalog::GPU::GPURootExecutor']]],
+  ['root_5fviews_2777',['root_views',['../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a38f44a4d5fff8eb4d4e5c955f3aa969b',1,'SRDatalog::GPU::GPURootExecutor']]],
+  ['rowid_2778',['RowId',['../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#a0a4112ee48a51bf871da1055398844c0',1,'SRDatalog::index::detail']]],
+  ['rule_5fsize_2779',['rule_size',['../d4/d61/structSRDatalog_1_1AST_1_1NonIterativeRuleSets.html#ac8dd7a7256f2802c4320da812924496e',1,'SRDatalog::AST::NonIterativeRuleSets']]]
 ];

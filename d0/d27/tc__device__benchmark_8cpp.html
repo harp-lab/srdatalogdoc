@@ -67,145 +67,232 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">tc_device_benchmark.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="../../db/df0/ast_8h_source.html">ast.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/d8a/eytzinger_8h_source.html">eytzinger.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d6/df3/hashmap_8h_source.html">hashmap.h</a>&quot;</code><br />
 <code>#include &quot;query.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d8/d5d/device__array_8h_source.html">gpu/device_array.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d2/def/device__sorted__array__index_8h_source.html">gpu/device_sorted_array_index.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d8/dc0/init_8h_source.html">gpu/init.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d0/dae/hashmap_8ipp.html">hashmap.ipp</a>&quot;</code><br />
 <code>#include &quot;runtime.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d7/d69/semiring_8h_source.html">semiring.h</a>&quot;</code><br />
-<code>#include &lt;boost/unordered/unordered_flat_set.hpp&gt;</code><br />
-<code>#include &lt;cassert&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d50/test__util_8h_source.html">test_util.h</a>&quot;</code><br />
 <code>#include &lt;chrono&gt;</code><br />
-<code>#include &lt;cuda_runtime.h&gt;</code><br />
-<code>#include &lt;thrust/execution_policy.h&gt;</code><br />
-<code>#include &lt;thrust/scan.h&gt;</code><br />
-<code>#include &lt;sys/mman.h&gt;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/dc0/init_8h_source.html">gpu/init.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/dd6/gpu__fixpoint__executor_8h_source.html">gpu/runtime/gpu_fixpoint_executor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d33/gpu_2runtime_2query_8h_source.html">gpu/runtime/query.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for tc_device_benchmark.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dd/d23/tc__device__benchmark_8cpp__incl.png" border="0" usemap="#ageneralized__datalog_2benchmark_2tc__device__benchmark_8cpp" alt=""/></div>
 <map name="ageneralized__datalog_2benchmark_2tc__device__benchmark_8cpp" id="ageneralized__datalog_2benchmark_2tc__device__benchmark_8cpp">
-<area shape="rect" title=" " alt="" coords="3290,5,3455,61"/>
-<area shape="rect" href="../../db/df0/ast_8h.html" title="Abstract Syntax Tree (AST) for Datalog using Template Metaprogramming." alt="" coords="563,109,617,136"/>
-<area shape="rect" title=" " alt="" coords="3077,512,3276,553"/>
-<area shape="rect" href="../../d7/d69/semiring_8h.html" title=" " alt="" coords="1735,355,1826,382"/>
-<area shape="rect" title=" " alt="" coords="547,273,617,300"/>
-<area shape="rect" href="../../d5/d8a/eytzinger_8h.html" title=" " alt="" coords="2128,191,2223,218"/>
-<area shape="rect" href="../../d6/df3/hashmap_8h.html" title="A pure hashmap based index datastructure. For WCOJ, we will vectical partition the hash table,..." alt="" coords="1139,191,1233,218"/>
-<area shape="rect" title=" " alt="" coords="3215,109,3285,136"/>
-<area shape="rect" href="../../d8/d5d/device__array_8h.html" title="GPU device array wrapper using Umpire allocator." alt="" coords="3461,273,3605,300"/>
-<area shape="rect" title=" " alt="" coords="3250,355,3373,382"/>
-<area shape="rect" title=" " alt="" coords="4261,355,4444,382"/>
-<area shape="rect" href="../../d2/def/device__sorted__array__index_8h.html" title="GPU&#45;based Sorted Array Index (Read&#45;Only B&#45;Tree / Flat Index) for GPU kernels." alt="" coords="2764,184,2947,225"/>
-<area shape="rect" href="../../d8/dc0/init_8h.html" title=" " alt="" coords="3303,273,3386,300"/>
-<area shape="rect" href="../../d0/dae/hashmap_8ipp.html" title=" " alt="" coords="3034,109,3141,136"/>
-<area shape="rect" title=" " alt="" coords="3730,109,3815,136"/>
-<area shape="rect" title=" " alt="" coords="3839,109,3906,136"/>
-<area shape="rect" title=" " alt="" coords="3930,109,4037,136"/>
-<area shape="rect" title=" " alt="" coords="4061,109,4164,136"/>
-<area shape="rect" href="../../d1/d25/relation__col_8h.html" title="Defines the column&#45;oriented Relation class and associated views/indexes." alt="" coords="801,191,912,218"/>
-<area shape="rect" title=" " alt="" coords="5,512,204,553"/>
-<area shape="rect" title=" " alt="" coords="1500,437,1592,464"/>
-<area shape="rect" title=" " alt="" coords="227,437,353,464"/>
-<area shape="rect" href="../../dc/dc6/tmp_8h.html" title="Template metaprogramming utilities for SRDatalog." alt="" coords="260,355,320,382"/>
-<area shape="rect" title=" " alt="" coords="475,437,529,464"/>
-<area shape="rect" title=" " alt="" coords="193,184,424,225"/>
-<area shape="rect" title=" " alt="" coords="449,191,611,218"/>
-<area shape="rect" href="../../dc/df8/column_8h.html" title="Thin, PMR&#45;aware contiguous column wrapper and encoding/decoding system." alt="" coords="894,355,977,382"/>
-<area shape="rect" title=" " alt="" coords="2056,437,2127,464"/>
-<area shape="rect" title=" " alt="" coords="754,437,834,464"/>
-<area shape="rect" href="../../d1/db5/index_8h.html" title=" " alt="" coords="1604,273,1675,300"/>
-<area shape="rect" title=" " alt="" coords="2426,437,2493,464"/>
-<area shape="rect" title=" " alt="" coords="1391,355,1458,382"/>
-<area shape="rect" title=" " alt="" coords="1938,437,1991,464"/>
-<area shape="rect" title=" " alt="" coords="2549,437,2634,464"/>
-<area shape="rect" title=" " alt="" coords="1083,437,1161,464"/>
-<area shape="rect" title=" " alt="" coords="3095,355,3175,382"/>
-<area shape="rect" href="../../dc/db2/system_8h.html" title="System abstraction layer for memory management and hardware configuration." alt="" coords="1831,437,1914,464"/>
-<area shape="rect" title=" " alt="" coords="2151,437,2207,464"/>
-<area shape="rect" title=" " alt="" coords="2156,273,2195,300"/>
-<area shape="rect" title=" " alt="" coords="2318,437,2385,464"/>
-<area shape="rect" title=" " alt="" coords="2490,355,2565,382"/>
-<area shape="rect" href="../../d5/d77/logging_8h.html" title=" " alt="" coords="3146,273,3229,300"/>
-<area shape="rect" href="../../d9/d85/search_8h.html" title=" " alt="" coords="2186,355,2263,382"/>
-<area shape="rect" href="../../d4/d8e/skip_8h.html" title="This file provide the SIMD operation for skip duplicate values in a sorted array during search." alt="" coords="2270,273,2331,300"/>
-<area shape="rect" href="../../d7/d50/sort_8h.html" title="High&#45;performance lexicographic sorting using Highway SIMD library." alt="" coords="2103,355,2162,382"/>
-<area shape="rect" href="../../df/d9c/eytzinger_8ipp.html" title=" " alt="" coords="2457,273,2563,300"/>
-<area shape="rect" title=" " alt="" coords="2674,437,2733,464"/>
-<area shape="rect" title=" " alt="" coords="3599,355,3757,382"/>
-<area shape="rect" title=" " alt="" coords="3781,355,3997,382"/>
-<area shape="rect" title=" " alt="" coords="4021,348,4237,389"/>
+<area shape="rect" title=" " alt="" coords="2363,5,2528,61"/>
+<area shape="rect" href="../../db/df0/ast_8h.html" title="Abstract Syntax Tree (AST) for Datalog using Template Metaprogramming." alt="" coords="2822,430,2877,457"/>
+<area shape="rect" title=" " alt="" coords="661,691,720,717"/>
+<area shape="rect" title=" " alt="" coords="1470,691,1533,717"/>
+<area shape="rect" href="../../d7/d69/semiring_8h.html" title=" " alt="" coords="1752,691,1843,717"/>
+<area shape="rect" title=" " alt="" coords="651,609,731,635"/>
+<area shape="rect" title=" " alt="" coords="3040,109,3109,136"/>
+<area shape="rect" title=" " alt="" coords="3133,109,3219,136"/>
+<area shape="rect" href="../../d4/d50/test__util_8h.html" title="Utility functions for tests and benchmarks." alt="" coords="3243,109,3330,136"/>
+<area shape="rect" title=" " alt="" coords="3701,191,3792,218"/>
+<area shape="rect" title=" " alt="" coords="3405,109,3472,136"/>
+<area shape="rect" href="../../d8/dc0/init_8h.html" title=" " alt="" coords="436,519,519,546"/>
+<area shape="rect" href="../../df/dd6/gpu__fixpoint__executor_8h.html" title=" " alt="" coords="1582,184,1767,225"/>
+<area shape="rect" href="../../da/d33/gpu_2runtime_2query_8h.html" title=" " alt="" coords="2369,109,2521,136"/>
+<area shape="rect" href="../../d1/d25/relation__col_8h.html" title="Defines the column&#45;oriented Relation class and associated views/indexes." alt="" coords="2075,519,2186,546"/>
+<area shape="rect" title=" " alt="" coords="3330,765,3422,792"/>
+<area shape="rect" title=" " alt="" coords="3145,765,3271,792"/>
+<area shape="rect" href="../../dc/dc6/tmp_8h.html" title="Template metaprogramming utilities for SRDatalog." alt="" coords="2873,691,2933,717"/>
+<area shape="rect" title=" " alt="" coords="2841,765,2895,792"/>
+<area shape="rect" title=" " alt="" coords="2973,601,3171,643"/>
+<area shape="rect" title=" " alt="" coords="3142,512,3373,553"/>
+<area shape="rect" title=" " alt="" coords="2955,519,3117,546"/>
+<area shape="rect" title=" " alt="" coords="2168,609,2344,635"/>
+<area shape="rect" title=" " alt="" coords="2368,609,2552,635"/>
+<area shape="rect" title=" " alt="" coords="2577,609,2695,635"/>
+<area shape="rect" href="../../dc/df8/column_8h.html" title="Thin, PMR&#45;aware contiguous column wrapper and encoding/decoding system." alt="" coords="2664,691,2747,717"/>
+<area shape="rect" title=" " alt="" coords="2015,765,2095,792"/>
+<area shape="rect" href="../../d1/db5/index_8h.html" title=" " alt="" coords="1819,609,1890,635"/>
+<area shape="rect" title=" " alt="" coords="1681,765,1748,792"/>
+<area shape="rect" title=" " alt="" coords="1772,765,1857,792"/>
+<area shape="rect" title=" " alt="" coords="1166,609,1253,635"/>
+<area shape="rect" title=" " alt="" coords="1531,609,1591,635"/>
+<area shape="rect" href="../../d4/d9e/macro_8h.html" title=" " alt="" coords="721,765,823,792"/>
+<area shape="rect" title=" " alt="" coords="93,609,216,635"/>
+<area shape="rect" title=" " alt="" coords="240,609,304,635"/>
+<area shape="rect" title=" " alt="" coords="379,601,576,643"/>
+<area shape="rect" title=" " alt="" coords="1602,273,1747,300"/>
+<area shape="rect" title=" " alt="" coords="1771,273,1938,300"/>
+<area shape="rect" title=" " alt="" coords="806,609,989,635"/>
+<area shape="rect" title=" " alt="" coords="2109,273,2216,300"/>
+<area shape="rect" href="../../d5/d77/logging_8h.html" title=" " alt="" coords="668,519,751,546"/>
+<area shape="rect" href="../../d3/dab/mir_8h.html" title="Mid&#45;level Intermediate Representation (MIR) definitions and compilation." alt="" coords="2615,348,2694,375"/>
+<area shape="rect" href="../../dd/d40/executor_8h.html" title="Pipeline executor &#45; core template metaprogramming interpreter for pipelines." alt="" coords="2361,273,2529,300"/>
+<area shape="rect" href="../../db/d3b/state_8h.html" title="Runtime state management for variable bindings." alt="" coords="1963,273,2085,300"/>
+<area shape="rect" href="../../d3/d31/type__name_8h.html" title=" " alt="" coords="948,348,1055,375"/>
+<area shape="rect" href="../../d2/def/device__sorted__array__index_8h.html" title="GPU&#45;based Sorted Array Index (Read&#45;Only B&#45;Tree / Flat Index) for GPU kernels." alt="" coords="1359,423,1526,464"/>
+<area shape="rect" href="../../da/dd5/gpu_2runtime_2runtime_8h.html" title="Complete GPU runtime &#45; includes all components for easy usage." alt="" coords="1180,273,1265,300"/>
+<area shape="rect" href="../../db/dac/custom__set__op_8h.html" title=" " alt="" coords="1289,273,1476,300"/>
+<area shape="rect" href="../../d8/d5d/device__array_8h.html" title="GPU device array wrapper using RMM (RAPIDS Memory Manager) allocator." alt="" coords="1130,519,1246,546"/>
+<area shape="rect" title=" " alt="" coords="2383,191,2507,218"/>
 </map>
 </div>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a9ea0293fb7dcba88f071c44fd145819e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a9ea0293fb7dcba88f071c44fd145819e">WARP_SIZE</a>&#160;&#160;&#160;32</td></tr>
-<tr class="separator:a9ea0293fb7dcba88f071c44fd145819e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d00aedbb9b45903565ee1726c4e7b8c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a1d00aedbb9b45903565ee1726c4e7b8c">VTUNE_TASK_BEGIN</a>(handle)&#160;&#160;&#160;((void)0)</td></tr>
-<tr class="separator:a1d00aedbb9b45903565ee1726c4e7b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab879c1e2779606c41c5ac471a7a32e6e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab879c1e2779606c41c5ac471a7a32e6e">VTUNE_TASK_END</a>()&#160;&#160;&#160;((void)0)</td></tr>
-<tr class="separator:ab879c1e2779606c41c5ac471a7a32e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ab10c3cc90e26fe9179b01c8a8f6bee5b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> = <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a></td></tr>
+<tr class="separator:ab10c3cc90e26fe9179b01c8a8f6bee5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74a6280b6fd89064253a8fd7e1b6bd62"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a74a6280b6fd89064253a8fd7e1b6bd62">EdgeSchema</a> = relation&lt; decltype(&quot;Edge&quot;_s), <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, int, int &gt;</td></tr>
+<tr class="separator:a74a6280b6fd89064253a8fd7e1b6bd62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35fcff2e31451ab9c6c2629b53ee6c63"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a35fcff2e31451ab9c6c2629b53ee6c63">PathSchema</a> = relation&lt; decltype(&quot;Path&quot;_s), <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, int, int &gt;</td></tr>
+<tr class="separator:a35fcff2e31451ab9c6c2629b53ee6c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa723dc85ba2110aa7642510406faa460"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#aa723dc85ba2110aa7642510406faa460">TCBlueprint</a> = database&lt; <a class="el" href="../../df/db0/join__benchmark_8cpp.html#a74a6280b6fd89064253a8fd7e1b6bd62">EdgeSchema</a>, <a class="el" href="../../df/d65/tc__benchmark_8cpp.html#a35fcff2e31451ab9c6c2629b53ee6c63">PathSchema</a> &gt;</td></tr>
+<tr class="separator:aa723dc85ba2110aa7642510406faa460"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a5cb89c1daf69a6e6864777608fd5ac"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a7a5cb89c1daf69a6e6864777608fd5ac">TransitiveBase</a> = decltype(non_iterative(<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a0a1cc6ec874b52dc34927c299bdffc4b">tc_base</a>))</td></tr>
+<tr class="separator:a7a5cb89c1daf69a6e6864777608fd5ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4014603202316b6c540b876602570202"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a4014603202316b6c540b876602570202">TransitiveFixpoint</a> = decltype(fixpoint(<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab23e3d5f552df606b2e2a84e0351640a">tc_step</a>))</td></tr>
+<tr class="separator:a4014603202316b6c540b876602570202"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47dabdf3a0cf2e68feef720a1f76bd6e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a47dabdf3a0cf2e68feef720a1f76bd6e">pl</a> = <a class="el" href="../../d7/db8/structSRDatalog_1_1mir_1_1FixpointPlan.html">SRDatalog::mir::FixpointPlan</a>&lt; std::tuple&lt; <a class="el" href="../../d7/df9/structSRDatalog_1_1mir_1_1ExecutePipeline.html">SRDatalog::mir::ExecutePipeline</a>&lt; <a class="el" href="../../d5/dff/structSRDatalog_1_1mir_1_1Pipeline.html">SRDatalog::mir::Pipeline</a>&lt; std::tuple&lt; <a class="el" href="../../da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html">SRDatalog::mir::ColumnJoin</a>&lt; <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt; boost::hana::string&lt; '<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>'&gt; &gt;, std::tuple&lt; <a class="el" href="../../d9/dc5/structSRDatalog_1_1mir_1_1ColumnSource.html">SRDatalog::mir::ColumnSource</a>&lt; <a class="el" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html">SRDatalog::IndexSpecT</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt; 'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt; int, int &gt; &gt;, std::integer_sequence&lt; int, 1, 0 &gt;, 1 &gt;, std::tuple&lt;&gt; &gt;, <a class="el" href="../../d9/dc5/structSRDatalog_1_1mir_1_1ColumnSource.html">SRDatalog::mir::ColumnSource</a>&lt; <a class="el" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html">SRDatalog::IndexSpecT</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt; 'E', 'd', 'g', 'e'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt; int, int &gt; &gt;, std::integer_sequence&lt; int, 0, 1 &gt; &gt;, std::tuple&lt;&gt; &gt;&gt; &gt;, SRDatalog::mir::CartesianJoin&lt; std::tuple&lt; <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt; boost::hana::string&lt; '<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>'&gt; &gt;, <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt; boost::hana::string&lt; '<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab5c979306421da83cd3c15604a0775d8">z</a>'&gt; &gt;&gt;, std::tuple&lt; <a class="el" href="../../d9/dc5/structSRDatalog_1_1mir_1_1ColumnSource.html">SRDatalog::mir::ColumnSource</a>&lt; <a class="el" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html">SRDatalog::IndexSpecT</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt; 'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt; int, int &gt; &gt;, std::integer_sequence&lt; int, 1, 0 &gt;, 1 &gt;, std::tuple&lt; <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt; boost::hana::string&lt; '<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>'&gt; &gt;&gt; &gt;, <a class="el" href="../../d9/dc5/structSRDatalog_1_1mir_1_1ColumnSource.html">SRDatalog::mir::ColumnSource</a>&lt; <a class="el" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html">SRDatalog::IndexSpecT</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt; 'E', 'd', 'g', 'e'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt; int, int &gt; &gt;, std::integer_sequence&lt; int, 0, 1 &gt; &gt;, std::tuple&lt; <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt; boost::hana::string&lt; '<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>'&gt; &gt;&gt; &gt;&gt; &gt;, SRDatalog::mir::DestinationRelation&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt; 'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt; int, int &gt; &gt;, std::tuple&lt; <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt; boost::hana::string&lt; '<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>'&gt; &gt;, <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt; boost::hana::string&lt; '<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab5c979306421da83cd3c15604a0775d8">z</a>'&gt; &gt;&gt;, 2, <a class="el" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html">SRDatalog::IndexSpecT</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt; 'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt; int, int &gt; &gt;, std::integer_sequence&lt; int, 1, 0 &gt;, 2 &gt; &gt;&gt;, boost::hana::detail::map_impl&lt; boost::hana::detail::hash_table&lt; boost::hana::detail::bucket&lt; <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt; boost::hana::string&lt; '<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>'&gt; &gt;, 0 &gt;, boost::hana::detail::bucket&lt; <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt; boost::hana::string&lt; '<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>'&gt; &gt;, 1 &gt;, boost::hana::detail::bucket&lt; <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt; boost::hana::string&lt; '<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab5c979306421da83cd3c15604a0775d8">z</a>'&gt; &gt;, 2 &gt; &gt;, boost::hana::basic_tuple&lt; boost::hana::pair&lt; boost::hana::type_impl&lt; <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt; boost::hana::string&lt; '<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>'&gt; &gt;&gt;::_, boost::hana::integral_constant&lt; int, 0 &gt; &gt;, boost::hana::pair&lt; boost::hana::type_impl&lt; <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt; boost::hana::string&lt; '<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>'&gt; &gt;&gt;::_, boost::hana::integral_constant&lt; int, 1 &gt; &gt;, boost::hana::pair&lt; boost::hana::type_impl&lt; <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt; boost::hana::string&lt; '<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab5c979306421da83cd3c15604a0775d8">z</a>'&gt; &gt;&gt;::_, boost::hana::integral_constant&lt; int, 2 &gt; &gt;&gt; &gt;&gt; &gt;, <a class="el" href="../../dd/d74/structSRDatalog_1_1mir_1_1ClearRelation.html">SRDatalog::mir::ClearRelation</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt; 'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt; int, int &gt; &gt;, 1 &gt;, <a class="el" href="../../d9/dd6/structSRDatalog_1_1mir_1_1CheckSize.html">SRDatalog::mir::CheckSize</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt; 'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt; int, int &gt; &gt;, 2 &gt;, SRDatalog::mir::RebuildIndex&lt; <a class="el" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html">SRDatalog::IndexSpecT</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt; 'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt; int, int &gt; &gt;, std::integer_sequence&lt; int, 1, 0 &gt;, 2 &gt; &gt;, <a class="el" href="../../dc/d99/structSRDatalog_1_1mir_1_1InsertFromRelation.html">SRDatalog::mir::InsertFromRelation</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt; 'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt; int, int &gt; &gt;, 2, 0, <a class="el" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html">SRDatalog::IndexSpecT</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt; 'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt; int, int &gt; &gt;, std::integer_sequence&lt; int, 1, 0 &gt; &gt;&gt;, SRDatalog::mir::SwapRelations&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt; 'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt; int, int &gt; &gt;&gt;, <a class="el" href="../../d8/d27/structSRDatalog_1_1mir_1_1SetVersion.html">SRDatalog::mir::SetVersion</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt; 'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt; int, int &gt; &gt;, 1 &gt;, <a class="el" href="../../d8/d27/structSRDatalog_1_1mir_1_1SetVersion.html">SRDatalog::mir::SetVersion</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt; 'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt; int, int &gt; &gt;, 2 &gt; &gt;&gt;</td></tr>
+<tr class="separator:a47dabdf3a0cf2e68feef720a1f76bd6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1bea8ea1e72d9b3c914d9eb2525ca3f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ac1bea8ea1e72d9b3c914d9eb2525ca3f">Executor</a> = <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a>&lt; <a class="el" href="../../df/d65/tc__benchmark_8cpp.html#a4014603202316b6c540b876602570202">TransitiveFixpoint</a> &gt;</td></tr>
+<tr class="separator:ac1bea8ea1e72d9b3c914d9eb2525ca3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
 <tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a79d6081e72e2f4087a34c2224aaa0e6d"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a> = &quot;x&quot;_v</td></tr>
+<tr class="separator:a79d6081e72e2f4087a34c2224aaa0e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51a101f6c8f644c64e9eb1fece514ae9"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a> = &quot;y&quot;_v</td></tr>
+<tr class="separator:a51a101f6c8f644c64e9eb1fece514ae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5c979306421da83cd3c15604a0775d8"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab5c979306421da83cd3c15604a0775d8">z</a> = &quot;z&quot;_v</td></tr>
+<tr class="separator:ab5c979306421da83cd3c15604a0775d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d5d95998397c344e7c1e5c23a3e375a"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a0d5d95998397c344e7c1e5c23a3e375a">edge</a> = rel&lt;<a class="el" href="../../df/db0/join__benchmark_8cpp.html#a74a6280b6fd89064253a8fd7e1b6bd62">EdgeSchema</a>&gt;</td></tr>
+<tr class="separator:a0d5d95998397c344e7c1e5c23a3e375a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b789c94d5d17b293978f0537fe02c43"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a1b789c94d5d17b293978f0537fe02c43">path</a> = rel&lt;<a class="el" href="../../df/d65/tc__benchmark_8cpp.html#a35fcff2e31451ab9c6c2629b53ee6c63">PathSchema</a>&gt;</td></tr>
+<tr class="separator:a1b789c94d5d17b293978f0537fe02c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a1cc6ec874b52dc34927c299bdffc4b"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a0a1cc6ec874b52dc34927c299bdffc4b">tc_base</a> = path.newt(<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>, <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>) &lt;&lt;= edge.full(<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>, <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>)</td></tr>
+<tr class="separator:a0a1cc6ec874b52dc34927c299bdffc4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab23e3d5f552df606b2e2a84e0351640a"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab23e3d5f552df606b2e2a84e0351640a">tc_step</a> = (path.newt(<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>, <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab5c979306421da83cd3c15604a0775d8">z</a>) &lt;&lt;= (path.delta(<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>, <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>), edge.full(<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>, <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab5c979306421da83cd3c15604a0775d8">z</a>))) | plan(<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>, <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>, <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab5c979306421da83cd3c15604a0775d8">z</a>)</td></tr>
+<tr class="separator:ab23e3d5f552df606b2e2a84e0351640a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a1d00aedbb9b45903565ee1726c4e7b8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d00aedbb9b45903565ee1726c4e7b8c">&#9670;&nbsp;</a></span>VTUNE_TASK_BEGIN</h2>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a74a6280b6fd89064253a8fd7e1b6bd62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74a6280b6fd89064253a8fd7e1b6bd62">&#9670;&nbsp;</a></span>EdgeSchema</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define VTUNE_TASK_BEGIN</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">handle</td><td>)</td>
-          <td>&#160;&#160;&#160;((void)0)</td>
+          <td class="memname">using <a class="el" href="../../df/db0/join__benchmark_8cpp.html#a74a6280b6fd89064253a8fd7e1b6bd62">EdgeSchema</a> =  relation&lt;decltype(&quot;Edge&quot;_s), <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, int, int&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ab879c1e2779606c41c5ac471a7a32e6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab879c1e2779606c41c5ac471a7a32e6e">&#9670;&nbsp;</a></span>VTUNE_TASK_END</h2>
+<a id="ac1bea8ea1e72d9b3c914d9eb2525ca3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1bea8ea1e72d9b3c914d9eb2525ca3f">&#9670;&nbsp;</a></span>Executor</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define VTUNE_TASK_END</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;((void)0)</td>
+          <td class="memname">using <a class="el" href="../../d7/d40/sg__device__benchmark_8cpp.html#a243a60e4b18628bd7c24cf7a4e102bfd">Executor</a> =  <a class="el" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a>&lt;<a class="el" href="../../df/d65/tc__benchmark_8cpp.html#a4014603202316b6c540b876602570202">TransitiveFixpoint</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a9ea0293fb7dcba88f071c44fd145819e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ea0293fb7dcba88f071c44fd145819e">&#9670;&nbsp;</a></span>WARP_SIZE</h2>
+<a id="a35fcff2e31451ab9c6c2629b53ee6c63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35fcff2e31451ab9c6c2629b53ee6c63">&#9670;&nbsp;</a></span>PathSchema</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define WARP_SIZE&#160;&#160;&#160;32</td>
+          <td class="memname">using <a class="el" href="../../df/d65/tc__benchmark_8cpp.html#a35fcff2e31451ab9c6c2629b53ee6c63">PathSchema</a> =  relation&lt;decltype(&quot;Path&quot;_s), <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, int, int&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a47dabdf3a0cf2e68feef720a1f76bd6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47dabdf3a0cf2e68feef720a1f76bd6e">&#9670;&nbsp;</a></span>pl</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a47dabdf3a0cf2e68feef720a1f76bd6e">pl</a> =  <a class="el" href="../../d7/db8/structSRDatalog_1_1mir_1_1FixpointPlan.html">SRDatalog::mir::FixpointPlan</a>&lt;std::tuple&lt; <a class="el" href="../../d7/df9/structSRDatalog_1_1mir_1_1ExecutePipeline.html">SRDatalog::mir::ExecutePipeline</a>&lt;<a class="el" href="../../d5/dff/structSRDatalog_1_1mir_1_1Pipeline.html">SRDatalog::mir::Pipeline</a>&lt; std::tuple&lt; <a class="el" href="../../da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html">SRDatalog::mir::ColumnJoin</a>&lt; <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt;boost::hana::string&lt;'<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>'&gt; &gt;, std::tuple&lt;<a class="el" href="../../d9/dc5/structSRDatalog_1_1mir_1_1ColumnSource.html">SRDatalog::mir::ColumnSource</a>&lt; <a class="el" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html">SRDatalog::IndexSpecT</a>&lt;<a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt;'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt;int, int&gt; &gt;, std::integer_sequence&lt;int, 1, 0&gt;, 1&gt;, std::tuple&lt;&gt; &gt;, <a class="el" href="../../d9/dc5/structSRDatalog_1_1mir_1_1ColumnSource.html">SRDatalog::mir::ColumnSource</a>&lt; <a class="el" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html">SRDatalog::IndexSpecT</a>&lt;<a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt;'E', 'd', 'g', 'e'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt;int, int&gt; &gt;, std::integer_sequence&lt;int, 0, 1&gt; &gt;, std::tuple&lt;&gt; &gt;&gt; &gt;, SRDatalog::mir::CartesianJoin&lt; std::tuple&lt;<a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt;boost::hana::string&lt;'<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>'&gt; &gt;, <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt;boost::hana::string&lt;'<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab5c979306421da83cd3c15604a0775d8">z</a>'&gt; &gt;&gt;, std::tuple&lt;<a class="el" href="../../d9/dc5/structSRDatalog_1_1mir_1_1ColumnSource.html">SRDatalog::mir::ColumnSource</a>&lt; <a class="el" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html">SRDatalog::IndexSpecT</a>&lt;<a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt;'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt;int, int&gt; &gt;, std::integer_sequence&lt;int, 1, 0&gt;, 1&gt;, std::tuple&lt;<a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt;boost::hana::string&lt;'<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>'&gt; &gt;&gt; &gt;, <a class="el" href="../../d9/dc5/structSRDatalog_1_1mir_1_1ColumnSource.html">SRDatalog::mir::ColumnSource</a>&lt; <a class="el" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html">SRDatalog::IndexSpecT</a>&lt;<a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt;'E', 'd', 'g', 'e'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt;int, int&gt; &gt;, std::integer_sequence&lt;int, 0, 1&gt; &gt;, std::tuple&lt;<a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt;boost::hana::string&lt;'<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>'&gt; &gt;&gt; &gt;&gt; &gt;, SRDatalog::mir::DestinationRelation&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt;boost::hana::string&lt;'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt;int, int&gt; &gt;, std::tuple&lt;<a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt;boost::hana::string&lt;'<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>'&gt; &gt;, <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt;boost::hana::string&lt;'<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab5c979306421da83cd3c15604a0775d8">z</a>'&gt; &gt;&gt;, 2, <a class="el" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html">SRDatalog::IndexSpecT</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt;boost::hana::string&lt;'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt;int, int&gt; &gt;, std::integer_sequence&lt;int, 1, 0&gt;, 2&gt; &gt;&gt;, boost::hana::detail::map_impl&lt; boost::hana::detail::hash_table&lt; boost::hana::detail::bucket&lt;<a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt;boost::hana::string&lt;'<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>'&gt; &gt;, 0&gt;, boost::hana::detail::bucket&lt;<a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt;boost::hana::string&lt;'<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>'&gt; &gt;, 1&gt;, boost::hana::detail::bucket&lt;<a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt;boost::hana::string&lt;'<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab5c979306421da83cd3c15604a0775d8">z</a>'&gt; &gt;, 2&gt; &gt;, boost::hana::basic_tuple&lt;boost::hana::pair&lt;boost::hana::type_impl&lt;<a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt; boost::hana::string&lt;'<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>'&gt; &gt;&gt;::_, boost::hana::integral_constant&lt;int, 0&gt; &gt;, boost::hana::pair&lt;boost::hana::type_impl&lt;<a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt; boost::hana::string&lt;'<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>'&gt; &gt;&gt;::_, boost::hana::integral_constant&lt;int, 1&gt; &gt;, boost::hana::pair&lt;boost::hana::type_impl&lt;<a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">SRDatalog::AST::Var</a>&lt; boost::hana::string&lt;'<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab5c979306421da83cd3c15604a0775d8">z</a>'&gt; &gt;&gt;::_, boost::hana::integral_constant&lt;int, 2&gt; &gt;&gt; &gt;&gt; &gt;, <a class="el" href="../../dd/d74/structSRDatalog_1_1mir_1_1ClearRelation.html">SRDatalog::mir::ClearRelation</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt;boost::hana::string&lt;'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt;int, int&gt; &gt;, 1&gt;, <a class="el" href="../../d9/dd6/structSRDatalog_1_1mir_1_1CheckSize.html">SRDatalog::mir::CheckSize</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt;boost::hana::string&lt;'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt;int, int&gt; &gt;, 2&gt;, SRDatalog::mir::RebuildIndex&lt;<a class="el" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html">SRDatalog::IndexSpecT</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt;boost::hana::string&lt;'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt;int, int&gt; &gt;, std::integer_sequence&lt;int, 1, 0&gt;, 2&gt; &gt;, <a class="el" href="../../dc/d99/structSRDatalog_1_1mir_1_1InsertFromRelation.html">SRDatalog::mir::InsertFromRelation</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt;boost::hana::string&lt;'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt;int, int&gt; &gt;, 2, 0, <a class="el" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html">SRDatalog::IndexSpecT</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt;boost::hana::string&lt;'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt;int, int&gt; &gt;, std::integer_sequence&lt;int, 1, 0&gt; &gt;&gt;, SRDatalog::mir::SwapRelations&lt;<a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt; boost::hana::string&lt;'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt;int, int&gt; &gt;&gt;, <a class="el" href="../../d8/d27/structSRDatalog_1_1mir_1_1SetVersion.html">SRDatalog::mir::SetVersion</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt;boost::hana::string&lt;'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt;int, int&gt; &gt;, 1&gt;, <a class="el" href="../../d8/d27/structSRDatalog_1_1mir_1_1SetVersion.html">SRDatalog::mir::SetVersion</a>&lt; <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">SRDatalog::AST::RelationSchema</a>&lt;boost::hana::string&lt;'P', 'a', 't', 'h'&gt;, <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a>, std::tuple&lt;int, int&gt; &gt;, 2&gt; &gt;&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab10c3cc90e26fe9179b01c8a8f6bee5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab10c3cc90e26fe9179b01c8a8f6bee5b">&#9670;&nbsp;</a></span>SR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> =  <a class="el" href="../../d3/d43/structBooleanSR.html">BooleanSR</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa723dc85ba2110aa7642510406faa460"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa723dc85ba2110aa7642510406faa460">&#9670;&nbsp;</a></span>TCBlueprint</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../df/d65/tc__benchmark_8cpp.html#aa723dc85ba2110aa7642510406faa460">TCBlueprint</a> =  database&lt;<a class="el" href="../../df/db0/join__benchmark_8cpp.html#a74a6280b6fd89064253a8fd7e1b6bd62">EdgeSchema</a>, <a class="el" href="../../df/d65/tc__benchmark_8cpp.html#a35fcff2e31451ab9c6c2629b53ee6c63">PathSchema</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7a5cb89c1daf69a6e6864777608fd5ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a5cb89c1daf69a6e6864777608fd5ac">&#9670;&nbsp;</a></span>TransitiveBase</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../df/d65/tc__benchmark_8cpp.html#a7a5cb89c1daf69a6e6864777608fd5ac">TransitiveBase</a> =  decltype(non_iterative(<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a0a1cc6ec874b52dc34927c299bdffc4b">tc_base</a>))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4014603202316b6c540b876602570202"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4014603202316b6c540b876602570202">&#9670;&nbsp;</a></span>TransitiveFixpoint</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../df/d65/tc__benchmark_8cpp.html#a4014603202316b6c540b876602570202">TransitiveFixpoint</a> =  decltype(fixpoint(<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab23e3d5f552df606b2e2a84e0351640a">tc_step</a>))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -237,6 +324,145 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a0d5d95998397c344e7c1e5c23a3e375a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d5d95998397c344e7c1e5c23a3e375a">&#9670;&nbsp;</a></span>edge</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto edge = rel&lt;<a class="el" href="../../df/db0/join__benchmark_8cpp.html#a74a6280b6fd89064253a8fd7e1b6bd62">EdgeSchema</a>&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b789c94d5d17b293978f0537fe02c43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b789c94d5d17b293978f0537fe02c43">&#9670;&nbsp;</a></span>path</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto path = rel&lt;<a class="el" href="../../df/d65/tc__benchmark_8cpp.html#a35fcff2e31451ab9c6c2629b53ee6c63">PathSchema</a>&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a1cc6ec874b52dc34927c299bdffc4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a1cc6ec874b52dc34927c299bdffc4b">&#9670;&nbsp;</a></span>tc_base</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto tc_base = path.newt(<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>, <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>) &lt;&lt;= edge.full(<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>, <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab23e3d5f552df606b2e2a84e0351640a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab23e3d5f552df606b2e2a84e0351640a">&#9670;&nbsp;</a></span>tc_step</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto tc_step = (path.newt(<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>, <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab5c979306421da83cd3c15604a0775d8">z</a>) &lt;&lt;= (path.delta(<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>, <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>), edge.full(<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>, <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab5c979306421da83cd3c15604a0775d8">z</a>))) | plan(<a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a51a101f6c8f644c64e9eb1fece514ae9">y</a>, <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>, <a class="el" href="../../d0/d27/tc__device__benchmark_8cpp.html#ab5c979306421da83cd3c15604a0775d8">z</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79d6081e72e2f4087a34c2224aaa0e6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79d6081e72e2f4087a34c2224aaa0e6d">&#9670;&nbsp;</a></span>x</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto x = &quot;x&quot;_v</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51a101f6c8f644c64e9eb1fece514ae9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51a101f6c8f644c64e9eb1fece514ae9">&#9670;&nbsp;</a></span>y</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto y = &quot;y&quot;_v</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab5c979306421da83cd3c15604a0775d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5c979306421da83cd3c15604a0775d8">&#9670;&nbsp;</a></span>z</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto z = &quot;z&quot;_v</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

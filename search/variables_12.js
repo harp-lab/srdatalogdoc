@@ -1,8 +1,28 @@
 var searchData=
 [
-  ['terms_2192',['Terms',['../db/d7d/namespaceSRDatalog_1_1mir.html#a12a87377d68a3405d70ac0ef26ef3f12',1,'SRDatalog::mir']]],
-  ['this_5fis_5fleaf_2193',['this_is_leaf',['../d6/d1a/structSRDatalog_1_1GPU_1_1GPUPipelineExecutor_3_01std_1_1tuple_3_01mir_1_1ColumnJoin_3_01VarToBibeb562d4b45bdf6bc706e8f5389e7ec9.html#abe0e3eeab77152e4046f5ed7017ff596',1,'SRDatalog::GPU::GPUPipelineExecutor&lt; std::tuple&lt; mir::ColumnJoin&lt; VarToBind, std::tuple&lt; Sources... &gt; &gt;, TailOps... &gt;, VarPosMap, IteratorPosMap, RelationPosMap, GroupSize, IsLeafLevel &gt;']]],
-  ['to_2194',['to',['../dc/d33/namespaceSRDatalog.html#a8a1cae69213b63b7a52b182f9dfc6738',1,'SRDatalog']]],
-  ['tover_2195',['ToVer',['../db/d7d/namespaceSRDatalog_1_1mir.html#a16d6468ceb5a94d3a93056708093195a',1,'SRDatalog::mir']]],
-  ['toversion_2196',['ToVersion',['../dc/d99/structSRDatalog_1_1mir_1_1InsertFromRelation.html#ae13e15c00e44583c73aef2354b5a940c',1,'SRDatalog::mir::InsertFromRelation']]]
+  ['scan_2780',['scan',['../d4/d4d/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1PtxPlan_1_1TempStorage_1_1ScanStorage.html#a7bb0f64f22fd653305597a528fc53b73',1,'cuda_cub::__set_operations::SetOpAgentCustom::PtxPlan::TempStorage::ScanStorage']]],
+  ['scan_5falgorithm_2781',['SCAN_ALGORITHM',['../d6/d41/structcuda__cub_1_1____set__operations_1_1PtxPolicyCustom.html#ac410f77f72482821e52520f5c8246f4a',1,'cuda_cub::__set_operations::PtxPolicyCustom']]],
+  ['scan_5fstorage_2782',['scan_storage',['../da/d12/unioncuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1PtxPlan_1_1TempStorage.html#a1db637bf079003cdeff88bbd1778aa16',1,'cuda_cub::__set_operations::SetOpAgentCustom::PtxPlan::TempStorage']]],
+  ['seed_2783',['seed',['../d6/d7f/namespaceconfig.html#a8ccac9df7a99fb324b8f2efafc4d9dd7',1,'config']]],
+  ['semiring_2784',['Semiring',['../d7/d69/semiring_8h.html#a70712094cc4840a9899f19a0d28d5f98',1,'semiring.h']]],
+  ['sentinel_2785',['SENTINEL',['../d4/d9e/macro_8h.html#a09e977ab7b227470367f7fb62c53c0f5',1,'macro.h']]],
+  ['set_5fop_2786',['set_op',['../d4/d9a/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1impl.html#a28b7b262cd4c34354981dc6749fd6df8',1,'cuda_cub::__set_operations::SetOpAgentCustom::impl']]],
+  ['set_5fptr_5f_2787',['set_ptr_',['../d2/df5/structSRDatalog_1_1index_1_1HashmapIndex_1_1ValueRange_1_1type.html#a876c4e8387cbebb3090dddf93d4a20bd',1,'SRDatalog::index::HashmapIndex::ValueRange::type']]],
+  ['sg_2788',['sg',['../df/d6f/test__gpu__sg__pipeline_8cpp.html#a659c1057fb136f432524625bb37f4a98',1,'sg():&#160;test_gpu_sg_pipeline.cpp'],['../d7/d68/test__gpu__sg__fixpoint_8cpp.html#a659c1057fb136f432524625bb37f4a98',1,'sg():&#160;test_gpu_sg_fixpoint.cpp'],['../d7/d40/sg__device__benchmark_8cpp.html#a659c1057fb136f432524625bb37f4a98',1,'sg():&#160;sg_device_benchmark.cpp'],['../dc/d77/test__gpu__sg__deduplication_8cpp.html#a659c1057fb136f432524625bb37f4a98',1,'sg():&#160;test_gpu_sg_deduplication.cpp']]],
+  ['sg_5fbase_5frule_2789',['sg_base_rule',['../d7/d68/test__gpu__sg__fixpoint_8cpp.html#a18b09c63af698c4f3bc67d57a9bf14d1',1,'sg_base_rule():&#160;test_gpu_sg_fixpoint.cpp'],['../dc/d77/test__gpu__sg__deduplication_8cpp.html#a18b09c63af698c4f3bc67d57a9bf14d1',1,'sg_base_rule():&#160;test_gpu_sg_deduplication.cpp'],['../d7/d40/sg__device__benchmark_8cpp.html#a18b09c63af698c4f3bc67d57a9bf14d1',1,'sg_base_rule():&#160;sg_device_benchmark.cpp']]],
+  ['sg_5ffixpoint_5frule_2790',['sg_fixpoint_rule',['../df/d6f/test__gpu__sg__pipeline_8cpp.html#a5e8c9bdbe6cdd6d767004e6dfad38ba6',1,'sg_fixpoint_rule():&#160;test_gpu_sg_pipeline.cpp'],['../d7/d68/test__gpu__sg__fixpoint_8cpp.html#a5e8c9bdbe6cdd6d767004e6dfad38ba6',1,'sg_fixpoint_rule():&#160;test_gpu_sg_fixpoint.cpp'],['../dc/d77/test__gpu__sg__deduplication_8cpp.html#a5e8c9bdbe6cdd6d767004e6dfad38ba6',1,'sg_fixpoint_rule():&#160;test_gpu_sg_deduplication.cpp'],['../d7/d40/sg__device__benchmark_8cpp.html#a5e8c9bdbe6cdd6d767004e6dfad38ba6',1,'sg_fixpoint_rule():&#160;sg_device_benchmark.cpp']]],
+  ['single_5fchar_2791',['single_char',['../dd/d10/structSRDatalog_1_1DelimiterInfo.html#a31a0a888b4ba8c8931f2e8aadc08e14b',1,'SRDatalog::DelimiterInfo']]],
+  ['size_2792',['size',['../de/d61/structTestIndexSpec.html#a01ce448505bb435d9d2241d4130c208c',1,'TestIndexSpec']]],
+  ['sorted_5forder_2793',['sorted_order',['../d8/ddf/structhwy__lexsort_1_1SortContext.html#a032defc980f19c97586f3fde7d8055c0',1,'hwy_lexsort::SortContext']]],
+  ['spec_2794',['spec',['../d9/d1d/structIndexConfig_3_014_01_4.html#a5af8e2ca39aecd1d879af638b2a02df2',1,'IndexConfig&lt; 4 &gt;::spec()'],['../de/d28/structIndexConfig_3_013_01_4.html#a0b4025c56aaa722d031bb8c44f85af69',1,'IndexConfig&lt; 3 &gt;::spec()'],['../d2/d6e/structIndexConfig_3_012_01_4.html#aac0a3c312e7902ba73bcd7bae82ae3d5',1,'IndexConfig&lt; 2 &gt;::spec()']]],
+  ['sr_2795',['SR',['../d6/da1/namespaceSRDatalog_1_1AST.html#a90a85bf972e8f5570f299d72b584386a',1,'SRDatalog::AST']]],
+  ['statetuple_2796',['StateTuple',['../dc/df0/namespaceSRDatalog_1_1state.html#a0cb61673bde418b055796c1f53538e2b',1,'SRDatalog::state']]],
+  ['storage_2797',['storage',['../d4/d9a/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1impl.html#a54080c89143262d778b8008c55be582b',1,'cuda_cub::__set_operations::SetOpAgentCustom::impl']]],
+  ['store_2798',['store',['../d7/d92/andersen__benchmark_8cpp.html#a4d014379e9189e71a6dee38cf5cf85bd',1,'andersen_benchmark.cpp']]],
+  ['store_5fvariant1_2799',['store_variant1',['../d7/d92/andersen__benchmark_8cpp.html#a055e6a6916026b7aba537200341e5827',1,'andersen_benchmark.cpp']]],
+  ['store_5fvariant2_2800',['store_variant2',['../d7/d92/andersen__benchmark_8cpp.html#a0287e23f45694c9cde120223142981d7',1,'andersen_benchmark.cpp']]],
+  ['stored_5fcols_2801',['stored_cols',['../d8/d8b/structSRDatalog_1_1SortedArrayIndex_1_1Impl.html#ac2e90e7213d3e8e9c53a8b7823e872f0',1,'SRDatalog::SortedArrayIndex::Impl']]],
+  ['str_5f_2802',['str_',['../d1/d33/structSRDatalog_1_1IndexSpec.html#aff33a013007930decc743de746aed446',1,'SRDatalog::IndexSpec']]],
+  ['stride_2803',['stride',['../da/d07/structSRDatalog_1_1GPU_1_1NDArrayView.html#a6745d75816983ab29e9613177156db64',1,'SRDatalog::GPU::NDArrayView']]],
+  ['stride_5f_2804',['stride_',['../dc/d47/structSRDatalog_1_1GPU_1_1NodeView.html#ade3c38bc807484e57abf01eb594f17df',1,'SRDatalog::GPU::NodeView']]]
 ];

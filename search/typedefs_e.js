@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['ops_2351',['ops',['../d5/dcb/structSRDatalog_1_1FoldState.html#a2a3ac6e11eef14818a90d2767a5aa623',1,'SRDatalog::FoldState']]],
-  ['outputctxcounttype_2352',['OutputCtxCountType',['../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aa394f16655565ebe9cca6e6f4c6ce122',1,'SRDatalog::GPU::GPURootExecutor']]],
-  ['outputctxtype_2353',['OutputCtxType',['../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6abc28ca376f201287680bd63a3df33a',1,'SRDatalog::GPU::GPURootExecutor']]]
+  ['ops_3018',['ops',['../d5/dcb/structSRDatalog_1_1FoldState.html#a2a3ac6e11eef14818a90d2767a5aa623',1,'SRDatalog::FoldState']]],
+  ['ops_5ftype_3019',['ops_type',['../de/d79/structSRDatalog_1_1GPU_1_1GPUPipelineExecutor_3_01std_1_1tuple_3_01mir_1_1ColumnJoin_3_01VarToBi1a17d290bd8341bf8459c21679ae1216.html#a2b317ffe5ebdc55caa6a6d9e90b86a3d',1,'SRDatalog::GPU::GPUPipelineExecutor&lt; std::tuple&lt; mir::ColumnJoin&lt; VarToBind, std::tuple&lt; Sources... &gt;, Strategy &gt;, TailOps... &gt;, VarPosMap, IteratorOffset, RelationPosMap, GroupSize, IsLeafLevel &gt;']]],
+  ['optimizedhead_3020',['OptimizedHead',['../d3/d06/structSRDatalog_1_1mir_1_1gpu__opt_1_1OptimizeInstructionsForGPU_3_01std_1_1tuple_3_01Head_00_01a248a7a2471ce14dc760a017bd1c9b7c.html#a15aa2b4b96516429cd3e1e195cb38dd7',1,'SRDatalog::mir::gpu_opt::OptimizeInstructionsForGPU&lt; std::tuple&lt; Head, Tail... &gt; &gt;::PatternMatcher::Check::OptimizedHead()'],['../db/d88/structSRDatalog_1_1mir_1_1gpu__opt_1_1OptimizeInstructionsForGPU_3_01std_1_1tuple_3_01Head_00_01e582f3844993022686e0b215180ea301.html#a5e9fe417b874af0e6a80a23327a55655',1,'SRDatalog::mir::gpu_opt::OptimizeInstructionsForGPU&lt; std::tuple&lt; Head, Tail... &gt; &gt;::PatternMatcher::Check&lt; mir::InsertFromRelation&lt; Schema, FromVer, ToVer, IndexSpec &gt;, mir::SwapRelations&lt; Schema &gt; &gt;::OptimizedHead()']]],
+  ['optimizedinstructions_3021',['OptimizedInstructions',['../df/d91/structSRDatalog_1_1mir_1_1gpu__opt_1_1OptimizeFixpointPlanForGPU.html#aaea20f5c3fe7321bbb522822a58bc951',1,'SRDatalog::mir::gpu_opt::OptimizeFixpointPlanForGPU']]],
+  ['optimizedops_3022',['OptimizedOps',['../dc/db1/structSRDatalog_1_1mir_1_1gpu__opt_1_1OptimizePipelineForGPU.html#aedf549fb90536d734dbf18fc92e876f5',1,'SRDatalog::mir::gpu_opt::OptimizePipelineForGPU']]],
+  ['outputctxcounttype_3023',['OutputCtxCountType',['../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#aa394f16655565ebe9cca6e6f4c6ce122',1,'SRDatalog::GPU::GPURootExecutor']]],
+  ['outputctxtype_3024',['OutputCtxType',['../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6abc28ca376f201287680bd63a3df33a',1,'SRDatalog::GPU::GPURootExecutor']]]
 ];

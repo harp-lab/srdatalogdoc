@@ -99,9 +99,9 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#define CONST(V) SRDatalog::AST::Const&lt;[]() { return V; }&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#define NEW_VER 1</span></div>
-<div class="line"><span class="preprocessor">#define FULL_VER 2</span></div>
-<div class="line"><span class="preprocessor">#define DELTA_VER 3</span></div>
+<div class="line"><span class="preprocessor">#define FULL_VER 0</span></div>
+<div class="line"><span class="preprocessor">#define DELTA_VER 1</span></div>
+<div class="line"><span class="preprocessor">#define NEW_VER 2</span></div>
 <div class="line"><span class="preprocessor">#define UNKNOWN_VER 10</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html">SRDatalog::AST</a> {</div>
@@ -169,7 +169,7 @@ $(function() {
 <div class="line"> </div>
 <div class="line">  <span class="keyword">using</span> <a name="a5"></a><a class="code" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html#a502ac8765349f636326728cbd60e7f21">relation_type</a> = Relation&lt;SR, AttrTsTuple&gt;;</div>
 <div class="line">  <span class="keyword">using</span> <a name="a6"></a><a class="code" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html#aade3863a45baa78a45eca8edca2b2d8d">name_type</a> = Name;</div>
-<div class="line">  <span class="keyword">using</span> <a name="a7"></a><a class="code" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html#ae6e4e41f50f2c5fdc0d9e4e52c575521">semiring_type</a> = <a name="a8"></a><a class="code" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a7"></a><a class="code" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html#ae6e4e41f50f2c5fdc0d9e4e52c575521">semiring_type</a> = <a name="a8"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a90a85bf972e8f5570f299d72b584386a">SR</a>;</div>
 <div class="line">  <span class="keyword">using</span> <a name="a9"></a><a class="code" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html#af0d29f78291e6289cb2832bd42623c93">attr_ts_type</a> = AttrTsTuple;</div>
 <div class="line"> </div>
 <div class="line">  <span class="keyword">using</span> <a name="a10"></a><a class="code" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html#a0906b7de4fb85a31a3b665159e94b4c4">canonical_index_type</a> = std::make_index_sequence&lt;Arity&gt;;</div>
@@ -180,20 +180,26 @@ $(function() {
 <div class="line">                      (CTString Name, <a name="a11"></a><a class="code" href="../../d7/d69/semiring_8h.html#a70712094cc4840a9899f19a0d28d5f98">Semiring</a> <a name="_a12"></a><a class="code" href="../../d3/d43/structBooleanSR.html">SR</a>, <a name="a13"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#aaf69828146705d4019ebd658b8f3cab2">ColumnElementTuple</a> AttrTsTuple),</div>
 <div class="line">                      (Name, <a class="code" href="../../d3/d43/structBooleanSR.html">SR</a>, AttrTsTuple))</div>
 <div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;CTString Name, <a class="code" href="../../d7/d69/semiring_8h.html#a70712094cc4840a9899f19a0d28d5f98">Semiring</a> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a90a85bf972e8f5570f299d72b584386a">SR</a>, <span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line"><span class="keyword">using</span> <a name="a14"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aed05943e433b45b7764f5c56afcfe95e">relation</a> = RelationSchema&lt;Name, <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a90a85bf972e8f5570f299d72b584386a">SR</a>, std::tuple&lt;Ts...&gt;&gt;;</div>
+<div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CRelationSchema Schema&gt;</div>
-<div class="line"><span class="keyword">using</span> schema_rel_type = <span class="keyword">typename</span> Schema::relation_type;</div>
+<div class="line"><span class="keyword">using</span> <a name="a15"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a564f3af93bf77b817a5c14ad37ebaeb5">schema_rel_type</a> = <span class="keyword">typename</span> Schema::relation_type;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CTString Name&gt;</div>
 <div class="line"><span class="keyword">struct </span>Var {</div>
-<div class="line">  <span class="keyword">using</span> <a name="a14"></a><a class="code" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html#a25735900feeb289e406df16048a0c590">name_type</a> = Name;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a16"></a><a class="code" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html#a25735900feeb289e406df16048a0c590">name_type</a> = Name;</div>
 <div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#define DECLARE_VAR(name) using name##_ = Var&lt;decltype(#name##_s)&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> CapturedVars, auto func&gt;</div>
 <div class="line"><span class="keyword">struct </span>CppExpr {};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;auto Func&gt;</div>
 <div class="line"><span class="keyword">struct </span>Const {</div>
-<div class="line">  <span class="keyword">static</span> constexpr <span class="keyword">auto</span> <a name="a15"></a><a class="code" href="../../d3/d6f/structSRDatalog_1_1AST_1_1Const.html#a6a4ea5ae96dbd207a609631044110361">value</a> = Func();</div>
+<div class="line">  <span class="keyword">static</span> constexpr <span class="keyword">auto</span> <a name="a17"></a><a class="code" href="../../d3/d6f/structSRDatalog_1_1AST_1_1Const.html#a6a4ea5ae96dbd207a609631044110361">value</a> = Func();</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Type predicates (Scheme/Racket style: (var? x), (cpp-expr? x), (const? x))</span></div>
@@ -210,7 +216,7 @@ $(function() {
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Vars, <span class="keyword">auto</span> func&gt;</div>
 <div class="line"><span class="keyword">struct </span>is_cpp_expr&lt;CppExpr&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;Vars...&gt;, func&gt;&gt; : std::true_type {};</div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><span class="keyword">inline</span> constexpr <span class="keywordtype">bool</span> <a name="a16"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad36b01adf0bbf30bb691e55e697a752c">is_cpp_expr_v</a> = is_cpp_expr&lt;T&gt;::value;</div>
+<div class="line"><span class="keyword">inline</span> constexpr <span class="keywordtype">bool</span> <a name="a18"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad36b01adf0bbf30bb691e55e697a752c">is_cpp_expr_v</a> = is_cpp_expr&lt;T&gt;::value;</div>
 <div class="line"> </div>
 <div class="line"><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">DEFINE_TYPE_PREDICATE</a>(IsConst, Const, CConst, (<span class="keyword">auto</span> func), (func))</div>
 <div class="line"> </div>
@@ -223,7 +229,7 @@ $(function() {
 <div class="line"><span class="comment">// @note **C++20 feature**: Uses concept disjunction (||) to combine multiple</span></div>
 <div class="line"><span class="comment">//       concepts</span></div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line">concept <a name="a17"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7adac42b1c7be9c9489bd2f1c8655a35">CTerm</a> = CVar&lt;T&gt; || CCppExpr&lt;T&gt; || CConst&lt;T&gt;;</div>
+<div class="line">concept <a name="a19"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7adac42b1c7be9c9489bd2f1c8655a35">CTerm</a> = CVar&lt;T&gt; || CCppExpr&lt;T&gt; || CConst&lt;T&gt;;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// @brief Error helper template type for arity mismatch debugging</span></div>
 <div class="line"><span class="comment">// @details Example: ArityMismatchError&lt;&quot;r&quot;, 2, 3&gt;, replace when we have c++26</span></div>
@@ -231,17 +237,17 @@ $(function() {
 <div class="line"><span class="comment">// C++20: Using constexpr variable for cleaner syntax</span></div>
 <div class="line"><span class="keyword">template</span> &lt;CRelationSchema schema, std::<span class="keywordtype">size_t</span> ExpectedArity, std::<span class="keywordtype">size_t</span> ActualArity&gt;</div>
 <div class="line"><span class="keyword">struct </span>ArityMismatchError {</div>
-<div class="line">  <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> <a name="a18"></a><a class="code" href="../../d9/d04/structSRDatalog_1_1AST_1_1ArityMismatchError.html#a3ed468fbd55a6fdcf4a1b10f2d09a847">value</a> = ExpectedArity == ActualArity;</div>
+<div class="line">  <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> <a name="a20"></a><a class="code" href="../../d9/d04/structSRDatalog_1_1AST_1_1ArityMismatchError.html#a3ed468fbd55a6fdcf4a1b10f2d09a847">value</a> = ExpectedArity == ActualArity;</div>
 <div class="line">};</div>
 <div class="line"><span class="keyword">template</span> &lt;CRelationSchema schema, std::<span class="keywordtype">size_t</span> ExpectedArity, std::<span class="keywordtype">size_t</span> ActualArity&gt;</div>
-<div class="line"><span class="keyword">inline</span> constexpr <span class="keywordtype">bool</span> <a name="a19"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#abf1a28352b46255948b12d03abab81c9">arity_mismatch_error_v</a> =</div>
+<div class="line"><span class="keyword">inline</span> constexpr <span class="keywordtype">bool</span> <a name="a21"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#abf1a28352b46255948b12d03abab81c9">arity_mismatch_error_v</a> =</div>
 <div class="line">    <a class="code" href="../../d9/d04/structSRDatalog_1_1AST_1_1ArityMismatchError.html#a3ed468fbd55a6fdcf4a1b10f2d09a847">ArityMismatchError&lt;schema, ExpectedArity, ActualArity&gt;::value</a>;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span> &lt;CRelationSchema schema, std::size_t <a name="a20"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a> = <a name="a21"></a><a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>, <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7adac42b1c7be9c9489bd2f1c8655a35">CTerm</a>... Vars&gt;</div>
+<div class="line"><span class="keyword">template</span> &lt;CRelationSchema schema, std::size_t <a name="a22"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a> = <a name="a23"></a><a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>, <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7adac42b1c7be9c9489bd2f1c8655a35">CTerm</a>... Vars&gt;</div>
 <div class="line"><span class="keyword">struct </span>Clause {</div>
-<div class="line">  <span class="keyword">static</span> constexpr std::size_t <a name="a22"></a><a class="code" href="../../d0/dd6/structSRDatalog_1_1AST_1_1Clause.html#aef4fe945a5335243e2f5817bb246e91d">arity</a> = <span class="keyword">sizeof</span>...(Vars);</div>
-<div class="line">  <span class="keyword">static</span> constexpr std::size_t <a name="a23"></a><a class="code" href="../../d0/dd6/structSRDatalog_1_1AST_1_1Clause.html#a9ec79b80c888fbf20729b3484c807df2">version</a> = <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a>;</div>
-<div class="line">  static_assert(arity_mismatch_error_v&lt;schema, schema::arity, arity&gt;, <span class="stringliteral">&quot;Clause arity mismatch&quot;</span>);</div>
+<div class="line">  <span class="keyword">static</span> constexpr std::size_t <a name="a24"></a><a class="code" href="../../d0/dd6/structSRDatalog_1_1AST_1_1Clause.html#aef4fe945a5335243e2f5817bb246e91d">arity</a> = <span class="keyword">sizeof</span>...(Vars);</div>
+<div class="line">  <span class="keyword">static</span> constexpr std::size_t <a name="a25"></a><a class="code" href="../../d0/dd6/structSRDatalog_1_1AST_1_1Clause.html#a9ec79b80c888fbf20729b3484c807df2">version</a> = <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a>;</div>
+<div class="line">  static_assert(arity_mismatch_error_v&lt;schema, schema::Arity, arity&gt;, <span class="stringliteral">&quot;Clause arity mismatch&quot;</span>);</div>
 <div class="line">};</div>
 <div class="line"><span class="comment">// Type predicate for normal clause (Scheme/Racket style: (normal-clause? x))</span></div>
 <div class="line"><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">DEFINE_TYPE_PREDICATE</a>(is_normal_clause, Clause, CNormalClause,</div>
@@ -255,15 +261,15 @@ $(function() {
 <div class="line"><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">DEFINE_TYPE_PREDICATE</a>(is_let_clause, LetClause, CLetClause, (CVar var, CCppExpr expr), (var, expr))</div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span> &lt;CVar ResultVar, <span class="keyword">typename</span> <a name="a24"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a490f97d99b94aee4a061f2669e6e1229">AggFuncT</a>, CRelationSchema <a name="a25"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7570db70f90568eaea69d349592f64b1">RelSchema</a>, std::size_t <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a>,</div>
-<div class="line">          <span class="keyword">typename</span>... <a name="a26"></a><a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a12a87377d68a3405d70ac0ef26ef3f12">Terms</a>&gt;</div>
+<div class="line"><span class="keyword">template</span> &lt;CVar ResultVar, <span class="keyword">typename</span> <a name="a26"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a490f97d99b94aee4a061f2669e6e1229">AggFuncT</a>, CRelationSchema <a name="a27"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7570db70f90568eaea69d349592f64b1">RelSchema</a>, std::size_t <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a>,</div>
+<div class="line">          <span class="keyword">typename</span>... <a name="a28"></a><a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a12a87377d68a3405d70ac0ef26ef3f12">Terms</a>&gt;</div>
 <div class="line"><span class="keyword">struct </span>AggClause {</div>
-<div class="line">  <span class="keyword">using</span> <a name="a27"></a><a class="code" href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#a094f6a4e67e86308fc24524e71191838">result_var_type</a> = ResultVar;</div>
-<div class="line">  <span class="keyword">using</span> <a name="a28"></a><a class="code" href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#aac46234fe6e856196aea3718e358db7e">agg_func</a> = <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a490f97d99b94aee4a061f2669e6e1229">AggFuncT</a>;</div>
-<div class="line">  <span class="keyword">using</span> <a name="a29"></a><a class="code" href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#a492d06846e6d7c9634a047158f12e486">relation_schema</a> = <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7570db70f90568eaea69d349592f64b1">RelSchema</a>;</div>
-<div class="line">  <span class="keyword">static</span> constexpr std::size_t <a name="a30"></a><a class="code" href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#a8c178a3a35a0810aad449ea6ab7294b0">version</a> = <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a>;</div>
-<div class="line">  <span class="keyword">using</span> <a name="a31"></a><a class="code" href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#aa13e97c69298ad5a7d819ba148383fa2">terms_type</a> = std::tuple&lt;ResultVar, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a12a87377d68a3405d70ac0ef26ef3f12">Terms</a>...&gt;;</div>
-<div class="line">  <span class="keyword">using</span> <a name="a32"></a><a class="code" href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#a79ccb1d8025117c424012acc3432111b">args_type</a> = std::tuple&lt;<a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a12a87377d68a3405d70ac0ef26ef3f12">Terms</a>...&gt;;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a29"></a><a class="code" href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#a094f6a4e67e86308fc24524e71191838">result_var_type</a> = ResultVar;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a30"></a><a class="code" href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#aac46234fe6e856196aea3718e358db7e">agg_func</a> = <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a490f97d99b94aee4a061f2669e6e1229">AggFuncT</a>;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a31"></a><a class="code" href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#a492d06846e6d7c9634a047158f12e486">relation_schema</a> = <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7570db70f90568eaea69d349592f64b1">RelSchema</a>;</div>
+<div class="line">  <span class="keyword">static</span> constexpr std::size_t <a name="a32"></a><a class="code" href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#a8c178a3a35a0810aad449ea6ab7294b0">version</a> = <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a>;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a33"></a><a class="code" href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#aa13e97c69298ad5a7d819ba148383fa2">terms_type</a> = std::tuple&lt;ResultVar, <a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a12a87377d68a3405d70ac0ef26ef3f12">Terms</a>...&gt;;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a34"></a><a class="code" href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#a79ccb1d8025117c424012acc3432111b">args_type</a> = std::tuple&lt;<a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a12a87377d68a3405d70ac0ef26ef3f12">Terms</a>...&gt;;</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Type predicate for agg clause</span></div>
@@ -283,10 +289,10 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;tmp::CTuple Vars&gt;</div>
 <div class="line"><span class="keyword">struct </span>JoinPlan {</div>
-<div class="line">  <span class="keyword">using</span> <a name="a33"></a><a class="code" href="../../d4/dd0/structSRDatalog_1_1AST_1_1JoinPlan.html#a261529e3e02cfc3c1a61ca0d2c3b3606">vars_type</a> = Vars;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a35"></a><a class="code" href="../../d4/dd0/structSRDatalog_1_1AST_1_1JoinPlan.html#a261529e3e02cfc3c1a61ca0d2c3b3606">vars_type</a> = Vars;</div>
 <div class="line">};</div>
 <div class="line"><span class="comment">// Type predicate for join plan (Scheme/Racket style: (join-plan? x))</span></div>
-<div class="line"><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">DEFINE_TYPE_PREDICATE</a>(is_join_plan, JoinPlan, CJoinPlan, (<a name="a34"></a><a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> Vars), (Vars))</div>
+<div class="line"><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">DEFINE_TYPE_PREDICATE</a>(is_join_plan, JoinPlan, CJoinPlan, (<a name="a36"></a><a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> Vars), (Vars))</div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;tmp::CTuple Head, tmp::CTuple Body, CJoinPlan JoinPlan&gt;</div>
@@ -294,17 +300,41 @@ $(function() {
 <div class="line">  <span class="keyword">static</span> constexpr std::size_t head_size = std::tuple_size_v&lt;Head&gt;;</div>
 <div class="line">  <span class="keyword">static</span> constexpr std::size_t body_size = std::tuple_size_v&lt;Body&gt;;</div>
 <div class="line">  <span class="keyword">using</span> join_plan_type = <a class="code" href="../../d4/dd0/structSRDatalog_1_1AST_1_1JoinPlan.html#a261529e3e02cfc3c1a61ca0d2c3b3606">JoinPlan::vars_type</a>;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Pipe operator to override join plan</span></div>
+<div class="line">  <span class="keyword">template</span> &lt;CJoinPlan NewPlan&gt;</div>
+<div class="line">  constexpr <span class="keyword">auto</span> <a name="a37"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#aaa2cd7b71f7335db85773fc3379ea2bb">operator|</a>(NewPlan)<span class="keyword"> const </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> Rule&lt;Head, Body, NewPlan&gt;{};</div>
+<div class="line">  }</div>
 <div class="line">};</div>
 <div class="line"><span class="comment">// Type predicate for rule (Scheme/Racket style: (rule? x))</span></div>
 <div class="line"><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">DEFINE_TYPE_PREDICATE</a>(is_rule, Rule, CRule,</div>
-<div class="line">                      (<a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> Head, <a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> Body, CJoinPlan JoinPlan),</div>
-<div class="line">                      (Head, Body, JoinPlan))</div>
+<div class="line">                      (<a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> <a name="a38"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a>, <a class="code" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> <a name="a39"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a6047b5950006dc9567fa9f186adc0dbe">Body</a>, CJoinPlan JoinPlan),</div>
+<div class="line">                      (<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a>, <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a6047b5950006dc9567fa9f186adc0dbe">Body</a>, JoinPlan))</div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CRule... Rules&gt;</div>
 <div class="line"><span class="keyword">struct </span>Fixpoint {</div>
 <div class="line">  <span class="keyword">static</span> constexpr std::size_t rule_size = <span class="keyword">sizeof</span>...(Rules);</div>
 <div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;CRelationSchema S&gt;</div>
+<div class="line"><span class="keyword">struct </span>Rel {</div>
+<div class="line">  <span class="keyword">template</span> &lt;<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7adac42b1c7be9c9489bd2f1c8655a35">CTerm</a>... Ts&gt;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a40"></a><a class="code" href="../../d7/d2a/structSRDatalog_1_1AST_1_1Rel.html#a519473e5b35f6ed22e9a8451d0434219">Full</a> = Clause&lt;S, <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>, Ts...&gt;;</div>
+<div class="line">  <span class="keyword">template</span> &lt;<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7adac42b1c7be9c9489bd2f1c8655a35">CTerm</a>... Ts&gt;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a41"></a><a class="code" href="../../d7/d2a/structSRDatalog_1_1AST_1_1Rel.html#a6703d613a45ee624956e602e1453c2d0">Delta</a> = Clause&lt;S, <a name="a42"></a><a class="code" href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a>, Ts...&gt;;</div>
+<div class="line">  <span class="keyword">template</span> &lt;<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7adac42b1c7be9c9489bd2f1c8655a35">CTerm</a>... Ts&gt;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a43"></a><a class="code" href="../../d7/d2a/structSRDatalog_1_1AST_1_1Rel.html#aa22c8ba600a4afbc7585686bd71d3507">New</a> = Clause&lt;S, <a name="a44"></a><a class="code" href="../../db/df0/ast_8h.html#af23fd1858447e4f2bfe0a8891acf1a77">NEW_VER</a>, Ts...&gt;;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Clauses&gt;</div>
+<div class="line"><span class="keyword">using</span> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a> = std::tuple&lt;Clauses...&gt;;</div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Clauses&gt;</div>
+<div class="line"><span class="keyword">using</span> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a6047b5950006dc9567fa9f186adc0dbe">Body</a> = std::tuple&lt;Clauses...&gt;;</div>
+<div class="line"><span class="keyword">template</span> &lt;CVar... Vars&gt;</div>
+<div class="line"><span class="keyword">using</span> <a name="a45"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8bf8e2d65414a73ba67d62a53eed1f8b">Plan</a> = JoinPlan&lt;std::tuple&lt;Vars...&gt;&gt;;</div>
+<div class="line"> </div>
 <div class="line"><span class="comment">// Type predicate for fixpoint (Scheme/Racket style: (fixpoint? x))</span></div>
 <div class="line"><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">DEFINE_TYPE_PREDICATE</a>(is_fixpoint, Fixpoint, CFixpoint, (CRule... Rules), (Rules...))</div>
 <div class="line"> </div>
@@ -312,7 +342,7 @@ $(function() {
 <div class="line">struct FixpointToMp11List;</div>
 <div class="line">template &lt;CRule... Rules&gt;</div>
 <div class="line">struct FixpointToMp11List&lt;Fixpoint&lt;Rules...&gt;&gt; {</div>
-<div class="line">  <span class="keyword">using</span> <a name="a35"></a><a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mp::mp_list&lt;Rules...&gt;;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a46"></a><a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = mp::mp_list&lt;Rules...&gt;;</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CFixpo<span class="keywordtype">int</span> FP&gt;</div>
@@ -324,7 +354,7 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Rules&gt;</div>
 <div class="line"><span class="keyword">struct </span>NonIterativeRuleSets {</div>
-<div class="line">  <span class="keyword">static</span> constexpr std::size_t <a name="a36"></a><a class="code" href="../../d4/d61/structSRDatalog_1_1AST_1_1NonIterativeRuleSets.html#ac8dd7a7256f2802c4320da812924496e">rule_size</a> = <span class="keyword">sizeof</span>...(Rules);</div>
+<div class="line">  <span class="keyword">static</span> constexpr std::size_t <a name="a47"></a><a class="code" href="../../d4/d61/structSRDatalog_1_1AST_1_1NonIterativeRuleSets.html#ac8dd7a7256f2802c4320da812924496e">rule_size</a> = <span class="keyword">sizeof</span>...(Rules);</div>
 <div class="line">};</div>
 <div class="line"><span class="comment">// Type predicate for non-iterative rule sets (Scheme/Racket style predicate)</span></div>
 <div class="line"><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">DEFINE_TYPE_PREDICATE</a>(is_non_iterative_rule_sets, NonIterativeRuleSets, CNonIterativeRuleSets,</div>
@@ -340,10 +370,13 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="comment">// Union type predicate: query is fixpoint OR non-iterative-rule-sets</span></div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line">concept <a name="a37"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad3f274e1839b0f5fe89f879e43889d76">CQuery</a> = CFixpoint&lt;T&gt; || CNonIterativeRuleSets&lt;T&gt;;</div>
+<div class="line">concept <a name="a48"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad3f274e1839b0f5fe89f879e43889d76">CQuery</a> = CFixpoint&lt;T&gt; || CNonIterativeRuleSets&lt;T&gt;;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CRelationSchema... Schemas&gt;</div>
-<div class="line"><span class="keyword">using</span> <a name="a38"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad6781455095b1e1ba801a6470ca83972">Database</a> = std::tuple&lt;Schemas...&gt;;</div>
+<div class="line"><span class="keyword">using</span> <a name="a49"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad6781455095b1e1ba801a6470ca83972">Database</a> = std::tuple&lt;Schemas...&gt;;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;CRelationSchema... Schemas&gt;</div>
+<div class="line"><span class="keyword">using</span> <a name="a50"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a967f68a10795093846a6dc1157b7d4b1">database</a> = <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad6781455095b1e1ba801a6470ca83972">Database</a>&lt;Schemas...&gt;;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Type predicate for database (Scheme/Racket style: (database? x))</span></div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
@@ -351,14 +384,14 @@ $(function() {
 <div class="line"><span class="keyword">template</span> &lt;CRelationSchema... Schemas&gt;</div>
 <div class="line"><span class="keyword">struct </span>is_database&lt;<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad6781455095b1e1ba801a6470ca83972">Database</a>&lt;Schemas...&gt;&gt; : std::true_type {};</div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><span class="keyword">inline</span> constexpr <span class="keywordtype">bool</span> <a name="a39"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ae72b694b919d980ae6a14fe78403065e">is_database_v</a> = is_database&lt;T&gt;::value;</div>
+<div class="line"><span class="keyword">inline</span> constexpr <span class="keywordtype">bool</span> <a name="a51"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ae72b694b919d980ae6a14fe78403065e">is_database_v</a> = is_database&lt;T&gt;::value;</div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line">concept <a name="a40"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a660ec82b6ca7bf0377266f90384cbbd7">CDatabase</a> = is_database&lt;T&gt;::value;</div>
+<div class="line">concept <a name="a52"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a660ec82b6ca7bf0377266f90384cbbd7">CDatabase</a> = is_database&lt;T&gt;::value;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CDatabase db, tmp::CTuple QueryList&gt;</div>
 <div class="line"><span class="keyword">struct </span>Program {</div>
-<div class="line">  <span class="keyword">using</span> <a name="a41"></a><a class="code" href="../../d4/da5/structSRDatalog_1_1AST_1_1Program.html#aa98fb2d1cd6565ccf7883b1beb2b5d18">db_type</a> = db;</div>
-<div class="line">  <span class="keyword">using</span> <a name="a42"></a><a class="code" href="../../d4/da5/structSRDatalog_1_1AST_1_1Program.html#a6c3cff417759426341bbc4eb69946061">query_list_type</a> = QueryList;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a53"></a><a class="code" href="../../d4/da5/structSRDatalog_1_1AST_1_1Program.html#aa98fb2d1cd6565ccf7883b1beb2b5d18">db_type</a> = db;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a54"></a><a class="code" href="../../d4/da5/structSRDatalog_1_1AST_1_1Program.html#a6c3cff417759426341bbc4eb69946061">query_list_type</a> = QueryList;</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// type fn take a database type and return tuple of relation types</span></div>
@@ -375,20 +408,39 @@ $(function() {
 <div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">type</a> = std::tuple&lt;<span class="keyword">typename</span> Schemas::relation_type...&gt;;</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span> &lt;CDatabase DB&gt;</div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Schema&gt;</div>
+<div class="line"><span class="keyword">using</span> <a class="code" href="../../db/d09/test__alias__template_8cpp.html#a6085f8ff6e720ec4c6ef5e779ae64c6c">SchemaToRelation</a> = <span class="keyword">typename</span> Schema::relation_type;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;CDatabase DB, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">typename</span> RelationMapper&gt;</div>
 <div class="line"><span class="keyword">struct </span>InitDatabaseHelper;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span> &lt;CRelationSchema... Schemas&gt;</div>
-<div class="line"><span class="keyword">struct </span>InitDatabaseHelper&lt;<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad6781455095b1e1ba801a6470ca83972">Database</a>&lt;Schemas...&gt;&gt; {</div>
+<div class="line"><span class="keyword">template</span> &lt;CRelationSchema... Schemas, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">typename</span> RelationMapper&gt;</div>
+<div class="line"><span class="keyword">struct </span>InitDatabaseHelper&lt;<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad6781455095b1e1ba801a6470ca83972">Database</a>&lt;Schemas...&gt;, RelationMapper&gt; {</div>
+<div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> RelType&gt;</div>
+<div class="line">  <span class="keyword">static</span> RelType create_relation(std::string name, <a class="code" href="../../d1/db5/index_8h.html#a456359b9a1969235dba4272be6bf53e1">memory_resource</a>* resource, std::size_t version) {</div>
+<div class="line">    <span class="keywordflow">if</span> constexpr (std::is_constructible_v&lt;RelType, std::string, memory_resource*, std::size_t&gt;) {</div>
+<div class="line">      <span class="keywordflow">return</span> RelType(name, resource, version);</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">      RelType r;</div>
+<div class="line">      <span class="keywordflow">if</span> constexpr (<a name="a55"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c">requires</a>(RelType&amp; <a name="a56"></a><a class="code" href="../../d7/d92/andersen__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>) { <a class="code" href="../../d7/d92/andersen__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>.set_name(std::string{}); }) {</div>
+<div class="line">        r.set_name(name);</div>
+<div class="line">      }</div>
+<div class="line">      <span class="keywordflow">if</span> constexpr (<a class="code" href="../../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c">requires</a>(RelType&amp; <a class="code" href="../../d7/d92/andersen__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>) { <a class="code" href="../../d7/d92/andersen__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a>.set_version(std::size_t{}); }) {</div>
+<div class="line">        r.set_version(version);</div>
+<div class="line">      }</div>
+<div class="line">      <span class="keywordflow">return</span> r;</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line"> </div>
 <div class="line">  <span class="keyword">static</span> <span class="keyword">auto</span> apply(<a class="code" href="../../d1/db5/index_8h.html#a456359b9a1969235dba4272be6bf53e1">memory_resource</a>* resource, std::size_t version = <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>) {</div>
-<div class="line">    <span class="keywordflow">return</span> std::make_tuple(<span class="keyword">typename</span> Schemas::relation_type(</div>
+<div class="line">    <span class="keywordflow">return</span> std::make_tuple(create_relation&lt;RelationMapper&lt;Schemas&gt;&gt;(</div>
 <div class="line">        tstring_to_string&lt;typename Schemas::name_type&gt;(), resource, version)...);</div>
 <div class="line">  }</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span> &lt;CDatabase DB&gt;</div>
-<div class="line"><span class="keyword">auto</span> <a name="a43"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a35ae541ff4c74944d0d1331a5373920d">init_database</a>(<a class="code" href="../../d1/db5/index_8h.html#a456359b9a1969235dba4272be6bf53e1">memory_resource</a>* resource, std::size_t version = <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>) {</div>
-<div class="line">  <span class="keywordflow">return</span> InitDatabaseHelper&lt;DB&gt;::apply(resource, version);</div>
+<div class="line"><span class="keyword">template</span> &lt;CDatabase DB, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">typename</span> RelationMapper = <a class="code" href="../../db/d09/test__alias__template_8cpp.html#a6085f8ff6e720ec4c6ef5e779ae64c6c">SchemaToRelation</a>&gt;</div>
+<div class="line"><span class="keyword">auto</span> <a name="a57"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7dbe942d48cb58a19058de7f9b866ae6">init_database</a>(<a class="code" href="../../d1/db5/index_8h.html#a456359b9a1969235dba4272be6bf53e1">memory_resource</a>* resource, std::size_t version = <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>) {</div>
+<div class="line">  <span class="keywordflow">return</span> InitDatabaseHelper&lt;DB, RelationMapper&gt;::apply(resource, version);</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// --- Utils ---</span></div>
@@ -411,9 +463,9 @@ $(function() {
 <div class="line"><span class="keyword">template</span> &lt;tmp::CTuple Terms&gt;</div>
 <div class="line"><span class="keyword">struct </span>GetVarsFromTerms {</div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Term&gt;</div>
-<div class="line">  <span class="keyword">using</span> <a name="a44"></a><a class="code" href="../../d7/d14/structSRDatalog_1_1AST_1_1GetVarsFromTerms.html#a2e8de21470d7eb210eb01b29594c1f70">ExtractVars</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">GetVarsFromTerm&lt;Term&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a58"></a><a class="code" href="../../d7/d14/structSRDatalog_1_1AST_1_1GetVarsFromTerms.html#a2e8de21470d7eb210eb01b29594c1f70">ExtractVars</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">GetVarsFromTerm&lt;Term&gt;::type</a>;</div>
 <div class="line"> </div>
-<div class="line">  <span class="keyword">using</span> <a name="a45"></a><a class="code" href="../../d7/d14/structSRDatalog_1_1AST_1_1GetVarsFromTerms.html#a819ecf285120c649ce1ab7e793f2cbee">type</a> = tmp::TupleUnique&lt;mp::mp_apply&lt;mp::mp_append, mp::mp_transform&lt;ExtractVars, Terms&gt;&gt;&gt;;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a59"></a><a class="code" href="../../d7/d14/structSRDatalog_1_1AST_1_1GetVarsFromTerms.html#a819ecf285120c649ce1ab7e793f2cbee">type</a> = tmp::TupleUnique&lt;mp::mp_apply&lt;mp::mp_append, mp::mp_transform&lt;ExtractVars, Terms&gt;&gt;&gt;;</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CNormalClause C&gt;</div>
@@ -501,21 +553,21 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CTerm T, tmp::CTuple TermList&gt;</div>
 <div class="line"><span class="keyword">struct </span>FindTermIndex {</div>
-<div class="line">  <span class="keyword">static</span> constexpr std::size_t <a name="a46"></a><a class="code" href="../../df/d68/structSRDatalog_1_1AST_1_1FindTermIndex.html#aaba3d9163d30287219f20ede62903919">idx</a> = mp::mp_find&lt;TermList, T&gt;::value;</div>
-<div class="line">  <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> <a name="a47"></a><a class="code" href="../../df/d68/structSRDatalog_1_1AST_1_1FindTermIndex.html#a5f44210cf2d38dd5f17f91dc88a2bfea">value</a> = (idx &lt; mp::mp_size&lt;TermList&gt;::value) ? <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code" href="../../df/d68/structSRDatalog_1_1AST_1_1FindTermIndex.html#aaba3d9163d30287219f20ede62903919">idx</a>) : -1;</div>
+<div class="line">  <span class="keyword">static</span> constexpr std::size_t <a name="a60"></a><a class="code" href="../../df/d68/structSRDatalog_1_1AST_1_1FindTermIndex.html#aaba3d9163d30287219f20ede62903919">idx</a> = mp::mp_find&lt;TermList, T&gt;::value;</div>
+<div class="line">  <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> <a name="a61"></a><a class="code" href="../../df/d68/structSRDatalog_1_1AST_1_1FindTermIndex.html#a5f44210cf2d38dd5f17f91dc88a2bfea">value</a> = (idx &lt; mp::mp_size&lt;TermList&gt;::value) ? <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code" href="../../df/d68/structSRDatalog_1_1AST_1_1FindTermIndex.html#aaba3d9163d30287219f20ede62903919">idx</a>) : -1;</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;tmp::CTuple ClauseTerms, tmp::CTuple VarAccessOrder&gt;</div>
 <div class="line"><span class="keyword">struct </span>MapVarsToColumnIndexes {</div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Var&gt;</div>
-<div class="line">  <span class="keyword">using</span> <a name="a48"></a><a class="code" href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#aa480ce3d3c73adbd86025fba2d03ec66">VarToIndex</a> = mp::mp_int&lt;FindTermIndex&lt;Var, ClauseTerms&gt;::value&gt;;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a62"></a><a class="code" href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#aa480ce3d3c73adbd86025fba2d03ec66">VarToIndex</a> = mp::mp_int&lt;FindTermIndex&lt;Var, ClauseTerms&gt;::value&gt;;</div>
 <div class="line"> </div>
-<div class="line">  <span class="keyword">using</span> <a name="a49"></a><a class="code" href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#adecab3c51699754556537f7da39fe4df">IndexList</a> = mp::mp_transform&lt;VarToIndex, VarAccessOrder&gt;;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a63"></a><a class="code" href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#adecab3c51699754556537f7da39fe4df">IndexList</a> = mp::mp_transform&lt;VarToIndex, VarAccessOrder&gt;;</div>
 <div class="line"> </div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ints&gt;</div>
-<div class="line">  <span class="keyword">static</span> <span class="keyword">auto</span> <a name="a50"></a><a class="code" href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#a2fc51f83baae2f3ff7a319a074f3fe3e">to_seq</a>(mp::mp_list&lt;Ints...&gt;) -&gt; std::integer_sequence&lt;int, Ints::value...&gt;;</div>
+<div class="line">  <span class="keyword">static</span> <span class="keyword">auto</span> <a name="a64"></a><a class="code" href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#a2fc51f83baae2f3ff7a319a074f3fe3e">to_seq</a>(mp::mp_list&lt;Ints...&gt;) -&gt; std::integer_sequence&lt;int, Ints::value...&gt;;</div>
 <div class="line"> </div>
-<div class="line">  <span class="keyword">using</span> <a name="a51"></a><a class="code" href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#ad2ca48de4b6dd7008dfc7adbc2849425">type</a> = decltype(<a class="code" href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#a2fc51f83baae2f3ff7a319a074f3fe3e">to_seq</a>(mp::mp_rename&lt;IndexList, mp::mp_list&gt;{}));</div>
+<div class="line">  <span class="keyword">using</span> <a name="a65"></a><a class="code" href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#ad2ca48de4b6dd7008dfc7adbc2849425">type</a> = decltype(<a class="code" href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#a2fc51f83baae2f3ff7a319a074f3fe3e">to_seq</a>(mp::mp_rename&lt;IndexList, mp::mp_list&gt;{}));</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CQuery Q&gt;</div>
@@ -532,127 +584,351 @@ $(function() {
 <div class="line"><span class="keyword">template</span> &lt;tmp::CTuple QueryList&gt;</div>
 <div class="line"><span class="keyword">struct </span>GetAllRulesFromQueries {</div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Query&gt;</div>
-<div class="line">  <span class="keyword">using</span> <a name="a52"></a><a class="code" href="../../d9/df3/structSRDatalog_1_1AST_1_1GetAllRulesFromQueries.html#a72bed24fa99a42db755d53508402b99c">ExtractRules</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">GetRulesFromQuery&lt;Query&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a66"></a><a class="code" href="../../d9/df3/structSRDatalog_1_1AST_1_1GetAllRulesFromQueries.html#a72bed24fa99a42db755d53508402b99c">ExtractRules</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">GetRulesFromQuery&lt;Query&gt;::type</a>;</div>
 <div class="line"> </div>
-<div class="line">  <span class="keyword">using</span> <a name="a53"></a><a class="code" href="../../d9/df3/structSRDatalog_1_1AST_1_1GetAllRulesFromQueries.html#a97d0cf004e204818e5d774958f91f230">type</a> = mp::mp_apply&lt;mp::mp_append, mp::mp_transform&lt;ExtractRules, QueryList&gt;&gt;;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a67"></a><a class="code" href="../../d9/df3/structSRDatalog_1_1AST_1_1GetAllRulesFromQueries.html#a97d0cf004e204818e5d774958f91f230">type</a> = mp::mp_apply&lt;mp::mp_append, mp::mp_transform&lt;ExtractRules, QueryList&gt;&gt;;</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// MIR definitions (IndexSpecT, Version, mir namespace) have been moved to mir.h</span></div>
 <div class="line"><span class="comment">// Include mir.h in files that need MIR definitions</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span> &lt;CDatabase DBType&gt;</div>
+<div class="line"><span class="keyword">template</span> &lt;CDatabase DBType, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">typename</span> RelationMapper = <a class="code" href="../../db/d09/test__alias__template_8cpp.html#a6085f8ff6e720ec4c6ef5e779ae64c6c">SchemaToRelation</a>&gt;</div>
 <div class="line"><span class="keyword">struct </span>SemiNaiveDatabase {</div>
-<div class="line">  <span class="keyword">using</span> <a name="a54"></a><a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a8cfe19a728c74990f9185d5cec9c2dd7">schema_type</a> = DBType;</div>
-<div class="line">  <span class="keyword">using</span> <a name="a55"></a><a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a0e68552bd711d9f627939c85a7339edd">data_type</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">DatabaseToRelationTypes&lt;DBType&gt;::type</a>;</div>
-<div class="line">  <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a0e68552bd711d9f627939c85a7339edd">data_type</a> <a name="a56"></a><a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a4f3614e05e5e363c50ca4fb7199ac555">full</a>;</div>
-<div class="line">  <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a0e68552bd711d9f627939c85a7339edd">data_type</a> <a name="a57"></a><a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a6c8936166f45e6bac768ec3c1f33ba8c">delta</a>;</div>
-<div class="line">  <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a0e68552bd711d9f627939c85a7339edd">data_type</a> <a name="a58"></a><a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a6519eaadc8e875bd8141476327ef533c">newt</a>;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a68"></a><a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a2521f2b626b09ced46339883012d51a8">schema_type</a> = DBType;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a69"></a><a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a0c77a0d1a12eaf28179b320669049dfa">data_type</a> = mp::mp_transform&lt;RelationMapper, DBType&gt;;</div>
+<div class="line">  <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a0c77a0d1a12eaf28179b320669049dfa">data_type</a> <a name="a70"></a><a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a8aa122233686282cf53c0e3d64566cd8">full</a>;</div>
+<div class="line">  <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a0c77a0d1a12eaf28179b320669049dfa">data_type</a> <a name="a71"></a><a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#ac65c7f8f8d5ff42e893103ca3565dd71">delta</a>;</div>
+<div class="line">  <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a0c77a0d1a12eaf28179b320669049dfa">data_type</a> <a name="a72"></a><a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a559cfbaa2e4d89f8f425cd2c695b63ac">newt</a>;</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// constructor</span></div>
-<div class="line">  <a name="a59"></a><a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#adb3c182eb9870600a31bbe5b4cca0fd3">SemiNaiveDatabase</a>() {</div>
-<div class="line">    <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a4f3614e05e5e363c50ca4fb7199ac555">full</a> = init_database&lt;DBType&gt;(boost::container::pmr::get_default_resource(), <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>);</div>
-<div class="line">    <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a6c8936166f45e6bac768ec3c1f33ba8c">delta</a> = init_database&lt;DBType&gt;(boost::container::pmr::get_default_resource(), <a name="a60"></a><a class="code" href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a>);</div>
-<div class="line">    <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a6519eaadc8e875bd8141476327ef533c">newt</a> = init_database&lt;DBType&gt;(boost::container::pmr::get_default_resource(), <a name="a61"></a><a class="code" href="../../db/df0/ast_8h.html#af23fd1858447e4f2bfe0a8891acf1a77">NEW_VER</a>);</div>
+<div class="line">  <a name="a73"></a><a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a72f2e50c20bacfd73d60d3729487ce0e">SemiNaiveDatabase</a>() {</div>
+<div class="line">    <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a8aa122233686282cf53c0e3d64566cd8">full</a> = init_database&lt;DBType, RelationMapper&gt;(boost::container::pmr::get_default_resource(),</div>
+<div class="line">                                                 <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>);</div>
+<div class="line">    <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#ac65c7f8f8d5ff42e893103ca3565dd71">delta</a> = init_database&lt;DBType, RelationMapper&gt;(boost::container::pmr::get_default_resource(),</div>
+<div class="line">                                                  <a class="code" href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a>);</div>
+<div class="line">    <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a559cfbaa2e4d89f8f425cd2c695b63ac">newt</a> = init_database&lt;DBType, RelationMapper&gt;(boost::container::pmr::get_default_resource(),</div>
+<div class="line">                                                 <a class="code" href="../../db/df0/ast_8h.html#af23fd1858447e4f2bfe0a8891acf1a77">NEW_VER</a>);</div>
 <div class="line">  }</div>
-<div class="line">  <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#adb3c182eb9870600a31bbe5b4cca0fd3">SemiNaiveDatabase</a>(<a class="code" href="../../d1/db5/index_8h.html#a456359b9a1969235dba4272be6bf53e1">memory_resource</a>* full_resource, <a class="code" href="../../d1/db5/index_8h.html#a456359b9a1969235dba4272be6bf53e1">memory_resource</a>* delta_resource,</div>
+<div class="line">  <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a72f2e50c20bacfd73d60d3729487ce0e">SemiNaiveDatabase</a>(<a class="code" href="../../d1/db5/index_8h.html#a456359b9a1969235dba4272be6bf53e1">memory_resource</a>* full_resource, <a class="code" href="../../d1/db5/index_8h.html#a456359b9a1969235dba4272be6bf53e1">memory_resource</a>* delta_resource,</div>
 <div class="line">                    <a class="code" href="../../d1/db5/index_8h.html#a456359b9a1969235dba4272be6bf53e1">memory_resource</a>* newt_resource) {</div>
-<div class="line">    <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a4f3614e05e5e363c50ca4fb7199ac555">full</a> = init_database&lt;DBType&gt;(full_resource, <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>);</div>
-<div class="line">    <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a6c8936166f45e6bac768ec3c1f33ba8c">delta</a> = init_database&lt;DBType&gt;(delta_resource, <a class="code" href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a>);</div>
-<div class="line">    <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a6519eaadc8e875bd8141476327ef533c">newt</a> = init_database&lt;DBType&gt;(newt_resource, <a class="code" href="../../db/df0/ast_8h.html#af23fd1858447e4f2bfe0a8891acf1a77">NEW_VER</a>);</div>
+<div class="line">    <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a8aa122233686282cf53c0e3d64566cd8">full</a> = init_database&lt;DBType, RelationMapper&gt;(full_resource, <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>);</div>
+<div class="line">    <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#ac65c7f8f8d5ff42e893103ca3565dd71">delta</a> = init_database&lt;DBType, RelationMapper&gt;(delta_resource, <a class="code" href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a>);</div>
+<div class="line">    <a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a559cfbaa2e4d89f8f425cd2c695b63ac">newt</a> = init_database&lt;DBType, RelationMapper&gt;(newt_resource, <a class="code" href="../../db/df0/ast_8h.html#af23fd1858447e4f2bfe0a8891acf1a77">NEW_VER</a>);</div>
 <div class="line">  }</div>
 <div class="line"> </div>
-<div class="line">  <span class="keywordtype">void</span> <a name="a62"></a><a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a86db2760bec8e43469663866f4a00162">verify_distinct_addresses</a>()<span class="keyword"> const </span>{</div>
+<div class="line">  <span class="keywordtype">void</span> <a name="a74"></a><a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a2241f67bcbad4ab56f993b16c13e9612">verify_distinct_addresses</a>()<span class="keyword"> const </span>{</div>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;SemiNaiveDatabase constructed:&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;  full addr:  &quot;</span> &lt;&lt; &amp;<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a4f3614e05e5e363c50ca4fb7199ac555">full</a> &lt;&lt; std::endl;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;  delta addr: &quot;</span> &lt;&lt; &amp;<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a6c8936166f45e6bac768ec3c1f33ba8c">delta</a> &lt;&lt; std::endl;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;  newt addr:  &quot;</span> &lt;&lt; &amp;<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a6519eaadc8e875bd8141476327ef533c">newt</a> &lt;&lt; std::endl;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;  full addr:  &quot;</span> &lt;&lt; &amp;<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a8aa122233686282cf53c0e3d64566cd8">full</a> &lt;&lt; std::endl;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;  delta addr: &quot;</span> &lt;&lt; &amp;<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#ac65c7f8f8d5ff42e893103ca3565dd71">delta</a> &lt;&lt; std::endl;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;  newt addr:  &quot;</span> &lt;&lt; &amp;<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a559cfbaa2e4d89f8f425cd2c695b63ac">newt</a> &lt;&lt; std::endl;</div>
 <div class="line"> </div>
 <div class="line">    constexpr std::size_t N = std::tuple_size_v&lt;data_type&gt;;</div>
 <div class="line">    mp::mp_for_each&lt;mp::mp_iota_c&lt;N&gt;&gt;([&amp;](<span class="keyword">auto</span> I) {</div>
 <div class="line">      std::cout &lt;&lt; <span class="stringliteral">&quot;  Relation &quot;</span> &lt;&lt; I &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">      std::cout &lt;&lt; <span class="stringliteral">&quot;    full:  &quot;</span> &lt;&lt; &amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a4f3614e05e5e363c50ca4fb7199ac555">full</a>) &lt;&lt; std::endl;</div>
-<div class="line">      std::cout &lt;&lt; <span class="stringliteral">&quot;    delta: &quot;</span> &lt;&lt; &amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a6c8936166f45e6bac768ec3c1f33ba8c">delta</a>) &lt;&lt; std::endl;</div>
-<div class="line">      std::cout &lt;&lt; <span class="stringliteral">&quot;    newt:  &quot;</span> &lt;&lt; &amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a6519eaadc8e875bd8141476327ef533c">newt</a>) &lt;&lt; std::endl;</div>
+<div class="line">      std::cout &lt;&lt; <span class="stringliteral">&quot;    full:  &quot;</span> &lt;&lt; &amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a8aa122233686282cf53c0e3d64566cd8">full</a>) &lt;&lt; std::endl;</div>
+<div class="line">      std::cout &lt;&lt; <span class="stringliteral">&quot;    delta: &quot;</span> &lt;&lt; &amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#ac65c7f8f8d5ff42e893103ca3565dd71">delta</a>) &lt;&lt; std::endl;</div>
+<div class="line">      std::cout &lt;&lt; <span class="stringliteral">&quot;    newt:  &quot;</span> &lt;&lt; &amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a559cfbaa2e4d89f8f425cd2c695b63ac">newt</a>) &lt;&lt; std::endl;</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Verify they&#39;re different</span></div>
-<div class="line">      assert(&amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a4f3614e05e5e363c50ca4fb7199ac555">full</a>) != &amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a6c8936166f45e6bac768ec3c1f33ba8c">delta</a>));</div>
-<div class="line">      assert(&amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a6c8936166f45e6bac768ec3c1f33ba8c">delta</a>) != &amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a6519eaadc8e875bd8141476327ef533c">newt</a>));</div>
-<div class="line">      assert(&amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a4f3614e05e5e363c50ca4fb7199ac555">full</a>) != &amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a6519eaadc8e875bd8141476327ef533c">newt</a>));</div>
+<div class="line">      assert(&amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a8aa122233686282cf53c0e3d64566cd8">full</a>) != &amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#ac65c7f8f8d5ff42e893103ca3565dd71">delta</a>));</div>
+<div class="line">      assert(&amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#ac65c7f8f8d5ff42e893103ca3565dd71">delta</a>) != &amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a559cfbaa2e4d89f8f425cd2c695b63ac">newt</a>));</div>
+<div class="line">      assert(&amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a8aa122233686282cf53c0e3d64566cd8">full</a>) != &amp;std::get&lt;I&gt;(<a class="code" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a559cfbaa2e4d89f8f425cd2c695b63ac">newt</a>));</div>
 <div class="line">    });</div>
 <div class="line">  }</div>
 <div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> SrcDB, <span class="keyword">typename</span> DstDB&gt;</div>
+<div class="line"><span class="keyword">struct </span>DatabaseInitializer {</div>
+<div class="line">  <span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> Ver&gt;</div>
+<div class="line">  <span class="keyword">static</span> <span class="keywordtype">void</span> <a name="a75"></a><a class="code" href="../../d6/d25/structSRDatalog_1_1AST_1_1DatabaseInitializer.html#a46946d9524ca6ecafb7826a235e62719">copy_tuple</a>(SrcDB&amp; src, DstDB&amp; dst) {</div>
+<div class="line">    <span class="keyword">using</span> SchemaTuple = <span class="keyword">typename</span> SrcDB::schema_type;</div>
+<div class="line">    constexpr std::size_t N = std::tuple_size_v&lt;SchemaTuple&gt;;</div>
+<div class="line"> </div>
+<div class="line">    mp::mp_for_each&lt;mp::mp_iota_c&lt;N&gt;&gt;([&amp;](<span class="keyword">auto</span> I) {</div>
+<div class="line">      <span class="keyword">using</span> Schema = std::tuple_element_t&lt;I, SchemaTuple&gt;;</div>
+<div class="line">      <span class="comment">// Access source and dest relations by index/version</span></div>
+<div class="line">      <span class="comment">// We can use get_relation_by_schema but generic access via index is safer/faster here</span></div>
+<div class="line">      <span class="keyword">auto</span>&amp; src_rel = [&amp;]() -&gt; <span class="keyword">auto</span>&amp; {</div>
+<div class="line">        <span class="keywordflow">if</span> constexpr (<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a> == <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>)</div>
+<div class="line">          <span class="keywordflow">return</span> std::get&lt;I&gt;(src.full);</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a> == <a class="code" href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a>)</div>
+<div class="line">          <span class="keywordflow">return</span> std::get&lt;I&gt;(src.delta);</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a> == <a class="code" href="../../db/df0/ast_8h.html#af23fd1858447e4f2bfe0a8891acf1a77">NEW_VER</a>)</div>
+<div class="line">          <span class="keywordflow">return</span> std::get&lt;I&gt;(src.newt);</div>
+<div class="line">      }();</div>
+<div class="line"> </div>
+<div class="line">      <span class="keyword">auto</span>&amp; dst_rel = [&amp;]() -&gt; <span class="keyword">auto</span>&amp; {</div>
+<div class="line">        <span class="keywordflow">if</span> constexpr (<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a> == <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>)</div>
+<div class="line">          <span class="keywordflow">return</span> std::get&lt;I&gt;(dst.full);</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a> == <a class="code" href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a>)</div>
+<div class="line">          <span class="keywordflow">return</span> std::get&lt;I&gt;(dst.delta);</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a> == <a class="code" href="../../db/df0/ast_8h.html#af23fd1858447e4f2bfe0a8891acf1a77">NEW_VER</a>)</div>
+<div class="line">          <span class="keywordflow">return</span> std::get&lt;I&gt;(dst.newt);</div>
+<div class="line">      }();</div>
+<div class="line"> </div>
+<div class="line">      <span class="keyword">using</span> DstRelType = std::decay_t&lt;decltype(dst_rel)&gt;;</div>
+<div class="line"> </div>
+<div class="line">      <span class="comment">// Heuristic for initialization:</span></div>
+<div class="line">      <span class="comment">// 1. If DstRelType has static to_device(SrcRel), use it (Host -&gt; Device)</span></div>
+<div class="line">      <span class="comment">// 2. Default: Assignment/Copy constructor (Host -&gt; Host, or compatible types)</span></div>
+<div class="line"> </div>
+<div class="line">      <span class="comment">// We check for to_device existence via SFINAE/Concepts</span></div>
+<div class="line">      <span class="comment">// For now, assume this pattern based on GPU runtime usage:</span></div>
+<div class="line">      <span class="comment">// device_rel = DeviceRelationType&lt;Schema&gt;::to_device(host_rel);</span></div>
+<div class="line"> </div>
+<div class="line">      <span class="keywordflow">if</span> constexpr (<a class="code" href="../../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c">requires</a> { DstRelType::to_device(src_rel); }) {</div>
+<div class="line">        dst_rel = DstRelType::to_device(src_rel);</div>
+<div class="line">      } <span class="keywordflow">else</span> {</div>
+<div class="line">        <span class="comment">// Fallback to assignment (works for Host-&gt;Host)</span></div>
+<div class="line">        dst_rel = src_rel;</div>
+<div class="line">      }</div>
+<div class="line"> </div>
+<div class="line">      <span class="comment">// Set version and name (standard practice)</span></div>
+<div class="line">      dst_rel.set_version(<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a>);</div>
+<div class="line">      dst_rel.set_name(src_rel.name() +</div>
+<div class="line">                       (<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a> == <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a> ? <span class="stringliteral">&quot;_Full&quot;</span> : (<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a> == <a class="code" href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a> ? <span class="stringliteral">&quot;_Delta&quot;</span> : <span class="stringliteral">&quot;_New&quot;</span>)));</div>
+<div class="line">    });</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">static</span> <span class="keywordtype">void</span> <a name="a76"></a><a class="code" href="../../d6/d25/structSRDatalog_1_1AST_1_1DatabaseInitializer.html#a99d016f262781e4b62b90f1e9f6e7b35">execute</a>(SrcDB&amp; src, DstDB&amp; dst) {</div>
+<div class="line">    copy_tuple&lt;FULL_VER&gt;(src, dst);</div>
+<div class="line">    copy_tuple&lt;DELTA_VER&gt;(src, dst);</div>
+<div class="line">    copy_tuple&lt;NEW_VER&gt;(src, dst);</div>
+<div class="line">  }</div>
+<div class="line">};</div>
 <div class="line"><span class="comment">// predicate for SemiNaiveDatabase</span></div>
-<div class="line"><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">DEFINE_TYPE_PREDICATE</a>(is_semi_naive_database, SemiNaiveDatabase, CSemiNaiveDatabase,</div>
-<div class="line">                      (<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a660ec82b6ca7bf0377266f90384cbbd7">CDatabase</a> DBType), (DBType))</div>
+<div class="line"><span class="comment">// predicate for SemiNaiveDatabase</span></div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><span class="keyword">struct </span>is_semi_naive_database : std::false_type {};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;CDatabase DBType, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">typename</span> RelationMapper&gt;</div>
+<div class="line"><span class="keyword">struct </span>is_semi_naive_database&lt;SemiNaiveDatabase&lt;DBType, RelationMapper&gt;&gt; : std::true_type {};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><span class="keyword">inline</span> constexpr <span class="keywordtype">bool</span> <a name="a77"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a2bed9fd99b0f3d0c5d4c8bd5fbbb0bf3">is_semi_naive_database_v</a> = is_semi_naive_database&lt;T&gt;::value;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line">concept <a name="a78"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ae42c12b18353acc1fa4fad6de2d5b517">CSemiNaiveDatabase</a> = is_semi_naive_database&lt;T&gt;::value;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// --- DSL Extensions ---</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> V&gt;</div>
+<div class="line"><span class="keyword">struct </span>VarWrapper {</div>
+<div class="line">  <span class="keyword">using</span> <a name="a79"></a><a class="code" href="../../d1/dc5/structSRDatalog_1_1AST_1_1VarWrapper.html#a851a1d8ca28433dc6ecb3e4466d76a3e">type</a> = V;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> N&gt;</div>
+<div class="line"><span class="keyword">struct </span>DSLStringLiteral {</div>
+<div class="line">  <span class="keywordtype">char</span> <a name="a80"></a><a class="code" href="../../d0/dd1/structSRDatalog_1_1AST_1_1DSLStringLiteral.html#a5bee2b152024718da229e4d18eadc300">value</a>[N];</div>
+<div class="line">  constexpr <a name="a81"></a><a class="code" href="../../d0/dd1/structSRDatalog_1_1AST_1_1DSLStringLiteral.html#af0b44a2b6cfdb681309fea06bc7a39ea">DSLStringLiteral</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> (&amp;str)[N]) {</div>
+<div class="line">    <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; N; ++i)</div>
+<div class="line">      <a class="code" href="../../d0/dd1/structSRDatalog_1_1AST_1_1DSLStringLiteral.html#a5bee2b152024718da229e4d18eadc300">value</a>[i] = str[i];</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;DSLStringLiteral str, std::size_t... Is&gt;</div>
+<div class="line">consteval <span class="keyword">auto</span> <a name="a82"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a3c661ff34ae78e547dcca2532bca024a">make_tstring_impl</a>(std::index_sequence&lt;Is...&gt;) {</div>
+<div class="line">  <span class="keywordflow">return</span> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7457cb62da7081e37f700bc95fbaccee">TString</a>&lt;str.value[Is]...&gt;{};</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;DSLStringLiteral str&gt;</div>
+<div class="line">consteval <span class="keyword">auto</span> <span class="keyword">operator</span><span class="stringliteral">&quot;&quot;</span>_v() {</div>
+<div class="line">  <span class="keyword">using</span> TStr = decltype(make_tstring_impl&lt;str&gt;(std::make_index_sequence&lt;<span class="keyword">sizeof</span>(str.value) - 1&gt;{}));</div>
+<div class="line">  <span class="keywordflow">return</span> VarWrapper&lt;Var&lt;TStr&gt;&gt;{};</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;CRelationSchema S&gt;</div>
+<div class="line"><span class="keyword">struct </span>RelWrapper {</div>
+<div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line">  <span class="keyword">auto</span> <a name="a83"></a><a class="code" href="../../d6/d94/structSRDatalog_1_1AST_1_1RelWrapper.html#affd1218167673753d24562822266eb9c">operator()</a>(Ts...)<span class="keyword"> const </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> Clause&lt;S, <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>, <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">Ts::type</a>...&gt;{};</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line">  <span class="keyword">auto</span> <a name="a84"></a><a class="code" href="../../d6/d94/structSRDatalog_1_1AST_1_1RelWrapper.html#a0980994cffe6fbc71a047ba0b6d4ff63">delta</a>(Ts...)<span class="keyword"> const </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> Clause&lt;S, <a class="code" href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a>, <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">Ts::type</a>...&gt;{};</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line">  <span class="keyword">auto</span> <a name="a85"></a><a class="code" href="../../d6/d94/structSRDatalog_1_1AST_1_1RelWrapper.html#ae9c48ea3984c49306a63f265b6e9f438">newt</a>(Ts...)<span class="keyword"> const </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> Clause&lt;S, <a class="code" href="../../db/df0/ast_8h.html#af23fd1858447e4f2bfe0a8891acf1a77">NEW_VER</a>, <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">Ts::type</a>...&gt;{};</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line">  <span class="keyword">auto</span> <a name="a86"></a><a class="code" href="../../d6/d94/structSRDatalog_1_1AST_1_1RelWrapper.html#a735af89c42d7c13fd5ce266a752364ba">full</a>(Ts...)<span class="keyword"> const </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> Clause&lt;S, <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>, <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">Ts::type</a>...&gt;{};</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;CRelationSchema S&gt;</div>
+<div class="line">constexpr <span class="keyword">auto</span> <a name="a87"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a> = RelWrapper&lt;S&gt;{};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;CClause C1, CClause C2&gt;</div>
+<div class="line"><span class="keyword">auto</span> <a name="a88"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#af4e7e24a170ff704cc82064853e85d15">operator,</a>(C1, C2) {</div>
+<div class="line">  <span class="keywordflow">return</span> std::make_tuple(C1{}, C2{});</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Clauses, CClause Next&gt;</div>
+<div class="line"><span class="keyword">auto</span> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#af4e7e24a170ff704cc82064853e85d15">operator,</a>(std::tuple&lt;Clauses...&gt;, Next) {</div>
+<div class="line">  <span class="keywordflow">return</span> std::make_tuple(Clauses{}..., Next{});</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... VarWrappers&gt;</div>
+<div class="line"><span class="keyword">struct </span>ExtractVarTypes {</div>
+<div class="line">  <span class="keyword">using</span> <a name="a89"></a><a class="code" href="../../dc/d5b/structSRDatalog_1_1AST_1_1ExtractVarTypes.html#ab920a7e5bfc3f1d14cecdd99a186cebc">type</a> = std::tuple&lt;<span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">VarWrappers::type</a>...&gt;;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... VarWrappers&gt;</div>
+<div class="line">constexpr <span class="keyword">auto</span> <a name="a90"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ae2f0b3e3f95b69b304e64650d37b3b19">plan</a>(VarWrappers...) {</div>
+<div class="line">  <span class="keyword">using</span> VarsTuple = <span class="keyword">typename</span> ExtractVarTypes&lt;VarWrappers...&gt;<a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">::type</a>;</div>
+<div class="line">  <span class="keywordflow">return</span> JoinPlan&lt;VarsTuple&gt;{};</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> HeadExpr, <span class="keyword">typename</span> BodyExpr&gt;</div>
+<div class="line"><span class="keyword">auto</span> <a name="a91"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a52afc5c01fce9b49ff174ae84de63f11">operator&lt;&lt;=</a>(HeadExpr, BodyExpr) {</div>
+<div class="line">  <span class="keyword">using</span> HeadTuple = std::conditional_t&lt;tmp::is_tuple_v&lt;HeadExpr&gt;, HeadExpr, std::tuple&lt;HeadExpr&gt;&gt;;</div>
+<div class="line">  <span class="keyword">using</span> BodyTuple = std::conditional_t&lt;tmp::is_tuple_v&lt;BodyExpr&gt;, BodyExpr, std::tuple&lt;BodyExpr&gt;&gt;;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Helper trait to extract variables from all clauses in a tuple</span></div>
+<div class="line">  <span class="keyword">using</span> AllBodyVarsList = mp::mp_transform_q&lt;mp::mp_quote_trait&lt;GetClauseVars&gt;, BodyTuple&gt;;</div>
+<div class="line">  <span class="keyword">using</span> FlatBodyVars = mp::mp_flatten&lt;AllBodyVarsList&gt;;</div>
+<div class="line">  <span class="keyword">using</span> UniqueBodyVars = tmp::TupleUnique&lt;FlatBodyVars&gt;;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> Rule&lt;HeadTuple, BodyTuple, JoinPlan&lt;UniqueBodyVars&gt;&gt;{};</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> HeadExpr, <span class="keyword">typename</span> BodyExpr, CJoinPlan Plan&gt;</div>
+<div class="line">constexpr <span class="keyword">auto</span> <a name="a92"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aff521c18e2cdc260dd0e3a06901a26a7">rule_with_plan</a>(HeadExpr, BodyExpr, <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8bf8e2d65414a73ba67d62a53eed1f8b">Plan</a>) {</div>
+<div class="line">  <span class="keyword">using</span> HeadTuple = std::conditional_t&lt;tmp::is_tuple_v&lt;HeadExpr&gt;, HeadExpr, std::tuple&lt;HeadExpr&gt;&gt;;</div>
+<div class="line">  <span class="keyword">using</span> BodyTuple = std::conditional_t&lt;tmp::is_tuple_v&lt;BodyExpr&gt;, BodyExpr, std::tuple&lt;BodyExpr&gt;&gt;;</div>
+<div class="line">  <span class="keywordflow">return</span> Rule&lt;HeadTuple, BodyTuple, Plan&gt;{};</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">auto</span> func, <span class="keyword">typename</span> ResultVarWrapper, <span class="keyword">typename</span>... DepVarWrappers&gt;</div>
+<div class="line">constexpr <span class="keyword">auto</span> <a name="a93"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a429dad74088e393a582ae0a4ba946503">let</a>(ResultVarWrapper, DepVarWrappers...) {</div>
+<div class="line">  <span class="keyword">using</span> ResultVar = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">ResultVarWrapper::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> DepVars = <span class="keyword">typename</span> ExtractVarTypes&lt;DepVarWrappers...&gt;<a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> Expr = CppExpr&lt;DepVars, func&gt;;</div>
+<div class="line">  <span class="keywordflow">return</span> LetClause&lt;ResultVar, Expr&gt;{};</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">auto</span> func, <span class="keyword">typename</span>... DepVarWrappers&gt;</div>
+<div class="line">constexpr <span class="keyword">auto</span> <a name="a94"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ac2688b962262f5831dfdef4bb268ff3d">if_</a>(DepVarWrappers...) {</div>
+<div class="line">  <span class="keyword">using</span> DepVars = <span class="keyword">typename</span> ExtractVarTypes&lt;DepVarWrappers...&gt;<a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> Expr = CppExpr&lt;DepVars, func&gt;;</div>
+<div class="line">  <span class="keywordflow">return</span> IfClause&lt;Expr&gt;{};</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;CRule... Rules&gt;</div>
+<div class="line"><span class="keyword">auto</span> <a name="a95"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa3505963f4aefe798957c4fb8b3ce1b9">fixpoint</a>(Rules...) {</div>
+<div class="line">  <span class="keywordflow">return</span> Fixpoint&lt;Rules...&gt;{};</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;CRule... Rules&gt;</div>
+<div class="line"><span class="keyword">auto</span> <a name="a96"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7ea5bc2e2024caa2a8810fb66fc926db">non_iterative</a>(Rules...) {</div>
+<div class="line">  <span class="keywordflow">return</span> NonIterativeRuleSets&lt;Rules...&gt;{};</div>
+<div class="line">}</div>
 <div class="line"> </div>
 <div class="line">}  <span class="comment">// namespace SRDatalog::AST</span></div>
-<div class="ttc" id="aast_8h_html_a69450f971feef4fd1281d79c44217e97"><div class="ttname"><a href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a></div><div class="ttdeci">#define FULL_VER</div><div class="ttdef"><b>Definition:</b> ast.h:52</div></div>
-<div class="ttc" id="aast_8h_html_af23fd1858447e4f2bfe0a8891acf1a77"><div class="ttname"><a href="../../db/df0/ast_8h.html#af23fd1858447e4f2bfe0a8891acf1a77">NEW_VER</a></div><div class="ttdeci">#define NEW_VER</div><div class="ttdef"><b>Definition:</b> ast.h:51</div></div>
-<div class="ttc" id="aast_8h_html_afaaa88a6fca1241dce9bdf47936fa190"><div class="ttname"><a href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a></div><div class="ttdeci">#define DELTA_VER</div><div class="ttdef"><b>Definition:</b> ast.h:53</div></div>
+<div class="ttc" id="aandersen__benchmark_8cpp_html_a79d6081e72e2f4087a34c2224aaa0e6d"><div class="ttname"><a href="../../d7/d92/andersen__benchmark_8cpp.html#a79d6081e72e2f4087a34c2224aaa0e6d">x</a></div><div class="ttdeci">constexpr auto x</div><div class="ttdef"><b>Definition:</b> andersen_benchmark.cpp:69</div></div>
+<div class="ttc" id="aast_8h_html_a69450f971feef4fd1281d79c44217e97"><div class="ttname"><a href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a></div><div class="ttdeci">#define FULL_VER</div><div class="ttdef"><b>Definition:</b> ast.h:51</div></div>
+<div class="ttc" id="aast_8h_html_af23fd1858447e4f2bfe0a8891acf1a77"><div class="ttname"><a href="../../db/df0/ast_8h.html#af23fd1858447e4f2bfe0a8891acf1a77">NEW_VER</a></div><div class="ttdeci">#define NEW_VER</div><div class="ttdef"><b>Definition:</b> ast.h:53</div></div>
+<div class="ttc" id="aast_8h_html_afaaa88a6fca1241dce9bdf47936fa190"><div class="ttname"><a href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a></div><div class="ttdeci">#define DELTA_VER</div><div class="ttdef"><b>Definition:</b> ast.h:52</div></div>
 <div class="ttc" id="aindex_8h_html_a456359b9a1969235dba4272be6bf53e1"><div class="ttname"><a href="../../d1/db5/index_8h.html#a456359b9a1969235dba4272be6bf53e1">memory_resource</a></div><div class="ttdeci">boost::container::pmr::memory_resource memory_resource</div><div class="ttdef"><b>Definition:</b> index.h:20</div></div>
-<div class="ttc" id="aindex__benchmark_8cpp_html_ab10c3cc90e26fe9179b01c8a8f6bee5b"><div class="ttname"><a href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a></div><div class="ttdeci">BooleanSR SR</div><div class="ttdef"><b>Definition:</b> index_benchmark.cpp:28</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1AST_html"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html">SRDatalog::AST</a></div><div class="ttdef"><b>Definition:</b> ast.h:56</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a35ae541ff4c74944d0d1331a5373920d"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a35ae541ff4c74944d0d1331a5373920d">SRDatalog::AST::init_database</a></div><div class="ttdeci">auto init_database(memory_resource *resource, std::size_t version=FULL_VER)</div><div class="ttdoc">Initializes a database with a custom memory resource.</div><div class="ttdef"><b>Definition:</b> ast.h:682</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a490f97d99b94aee4a061f2669e6e1229"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a490f97d99b94aee4a061f2669e6e1229">SRDatalog::AST::AggFuncT</a></div><div class="ttdeci">AggFuncT</div><div class="ttdef"><b>Definition:</b> ast.h:375</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a660ec82b6ca7bf0377266f90384cbbd7"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a660ec82b6ca7bf0377266f90384cbbd7">SRDatalog::AST::CDatabase</a></div><div class="ttdeci">concept CDatabase</div><div class="ttdef"><b>Definition:</b> ast.h:588</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a2bed9fd99b0f3d0c5d4c8bd5fbbb0bf3"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a2bed9fd99b0f3d0c5d4c8bd5fbbb0bf3">SRDatalog::AST::is_semi_naive_database_v</a></div><div class="ttdeci">constexpr bool is_semi_naive_database_v</div><div class="ttdef"><b>Definition:</b> ast.h:1201</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a3c661ff34ae78e547dcca2532bca024a"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a3c661ff34ae78e547dcca2532bca024a">SRDatalog::AST::make_tstring_impl</a></div><div class="ttdeci">consteval auto make_tstring_impl(std::index_sequence&lt; Is... &gt;)</div><div class="ttdef"><b>Definition:</b> ast.h:1229</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a429dad74088e393a582ae0a4ba946503"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a429dad74088e393a582ae0a4ba946503">SRDatalog::AST::let</a></div><div class="ttdeci">constexpr auto let(ResultVarWrapper, DepVarWrappers...)</div><div class="ttdef"><b>Definition:</b> ast.h:1382</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a490f97d99b94aee4a061f2669e6e1229"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a490f97d99b94aee4a061f2669e6e1229">SRDatalog::AST::AggFuncT</a></div><div class="ttdeci">AggFuncT</div><div class="ttdef"><b>Definition:</b> ast.h:387</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a52afc5c01fce9b49ff174ae84de63f11"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a52afc5c01fce9b49ff174ae84de63f11">SRDatalog::AST::operator&lt;&lt;=</a></div><div class="ttdeci">auto operator&lt;&lt;=(HeadExpr, BodyExpr)</div><div class="ttdef"><b>Definition:</b> ast.h:1328</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a564f3af93bf77b817a5c14ad37ebaeb5"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a564f3af93bf77b817a5c14ad37ebaeb5">SRDatalog::AST::schema_rel_type</a></div><div class="ttdeci">typename Schema::relation_type schema_rel_type</div><div class="ttdef"><b>Definition:</b> ast.h:182</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a5e6b328cd7e5a4fb45a9843d28889e45"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">SRDatalog::AST::rel</a></div><div class="ttdeci">constexpr auto rel</div><div class="ttdoc">Global helper to create a RelWrapper for a schema.</div><div class="ttdef"><b>Definition:</b> ast.h:1269</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a6047b5950006dc9567fa9f186adc0dbe"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a6047b5950006dc9567fa9f186adc0dbe">SRDatalog::AST::Body</a></div><div class="ttdeci">std::tuple&lt; Clauses... &gt; Body</div><div class="ttdef"><b>Definition:</b> ast.h:519</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a660ec82b6ca7bf0377266f90384cbbd7"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a660ec82b6ca7bf0377266f90384cbbd7">SRDatalog::AST::CDatabase</a></div><div class="ttdeci">concept CDatabase</div><div class="ttdef"><b>Definition:</b> ast.h:633</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a7457cb62da7081e37f700bc95fbaccee"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7457cb62da7081e37f700bc95fbaccee">SRDatalog::AST::TString</a></div><div class="ttdeci">boost::hana::string&lt; chars... &gt; TString</div><div class="ttdef"><b>Definition:</b> ast.h:103</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a7570db70f90568eaea69d349592f64b1"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7570db70f90568eaea69d349592f64b1">SRDatalog::AST::RelSchema</a></div><div class="ttdeci">CRelationSchema RelSchema</div><div class="ttdef"><b>Definition:</b> ast.h:375</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a7adac42b1c7be9c9489bd2f1c8655a35"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7adac42b1c7be9c9489bd2f1c8655a35">SRDatalog::AST::CTerm</a></div><div class="ttdeci">concept CTerm</div><div class="ttdef"><b>Definition:</b> ast.h:293</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a7570db70f90568eaea69d349592f64b1"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7570db70f90568eaea69d349592f64b1">SRDatalog::AST::RelSchema</a></div><div class="ttdeci">CRelationSchema RelSchema</div><div class="ttdef"><b>Definition:</b> ast.h:387</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a7adac42b1c7be9c9489bd2f1c8655a35"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7adac42b1c7be9c9489bd2f1c8655a35">SRDatalog::AST::CTerm</a></div><div class="ttdeci">concept CTerm</div><div class="ttdef"><b>Definition:</b> ast.h:305</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a7dbe942d48cb58a19058de7f9b866ae6"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7dbe942d48cb58a19058de7f9b866ae6">SRDatalog::AST::init_database</a></div><div class="ttdeci">auto init_database(memory_resource *resource, std::size_t version=FULL_VER)</div><div class="ttdoc">Initializes a database with a custom memory resource.</div><div class="ttdef"><b>Definition:</b> ast.h:738</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a7ea5bc2e2024caa2a8810fb66fc926db"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7ea5bc2e2024caa2a8810fb66fc926db">SRDatalog::AST::non_iterative</a></div><div class="ttdeci">auto non_iterative(Rules...)</div><div class="ttdef"><b>Definition:</b> ast.h:1420</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a8bf8e2d65414a73ba67d62a53eed1f8b"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8bf8e2d65414a73ba67d62a53eed1f8b">SRDatalog::AST::Plan</a></div><div class="ttdeci">JoinPlan&lt; std::tuple&lt; Vars... &gt; &gt; Plan</div><div class="ttdef"><b>Definition:</b> ast.h:521</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a8e836519ddad330ed11c6d71825844fb"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">SRDatalog::AST::Head</a></div><div class="ttdeci">std::tuple&lt; Clauses... &gt; Head</div><div class="ttdef"><b>Definition:</b> ast.h:517</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a90a85bf972e8f5570f299d72b584386a"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a90a85bf972e8f5570f299d72b584386a">SRDatalog::AST::SR</a></div><div class="ttdeci">Semiring SR</div><div class="ttdef"><b>Definition:</b> ast.h:178</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a967f68a10795093846a6dc1157b7d4b1"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a967f68a10795093846a6dc1157b7d4b1">SRDatalog::AST::database</a></div><div class="ttdeci">Database&lt; Schemas... &gt; database</div><div class="ttdoc">Concise DSL alias for Database.</div><div class="ttdef"><b>Definition:</b> ast.h:623</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_aa3505963f4aefe798957c4fb8b3ce1b9"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa3505963f4aefe798957c4fb8b3ce1b9">SRDatalog::AST::fixpoint</a></div><div class="ttdeci">auto fixpoint(Rules...)</div><div class="ttdoc">Program Building helpers.</div><div class="ttdef"><b>Definition:</b> ast.h:1415</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1AST_html_aa4baed37e24d026329809dde124e577a"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa4baed37e24d026329809dde124e577a">SRDatalog::AST::DEFINE_TYPE_PREDICATE</a></div><div class="ttdeci">DEFINE_TYPE_PREDICATE(IsTstring, TString, CTString,(char... chars),(chars...)) template&lt; CTString T &gt; struct TStringToStringImpl</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_abf1a28352b46255948b12d03abab81c9"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#abf1a28352b46255948b12d03abab81c9">SRDatalog::AST::arity_mismatch_error_v</a></div><div class="ttdeci">constexpr bool arity_mismatch_error_v</div><div class="ttdef"><b>Definition:</b> ast.h:304</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_abf1a28352b46255948b12d03abab81c9"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#abf1a28352b46255948b12d03abab81c9">SRDatalog::AST::arity_mismatch_error_v</a></div><div class="ttdeci">constexpr bool arity_mismatch_error_v</div><div class="ttdef"><b>Definition:</b> ast.h:316</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_ac2688b962262f5831dfdef4bb268ff3d"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ac2688b962262f5831dfdef4bb268ff3d">SRDatalog::AST::if_</a></div><div class="ttdeci">constexpr auto if_(DepVarWrappers...)</div><div class="ttdef"><b>Definition:</b> ast.h:1405</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1AST_html_acf8662d5a3b113906980c226a0b2ffd1"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#acf8662d5a3b113906980c226a0b2ffd1">SRDatalog::AST::tstring_to_string</a></div><div class="ttdeci">std::string tstring_to_string()</div><div class="ttdef"><b>Definition:</b> ast.h:128</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_ad36b01adf0bbf30bb691e55e697a752c"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad36b01adf0bbf30bb691e55e697a752c">SRDatalog::AST::is_cpp_expr_v</a></div><div class="ttdeci">constexpr bool is_cpp_expr_v</div><div class="ttdef"><b>Definition:</b> ast.h:280</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_ad3f274e1839b0f5fe89f879e43889d76"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad3f274e1839b0f5fe89f879e43889d76">SRDatalog::AST::CQuery</a></div><div class="ttdeci">concept CQuery</div><div class="ttdef"><b>Definition:</b> ast.h:557</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_ad59d2fc2c37668ffd3093befaec5671f"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">SRDatalog::AST::Ver</a></div><div class="ttdeci">CRelationSchema std::size_t Ver</div><div class="ttdef"><b>Definition:</b> ast.h:375</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_ad6781455095b1e1ba801a6470ca83972"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad6781455095b1e1ba801a6470ca83972">SRDatalog::AST::Database</a></div><div class="ttdeci">std::tuple&lt; Schemas... &gt; Database</div><div class="ttdef"><b>Definition:</b> ast.h:578</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_ae72b694b919d980ae6a14fe78403065e"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ae72b694b919d980ae6a14fe78403065e">SRDatalog::AST::is_database_v</a></div><div class="ttdeci">constexpr bool is_database_v</div><div class="ttdef"><b>Definition:</b> ast.h:586</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_ad36b01adf0bbf30bb691e55e697a752c"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad36b01adf0bbf30bb691e55e697a752c">SRDatalog::AST::is_cpp_expr_v</a></div><div class="ttdeci">constexpr bool is_cpp_expr_v</div><div class="ttdef"><b>Definition:</b> ast.h:292</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_ad3f274e1839b0f5fe89f879e43889d76"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad3f274e1839b0f5fe89f879e43889d76">SRDatalog::AST::CQuery</a></div><div class="ttdeci">concept CQuery</div><div class="ttdef"><b>Definition:</b> ast.h:596</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_ad59d2fc2c37668ffd3093befaec5671f"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">SRDatalog::AST::Ver</a></div><div class="ttdeci">CRelationSchema std::size_t Ver</div><div class="ttdef"><b>Definition:</b> ast.h:387</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_ad6781455095b1e1ba801a6470ca83972"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad6781455095b1e1ba801a6470ca83972">SRDatalog::AST::Database</a></div><div class="ttdeci">std::tuple&lt; Schemas... &gt; Database</div><div class="ttdef"><b>Definition:</b> ast.h:617</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_ae2f0b3e3f95b69b304e64650d37b3b19"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ae2f0b3e3f95b69b304e64650d37b3b19">SRDatalog::AST::plan</a></div><div class="ttdeci">constexpr auto plan(VarWrappers...)</div><div class="ttdef"><b>Definition:</b> ast.h:1307</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_ae42c12b18353acc1fa4fad6de2d5b517"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ae42c12b18353acc1fa4fad6de2d5b517">SRDatalog::AST::CSemiNaiveDatabase</a></div><div class="ttdeci">concept CSemiNaiveDatabase</div><div class="ttdef"><b>Definition:</b> ast.h:1204</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_ae72b694b919d980ae6a14fe78403065e"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ae72b694b919d980ae6a14fe78403065e">SRDatalog::AST::is_database_v</a></div><div class="ttdeci">constexpr bool is_database_v</div><div class="ttdef"><b>Definition:</b> ast.h:631</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_aed05943e433b45b7764f5c56afcfe95e"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aed05943e433b45b7764f5c56afcfe95e">SRDatalog::AST::relation</a></div><div class="ttdeci">RelationSchema&lt; Name, SR, std::tuple&lt; Ts... &gt; &gt; relation</div><div class="ttdef"><b>Definition:</b> ast.h:179</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_af4e7e24a170ff704cc82064853e85d15"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#af4e7e24a170ff704cc82064853e85d15">SRDatalog::AST::operator,</a></div><div class="ttdeci">auto operator,(C1, C2)</div><div class="ttdoc">Rule Building: Accumulate body clauses into a tuple.</div><div class="ttdef"><b>Definition:</b> ast.h:1275</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_aff521c18e2cdc260dd0e3a06901a26a7"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aff521c18e2cdc260dd0e3a06901a26a7">SRDatalog::AST::rule_with_plan</a></div><div class="ttdeci">constexpr auto rule_with_plan(HeadExpr, BodyExpr, Plan)</div><div class="ttdef"><b>Definition:</b> ast.h:1357</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1index_1_1detail_html_ab8bf84636c981103c4efa6cac4712799"><div class="ttname"><a href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">SRDatalog::index::detail::type</a></div><div class="ttdeci">Map&lt; KeyType, ValueSetType &gt; type</div><div class="ttdef"><b>Definition:</b> hashmap.h:56</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_a12a87377d68a3405d70ac0ef26ef3f12"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a12a87377d68a3405d70ac0ef26ef3f12">SRDatalog::mir::Terms</a></div><div class="ttdeci">tmp::CTuple Terms</div><div class="ttdef"><b>Definition:</b> mir.h:174</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_a12a87377d68a3405d70ac0ef26ef3f12"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a12a87377d68a3405d70ac0ef26ef3f12">SRDatalog::mir::Terms</a></div><div class="ttdeci">tmp::CTuple Terms</div><div class="ttdef"><b>Definition:</b> mir.h:230</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1tmp_html_a1ae03d2c0241e00c3c65ca34c2f73a1f"><div class="ttname"><a href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">SRDatalog::tmp::CTuple</a></div><div class="ttdeci">concept CTuple</div><div class="ttdoc">Concept for tuple types.</div><div class="ttdef"><b>Definition:</b> tmp.h:33</div></div>
+<div class="ttc" id="anamespaceSRDatalog_html_a8840025cc1f1f494e70817737843187c"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c">SRDatalog::requires</a></div><div class="ttdeci">requires requires</div><div class="ttdef"><b>Definition:</b> relation_col.ipp:37</div></div>
+<div class="ttc" id="anamespaceSRDatalog_html_aaa2cd7b71f7335db85773fc3379ea2bb"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#aaa2cd7b71f7335db85773fc3379ea2bb">SRDatalog::operator|</a></div><div class="ttdeci">constexpr auto operator|(R &amp;&amp;r, const to_impl&lt; Container &gt; &amp;impl)</div><div class="ttdoc">Pipe operator for range-to-container conversion.</div><div class="ttdef"><b>Definition:</b> helper.h:64</div></div>
 <div class="ttc" id="anamespaceSRDatalog_html_aaf69828146705d4019ebd658b8f3cab2"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#aaf69828146705d4019ebd658b8f3cab2">SRDatalog::ColumnElementTuple</a></div><div class="ttdeci">concept ColumnElementTuple</div><div class="ttdoc">Concept for tuple types where all elements satisfy ColumnElement.</div><div class="ttdef"><b>Definition:</b> column.h:632</div></div>
 <div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="../../d8/dcc/namespacestd.html">std</a></div><div class="ttdef"><b>Definition:</b> test_gpu_pipeline_executor.cpp:29</div></div>
 <div class="ttc" id="arelation__col_8h_html"><div class="ttname"><a href="../../d1/d25/relation__col_8h.html">relation_col.h</a></div><div class="ttdoc">Defines the column-oriented Relation class and associated views/indexes.</div></div>
 <div class="ttc" id="asemiring_8h_html"><div class="ttname"><a href="../../d7/d69/semiring_8h.html">semiring.h</a></div></div>
-<div class="ttc" id="asemiring_8h_html_a70712094cc4840a9899f19a0d28d5f98"><div class="ttname"><a href="../../d7/d69/semiring_8h.html#a70712094cc4840a9899f19a0d28d5f98">Semiring</a></div><div class="ttdeci">concept Semiring</div><div class="ttdoc">Concept defining the interface for semiring types.</div><div class="ttdef"><b>Definition:</b> semiring.h:28</div></div>
-<div class="ttc" id="astructBooleanSR_html"><div class="ttname"><a href="../../d3/d43/structBooleanSR.html">BooleanSR</a></div><div class="ttdef"><b>Definition:</b> semiring.h:180</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1AggClause_html_a094f6a4e67e86308fc24524e71191838"><div class="ttname"><a href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#a094f6a4e67e86308fc24524e71191838">SRDatalog::AST::AggClause::result_var_type</a></div><div class="ttdeci">ResultVar result_var_type</div><div class="ttdef"><b>Definition:</b> ast.h:378</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1AggClause_html_a492d06846e6d7c9634a047158f12e486"><div class="ttname"><a href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#a492d06846e6d7c9634a047158f12e486">SRDatalog::AST::AggClause::relation_schema</a></div><div class="ttdeci">RelSchema relation_schema</div><div class="ttdef"><b>Definition:</b> ast.h:380</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1AggClause_html_a79ccb1d8025117c424012acc3432111b"><div class="ttname"><a href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#a79ccb1d8025117c424012acc3432111b">SRDatalog::AST::AggClause::args_type</a></div><div class="ttdeci">std::tuple&lt; Terms... &gt; args_type</div><div class="ttdef"><b>Definition:</b> ast.h:383</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1AggClause_html_a8c178a3a35a0810aad449ea6ab7294b0"><div class="ttname"><a href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#a8c178a3a35a0810aad449ea6ab7294b0">SRDatalog::AST::AggClause::version</a></div><div class="ttdeci">static constexpr std::size_t version</div><div class="ttdef"><b>Definition:</b> ast.h:381</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1AggClause_html_aa13e97c69298ad5a7d819ba148383fa2"><div class="ttname"><a href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#aa13e97c69298ad5a7d819ba148383fa2">SRDatalog::AST::AggClause::terms_type</a></div><div class="ttdeci">std::tuple&lt; ResultVar, Terms... &gt; terms_type</div><div class="ttdef"><b>Definition:</b> ast.h:382</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1AggClause_html_aac46234fe6e856196aea3718e358db7e"><div class="ttname"><a href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#aac46234fe6e856196aea3718e358db7e">SRDatalog::AST::AggClause::agg_func</a></div><div class="ttdeci">AggFuncT agg_func</div><div class="ttdef"><b>Definition:</b> ast.h:379</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1ArityMismatchError_html_a3ed468fbd55a6fdcf4a1b10f2d09a847"><div class="ttname"><a href="../../d9/d04/structSRDatalog_1_1AST_1_1ArityMismatchError.html#a3ed468fbd55a6fdcf4a1b10f2d09a847">SRDatalog::AST::ArityMismatchError::value</a></div><div class="ttdeci">static constexpr bool value</div><div class="ttdef"><b>Definition:</b> ast.h:301</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1Clause_html_a9ec79b80c888fbf20729b3484c807df2"><div class="ttname"><a href="../../d0/dd6/structSRDatalog_1_1AST_1_1Clause.html#a9ec79b80c888fbf20729b3484c807df2">SRDatalog::AST::Clause::version</a></div><div class="ttdeci">static constexpr std::size_t version</div><div class="ttdoc">The version number for semi-naive evaluation.</div><div class="ttdef"><b>Definition:</b> ast.h:333</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1Clause_html_aef4fe945a5335243e2f5817bb246e91d"><div class="ttname"><a href="../../d0/dd6/structSRDatalog_1_1AST_1_1Clause.html#aef4fe945a5335243e2f5817bb246e91d">SRDatalog::AST::Clause::arity</a></div><div class="ttdeci">static constexpr std::size_t arity</div><div class="ttdoc">The arity (number of terms) of this clause.</div><div class="ttdef"><b>Definition:</b> ast.h:331</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1Const_html_a6a4ea5ae96dbd207a609631044110361"><div class="ttname"><a href="../../d3/d6f/structSRDatalog_1_1AST_1_1Const.html#a6a4ea5ae96dbd207a609631044110361">SRDatalog::AST::Const::value</a></div><div class="ttdeci">static constexpr auto value</div><div class="ttdoc">The compile-time constant value.</div><div class="ttdef"><b>Definition:</b> ast.h:263</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1FindTermIndex_html_a5f44210cf2d38dd5f17f91dc88a2bfea"><div class="ttname"><a href="../../df/d68/structSRDatalog_1_1AST_1_1FindTermIndex.html#a5f44210cf2d38dd5f17f91dc88a2bfea">SRDatalog::AST::FindTermIndex::value</a></div><div class="ttdeci">static constexpr int value</div><div class="ttdoc">The index of the term, or -1 if not found.</div><div class="ttdef"><b>Definition:</b> ast.h:918</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1FindTermIndex_html_aaba3d9163d30287219f20ede62903919"><div class="ttname"><a href="../../df/d68/structSRDatalog_1_1AST_1_1FindTermIndex.html#aaba3d9163d30287219f20ede62903919">SRDatalog::AST::FindTermIndex::idx</a></div><div class="ttdeci">static constexpr std::size_t idx</div><div class="ttdef"><b>Definition:</b> ast.h:916</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1GetAllRulesFromQueries_html_a72bed24fa99a42db755d53508402b99c"><div class="ttname"><a href="../../d9/df3/structSRDatalog_1_1AST_1_1GetAllRulesFromQueries.html#a72bed24fa99a42db755d53508402b99c">SRDatalog::AST::GetAllRulesFromQueries::ExtractRules</a></div><div class="ttdeci">typename GetRulesFromQuery&lt; Query &gt;::type ExtractRules</div><div class="ttdef"><b>Definition:</b> ast.h:988</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1GetAllRulesFromQueries_html_a97d0cf004e204818e5d774958f91f230"><div class="ttname"><a href="../../d9/df3/structSRDatalog_1_1AST_1_1GetAllRulesFromQueries.html#a97d0cf004e204818e5d774958f91f230">SRDatalog::AST::GetAllRulesFromQueries::type</a></div><div class="ttdeci">mp::mp_apply&lt; mp::mp_append, mp::mp_transform&lt; ExtractRules, QueryList &gt; &gt; type</div><div class="ttdoc">Flattened tuple of all rules from all queries.</div><div class="ttdef"><b>Definition:</b> ast.h:991</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1GetVarsFromTerms_html_a2e8de21470d7eb210eb01b29594c1f70"><div class="ttname"><a href="../../d7/d14/structSRDatalog_1_1AST_1_1GetVarsFromTerms.html#a2e8de21470d7eb210eb01b29594c1f70">SRDatalog::AST::GetVarsFromTerms::ExtractVars</a></div><div class="ttdeci">typename GetVarsFromTerm&lt; Term &gt;::type ExtractVars</div><div class="ttdef"><b>Definition:</b> ast.h:736</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1GetVarsFromTerms_html_a819ecf285120c649ce1ab7e793f2cbee"><div class="ttname"><a href="../../d7/d14/structSRDatalog_1_1AST_1_1GetVarsFromTerms.html#a819ecf285120c649ce1ab7e793f2cbee">SRDatalog::AST::GetVarsFromTerms::type</a></div><div class="ttdeci">tmp::TupleUnique&lt; mp::mp_apply&lt; mp::mp_append, mp::mp_transform&lt; ExtractVars, Terms &gt; &gt;&gt; type</div><div class="ttdef"><b>Definition:</b> ast.h:738</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1JoinPlan_html_a261529e3e02cfc3c1a61ca0d2c3b3606"><div class="ttname"><a href="../../d4/dd0/structSRDatalog_1_1AST_1_1JoinPlan.html#a261529e3e02cfc3c1a61ca0d2c3b3606">SRDatalog::AST::JoinPlan::vars_type</a></div><div class="ttdeci">Vars vars_type</div><div class="ttdoc">The tuple of variables in join order.</div><div class="ttdef"><b>Definition:</b> ast.h:420</div></div>
+<div class="ttc" id="asemiring_8h_html_a70712094cc4840a9899f19a0d28d5f98"><div class="ttname"><a href="../../d7/d69/semiring_8h.html#a70712094cc4840a9899f19a0d28d5f98">Semiring</a></div><div class="ttdeci">concept Semiring</div><div class="ttdoc">Concept defining the interface for semiring types.</div><div class="ttdef"><b>Definition:</b> semiring.h:29</div></div>
+<div class="ttc" id="astructBooleanSR_html"><div class="ttname"><a href="../../d3/d43/structBooleanSR.html">BooleanSR</a></div><div class="ttdef"><b>Definition:</b> semiring.h:181</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1AggClause_html_a094f6a4e67e86308fc24524e71191838"><div class="ttname"><a href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#a094f6a4e67e86308fc24524e71191838">SRDatalog::AST::AggClause::result_var_type</a></div><div class="ttdeci">ResultVar result_var_type</div><div class="ttdef"><b>Definition:</b> ast.h:390</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1AggClause_html_a492d06846e6d7c9634a047158f12e486"><div class="ttname"><a href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#a492d06846e6d7c9634a047158f12e486">SRDatalog::AST::AggClause::relation_schema</a></div><div class="ttdeci">RelSchema relation_schema</div><div class="ttdef"><b>Definition:</b> ast.h:392</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1AggClause_html_a79ccb1d8025117c424012acc3432111b"><div class="ttname"><a href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#a79ccb1d8025117c424012acc3432111b">SRDatalog::AST::AggClause::args_type</a></div><div class="ttdeci">std::tuple&lt; Terms... &gt; args_type</div><div class="ttdef"><b>Definition:</b> ast.h:395</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1AggClause_html_a8c178a3a35a0810aad449ea6ab7294b0"><div class="ttname"><a href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#a8c178a3a35a0810aad449ea6ab7294b0">SRDatalog::AST::AggClause::version</a></div><div class="ttdeci">static constexpr std::size_t version</div><div class="ttdef"><b>Definition:</b> ast.h:393</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1AggClause_html_aa13e97c69298ad5a7d819ba148383fa2"><div class="ttname"><a href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#aa13e97c69298ad5a7d819ba148383fa2">SRDatalog::AST::AggClause::terms_type</a></div><div class="ttdeci">std::tuple&lt; ResultVar, Terms... &gt; terms_type</div><div class="ttdef"><b>Definition:</b> ast.h:394</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1AggClause_html_aac46234fe6e856196aea3718e358db7e"><div class="ttname"><a href="../../d4/d3e/structSRDatalog_1_1AST_1_1AggClause.html#aac46234fe6e856196aea3718e358db7e">SRDatalog::AST::AggClause::agg_func</a></div><div class="ttdeci">AggFuncT agg_func</div><div class="ttdef"><b>Definition:</b> ast.h:391</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1ArityMismatchError_html_a3ed468fbd55a6fdcf4a1b10f2d09a847"><div class="ttname"><a href="../../d9/d04/structSRDatalog_1_1AST_1_1ArityMismatchError.html#a3ed468fbd55a6fdcf4a1b10f2d09a847">SRDatalog::AST::ArityMismatchError::value</a></div><div class="ttdeci">static constexpr bool value</div><div class="ttdef"><b>Definition:</b> ast.h:313</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1Clause_html_a9ec79b80c888fbf20729b3484c807df2"><div class="ttname"><a href="../../d0/dd6/structSRDatalog_1_1AST_1_1Clause.html#a9ec79b80c888fbf20729b3484c807df2">SRDatalog::AST::Clause::version</a></div><div class="ttdeci">static constexpr std::size_t version</div><div class="ttdoc">The version number for semi-naive evaluation.</div><div class="ttdef"><b>Definition:</b> ast.h:345</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1Clause_html_aef4fe945a5335243e2f5817bb246e91d"><div class="ttname"><a href="../../d0/dd6/structSRDatalog_1_1AST_1_1Clause.html#aef4fe945a5335243e2f5817bb246e91d">SRDatalog::AST::Clause::arity</a></div><div class="ttdeci">static constexpr std::size_t arity</div><div class="ttdoc">The arity (number of terms) of this clause.</div><div class="ttdef"><b>Definition:</b> ast.h:343</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1Const_html_a6a4ea5ae96dbd207a609631044110361"><div class="ttname"><a href="../../d3/d6f/structSRDatalog_1_1AST_1_1Const.html#a6a4ea5ae96dbd207a609631044110361">SRDatalog::AST::Const::value</a></div><div class="ttdeci">static constexpr auto value</div><div class="ttdoc">The compile-time constant value.</div><div class="ttdef"><b>Definition:</b> ast.h:275</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1DSLStringLiteral_html_a5bee2b152024718da229e4d18eadc300"><div class="ttname"><a href="../../d0/dd1/structSRDatalog_1_1AST_1_1DSLStringLiteral.html#a5bee2b152024718da229e4d18eadc300">SRDatalog::AST::DSLStringLiteral::value</a></div><div class="ttdeci">char value[N]</div><div class="ttdef"><b>Definition:</b> ast.h:1221</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1DSLStringLiteral_html_af0b44a2b6cfdb681309fea06bc7a39ea"><div class="ttname"><a href="../../d0/dd1/structSRDatalog_1_1AST_1_1DSLStringLiteral.html#af0b44a2b6cfdb681309fea06bc7a39ea">SRDatalog::AST::DSLStringLiteral::DSLStringLiteral</a></div><div class="ttdeci">constexpr DSLStringLiteral(const char(&amp;str)[N])</div><div class="ttdef"><b>Definition:</b> ast.h:1222</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1DatabaseInitializer_html_a46946d9524ca6ecafb7826a235e62719"><div class="ttname"><a href="../../d6/d25/structSRDatalog_1_1AST_1_1DatabaseInitializer.html#a46946d9524ca6ecafb7826a235e62719">SRDatalog::AST::DatabaseInitializer::copy_tuple</a></div><div class="ttdeci">static void copy_tuple(SrcDB &amp;src, DstDB &amp;dst)</div><div class="ttdef"><b>Definition:</b> ast.h:1136</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1DatabaseInitializer_html_a99d016f262781e4b62b90f1e9f6e7b35"><div class="ttname"><a href="../../d6/d25/structSRDatalog_1_1AST_1_1DatabaseInitializer.html#a99d016f262781e4b62b90f1e9f6e7b35">SRDatalog::AST::DatabaseInitializer::execute</a></div><div class="ttdeci">static void execute(SrcDB &amp;src, DstDB &amp;dst)</div><div class="ttdef"><b>Definition:</b> ast.h:1186</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1ExtractVarTypes_html_ab920a7e5bfc3f1d14cecdd99a186cebc"><div class="ttname"><a href="../../dc/d5b/structSRDatalog_1_1AST_1_1ExtractVarTypes.html#ab920a7e5bfc3f1d14cecdd99a186cebc">SRDatalog::AST::ExtractVarTypes::type</a></div><div class="ttdeci">std::tuple&lt; typename VarWrappers::type... &gt; type</div><div class="ttdef"><b>Definition:</b> ast.h:1289</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1FindTermIndex_html_a5f44210cf2d38dd5f17f91dc88a2bfea"><div class="ttname"><a href="../../df/d68/structSRDatalog_1_1AST_1_1FindTermIndex.html#a5f44210cf2d38dd5f17f91dc88a2bfea">SRDatalog::AST::FindTermIndex::value</a></div><div class="ttdeci">static constexpr int value</div><div class="ttdoc">The index of the term, or -1 if not found.</div><div class="ttdef"><b>Definition:</b> ast.h:974</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1FindTermIndex_html_aaba3d9163d30287219f20ede62903919"><div class="ttname"><a href="../../df/d68/structSRDatalog_1_1AST_1_1FindTermIndex.html#aaba3d9163d30287219f20ede62903919">SRDatalog::AST::FindTermIndex::idx</a></div><div class="ttdeci">static constexpr std::size_t idx</div><div class="ttdef"><b>Definition:</b> ast.h:972</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1GetAllRulesFromQueries_html_a72bed24fa99a42db755d53508402b99c"><div class="ttname"><a href="../../d9/df3/structSRDatalog_1_1AST_1_1GetAllRulesFromQueries.html#a72bed24fa99a42db755d53508402b99c">SRDatalog::AST::GetAllRulesFromQueries::ExtractRules</a></div><div class="ttdeci">typename GetRulesFromQuery&lt; Query &gt;::type ExtractRules</div><div class="ttdef"><b>Definition:</b> ast.h:1044</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1GetAllRulesFromQueries_html_a97d0cf004e204818e5d774958f91f230"><div class="ttname"><a href="../../d9/df3/structSRDatalog_1_1AST_1_1GetAllRulesFromQueries.html#a97d0cf004e204818e5d774958f91f230">SRDatalog::AST::GetAllRulesFromQueries::type</a></div><div class="ttdeci">mp::mp_apply&lt; mp::mp_append, mp::mp_transform&lt; ExtractRules, QueryList &gt; &gt; type</div><div class="ttdoc">Flattened tuple of all rules from all queries.</div><div class="ttdef"><b>Definition:</b> ast.h:1047</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1GetVarsFromTerms_html_a2e8de21470d7eb210eb01b29594c1f70"><div class="ttname"><a href="../../d7/d14/structSRDatalog_1_1AST_1_1GetVarsFromTerms.html#a2e8de21470d7eb210eb01b29594c1f70">SRDatalog::AST::GetVarsFromTerms::ExtractVars</a></div><div class="ttdeci">typename GetVarsFromTerm&lt; Term &gt;::type ExtractVars</div><div class="ttdef"><b>Definition:</b> ast.h:792</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1GetVarsFromTerms_html_a819ecf285120c649ce1ab7e793f2cbee"><div class="ttname"><a href="../../d7/d14/structSRDatalog_1_1AST_1_1GetVarsFromTerms.html#a819ecf285120c649ce1ab7e793f2cbee">SRDatalog::AST::GetVarsFromTerms::type</a></div><div class="ttdeci">tmp::TupleUnique&lt; mp::mp_apply&lt; mp::mp_append, mp::mp_transform&lt; ExtractVars, Terms &gt; &gt;&gt; type</div><div class="ttdef"><b>Definition:</b> ast.h:794</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1JoinPlan_html_a261529e3e02cfc3c1a61ca0d2c3b3606"><div class="ttname"><a href="../../d4/dd0/structSRDatalog_1_1AST_1_1JoinPlan.html#a261529e3e02cfc3c1a61ca0d2c3b3606">SRDatalog::AST::JoinPlan::vars_type</a></div><div class="ttdeci">Vars vars_type</div><div class="ttdoc">The tuple of variables in join order.</div><div class="ttdef"><b>Definition:</b> ast.h:432</div></div>
 <div class="ttc" id="astructSRDatalog_1_1AST_1_1MapVarsToColumnIndexes_html_a2fc51f83baae2f3ff7a319a074f3fe3e"><div class="ttname"><a href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#a2fc51f83baae2f3ff7a319a074f3fe3e">SRDatalog::AST::MapVarsToColumnIndexes::to_seq</a></div><div class="ttdeci">static auto to_seq(mp::mp_list&lt; Ints... &gt;) -&gt; std::integer_sequence&lt; int, Ints::value... &gt;</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1MapVarsToColumnIndexes_html_aa480ce3d3c73adbd86025fba2d03ec66"><div class="ttname"><a href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#aa480ce3d3c73adbd86025fba2d03ec66">SRDatalog::AST::MapVarsToColumnIndexes::VarToIndex</a></div><div class="ttdeci">mp::mp_int&lt; FindTermIndex&lt; Var, ClauseTerms &gt;::value &gt; VarToIndex</div><div class="ttdef"><b>Definition:</b> ast.h:942</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1MapVarsToColumnIndexes_html_ad2ca48de4b6dd7008dfc7adbc2849425"><div class="ttname"><a href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#ad2ca48de4b6dd7008dfc7adbc2849425">SRDatalog::AST::MapVarsToColumnIndexes::type</a></div><div class="ttdeci">decltype(to_seq(mp::mp_rename&lt; IndexList, mp::mp_list &gt;{})) type</div><div class="ttdoc">The integer sequence of column indexes.</div><div class="ttdef"><b>Definition:</b> ast.h:950</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1MapVarsToColumnIndexes_html_adecab3c51699754556537f7da39fe4df"><div class="ttname"><a href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#adecab3c51699754556537f7da39fe4df">SRDatalog::AST::MapVarsToColumnIndexes::IndexList</a></div><div class="ttdeci">mp::mp_transform&lt; VarToIndex, VarAccessOrder &gt; IndexList</div><div class="ttdef"><b>Definition:</b> ast.h:944</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1NonIterativeRuleSets_html_ac8dd7a7256f2802c4320da812924496e"><div class="ttname"><a href="../../d4/d61/structSRDatalog_1_1AST_1_1NonIterativeRuleSets.html#ac8dd7a7256f2802c4320da812924496e">SRDatalog::AST::NonIterativeRuleSets::rule_size</a></div><div class="ttdeci">static constexpr std::size_t rule_size</div><div class="ttdoc">Number of rules in this rule set.</div><div class="ttdef"><b>Definition:</b> ast.h:531</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1Program_html_a6c3cff417759426341bbc4eb69946061"><div class="ttname"><a href="../../d4/da5/structSRDatalog_1_1AST_1_1Program.html#a6c3cff417759426341bbc4eb69946061">SRDatalog::AST::Program::query_list_type</a></div><div class="ttdeci">QueryList query_list_type</div><div class="ttdoc">The list of queries to execute.</div><div class="ttdef"><b>Definition:</b> ast.h:614</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1Program_html_aa98fb2d1cd6565ccf7883b1beb2b5d18"><div class="ttname"><a href="../../d4/da5/structSRDatalog_1_1AST_1_1Program.html#aa98fb2d1cd6565ccf7883b1beb2b5d18">SRDatalog::AST::Program::db_type</a></div><div class="ttdeci">db db_type</div><div class="ttdoc">The database schema type.</div><div class="ttdef"><b>Definition:</b> ast.h:612</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1MapVarsToColumnIndexes_html_aa480ce3d3c73adbd86025fba2d03ec66"><div class="ttname"><a href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#aa480ce3d3c73adbd86025fba2d03ec66">SRDatalog::AST::MapVarsToColumnIndexes::VarToIndex</a></div><div class="ttdeci">mp::mp_int&lt; FindTermIndex&lt; Var, ClauseTerms &gt;::value &gt; VarToIndex</div><div class="ttdef"><b>Definition:</b> ast.h:998</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1MapVarsToColumnIndexes_html_ad2ca48de4b6dd7008dfc7adbc2849425"><div class="ttname"><a href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#ad2ca48de4b6dd7008dfc7adbc2849425">SRDatalog::AST::MapVarsToColumnIndexes::type</a></div><div class="ttdeci">decltype(to_seq(mp::mp_rename&lt; IndexList, mp::mp_list &gt;{})) type</div><div class="ttdoc">The integer sequence of column indexes.</div><div class="ttdef"><b>Definition:</b> ast.h:1006</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1MapVarsToColumnIndexes_html_adecab3c51699754556537f7da39fe4df"><div class="ttname"><a href="../../da/d56/structSRDatalog_1_1AST_1_1MapVarsToColumnIndexes.html#adecab3c51699754556537f7da39fe4df">SRDatalog::AST::MapVarsToColumnIndexes::IndexList</a></div><div class="ttdeci">mp::mp_transform&lt; VarToIndex, VarAccessOrder &gt; IndexList</div><div class="ttdef"><b>Definition:</b> ast.h:1000</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1NonIterativeRuleSets_html_ac8dd7a7256f2802c4320da812924496e"><div class="ttname"><a href="../../d4/d61/structSRDatalog_1_1AST_1_1NonIterativeRuleSets.html#ac8dd7a7256f2802c4320da812924496e">SRDatalog::AST::NonIterativeRuleSets::rule_size</a></div><div class="ttdeci">static constexpr std::size_t rule_size</div><div class="ttdoc">Number of rules in this rule set.</div><div class="ttdef"><b>Definition:</b> ast.h:570</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1Program_html_a6c3cff417759426341bbc4eb69946061"><div class="ttname"><a href="../../d4/da5/structSRDatalog_1_1AST_1_1Program.html#a6c3cff417759426341bbc4eb69946061">SRDatalog::AST::Program::query_list_type</a></div><div class="ttdeci">QueryList query_list_type</div><div class="ttdoc">The list of queries to execute.</div><div class="ttdef"><b>Definition:</b> ast.h:659</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1Program_html_aa98fb2d1cd6565ccf7883b1beb2b5d18"><div class="ttname"><a href="../../d4/da5/structSRDatalog_1_1AST_1_1Program.html#aa98fb2d1cd6565ccf7883b1beb2b5d18">SRDatalog::AST::Program::db_type</a></div><div class="ttdeci">db db_type</div><div class="ttdoc">The database schema type.</div><div class="ttdef"><b>Definition:</b> ast.h:657</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1RelWrapper_html_a0980994cffe6fbc71a047ba0b6d4ff63"><div class="ttname"><a href="../../d6/d94/structSRDatalog_1_1AST_1_1RelWrapper.html#a0980994cffe6fbc71a047ba0b6d4ff63">SRDatalog::AST::RelWrapper::delta</a></div><div class="ttdeci">auto delta(Ts...) const</div><div class="ttdef"><b>Definition:</b> ast.h:1252</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1RelWrapper_html_a735af89c42d7c13fd5ce266a752364ba"><div class="ttname"><a href="../../d6/d94/structSRDatalog_1_1AST_1_1RelWrapper.html#a735af89c42d7c13fd5ce266a752364ba">SRDatalog::AST::RelWrapper::full</a></div><div class="ttdeci">auto full(Ts...) const</div><div class="ttdef"><b>Definition:</b> ast.h:1260</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1RelWrapper_html_ae9c48ea3984c49306a63f265b6e9f438"><div class="ttname"><a href="../../d6/d94/structSRDatalog_1_1AST_1_1RelWrapper.html#ae9c48ea3984c49306a63f265b6e9f438">SRDatalog::AST::RelWrapper::newt</a></div><div class="ttdeci">auto newt(Ts...) const</div><div class="ttdef"><b>Definition:</b> ast.h:1256</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1RelWrapper_html_affd1218167673753d24562822266eb9c"><div class="ttname"><a href="../../d6/d94/structSRDatalog_1_1AST_1_1RelWrapper.html#affd1218167673753d24562822266eb9c">SRDatalog::AST::RelWrapper::operator()</a></div><div class="ttdeci">auto operator()(Ts...) const</div><div class="ttdef"><b>Definition:</b> ast.h:1248</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1Rel_html_a519473e5b35f6ed22e9a8451d0434219"><div class="ttname"><a href="../../d7/d2a/structSRDatalog_1_1AST_1_1Rel.html#a519473e5b35f6ed22e9a8451d0434219">SRDatalog::AST::Rel::Full</a></div><div class="ttdeci">Clause&lt; S, FULL_VER, Ts... &gt; Full</div><div class="ttdef"><b>Definition:</b> ast.h:509</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1Rel_html_a6703d613a45ee624956e602e1453c2d0"><div class="ttname"><a href="../../d7/d2a/structSRDatalog_1_1AST_1_1Rel.html#a6703d613a45ee624956e602e1453c2d0">SRDatalog::AST::Rel::Delta</a></div><div class="ttdeci">Clause&lt; S, DELTA_VER, Ts... &gt; Delta</div><div class="ttdef"><b>Definition:</b> ast.h:511</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1Rel_html_aa22c8ba600a4afbc7585686bd71d3507"><div class="ttname"><a href="../../d7/d2a/structSRDatalog_1_1AST_1_1Rel.html#aa22c8ba600a4afbc7585686bd71d3507">SRDatalog::AST::Rel::New</a></div><div class="ttdeci">Clause&lt; S, NEW_VER, Ts... &gt; New</div><div class="ttdef"><b>Definition:</b> ast.h:513</div></div>
 <div class="ttc" id="astructSRDatalog_1_1AST_1_1RelationSchema_html_a0906b7de4fb85a31a3b665159e94b4c4"><div class="ttname"><a href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html#a0906b7de4fb85a31a3b665159e94b4c4">SRDatalog::AST::RelationSchema::canonical_index_type</a></div><div class="ttdeci">std::make_index_sequence&lt; Arity &gt; canonical_index_type</div><div class="ttdoc">the canonical index of the relation, a sequence from 0 to arity - 1</div><div class="ttdef"><b>Definition:</b> ast.h:167</div></div>
 <div class="ttc" id="astructSRDatalog_1_1AST_1_1RelationSchema_html_a502ac8765349f636326728cbd60e7f21"><div class="ttname"><a href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html#a502ac8765349f636326728cbd60e7f21">SRDatalog::AST::RelationSchema::relation_type</a></div><div class="ttdeci">Relation&lt; SR, AttrTsTuple &gt; relation_type</div><div class="ttdoc">The runtime relation type corresponding to this schema.</div><div class="ttdef"><b>Definition:</b> ast.h:158</div></div>
 <div class="ttc" id="astructSRDatalog_1_1AST_1_1RelationSchema_html_aade3863a45baa78a45eca8edca2b2d8d"><div class="ttname"><a href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html#aade3863a45baa78a45eca8edca2b2d8d">SRDatalog::AST::RelationSchema::name_type</a></div><div class="ttdeci">Name name_type</div><div class="ttdoc">The name type of the relation.</div><div class="ttdef"><b>Definition:</b> ast.h:160</div></div>
 <div class="ttc" id="astructSRDatalog_1_1AST_1_1RelationSchema_html_ac8ecf80b0ee07510e87bf6c8355b4026"><div class="ttname"><a href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html#ac8ecf80b0ee07510e87bf6c8355b4026">SRDatalog::AST::RelationSchema::Arity</a></div><div class="ttdeci">static constexpr std::size_t Arity</div><div class="ttdoc">The arity (number of attributes) of the relation.</div><div class="ttdef"><b>Definition:</b> ast.h:155</div></div>
 <div class="ttc" id="astructSRDatalog_1_1AST_1_1RelationSchema_html_ae6e4e41f50f2c5fdc0d9e4e52c575521"><div class="ttname"><a href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html#ae6e4e41f50f2c5fdc0d9e4e52c575521">SRDatalog::AST::RelationSchema::semiring_type</a></div><div class="ttdeci">SR semiring_type</div><div class="ttdoc">The semiring type used for annotations.</div><div class="ttdef"><b>Definition:</b> ast.h:162</div></div>
 <div class="ttc" id="astructSRDatalog_1_1AST_1_1RelationSchema_html_af0d29f78291e6289cb2832bd42623c93"><div class="ttname"><a href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html#af0d29f78291e6289cb2832bd42623c93">SRDatalog::AST::RelationSchema::attr_ts_type</a></div><div class="ttdeci">AttrTsTuple attr_ts_type</div><div class="ttdoc">Tuple of attribute types.</div><div class="ttdef"><b>Definition:</b> ast.h:164</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1SemiNaiveDatabase_html_a0e68552bd711d9f627939c85a7339edd"><div class="ttname"><a href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a0e68552bd711d9f627939c85a7339edd">SRDatalog::AST::SemiNaiveDatabase::data_type</a></div><div class="ttdeci">typename DatabaseToRelationTypes&lt; DBType &gt;::type data_type</div><div class="ttdoc">The tuple type of all relation types in the database.</div><div class="ttdef"><b>Definition:</b> ast.h:1018</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1SemiNaiveDatabase_html_a4f3614e05e5e363c50ca4fb7199ac555"><div class="ttname"><a href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a4f3614e05e5e363c50ca4fb7199ac555">SRDatalog::AST::SemiNaiveDatabase::full</a></div><div class="ttdeci">data_type full</div><div class="ttdoc">The full relations (all facts)</div><div class="ttdef"><b>Definition:</b> ast.h:1020</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1SemiNaiveDatabase_html_a6519eaadc8e875bd8141476327ef533c"><div class="ttname"><a href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a6519eaadc8e875bd8141476327ef533c">SRDatalog::AST::SemiNaiveDatabase::newt</a></div><div class="ttdeci">data_type newt</div><div class="ttdoc">The new relations (current iteration)</div><div class="ttdef"><b>Definition:</b> ast.h:1024</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1SemiNaiveDatabase_html_a6c8936166f45e6bac768ec3c1f33ba8c"><div class="ttname"><a href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a6c8936166f45e6bac768ec3c1f33ba8c">SRDatalog::AST::SemiNaiveDatabase::delta</a></div><div class="ttdeci">data_type delta</div><div class="ttdoc">The delta relations (previous iteration)</div><div class="ttdef"><b>Definition:</b> ast.h:1022</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1SemiNaiveDatabase_html_a86db2760bec8e43469663866f4a00162"><div class="ttname"><a href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a86db2760bec8e43469663866f4a00162">SRDatalog::AST::SemiNaiveDatabase::verify_distinct_addresses</a></div><div class="ttdeci">void verify_distinct_addresses() const</div><div class="ttdef"><b>Definition:</b> ast.h:1039</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1SemiNaiveDatabase_html_a8cfe19a728c74990f9185d5cec9c2dd7"><div class="ttname"><a href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a8cfe19a728c74990f9185d5cec9c2dd7">SRDatalog::AST::SemiNaiveDatabase::schema_type</a></div><div class="ttdeci">DBType schema_type</div><div class="ttdoc">The database schema type.</div><div class="ttdef"><b>Definition:</b> ast.h:1016</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1SemiNaiveDatabase_html_adb3c182eb9870600a31bbe5b4cca0fd3"><div class="ttname"><a href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#adb3c182eb9870600a31bbe5b4cca0fd3">SRDatalog::AST::SemiNaiveDatabase::SemiNaiveDatabase</a></div><div class="ttdeci">SemiNaiveDatabase()</div><div class="ttdef"><b>Definition:</b> ast.h:1027</div></div>
-<div class="ttc" id="astructSRDatalog_1_1AST_1_1Var_html_a25735900feeb289e406df16048a0c590"><div class="ttname"><a href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html#a25735900feeb289e406df16048a0c590">SRDatalog::AST::Var::name_type</a></div><div class="ttdeci">Name name_type</div><div class="ttdoc">The name type of the variable.</div><div class="ttdef"><b>Definition:</b> ast.h:197</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1SemiNaiveDatabase_html_a0c77a0d1a12eaf28179b320669049dfa"><div class="ttname"><a href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a0c77a0d1a12eaf28179b320669049dfa">SRDatalog::AST::SemiNaiveDatabase::data_type</a></div><div class="ttdeci">mp::mp_transform&lt; RelationMapper, DBType &gt; data_type</div><div class="ttdoc">The tuple type of all relation types in the database.</div><div class="ttdef"><b>Definition:</b> ast.h:1074</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1SemiNaiveDatabase_html_a2241f67bcbad4ab56f993b16c13e9612"><div class="ttname"><a href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a2241f67bcbad4ab56f993b16c13e9612">SRDatalog::AST::SemiNaiveDatabase::verify_distinct_addresses</a></div><div class="ttdeci">void verify_distinct_addresses() const</div><div class="ttdef"><b>Definition:</b> ast.h:1098</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1SemiNaiveDatabase_html_a2521f2b626b09ced46339883012d51a8"><div class="ttname"><a href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a2521f2b626b09ced46339883012d51a8">SRDatalog::AST::SemiNaiveDatabase::schema_type</a></div><div class="ttdeci">DBType schema_type</div><div class="ttdoc">The database schema type.</div><div class="ttdef"><b>Definition:</b> ast.h:1072</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1SemiNaiveDatabase_html_a559cfbaa2e4d89f8f425cd2c695b63ac"><div class="ttname"><a href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a559cfbaa2e4d89f8f425cd2c695b63ac">SRDatalog::AST::SemiNaiveDatabase::newt</a></div><div class="ttdeci">data_type newt</div><div class="ttdoc">The new relations (current iteration)</div><div class="ttdef"><b>Definition:</b> ast.h:1080</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1SemiNaiveDatabase_html_a72f2e50c20bacfd73d60d3729487ce0e"><div class="ttname"><a href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a72f2e50c20bacfd73d60d3729487ce0e">SRDatalog::AST::SemiNaiveDatabase::SemiNaiveDatabase</a></div><div class="ttdeci">SemiNaiveDatabase()</div><div class="ttdef"><b>Definition:</b> ast.h:1083</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1SemiNaiveDatabase_html_a8aa122233686282cf53c0e3d64566cd8"><div class="ttname"><a href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a8aa122233686282cf53c0e3d64566cd8">SRDatalog::AST::SemiNaiveDatabase::full</a></div><div class="ttdeci">data_type full</div><div class="ttdoc">The full relations (all facts)</div><div class="ttdef"><b>Definition:</b> ast.h:1076</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1SemiNaiveDatabase_html_ac65c7f8f8d5ff42e893103ca3565dd71"><div class="ttname"><a href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#ac65c7f8f8d5ff42e893103ca3565dd71">SRDatalog::AST::SemiNaiveDatabase::delta</a></div><div class="ttdeci">data_type delta</div><div class="ttdoc">The delta relations (previous iteration)</div><div class="ttdef"><b>Definition:</b> ast.h:1078</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1VarWrapper_html_a851a1d8ca28433dc6ecb3e4466d76a3e"><div class="ttname"><a href="../../d1/dc5/structSRDatalog_1_1AST_1_1VarWrapper.html#a851a1d8ca28433dc6ecb3e4466d76a3e">SRDatalog::AST::VarWrapper::type</a></div><div class="ttdeci">V type</div><div class="ttdef"><b>Definition:</b> ast.h:1213</div></div>
+<div class="ttc" id="astructSRDatalog_1_1AST_1_1Var_html_a25735900feeb289e406df16048a0c590"><div class="ttname"><a href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html#a25735900feeb289e406df16048a0c590">SRDatalog::AST::Var::name_type</a></div><div class="ttdeci">Name name_type</div><div class="ttdoc">The name type of the variable.</div><div class="ttdef"><b>Definition:</b> ast.h:203</div></div>
+<div class="ttc" id="atest__alias__template_8cpp_html_a6085f8ff6e720ec4c6ef5e779ae64c6c"><div class="ttname"><a href="../../db/d09/test__alias__template_8cpp.html#a6085f8ff6e720ec4c6ef5e779ae64c6c">SchemaToRelation</a></div><div class="ttdeci">typename Schema::relation_type SchemaToRelation</div><div class="ttdef"><b>Definition:</b> test_alias_template.cpp:12</div></div>
 <div class="ttc" id="atmp_8h_html"><div class="ttname"><a href="../../dc/dc6/tmp_8h.html">tmp.h</a></div><div class="ttdoc">Template metaprogramming utilities for SRDatalog.</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->

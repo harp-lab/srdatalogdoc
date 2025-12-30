@@ -251,7 +251,7 @@ $(function() {
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment"> * high-level Datalog AST rules into Mid-level IR (MIR) operations and</span></div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment"> * managing indexes for efficient join execution.</span></div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="keyword">using</span> <span class="keyword">namespace</span> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html">AST</a>;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="keyword">using</span> <span class="keyword">namespace</span> <a class="code" href="../../dc/d33/namespaceSRDatalog.html">AST</a>;</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment"> * @brief Join plan for Worst-Case Optimal Join (WCOJ) algorithms.</span></div>
@@ -393,7 +393,7 @@ $(function() {
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  <span class="comment">// debug print</span></div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  <span class="comment">// std::cout &lt;&lt; &quot;  -&gt; Building index for relation &#39;&quot; &lt;&lt; Schema::name</span></div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <span class="comment">//           &lt;&lt; &quot;&#39; on columns {&quot;;</span></div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  ((<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::cout &lt;&lt; Cols &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>), ...);</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  ((std::cout &lt;&lt; Cols &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>), ...);</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::cout &lt;&lt; <span class="stringliteral">&quot;}&quot;</span> &lt;&lt; <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::endl;</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  target_relation.ensure_index({Cols...});</div>
@@ -479,148 +479,138 @@ $(function() {
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;}</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="comment"> * @brief Helper type alias to convert a schema to its relation type.</span></div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="comment"> * @brief Converts a Database ADT to a tuple of relation types.</span></div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="comment"> * @details Extracts the relation_type member from a RelationSchema.</span></div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="comment"> * @tparam Schema The relation schema type</span></div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Schema&gt;</div>
-<div class="line"><a name="l00417"></a><span class="lineno"><a class="line" href="../../dc/d33/namespaceSRDatalog.html#a3a2be88e6a4541e64624115b99b2ce57">  417</a></span>&#160;<span class="keyword">using</span> SchemaToRelation = <span class="keyword">typename</span> Schema::relation_type;</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160; </div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="comment"> * @brief Converts a Database ADT to a tuple of relation types.</span></div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;<span class="comment"> * @details Transforms a compile-time Database (tuple of RelationSchema types)</span></div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="comment"> * into a tuple of corresponding Relation types. This is used to create the</span></div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="comment"> * runtime data structure matching the compile-time schema.</span></div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="comment"> * @tparam DB The Database ADT type (must satisfy CDatabase)</span></div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="keyword">template</span> &lt;CDatabase DB&gt;</div>
-<div class="line"><a name="l00429"></a><span class="lineno"><a class="line" href="../../dc/d33/namespaceSRDatalog.html#ac4fc4c1b3fbae79a7847f88190ed4123">  429</a></span>&#160;<span class="keyword">using</span> ConvertDatabaseToRelationsTuple = mp::mp_transform&lt;SchemaToRelation, DB&gt;;</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160; </div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="comment"> * @brief Computes and builds all indexes required by a Program.</span></div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="comment"> * @details Analyzes a Program ADT to determine all required indexes and</span></div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="comment"> * provides a method to build them on a runtime relations tuple.</span></div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="comment"> * @tparam Program The Program ADT (must satisfy CProgram)</span></div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;<span class="comment"> * @tparam RelationsTuple The type of the relations tuple</span></div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;<span class="keyword">template</span> &lt;CProgram Program, <span class="keyword">typename</span> RelationsTuple&gt;</div>
-<div class="line"><a name="l00441"></a><span class="lineno"><a class="line" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html">  441</a></span>&#160;<span class="keyword">struct</span> <a class="code" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html">AllIndicesFromProgram</a> {</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;  <span class="comment">/// @brief The tuple of IndexSpec types required by the program</span></div>
-<div class="line"><a name="l00443"></a><span class="lineno"><a class="line" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html#a23b0a513fb98c5e490358481090707c3">  443</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html">type</a> = <a class="code" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html">GetAllIndexSpecs</a>&lt;<span class="keyword">typename</span> <a class="code" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html">Program</a>::<a class="code" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html">query_list_type</a>&gt;;</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160; </div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;  <span class="comment">/**</span></div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="comment">   * @brief Builds all required indexes on the relations tuple.</span></div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;<span class="comment">   *</span></div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;<span class="comment">   * @param runtime_database Reference to the tuple of relation objects</span></div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;  <span class="keyword">template</span> &lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t Ver&gt;</div>
-<div class="line"><a name="l00451"></a><span class="lineno"><a class="line" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html#ab2ce4c941a4440a9cb91a02f83718aa3">  451</a></span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html#ab2ce4c941a4440a9cb91a02f83718aa3">build</a>(RelationsTuple&amp; runtime_database) {</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    build_all_indices_from_specs&lt;type, Ver&gt;(runtime_database);</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;  }</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;};</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160; </div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;<span class="comment"> * @brief Creates a runtime database from a Program ADT.</span></div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;<span class="comment"> * @details Instantiates all relations specified in the program&#39;s database schema</span></div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;<span class="comment"> * and builds all required indexes. This is a convenience function that combines</span></div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;<span class="comment"> * database creation and index building.</span></div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;<span class="comment"> * @tparam Program The Program ADT (must satisfy CProgram)</span></div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="comment"> * @return A tuple of Relation objects with all required indexes built</span></div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;<span class="comment"> * @example</span></div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="comment"> * ```cpp</span></div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;<span class="comment"> * using MyProgram = Program&lt;MyDB, std::tuple&lt;MyQuery&gt;&gt;;</span></div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="comment"> * auto relations = build_database&lt;MyProgram&gt;();</span></div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="comment"> * // relations is a tuple of Relation objects with indexes ready</span></div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;<span class="comment"> * ```</span></div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;<span class="keyword">template</span> &lt;CProgram Program&gt;</div>
-<div class="line"><a name="l00475"></a><span class="lineno"><a class="line" href="../../dc/d33/namespaceSRDatalog.html#a32ca1c9b2a7680fa5d8a4ee83d452e60">  475</a></span>&#160;[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a32ca1c9b2a7680fa5d8a4ee83d452e60">build_database</a>() {</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;  <span class="keyword">using</span> RelationsTuple = <span class="keyword">typename</span> ConvertDatabaseToRelationsTuple&lt;<span class="keyword">typename</span> Program::db_type&gt;::type;</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;  RelationsTuple relations;</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;  AllIndicesFromProgram&lt;Program, RelationsTuple&gt;::build(relations);</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;  <span class="keywordflow">return</span> relations;</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;}</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160; </div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="comment">// MIR compilation functions have been moved to mir.h</span></div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;<span class="comment">// The following functions are now in mir.h:</span></div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;<span class="comment">// - is_let_clause_for_var_impl, FindLetClauses, FindNormalClausesWithVar, FindIfClauses</span></div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;<span class="comment">// - ClauseToColumnSource_impl, MapClausesToColumnSources, GetVersionFromSources</span></div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;<span class="comment">// - FoldState, ProcessOneVariable, ProcessOneVariable_impl</span></div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;<span class="comment">// - CompileBodiesToMIR, CompileHeadsToMIR, CompileRuleToMIR</span></div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160; </div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="comment">// End of moved MIR compilation functions</span></div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160; </div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;<span class="comment"> * @brief Extracts all relation schemas from rule head clauses.</span></div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;<span class="comment"> * @details Analyzes a rule&#39;s head to determine which relations it writes to.</span></div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="comment"> * This is useful for dependency analysis and determining which relations are</span></div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;<span class="comment"> * derived (not base relations).</span></div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;<span class="comment"> * @tparam Rule The rule to analyze (must satisfy CRule)</span></div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="comment"> * @example</span></div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment"> * ```cpp</span></div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;<span class="comment"> * // Rule with head: Path(x,y), Result(x,y,z)</span></div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="comment"> * using HeadSchemas = GetHeadSchemas&lt;MyRule&gt;::type;</span></div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="comment"> * // HeadSchemas is std::tuple&lt;PathSchema, ResultSchema&gt;</span></div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="comment"> * ```</span></div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;<span class="keyword">template</span> &lt;CRule Rule&gt;</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;<span class="keyword">struct</span> GetHeadSchemas;</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="comment"> * @details Transforms a compile-time Database (tuple of RelationSchema types)</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="comment"> * into a tuple of corresponding Relation types. This is used to create the</span></div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="comment"> * runtime data structure matching the compile-time schema.</span></div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="comment"> * @tparam DB The Database ADT type (must satisfy CDatabase)</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="keyword">template</span> &lt;CDatabase DB&gt;</div>
+<div class="line"><a name="l00419"></a><span class="lineno"><a class="line" href="../../dc/d33/namespaceSRDatalog.html#af81852c255a5f17b6ddfde16c094770d">  419</a></span>&#160;<span class="keyword">using</span> ConvertDatabaseToRelationsTuple = mp::mp_transform&lt;AST::SchemaToRelation, DB&gt;;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; </div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;<span class="comment"> * @brief Computes and builds all indexes required by a Program.</span></div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="comment"> * @details Analyzes a Program ADT to determine all required indexes and</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="comment"> * provides a method to build them on a runtime relations tuple.</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment"> * @tparam Program The Program ADT (must satisfy CProgram)</span></div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="comment"> * @tparam RelationsTuple The type of the relations tuple</span></div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="keyword">template</span> &lt;CProgram Program, <span class="keyword">typename</span> RelationsTuple&gt;</div>
+<div class="line"><a name="l00431"></a><span class="lineno"><a class="line" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html">  431</a></span>&#160;<span class="keyword">struct</span> <a class="code" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html">AllIndicesFromProgram</a> {</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;  <span class="comment">/// @brief The tuple of IndexSpec types required by the program</span></div>
+<div class="line"><a name="l00433"></a><span class="lineno"><a class="line" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html#a23b0a513fb98c5e490358481090707c3">  433</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html">type</a> = <a class="code" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html">GetAllIndexSpecs</a>&lt;<span class="keyword">typename</span> <a class="code" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html">Program</a>::<a class="code" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html">query_list_type</a>&gt;;</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160; </div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;  <span class="comment">/**</span></div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="comment">   * @brief Builds all required indexes on the relations tuple.</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;<span class="comment">   * @param runtime_database Reference to the tuple of relation objects</span></div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;  <span class="keyword">template</span> &lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::size_t Ver&gt;</div>
+<div class="line"><a name="l00441"></a><span class="lineno"><a class="line" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html#ab2ce4c941a4440a9cb91a02f83718aa3">  441</a></span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d3a/structSRDatalog_1_1AllIndicesFromProgram.html#ab2ce4c941a4440a9cb91a02f83718aa3">build</a>(RelationsTuple&amp; runtime_database) {</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    build_all_indices_from_specs&lt;type, Ver&gt;(runtime_database);</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;  }</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;};</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160; </div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;<span class="comment"> * @brief Creates a runtime database from a Program ADT.</span></div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="comment"> * @details Instantiates all relations specified in the program&#39;s database schema</span></div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;<span class="comment"> * and builds all required indexes. This is a convenience function that combines</span></div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;<span class="comment"> * database creation and index building.</span></div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="comment"> * @tparam Program The Program ADT (must satisfy CProgram)</span></div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<span class="comment"> * @return A tuple of Relation objects with all required indexes built</span></div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;<span class="comment"> * @example</span></div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;<span class="comment"> * ```cpp</span></div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;<span class="comment"> * using MyProgram = Program&lt;MyDB, std::tuple&lt;MyQuery&gt;&gt;;</span></div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;<span class="comment"> * auto relations = build_database&lt;MyProgram&gt;();</span></div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;<span class="comment"> * // relations is a tuple of Relation objects with indexes ready</span></div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;<span class="comment"> * ```</span></div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;<span class="keyword">template</span> &lt;CProgram Program&gt;</div>
+<div class="line"><a name="l00465"></a><span class="lineno"><a class="line" href="../../dc/d33/namespaceSRDatalog.html#a32ca1c9b2a7680fa5d8a4ee83d452e60">  465</a></span>&#160;[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a32ca1c9b2a7680fa5d8a4ee83d452e60">build_database</a>() {</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;  <span class="keyword">using</span> RelationsTuple = <span class="keyword">typename</span> ConvertDatabaseToRelationsTuple&lt;<span class="keyword">typename</span> Program::db_type&gt;::type;</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;  RelationsTuple relations;</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;  AllIndicesFromProgram&lt;Program, RelationsTuple&gt;::build(relations);</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;  <span class="keywordflow">return</span> relations;</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;}</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160; </div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;<span class="comment">// MIR compilation functions have been moved to mir.h</span></div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="comment">// The following functions are now in mir.h:</span></div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;<span class="comment">// - is_let_clause_for_var_impl, FindLetClauses, FindNormalClausesWithVar, FindIfClauses</span></div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="comment">// - ClauseToColumnSource_impl, MapClausesToColumnSources, GetVersionFromSources</span></div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="comment">// - FoldState, ProcessOneVariable, ProcessOneVariable_impl</span></div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="comment">// - CompileBodiesToMIR, CompileHeadsToMIR, CompileRuleToMIR</span></div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160; </div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;<span class="comment">// End of moved MIR compilation functions</span></div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160; </div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="comment"> * @brief Extracts all relation schemas from rule head clauses.</span></div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;<span class="comment"> * @details Analyzes a rule&#39;s head to determine which relations it writes to.</span></div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;<span class="comment"> * This is useful for dependency analysis and determining which relations are</span></div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;<span class="comment"> * derived (not base relations).</span></div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;<span class="comment"> * @tparam Rule The rule to analyze (must satisfy CRule)</span></div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;<span class="comment"> * @example</span></div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;<span class="comment"> * ```cpp</span></div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;<span class="comment"> * // Rule with head: Path(x,y), Result(x,y,z)</span></div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;<span class="comment"> * using HeadSchemas = GetHeadSchemas&lt;MyRule&gt;::type;</span></div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;<span class="comment"> * // HeadSchemas is std::tuple&lt;PathSchema, ResultSchema&gt;</span></div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="comment"> * ```</span></div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;<span class="keyword">template</span> &lt;CRule Rule&gt;</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;<span class="keyword">struct</span> GetHeadSchemas;</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160; </div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="keyword">template</span> &lt;tmp::CTuple Head, tmp::CTuple Body, CJoinPlan JoinPlan&gt;</div>
+<div class="line"><a name="l00501"></a><span class="lineno"><a class="line" href="../../da/df7/structSRDatalog_1_1GetHeadSchemas_3_01Rule_3_01Head_00_01Body_00_01JoinPlan_01_4_01_4.html">  501</a></span>&#160;<span class="keyword">struct</span> GetHeadSchemas&lt;Rule&lt;Head, Body, JoinPlan&gt;&gt; {</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;  <span class="comment">// Extract schema from each head clause</span></div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> HeadClause&gt;</div>
+<div class="line"><a name="l00504"></a><span class="lineno"><a class="line" href="../../da/df7/structSRDatalog_1_1GetHeadSchemas_3_01Rule_3_01Head_00_01Body_00_01JoinPlan_01_4_01_4.html#aa2efd27fb715e255122fb26364d9892a">  504</a></span>&#160;  <span class="keyword">using</span> extract_schema = <span class="keyword">typename</span> GetNormalClauseSchema&lt;HeadClause&gt;::type;</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160; </div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;  <span class="comment">/// @brief Tuple of relation schemas referenced in the rule head</span></div>
+<div class="line"><a name="l00507"></a><span class="lineno"><a class="line" href="../../da/df7/structSRDatalog_1_1GetHeadSchemas_3_01Rule_3_01Head_00_01Body_00_01JoinPlan_01_4_01_4.html#a26e07295243471f21a01419c0a96323c">  507</a></span>&#160;  <span class="keyword">using</span> type = mp::mp_transform&lt;extract_schema, Head&gt;;</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;};</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160; </div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;<span class="keyword">template</span> &lt;tmp::CTuple Head, tmp::CTuple Body, CJoinPlan JoinPlan&gt;</div>
-<div class="line"><a name="l00511"></a><span class="lineno"><a class="line" href="../../da/df7/structSRDatalog_1_1GetHeadSchemas_3_01Rule_3_01Head_00_01Body_00_01JoinPlan_01_4_01_4.html">  511</a></span>&#160;<span class="keyword">struct</span> GetHeadSchemas&lt;Rule&lt;Head, Body, JoinPlan&gt;&gt; {</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;  <span class="comment">// Extract schema from each head clause</span></div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> HeadClause&gt;</div>
-<div class="line"><a name="l00514"></a><span class="lineno"><a class="line" href="../../da/df7/structSRDatalog_1_1GetHeadSchemas_3_01Rule_3_01Head_00_01Body_00_01JoinPlan_01_4_01_4.html#aa2efd27fb715e255122fb26364d9892a">  514</a></span>&#160;  <span class="keyword">using</span> extract_schema = <span class="keyword">typename</span> GetNormalClauseSchema&lt;HeadClause&gt;::type;</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160; </div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;  <span class="comment">/// @brief Tuple of relation schemas referenced in the rule head</span></div>
-<div class="line"><a name="l00517"></a><span class="lineno"><a class="line" href="../../da/df7/structSRDatalog_1_1GetHeadSchemas_3_01Rule_3_01Head_00_01Body_00_01JoinPlan_01_4_01_4.html#a26e07295243471f21a01419c0a96323c">  517</a></span>&#160;  <span class="keyword">using</span> type = mp::mp_transform&lt;extract_schema, Head&gt;;</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;};</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160; </div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;<span class="comment"> * @brief Helper function to create an IndexSpec from a canonical index sequence.</span></div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="comment"> * @details Creates an IndexSpec that indexes all columns of a relation in</span></div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;<span class="comment"> * canonical order (0, 1, 2, ..., arity-1). This is useful for creating</span></div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="comment"> * default indexes.</span></div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;<span class="comment"> * @tparam Schema The relation schema</span></div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;<span class="comment"> * @tparam Ver The version number (default: FULL_VER)</span></div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;<span class="comment"> * @tparam Is The index sequence (0, 1, 2, ..., arity-1)</span></div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;<span class="comment"> * @brief Helper function to create an IndexSpec from a canonical index sequence.</span></div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;<span class="comment"> * @details Creates an IndexSpec that indexes all columns of a relation in</span></div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;<span class="comment"> * canonical order (0, 1, 2, ..., arity-1). This is useful for creating</span></div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;<span class="comment"> * default indexes.</span></div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="comment"> * @tparam Schema The relation schema</span></div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;<span class="comment"> * @tparam Ver The version number (default: FULL_VER)</span></div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;<span class="comment"> * @tparam Is The index sequence (0, 1, 2, ..., arity-1)</span></div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;<span class="comment"> * @param seq An std::index_sequence representing the canonical column order</span></div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="comment"> * @return An IndexSpecT for the canonical index</span></div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;<span class="keyword">template</span> &lt;<a class="code" href="../../dc/d33/namespaceSRDatalog.html#a67f30679a65886f9eadad1118a759e01">CRelationSchema</a> <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a67f30679a65886f9eadad1118a759e01">Schema</a>, <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a67f30679a65886f9eadad1118a759e01">std</a>::<a class="code" href="../../dc/d33/namespaceSRDatalog.html#a67f30679a65886f9eadad1118a759e01">size_t</a> <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a67f30679a65886f9eadad1118a759e01">Ver</a> = <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>, <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a67f30679a65886f9eadad1118a759e01">std</a>::<a class="code" href="../../dc/d33/namespaceSRDatalog.html#a67f30679a65886f9eadad1118a759e01">size_t</a>... <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a67f30679a65886f9eadad1118a759e01">Is</a>&gt;</div>
+<div class="line"><a name="l00525"></a><span class="lineno"><a class="line" href="../../dc/d33/namespaceSRDatalog.html#a67f30679a65886f9eadad1118a759e01">  525</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="../../dc/d33/namespaceSRDatalog.html#a67f30679a65886f9eadad1118a759e01">make_indexSpec_from_canonical</a>(std::index_sequence&lt;Is...&gt;)</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    -&gt; IndexSpecT&lt;Schema, std::integer_sequence&lt;<span class="keywordtype">int</span>, <span class="keyword">static_cast</span>&lt;<span class="keywordtype">int</span>&gt;(Is)...&gt;, Ver&gt;;</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160; </div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;<span class="comment"> * @brief Type alias for the canonical index specification of a relation.</span></div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;<span class="comment"> * @param seq An std::index_sequence representing the canonical column order</span></div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;<span class="comment"> * @return An IndexSpecT for the canonical index</span></div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;<span class="keyword">template</span> &lt;CRelationSchema Schema, std::size_t Ver = <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>, std::size_t... Is&gt;</div>
-<div class="line"><a name="l00535"></a><span class="lineno"><a class="line" href="../../dc/d33/namespaceSRDatalog.html#a67f30679a65886f9eadad1118a759e01">  535</a></span>&#160;<span class="keyword">auto</span> make_indexSpec_from_canonical(std::index_sequence&lt;Is...&gt;)</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    -&gt; IndexSpecT&lt;Schema, std::integer_sequence&lt;<span class="keywordtype">int</span>, <span class="keyword">static_cast</span>&lt;<span class="keywordtype">int</span>&gt;(Is)...&gt;, Ver&gt;;</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160; </div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;<span class="comment"> * @brief Type alias for the canonical index specification of a relation.</span></div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;<span class="comment"> * @details Represents an index on all columns of a relation in canonical order.</span></div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;<span class="comment"> * This is the &quot;full&quot; index that can be used to scan the entire relation.</span></div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;<span class="comment"> * @tparam Schema The relation schema</span></div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="comment"> * @tparam Ver The version number (default: FULL_VER)</span></div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;<span class="keyword">template</span> &lt;CRelationSchema Schema, std::size_t Ver = <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>&gt;</div>
-<div class="line"><a name="l00548"></a><span class="lineno"><a class="line" href="../../dc/d33/namespaceSRDatalog.html#a80b20f5711898997f9a699a4bc471fbb">  548</a></span>&#160;<span class="keyword">using</span> CanonicalIndexSpec =</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    <span class="keyword">decltype</span>(make_indexSpec_from_canonical&lt;Schema, Ver&gt;(<span class="keyword">typename</span> Schema::canonical_index_type{}));</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160; </div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;}  <span class="comment">// namespace SRDatalog</span></div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;<span class="comment"> * @details Represents an index on all columns of a relation in canonical order.</span></div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;<span class="comment"> * This is the &quot;full&quot; index that can be used to scan the entire relation.</span></div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;<span class="comment"> * @tparam Schema The relation schema</span></div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;<span class="comment"> * @tparam Ver The version number (default: FULL_VER)</span></div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="keyword">template</span> &lt;CRelationSchema Schema, std::size_t Ver = <a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>&gt;</div>
+<div class="line"><a name="l00538"></a><span class="lineno"><a class="line" href="../../dc/d33/namespaceSRDatalog.html#a80b20f5711898997f9a699a4bc471fbb">  538</a></span>&#160;<span class="keyword">using</span> CanonicalIndexSpec =</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    <span class="keyword">decltype</span>(make_indexSpec_from_canonical&lt;Schema, Ver&gt;(<span class="keyword">typename</span> Schema::canonical_index_type{}));</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160; </div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;}  <span class="comment">// namespace SRDatalog</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

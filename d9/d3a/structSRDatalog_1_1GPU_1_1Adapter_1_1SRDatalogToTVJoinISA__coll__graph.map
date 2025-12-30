@@ -1,0 +1,4 @@
+<map id="SRDatalog::GPU::Adapter::SRDatalogToTVJoinISA&lt; IndexSpecT, ValueType &gt;" name="SRDatalog::GPU::Adapter::SRDatalogToTVJoinISA&lt; IndexSpecT, ValueType &gt;">
+<area shape="rect" id="node1" title="Adapter to convert SRDatalog Index (SOA) to TVJoin ISA (AOS). Performs materialization/transposition." alt="" coords="292,13,493,69"/>
+<area shape="rect" id="node2" href="$da/d4a/structSRDatalog_1_1GPU_1_1Adapter_1_1SRDatalogToTVJoinISA_1_1ISABuilder.html" title=" " alt="" coords="5,5,193,76"/>
+</map>

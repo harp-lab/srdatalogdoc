@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zero_2040',['zero',['../df/d66/structNaturalBag.html#a2f561ea6e83d2acdcb07606794156704',1,'NaturalBag::zero()'],['../d3/d43/structBooleanSR.html#a0ef2e4e60971e74dc85976e913981d6e',1,'BooleanSR::zero()'],['../df/d9c/structProbIndep.html#ae93290cd0860a7d1c825e1ebb66ccb62',1,'ProbIndep::zero()'],['../dd/dd4/structNatSemiring.html#a6949871c9fc25005b5285ede3b160474',1,'NatSemiring::zero()'],['../dd/dd4/structNatSemiring.html#a6949871c9fc25005b5285ede3b160474',1,'NatSemiring::zero()']]]
+  ['zero_2580',['zero',['../df/d66/structNaturalBag.html#a2f561ea6e83d2acdcb07606794156704',1,'NaturalBag::zero()'],['../d3/d43/structBooleanSR.html#a0ef2e4e60971e74dc85976e913981d6e',1,'BooleanSR::zero()'],['../df/d9c/structProbIndep.html#ae93290cd0860a7d1c825e1ebb66ccb62',1,'ProbIndep::zero()'],['../d7/dbb/structCountSR.html#a24732ce2892136632243d72d7ed1f953',1,'CountSR::zero()'],['../dd/dd4/structNatSemiring.html#a6949871c9fc25005b5285ede3b160474',1,'NatSemiring::zero()'],['../dd/dd4/structNatSemiring.html#a6949871c9fc25005b5285ede3b160474',1,'NatSemiring::zero()']]]
 ];

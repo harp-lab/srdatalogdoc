@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SRDatalog: SRDatalog::detail::PipelineExecutor&lt; MIRPlan, VarPosMap, IteratorPosMap, OutputFullIteratorPosMap, StateTuple, IteratorTuple, OutputFullIteratorTuple &gt; Struct Template Reference</title>
+<title>SRDatalog: SRDatalog::detail::PipelineExecutor&lt; MIRPlan, VarPosMap, IteratorOffset, OutputFullIteratorPosMap, StateTuple, IteratorTuple, OutputFullIteratorTuple &gt; Struct Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -67,15 +67,15 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">SRDatalog::detail::PipelineExecutor&lt; MIRPlan, VarPosMap, IteratorPosMap, OutputFullIteratorPosMap, StateTuple, IteratorTuple, OutputFullIteratorTuple &gt; Struct Template Reference</div>  </div>
+<div class="title">SRDatalog::detail::PipelineExecutor&lt; MIRPlan, VarPosMap, IteratorOffset, OutputFullIteratorPosMap, StateTuple, IteratorTuple, OutputFullIteratorTuple &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>The main template metaprogramming interpreter for pipeline execution.  
  <a href="../../df/daa/structSRDatalog_1_1detail_1_1PipelineExecutor.html#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename MIRPlan, typename VarPosMap, typename IteratorPosMap, typename OutputFullIteratorPosMap, typename StateTuple, typename IteratorTuple, typename OutputFullIteratorTuple&gt;<br />
-struct SRDatalog::detail::PipelineExecutor&lt; MIRPlan, VarPosMap, IteratorPosMap, OutputFullIteratorPosMap, StateTuple, IteratorTuple, OutputFullIteratorTuple &gt;</h3>
+<div class="textblock"><h3>template&lt;typename MIRPlan, typename VarPosMap, std::size_t IteratorOffset, typename OutputFullIteratorPosMap, typename StateTuple, typename IteratorTuple, typename OutputFullIteratorTuple&gt;<br />
+struct SRDatalog::detail::PipelineExecutor&lt; MIRPlan, VarPosMap, IteratorOffset, OutputFullIteratorPosMap, StateTuple, IteratorTuple, OutputFullIteratorTuple &gt;</h3>
 
 <p>The main template metaprogramming interpreter for pipeline execution. </p>
 <p>This is the core of the pipeline execution engine. It recursively executes pipeline operations by pattern matching on the head operation and dispatching to appropriate specializations. Uses tuple-based state management with precompiled position maps from the Pipeline.</p>

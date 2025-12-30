@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$d7/dfe/structSRDatalog_1_1detail_1_1BuildAllIndices__Impl.html" title="Implementation helper for building all indexes." alt="" coords="5,5,165,76"/>
+<area shape="rect" id="node1" href="$d7/d2a/structSRDatalog_1_1AST_1_1Rel.html" title="Helper struct to wrap clause creation for a relation schema." alt="" coords="5,13,195,39"/>
+<area shape="rect" id="node2" href="$d9/d82/structTaggedRelation.html" title=" " alt="" coords="243,5,436,47"/>
 </map>

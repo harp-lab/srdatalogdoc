@@ -109,6 +109,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dd0/structSRDatalog_1_1AST_1_1JoinPlan.html">JoinPlan</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2a/structSRDatalog_1_1AST_1_1Rel.html">Rel</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper struct to wrap clause creation for a relation schema.  <a href="../../d7/d2a/structSRDatalog_1_1AST_1_1Rel.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d59/structSRDatalog_1_1AST_1_1FixpointToMp11List_3_01Fixpoint_3_01Rules_8_8_8_01_4_01_4.html">FixpointToMp11List&lt; Fixpoint&lt; Rules... &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/df7/structSRDatalog_1_1AST_1_1GetRulesFromFixpoint.html">GetRulesFromFixpoint</a></td></tr>
@@ -129,9 +132,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d4f/structSRDatalog_1_1AST_1_1DatabaseToRelationTypes_3_01Database_3_01Schemas_8_8_8_01_4_01_4.html">DatabaseToRelationTypes&lt; Database&lt; Schemas... &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dfc/structSRDatalog_1_1AST_1_1InitDatabaseHelper.html">InitDatabaseHelper</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper struct for initializing a database with a custom memory resource.  <a href="../../dd/dfc/structSRDatalog_1_1AST_1_1InitDatabaseHelper.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d6b/structSRDatalog_1_1AST_1_1InitDatabaseHelper_3_01Database_3_01Schemas_8_8_8_01_4_01_4.html">InitDatabaseHelper&lt; Database&lt; Schemas... &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/db7/structSRDatalog_1_1AST_1_1InitDatabaseHelper_3_01Database_3_01Schemas_8_8_8_01_4_00_01RelationMapper_01_4.html">InitDatabaseHelper&lt; Database&lt; Schemas... &gt;, RelationMapper &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2b/structSRDatalog_1_1AST_1_1GetVarsFromTerm.html">GetVarsFromTerm</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template metaprogramming trait to extract variables from a term.  <a href="../../d7/d2b/structSRDatalog_1_1AST_1_1GetVarsFromTerm.html#details">More...</a><br /></td></tr>
@@ -210,15 +212,56 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html">SemiNaiveDatabase</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runtime database structure for semi-naive evaluation.  <a href="../../d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d25/structSRDatalog_1_1AST_1_1DatabaseInitializer.html">DatabaseInitializer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a destination database from a source database.  <a href="../../d6/d25/structSRDatalog_1_1AST_1_1DatabaseInitializer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/da3/structSRDatalog_1_1AST_1_1is__semi__naive__database.html">is_semi_naive_database</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d3c/structSRDatalog_1_1AST_1_1is__semi__naive__database_3_01SemiNaiveDatabase_3_01DBType_00_01RelationMapper_01_4_01_4.html">is_semi_naive_database&lt; SemiNaiveDatabase&lt; DBType, RelationMapper &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc5/structSRDatalog_1_1AST_1_1VarWrapper.html">VarWrapper</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DSL Variable Wrapper to support expression building and UDLs.  <a href="../../d1/dc5/structSRDatalog_1_1AST_1_1VarWrapper.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dd1/structSRDatalog_1_1AST_1_1DSLStringLiteral.html">DSLStringLiteral</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal helper for C++20 string literal as template parameter.  <a href="../../d0/dd1/structSRDatalog_1_1AST_1_1DSLStringLiteral.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d94/structSRDatalog_1_1AST_1_1RelWrapper.html">RelWrapper</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DSL <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html" title="Column-oriented Relation class with pluggable index types.">Relation</a> Wrapper for concise clause creation.  <a href="../../d6/d94/structSRDatalog_1_1AST_1_1RelWrapper.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d5b/structSRDatalog_1_1AST_1_1ExtractVarTypes.html">ExtractVarTypes</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper to extract <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">Var</a> types from <a class="el" href="../../d1/dc5/structSRDatalog_1_1AST_1_1VarWrapper.html" title="DSL Variable Wrapper to support expression building and UDLs.">VarWrapper</a> arguments.  <a href="../../dc/d5b/structSRDatalog_1_1AST_1_1ExtractVarTypes.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a7457cb62da7081e37f700bc95fbaccee"><td class="memTemplParams" colspan="2">template&lt;char... chars&gt; </td></tr>
 <tr class="memitem:a7457cb62da7081e37f700bc95fbaccee"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7457cb62da7081e37f700bc95fbaccee">TString</a> = boost::hana::string&lt; chars... &gt;</td></tr>
 <tr class="separator:a7457cb62da7081e37f700bc95fbaccee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed05943e433b45b7764f5c56afcfe95e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aed05943e433b45b7764f5c56afcfe95e">relation</a> = <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">RelationSchema</a>&lt; Name, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, std::tuple&lt; Ts... &gt; &gt;</td></tr>
+<tr class="separator:aed05943e433b45b7764f5c56afcfe95e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a564f3af93bf77b817a5c14ad37ebaeb5"><td class="memTemplParams" colspan="2">template&lt;CRelationSchema Schema&gt; </td></tr>
+<tr class="memitem:a564f3af93bf77b817a5c14ad37ebaeb5"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a564f3af93bf77b817a5c14ad37ebaeb5">schema_rel_type</a> = typename Schema::relation_type</td></tr>
+<tr class="separator:a564f3af93bf77b817a5c14ad37ebaeb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e836519ddad330ed11c6d71825844fb"><td class="memTemplParams" colspan="2">template&lt;typename... Clauses&gt; </td></tr>
+<tr class="memitem:a8e836519ddad330ed11c6d71825844fb"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">Head</a> = std::tuple&lt; Clauses... &gt;</td></tr>
+<tr class="separator:a8e836519ddad330ed11c6d71825844fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6047b5950006dc9567fa9f186adc0dbe"><td class="memTemplParams" colspan="2">template&lt;typename... Clauses&gt; </td></tr>
+<tr class="memitem:a6047b5950006dc9567fa9f186adc0dbe"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a6047b5950006dc9567fa9f186adc0dbe">Body</a> = std::tuple&lt; Clauses... &gt;</td></tr>
+<tr class="separator:a6047b5950006dc9567fa9f186adc0dbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bf8e2d65414a73ba67d62a53eed1f8b"><td class="memTemplParams" colspan="2">template&lt;CVar... Vars&gt; </td></tr>
+<tr class="memitem:a8bf8e2d65414a73ba67d62a53eed1f8b"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8bf8e2d65414a73ba67d62a53eed1f8b">Plan</a> = <a class="el" href="../../d4/dd0/structSRDatalog_1_1AST_1_1JoinPlan.html">JoinPlan</a>&lt; std::tuple&lt; Vars... &gt; &gt;</td></tr>
+<tr class="separator:a8bf8e2d65414a73ba67d62a53eed1f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6781455095b1e1ba801a6470ca83972"><td class="memTemplParams" colspan="2">template&lt;CRelationSchema... Schemas&gt; </td></tr>
 <tr class="memitem:ad6781455095b1e1ba801a6470ca83972"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad6781455095b1e1ba801a6470ca83972">Database</a> = std::tuple&lt; Schemas... &gt;</td></tr>
 <tr class="separator:ad6781455095b1e1ba801a6470ca83972"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a967f68a10795093846a6dc1157b7d4b1"><td class="memTemplParams" colspan="2">template&lt;CRelationSchema... Schemas&gt; </td></tr>
+<tr class="memitem:a967f68a10795093846a6dc1157b7d4b1"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a967f68a10795093846a6dc1157b7d4b1">database</a> = <a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad6781455095b1e1ba801a6470ca83972">Database</a>&lt; Schemas... &gt;</td></tr>
+<tr class="memdesc:a967f68a10795093846a6dc1157b7d4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concise DSL alias for Database.  <a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a967f68a10795093846a6dc1157b7d4b1">More...</a><br /></td></tr>
+<tr class="separator:a967f68a10795093846a6dc1157b7d4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dade17e3e0ee4daaa33ce62080ae9ba"><td class="memTemplParams" colspan="2">template&lt;typename Schema &gt; </td></tr>
+<tr class="memitem:a8dade17e3e0ee4daaa33ce62080ae9ba"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8dade17e3e0ee4daaa33ce62080ae9ba">SchemaToRelation</a> = typename Schema::relation_type</td></tr>
+<tr class="memdesc:a8dade17e3e0ee4daaa33ce62080ae9ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper struct for initializing a database with a custom memory resource.  <a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8dade17e3e0ee4daaa33ce62080ae9ba">More...</a><br /></td></tr>
+<tr class="separator:a8dade17e3e0ee4daaa33ce62080ae9ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -227,8 +270,9 @@ Functions</h2></td></tr>
 <tr class="memitem:acf8662d5a3b113906980c226a0b2ffd1"><td class="memTemplParams" colspan="2">template&lt;CTString T&gt; </td></tr>
 <tr class="memitem:acf8662d5a3b113906980c226a0b2ffd1"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#acf8662d5a3b113906980c226a0b2ffd1">tstring_to_string</a> ()</td></tr>
 <tr class="separator:acf8662d5a3b113906980c226a0b2ffd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfdfa606af40087b84daa10ab1b4dd88"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#acfdfa606af40087b84daa10ab1b4dd88">DEFINE_TYPE_PREDICATE</a> (IsRelationSchema, <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">RelationSchema</a>, CRelationSchema,(CTString Name, <a class="el" href="../../d7/d69/semiring_8h.html#a70712094cc4840a9899f19a0d28d5f98">Semiring</a> <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, <a class="el" href="../../dc/d33/namespaceSRDatalog.html#aaf69828146705d4019ebd658b8f3cab2">ColumnElementTuple</a> AttrTsTuple),(Name, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTsTuple)) template&lt; CRelationSchema Schema &gt; using schema_rel_type</td></tr>
-<tr class="separator:acfdfa606af40087b84daa10ab1b4dd88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a874697073c0e211556c6493ee361cbfa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a874697073c0e211556c6493ee361cbfa">DEFINE_TYPE_PREDICATE</a> (IsRelationSchema, <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">RelationSchema</a>, CRelationSchema,(CTString Name, <a class="el" href="../../d7/d69/semiring_8h.html#a70712094cc4840a9899f19a0d28d5f98">Semiring</a> <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, <a class="el" href="../../dc/d33/namespaceSRDatalog.html#aaf69828146705d4019ebd658b8f3cab2">ColumnElementTuple</a> AttrTsTuple),(Name, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTsTuple)) template&lt; CTString Name</td></tr>
+<tr class="memdesc:a874697073c0e211556c6493ee361cbfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concise DSL alias for <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">RelationSchema</a>.  <a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a874697073c0e211556c6493ee361cbfa">More...</a><br /></td></tr>
+<tr class="separator:a874697073c0e211556c6493ee361cbfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af120c900824ef10184b3612b7713ff88"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#af120c900824ef10184b3612b7713ff88">DEFINE_TYPE_PREDICATE</a> (is_var, <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">Var</a>, CVar,(CTString Name),(Name)) template&lt; CVar V &gt; std</td></tr>
 <tr class="separator:af120c900824ef10184b3612b7713ff88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd68c234f4f1e4f9bc591e7a791d4996"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#afd68c234f4f1e4f9bc591e7a791d4996">DEFINE_TYPE_PREDICATE</a> (IsConst, <a class="el" href="../../d3/d6f/structSRDatalog_1_1AST_1_1Const.html">Const</a>, CConst,(auto func),(func)) template&lt; typename T &gt; concept CCppExpr</td></tr>
@@ -249,13 +293,51 @@ Functions</h2></td></tr>
 <tr class="memitem:ac0059ceafdea2a74443919d274653b9d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ac0059ceafdea2a74443919d274653b9d">DEFINE_TYPE_PREDICATE</a> (is_program, <a class="el" href="../../d4/da5/structSRDatalog_1_1AST_1_1Program.html">Program</a>, CProgram,(<a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a660ec82b6ca7bf0377266f90384cbbd7">CDatabase</a> db, <a class="el" href="../../d1/dc9/namespaceSRDatalog_1_1tmp.html#a1ae03d2c0241e00c3c65ca34c2f73a1f">tmp::CTuple</a> QueryList),(db, QueryList)) template&lt; <a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a660ec82b6ca7bf0377266f90384cbbd7">CDatabase</a> DB &gt; struct DatabaseToRelationTypes</td></tr>
 <tr class="memdesc:ac0059ceafdea2a74443919d274653b9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a Database ADT to a tuple of relation types.  <a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ac0059ceafdea2a74443919d274653b9d">More...</a><br /></td></tr>
 <tr class="separator:ac0059ceafdea2a74443919d274653b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35ae541ff4c74944d0d1331a5373920d"><td class="memTemplParams" colspan="2">template&lt;CDatabase DB&gt; </td></tr>
-<tr class="memitem:a35ae541ff4c74944d0d1331a5373920d"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a35ae541ff4c74944d0d1331a5373920d">init_database</a> (<a class="el" href="../../dc/d33/namespaceSRDatalog.html#a43bc1ecf5ffd3218efaafb0d722fecc4">memory_resource</a> *resource, std::size_t version=<a class="el" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>)</td></tr>
-<tr class="memdesc:a35ae541ff4c74944d0d1331a5373920d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a database with a custom memory resource.  <a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a35ae541ff4c74944d0d1331a5373920d">More...</a><br /></td></tr>
-<tr class="separator:a35ae541ff4c74944d0d1331a5373920d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dbe942d48cb58a19058de7f9b866ae6"><td class="memTemplParams" colspan="2">template&lt;CDatabase DB, template&lt; typename &gt; typename RelationMapper = SchemaToRelation&gt; </td></tr>
+<tr class="memitem:a7dbe942d48cb58a19058de7f9b866ae6"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7dbe942d48cb58a19058de7f9b866ae6">init_database</a> (<a class="el" href="../../dc/d33/namespaceSRDatalog.html#a43bc1ecf5ffd3218efaafb0d722fecc4">memory_resource</a> *resource, std::size_t version=<a class="el" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>)</td></tr>
+<tr class="memdesc:a7dbe942d48cb58a19058de7f9b866ae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a database with a custom memory resource.  <a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7dbe942d48cb58a19058de7f9b866ae6">More...</a><br /></td></tr>
+<tr class="separator:a7dbe942d48cb58a19058de7f9b866ae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c661ff34ae78e547dcca2532bca024a"><td class="memTemplParams" colspan="2">template&lt;DSLStringLiteral str, std::size_t... Is&gt; </td></tr>
+<tr class="memitem:a3c661ff34ae78e547dcca2532bca024a"><td class="memTemplItemLeft" align="right" valign="top">consteval auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a3c661ff34ae78e547dcca2532bca024a">make_tstring_impl</a> (std::index_sequence&lt; Is... &gt;)</td></tr>
+<tr class="separator:a3c661ff34ae78e547dcca2532bca024a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21500dfb1a43cbabbe01a3db1e8f05da"><td class="memTemplParams" colspan="2">template&lt;DSLStringLiteral str&gt; </td></tr>
+<tr class="memitem:a21500dfb1a43cbabbe01a3db1e8f05da"><td class="memTemplItemLeft" align="right" valign="top">consteval auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a21500dfb1a43cbabbe01a3db1e8f05da">operator&quot;&quot;_v</a> ()</td></tr>
+<tr class="memdesc:a21500dfb1a43cbabbe01a3db1e8f05da"><td class="mdescLeft">&#160;</td><td class="mdescRight">UDL for variables: "x"_v produces a <a class="el" href="../../d1/dc5/structSRDatalog_1_1AST_1_1VarWrapper.html" title="DSL Variable Wrapper to support expression building and UDLs.">VarWrapper</a> holding <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">Var</a>&lt;"x"&gt;.  <a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a21500dfb1a43cbabbe01a3db1e8f05da">More...</a><br /></td></tr>
+<tr class="separator:a21500dfb1a43cbabbe01a3db1e8f05da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4e7e24a170ff704cc82064853e85d15"><td class="memTemplParams" colspan="2">template&lt;CClause C1, CClause C2&gt; </td></tr>
+<tr class="memitem:af4e7e24a170ff704cc82064853e85d15"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#af4e7e24a170ff704cc82064853e85d15">operator,</a> (C1, C2)</td></tr>
+<tr class="memdesc:af4e7e24a170ff704cc82064853e85d15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rule Building: Accumulate body clauses into a tuple.  <a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#af4e7e24a170ff704cc82064853e85d15">More...</a><br /></td></tr>
+<tr class="separator:af4e7e24a170ff704cc82064853e85d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1f96eefbdc194318f9b7cb5ce873221"><td class="memTemplParams" colspan="2">template&lt;typename... Clauses, CClause Next&gt; </td></tr>
+<tr class="memitem:af1f96eefbdc194318f9b7cb5ce873221"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#af1f96eefbdc194318f9b7cb5ce873221">operator,</a> (std::tuple&lt; Clauses... &gt;, Next)</td></tr>
+<tr class="separator:af1f96eefbdc194318f9b7cb5ce873221"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2f0b3e3f95b69b304e64650d37b3b19"><td class="memTemplParams" colspan="2">template&lt;typename... VarWrappers&gt; </td></tr>
+<tr class="memitem:ae2f0b3e3f95b69b304e64650d37b3b19"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ae2f0b3e3f95b69b304e64650d37b3b19">plan</a> (VarWrappers...)</td></tr>
+<tr class="separator:ae2f0b3e3f95b69b304e64650d37b3b19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52afc5c01fce9b49ff174ae84de63f11"><td class="memTemplParams" colspan="2">template&lt;typename HeadExpr , typename BodyExpr &gt; </td></tr>
+<tr class="memitem:a52afc5c01fce9b49ff174ae84de63f11"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a52afc5c01fce9b49ff174ae84de63f11">operator&lt;&lt;=</a> (HeadExpr, BodyExpr)</td></tr>
+<tr class="separator:a52afc5c01fce9b49ff174ae84de63f11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff521c18e2cdc260dd0e3a06901a26a7"><td class="memTemplParams" colspan="2">template&lt;typename HeadExpr , typename BodyExpr , CJoinPlan Plan&gt; </td></tr>
+<tr class="memitem:aff521c18e2cdc260dd0e3a06901a26a7"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aff521c18e2cdc260dd0e3a06901a26a7">rule_with_plan</a> (HeadExpr, BodyExpr, <a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8bf8e2d65414a73ba67d62a53eed1f8b">Plan</a>)</td></tr>
+<tr class="separator:aff521c18e2cdc260dd0e3a06901a26a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a429dad74088e393a582ae0a4ba946503"><td class="memTemplParams" colspan="2">template&lt;auto func, typename ResultVarWrapper , typename... DepVarWrappers&gt; </td></tr>
+<tr class="memitem:a429dad74088e393a582ae0a4ba946503"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a429dad74088e393a582ae0a4ba946503">let</a> (ResultVarWrapper, DepVarWrappers...)</td></tr>
+<tr class="separator:a429dad74088e393a582ae0a4ba946503"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2688b962262f5831dfdef4bb268ff3d"><td class="memTemplParams" colspan="2">template&lt;auto func, typename... DepVarWrappers&gt; </td></tr>
+<tr class="memitem:ac2688b962262f5831dfdef4bb268ff3d"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ac2688b962262f5831dfdef4bb268ff3d">if_</a> (DepVarWrappers...)</td></tr>
+<tr class="separator:ac2688b962262f5831dfdef4bb268ff3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3505963f4aefe798957c4fb8b3ce1b9"><td class="memTemplParams" colspan="2">template&lt;CRule... Rules&gt; </td></tr>
+<tr class="memitem:aa3505963f4aefe798957c4fb8b3ce1b9"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa3505963f4aefe798957c4fb8b3ce1b9">fixpoint</a> (Rules...)</td></tr>
+<tr class="memdesc:aa3505963f4aefe798957c4fb8b3ce1b9"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d4/da5/structSRDatalog_1_1AST_1_1Program.html">Program</a> Building helpers.  <a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aa3505963f4aefe798957c4fb8b3ce1b9">More...</a><br /></td></tr>
+<tr class="separator:aa3505963f4aefe798957c4fb8b3ce1b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ea5bc2e2024caa2a8810fb66fc926db"><td class="memTemplParams" colspan="2">template&lt;CRule... Rules&gt; </td></tr>
+<tr class="memitem:a7ea5bc2e2024caa2a8810fb66fc926db"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a7ea5bc2e2024caa2a8810fb66fc926db">non_iterative</a> (Rules...)</td></tr>
+<tr class="separator:a7ea5bc2e2024caa2a8810fb66fc926db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a90a85bf972e8f5570f299d72b584386a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a70712094cc4840a9899f19a0d28d5f98">Semiring</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a90a85bf972e8f5570f299d72b584386a">SR</a></td></tr>
+<tr class="separator:a90a85bf972e8f5570f299d72b584386a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad36b01adf0bbf30bb691e55e697a752c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ad36b01adf0bbf30bb691e55e697a752c"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad36b01adf0bbf30bb691e55e697a752c">is_cpp_expr_v</a> = <a class="el" href="../../d8/dc7/structSRDatalog_1_1AST_1_1is__cpp__expr.html">is_cpp_expr</a>&lt;T&gt;::value</td></tr>
 <tr class="separator:ad36b01adf0bbf30bb691e55e697a752c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -280,8 +362,36 @@ Variables</h2></td></tr>
 <tr class="memitem:a660ec82b6ca7bf0377266f90384cbbd7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a660ec82b6ca7bf0377266f90384cbbd7"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a660ec82b6ca7bf0377266f90384cbbd7">CDatabase</a> = <a class="el" href="../../d1/d77/structSRDatalog_1_1AST_1_1is__database.html">is_database</a>&lt;T&gt;::value</td></tr>
 <tr class="separator:a660ec82b6ca7bf0377266f90384cbbd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bed9fd99b0f3d0c5d4c8bd5fbbb0bf3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a2bed9fd99b0f3d0c5d4c8bd5fbbb0bf3"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a2bed9fd99b0f3d0c5d4c8bd5fbbb0bf3">is_semi_naive_database_v</a> = <a class="el" href="../../d8/da3/structSRDatalog_1_1AST_1_1is__semi__naive__database.html">is_semi_naive_database</a>&lt;T&gt;::value</td></tr>
+<tr class="separator:a2bed9fd99b0f3d0c5d4c8bd5fbbb0bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae42c12b18353acc1fa4fad6de2d5b517"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae42c12b18353acc1fa4fad6de2d5b517"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ae42c12b18353acc1fa4fad6de2d5b517">CSemiNaiveDatabase</a> = <a class="el" href="../../d8/da3/structSRDatalog_1_1AST_1_1is__semi__naive__database.html">is_semi_naive_database</a>&lt;T&gt;::value</td></tr>
+<tr class="separator:ae42c12b18353acc1fa4fad6de2d5b517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e6b328cd7e5a4fb45a9843d28889e45"><td class="memTemplParams" colspan="2">template&lt;CRelationSchema S&gt; </td></tr>
+<tr class="memitem:a5e6b328cd7e5a4fb45a9843d28889e45"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a> = <a class="el" href="../../d6/d94/structSRDatalog_1_1AST_1_1RelWrapper.html">RelWrapper</a>&lt;S&gt;{}</td></tr>
+<tr class="memdesc:a5e6b328cd7e5a4fb45a9843d28889e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global helper to create a <a class="el" href="../../d6/d94/structSRDatalog_1_1AST_1_1RelWrapper.html" title="DSL Relation Wrapper for concise clause creation.">RelWrapper</a> for a schema.  <a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">More...</a><br /></td></tr>
+<tr class="separator:a5e6b328cd7e5a4fb45a9843d28889e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
+<a id="a6047b5950006dc9567fa9f186adc0dbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6047b5950006dc9567fa9f186adc0dbe">&#9670;&nbsp;</a></span>Body</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Clauses&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a6047b5950006dc9567fa9f186adc0dbe">SRDatalog::AST::Body</a> = typedef std::tuple&lt;Clauses...&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a39">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>, <a class="el" href="../../d4/d98/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2mir_8h-example.html#a35">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/mir.h</a>, and <a class="el" href="../../d0/d88/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2query_8h-example.html#a18">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
+
+</div>
+</div>
 <a id="ad6781455095b1e1ba801a6470ca83972"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad6781455095b1e1ba801a6470ca83972">&#9670;&nbsp;</a></span>Database</h2>
 
@@ -295,7 +405,122 @@ template&lt;CRelationSchema... Schemas&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a38">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>, and <a class="el" href="../../d0/d88/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2query_8h-example.html#a4">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a49">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>, and <a class="el" href="../../d0/d88/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2query_8h-example.html#a4">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a967f68a10795093846a6dc1157b7d4b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a967f68a10795093846a6dc1157b7d4b1">&#9670;&nbsp;</a></span>database</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CRelationSchema... Schemas&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a967f68a10795093846a6dc1157b7d4b1">SRDatalog::AST::database</a> = typedef <a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad6781455095b1e1ba801a6470ca83972">Database</a>&lt;Schemas...&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Concise DSL alias for Database. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a50">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a8e836519ddad330ed11c6d71825844fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e836519ddad330ed11c6d71825844fb">&#9670;&nbsp;</a></span>Head</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Clauses&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8e836519ddad330ed11c6d71825844fb">SRDatalog::AST::Head</a> = typedef std::tuple&lt;Clauses...&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a38">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>, <a class="el" href="../../d4/d98/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2mir_8h-example.html#a17">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/mir.h</a>, and <a class="el" href="../../d0/d88/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2query_8h-example.html#a17">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a8bf8e2d65414a73ba67d62a53eed1f8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bf8e2d65414a73ba67d62a53eed1f8b">&#9670;&nbsp;</a></span>Plan</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CVar... Vars&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8bf8e2d65414a73ba67d62a53eed1f8b">SRDatalog::AST::Plan</a> = typedef <a class="el" href="../../d4/dd0/structSRDatalog_1_1AST_1_1JoinPlan.html">JoinPlan</a>&lt;std::tuple&lt;Vars...&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a45">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>, and <a class="el" href="../../d5/d52/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2runtime_2query_8h-example.html#a22">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/runtime/query.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="aed05943e433b45b7764f5c56afcfe95e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed05943e433b45b7764f5c56afcfe95e">&#9670;&nbsp;</a></span>relation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#aed05943e433b45b7764f5c56afcfe95e">SRDatalog::AST::relation</a> = typedef <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">RelationSchema</a>&lt;Name, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, std::tuple&lt;Ts...&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a14">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>, and <a class="el" href="../../d3/d1d/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2runtime_2io_8h-example.html#a11">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/runtime/io.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a564f3af93bf77b817a5c14ad37ebaeb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a564f3af93bf77b817a5c14ad37ebaeb5">&#9670;&nbsp;</a></span>schema_rel_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CRelationSchema Schema&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a564f3af93bf77b817a5c14ad37ebaeb5">SRDatalog::AST::schema_rel_type</a> = typedef typename Schema::relation_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a15">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a8dade17e3e0ee4daaa33ce62080ae9ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dade17e3e0ee4daaa33ce62080ae9ba">&#9670;&nbsp;</a></span>SchemaToRelation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Schema &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8dade17e3e0ee4daaa33ce62080ae9ba">SRDatalog::AST::SchemaToRelation</a> = typedef typename Schema::relation_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Helper struct for initializing a database with a custom memory resource. </p>
+<p>Template metaprogramming helper that creates a tuple of <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html" title="Column-oriented Relation class with pluggable index types.">Relation</a> objects, each initialized with the provided memory resource. This enables custom memory management for database relations.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DB</td><td>The Database ADT type (must satisfy CDatabase) </td></tr>
+  </table>
+  </dd>
 </dl>
 
 </div>
@@ -719,8 +944,8 @@ template&lt;char... chars&gt; </div>
 
 </div>
 </div>
-<a id="acfdfa606af40087b84daa10ab1b4dd88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfdfa606af40087b84daa10ab1b4dd88">&#9670;&nbsp;</a></span>DEFINE_TYPE_PREDICATE() <span class="overload">[9/10]</span></h2>
+<a id="a874697073c0e211556c6493ee361cbfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a874697073c0e211556c6493ee361cbfa">&#9670;&nbsp;</a></span>DEFINE_TYPE_PREDICATE() <span class="overload">[9/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -746,13 +971,13 @@ template&lt;char... chars&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">(CTString Name, <a class="el" href="../../d7/d69/semiring_8h.html#a70712094cc4840a9899f19a0d28d5f98">Semiring</a> <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, <a class="el" href="../../dc/d33/namespaceSRDatalog.html#aaf69828146705d4019ebd658b8f3cab2">ColumnElementTuple</a> AttrTsTuple)&#160;</td>
+          <td class="paramtype">(CTString Name, <a class="el" href="../../d7/d69/semiring_8h.html#a70712094cc4840a9899f19a0d28d5f98">Semiring</a> <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, <a class="el" href="../../dc/d33/namespaceSRDatalog.html#aaf69828146705d4019ebd658b8f3cab2">ColumnElementTuple</a> AttrTsTuple)&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">(Name, <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTsTuple)&#160;</td>
+          <td class="paramtype">(Name, <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, AttrTsTuple)&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -762,6 +987,8 @@ template&lt;char... chars&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Concise DSL alias for <a class="el" href="../../dd/d35/structSRDatalog_1_1AST_1_1RelationSchema.html">RelationSchema</a>. </p>
 
 </div>
 </div>
@@ -813,13 +1040,67 @@ template&lt;char... chars&gt; </div>
 
 </div>
 </div>
-<a id="a35ae541ff4c74944d0d1331a5373920d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35ae541ff4c74944d0d1331a5373920d">&#9670;&nbsp;</a></span>init_database()</h2>
+<a id="aa3505963f4aefe798957c4fb8b3ce1b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3505963f4aefe798957c4fb8b3ce1b9">&#9670;&nbsp;</a></span>fixpoint()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;CDatabase DB&gt; </div>
+template&lt;CRule... Rules&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto SRDatalog::AST::fixpoint </td>
+          <td>(</td>
+          <td class="paramtype">Rules...&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="../../d4/da5/structSRDatalog_1_1AST_1_1Program.html">Program</a> Building helpers. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a95">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="ac2688b962262f5831dfdef4bb268ff3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2688b962262f5831dfdef4bb268ff3d">&#9670;&nbsp;</a></span>if_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;auto func, typename... DepVarWrappers&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto SRDatalog::AST::if_ </td>
+          <td>(</td>
+          <td class="paramtype">DepVarWrappers...&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a94">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a7dbe942d48cb58a19058de7f9b866ae6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dbe942d48cb58a19058de7f9b866ae6">&#9670;&nbsp;</a></span>init_database()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CDatabase DB, template&lt; typename &gt; typename RelationMapper = SchemaToRelation&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">auto SRDatalog::AST::init_database </td>
@@ -857,7 +1138,284 @@ template&lt;CDatabase DB&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A tuple of <a class="el" href="../../d0/d00/classSRDatalog_1_1Relation.html" title="Column-oriented Relation class with pluggable index types.">Relation</a> objects initialized with the memory resource </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a43">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a57">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a429dad74088e393a582ae0a4ba946503"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a429dad74088e393a582ae0a4ba946503">&#9670;&nbsp;</a></span>let()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;auto func, typename ResultVarWrapper , typename... DepVarWrappers&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto SRDatalog::AST::let </td>
+          <td>(</td>
+          <td class="paramtype">ResultVarWrapper&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DepVarWrappers...&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a93">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a3c661ff34ae78e547dcca2532bca024a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c661ff34ae78e547dcca2532bca024a">&#9670;&nbsp;</a></span>make_tstring_impl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;DSLStringLiteral str, std::size_t... Is&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">consteval auto SRDatalog::AST::make_tstring_impl </td>
+          <td>(</td>
+          <td class="paramtype">std::index_sequence&lt; Is... &gt;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a82">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a7ea5bc2e2024caa2a8810fb66fc926db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ea5bc2e2024caa2a8810fb66fc926db">&#9670;&nbsp;</a></span>non_iterative()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CRule... Rules&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto SRDatalog::AST::non_iterative </td>
+          <td>(</td>
+          <td class="paramtype">Rules...&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a96">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a21500dfb1a43cbabbe01a3db1e8f05da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21500dfb1a43cbabbe01a3db1e8f05da">&#9670;&nbsp;</a></span>operator&quot;&quot;_v()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;DSLStringLiteral str&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">consteval auto SRDatalog::AST::operator&quot;&quot;_v </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>UDL for variables: "x"_v produces a <a class="el" href="../../d1/dc5/structSRDatalog_1_1AST_1_1VarWrapper.html" title="DSL Variable Wrapper to support expression building and UDLs.">VarWrapper</a> holding <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">Var</a>&lt;"x"&gt;. </p>
+
+</div>
+</div>
+<a id="af4e7e24a170ff704cc82064853e85d15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4e7e24a170ff704cc82064853e85d15">&#9670;&nbsp;</a></span>operator,() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CClause C1, CClause C2&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto SRDatalog::AST::operator, </td>
+          <td>(</td>
+          <td class="paramtype">C1&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">C2&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rule Building: Accumulate body clauses into a tuple. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a88">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="af1f96eefbdc194318f9b7cb5ce873221"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1f96eefbdc194318f9b7cb5ce873221">&#9670;&nbsp;</a></span>operator,() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Clauses, CClause Next&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto SRDatalog::AST::operator, </td>
+          <td>(</td>
+          <td class="paramtype">std::tuple&lt; Clauses... &gt;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Next&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a52afc5c01fce9b49ff174ae84de63f11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52afc5c01fce9b49ff174ae84de63f11">&#9670;&nbsp;</a></span>operator&lt;&lt;=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HeadExpr , typename BodyExpr &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto SRDatalog::AST::operator&lt;&lt;= </td>
+          <td>(</td>
+          <td class="paramtype">HeadExpr&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BodyExpr&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a91">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="ae2f0b3e3f95b69b304e64650d37b3b19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2f0b3e3f95b69b304e64650d37b3b19">&#9670;&nbsp;</a></span>plan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... VarWrappers&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto SRDatalog::AST::plan </td>
+          <td>(</td>
+          <td class="paramtype">VarWrappers...&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a90">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>, and <a class="el" href="../../d6/d76/Explicit-example.html#a5">Explicit</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="aff521c18e2cdc260dd0e3a06901a26a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff521c18e2cdc260dd0e3a06901a26a7">&#9670;&nbsp;</a></span>rule_with_plan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HeadExpr , typename BodyExpr , CJoinPlan Plan&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto SRDatalog::AST::rule_with_plan </td>
+          <td>(</td>
+          <td class="paramtype">HeadExpr&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BodyExpr&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8bf8e2d65414a73ba67d62a53eed1f8b">Plan</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a92">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
 </dl>
 
 </div>
@@ -895,7 +1453,7 @@ template&lt;CTString T&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a24">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a26">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
 </dl>
 
 </div>
@@ -923,7 +1481,7 @@ template&lt;CRelationSchema schema, std::size_t ExpectedArity, std::size_t Actua
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">    ArityMismatchError&lt;schema, ExpectedArity, ActualArity&gt;::value</div>
-</div><!-- fragment --><dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a19">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+</div><!-- fragment --><dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a21">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
 </dl>
 
 </div>
@@ -941,7 +1499,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a40">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a52">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
 </dl>
 
 </div>
@@ -959,7 +1517,25 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a37">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a48">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="ae42c12b18353acc1fa4fad6de2d5b517"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae42c12b18353acc1fa4fad6de2d5b517">&#9670;&nbsp;</a></span>CSemiNaiveDatabase</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">concept SRDatalog::AST::CSemiNaiveDatabase = <a class="el" href="../../d8/da3/structSRDatalog_1_1AST_1_1is__semi__naive__database.html">is_semi_naive_database</a>&lt;T&gt;::value</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a78">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
 </dl>
 
 </div>
@@ -977,7 +1553,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a17">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a19">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
 </dl>
 
 </div>
@@ -1003,7 +1579,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a16">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a18">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
 </dl>
 
 </div>
@@ -1029,7 +1605,61 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a39">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a51">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a2bed9fd99b0f3d0c5d4c8bd5fbbb0bf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bed9fd99b0f3d0c5d4c8bd5fbbb0bf3">&#9670;&nbsp;</a></span>is_semi_naive_database_v</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool SRDatalog::AST::is_semi_naive_database_v = <a class="el" href="../../d8/da3/structSRDatalog_1_1AST_1_1is__semi__naive__database.html">is_semi_naive_database</a>&lt;T&gt;::value</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a77">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a5e6b328cd7e5a4fb45a9843d28889e45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e6b328cd7e5a4fb45a9843d28889e45">&#9670;&nbsp;</a></span>rel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CRelationSchema S&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto SRDatalog::AST::rel = <a class="el" href="../../d6/d94/structSRDatalog_1_1AST_1_1RelWrapper.html">RelWrapper</a>&lt;S&gt;{}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Global helper to create a <a class="el" href="../../d6/d94/structSRDatalog_1_1AST_1_1RelWrapper.html" title="DSL Relation Wrapper for concise clause creation.">RelWrapper</a> for a schema. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a87">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>, <a class="el" href="../../d3/d1d/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2runtime_2io_8h-example.html#a2">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/runtime/io.h</a>, and <a class="el" href="../../d5/d52/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2runtime_2query_8h-example.html#a3">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/runtime/query.h</a>.</dd>
 </dl>
 
 </div>
@@ -1045,7 +1675,23 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a25">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>, and <a class="el" href="../../d4/d98/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2mir_8h-example.html#a30">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/mir.h</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a27">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>, and <a class="el" href="../../d4/d98/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2mir_8h-example.html#a41">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/mir.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a90a85bf972e8f5570f299d72b584386a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90a85bf972e8f5570f299d72b584386a">&#9670;&nbsp;</a></span>SR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a70712094cc4840a9899f19a0d28d5f98">Semiring</a> SRDatalog::AST::SR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a8">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>.</dd>
 </dl>
 
 </div>
@@ -1061,7 +1707,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a20">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>, <a class="el" href="../../d4/d98/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2mir_8h-example.html#a0">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/mir.h</a>, <a class="el" href="../../d0/d88/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2query_8h-example.html#a6">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>, and <a class="el" href="../../d5/d52/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2runtime_2query_8h-example.html#a5">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/runtime/query.h</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d6f/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2ast_8h-example.html#a22">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/ast.h</a>, <a class="el" href="../../d4/d98/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2mir_8h-example.html#a0">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/mir.h</a>, <a class="el" href="../../d0/d88/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2query_8h-example.html#a6">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/query.h</a>, and <a class="el" href="../../d5/d52/_2home_2stargazermiao_2workspace_2SRDatalog_2generalized_datalog_2runtime_2query_8h-example.html#a6">/home/stargazermiao/workspace/SRDatalog/generalized_datalog/runtime/query.h</a>.</dd>
 </dl>
 
 </div>

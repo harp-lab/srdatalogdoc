@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['warp_5fsize_2492',['WARP_SIZE',['../de/db4/runtime__tc__instantiation_8cpp.html#a9ea0293fb7dcba88f071c44fd145819e',1,'WARP_SIZE():&#160;runtime_tc_instantiation.cpp'],['../d0/d27/tc__device__benchmark_8cpp.html#a9ea0293fb7dcba88f071c44fd145819e',1,'WARP_SIZE():&#160;tc_device_benchmark.cpp'],['../db/d4a/gpu_2search_8h.html#a9ea0293fb7dcba88f071c44fd145819e',1,'WARP_SIZE():&#160;search.h']]]
+  ['vtune_5ftask_5fbegin_3202',['VTUNE_TASK_BEGIN',['../db/dcf/tc__lower__device__benchmark_8cpp.html#a1d00aedbb9b45903565ee1726c4e7b8c',1,'tc_lower_device_benchmark.cpp']]],
+  ['vtune_5ftask_5fend_3203',['VTUNE_TASK_END',['../db/dcf/tc__lower__device__benchmark_8cpp.html#ab879c1e2779606c41c5ac471a7a32e6e',1,'tc_lower_device_benchmark.cpp']]]
 ];

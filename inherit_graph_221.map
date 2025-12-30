@@ -1,3 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$df/d6a/structSRDatalog_1_1GPU_1_1GPUPipelineExecutor_3_01std_1_1tuple_3_01mir_1_1DestinationRelation_3_fc308cc0e80a7f93b5e46c7f75fd29d1.html" title="Specialization for DestinationRelation: Emits result tuple." alt="" coords="5,5,347,105"/>
+<area shape="rect" id="node1" href="$d0/ddf/structSRDatalog_1_1GPU_1_1Adapter_1_1TVJoinToSRDatalogISA.html" title="Converter from TVJoin ISA (AOS) to SRDatalog Index (SOA)." alt="" coords="5,5,207,61"/>
 </map>

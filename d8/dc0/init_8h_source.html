@@ -78,48 +78,78 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">stdexcept</span><span class="preprocessor">&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">string</span><span class="preprocessor">&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace</span> SRDatalog::<a class="code" href="../../dc/d33/namespaceSRDatalog.html">GPU</a> {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * @brief Thread-safe CUDA device initialization</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * @details Initializes CUDA device 0 and prints device information.</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *          Uses std::once_flag to ensure initialization happens only once,</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *          even in multi-threaded environments.</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> * @param device_id The CUDA device ID to initialize (default: 0)</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * @throw std::runtime_error if no CUDA devices are found or initialization fails</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#a14728c46a0dc20ee09c45b70e3f9e971">   19</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#a14728c46a0dc20ee09c45b70e3f9e971">init_cuda</a>(<span class="keywordtype">int</span> device_id = 0) {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::once_flag init_flag;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::call_once(init_flag, [device_id]() {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">int</span> device_count = 0;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    cudaError_t err = cudaGetDeviceCount(&amp;device_count);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">if</span> (err != cudaSuccess || device_count == 0) {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;No CUDA devices found or CUDA error: &quot;</span> +</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                               std::string(cudaGetErrorString(err)));</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span> (device_id &lt; 0 || device_id &gt;= device_count) {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      <span class="keywordflow">throw</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::runtime_error(<span class="stringliteral">&quot;Invalid CUDA device ID: &quot;</span> + <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::to_string(device_id) +</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                               <span class="stringliteral">&quot; (available devices: &quot;</span> + <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::to_string(device_count) + <span class="stringliteral">&quot;)&quot;</span>);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    err = cudaSetDevice(device_id);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">if</span> (err != cudaSuccess) {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Failed to set CUDA device &quot;</span> + std::to_string(device_id) + <span class="stringliteral">&quot;: &quot;</span> +</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                               std::string(cudaGetErrorString(err)));</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    cudaDeviceProp prop{};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    err = cudaGetDeviceProperties(&amp;prop, device_id);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">if</span> (err == cudaSuccess) {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      std::cout &lt;&lt; <span class="stringliteral">&quot;&gt;&gt; CUDA Device: &quot;</span> &lt;&lt; prop.name &lt;&lt; <span class="stringliteral">&quot; (Compute &quot;</span> &lt;&lt; prop.major &lt;&lt; <span class="stringliteral">&quot;.&quot;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                &lt;&lt; prop.minor &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  });</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}  <span class="comment">// namespace SRDatalog::GPU</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">__CUDA_ARCH__</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">// Workaround for spdlog/fmt consteval issue with clang-cuda</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">SPDLOG_USE_STD_FORMAT</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d8/dc0/init_8h.html#a23c1b5fda3e58b1e81ab3125061765ff">   12</a></span>&#160;<span class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">SPDLOG_USE_STD_FORMAT</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">rmm</span><span class="preprocessor">/</span><span class="preprocessor">mr</span><span class="preprocessor">/</span><span class="preprocessor">device</span><span class="preprocessor">/</span><span class="preprocessor">per_device_resource</span><span class="preprocessor">.</span><span class="preprocessor">hpp</span><span class="preprocessor">&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// Forward declare RMM initialization (defined in device_array_rmm_impl.h)</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">   18</a></span>&#160;<span class="keyword">namespace</span> SRDatalog::<a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#a69dc9271b5d964333ed498cdeaf09b67">init_rmm_pool</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">__CUDA_ARCH__</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#ab14070592f4c45cfde028bdd83261a9f">rmm</a>::<a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#ab14070592f4c45cfde028bdd83261a9f">mr</a>::<a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#ab14070592f4c45cfde028bdd83261a9f">device_memory_resource</a>* <a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#ab14070592f4c45cfde028bdd83261a9f">get_gpu_pool_memory_resource</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}  <span class="comment">// namespace SRDatalog::GPU</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace</span> SRDatalog::<a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a> {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"> * @brief Thread-safe CUDA device initialization</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> * @details Initializes CUDA device 0, sets up RMM global pool, and prints device information.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> *          Uses std::once_flag to ensure initialization happens only once,</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> *          even in multi-threaded environments.</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> * @param device_id The CUDA device ID to initialize (default: 0)</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"> * @throw std::runtime_error if no CUDA devices are found or initialization fails</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"> * @note Also initializes the global RMM pool memory resource, which is set as the</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"> *       default per-device resource for all RMM allocations</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#a14728c46a0dc20ee09c45b70e3f9e971">   37</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#a14728c46a0dc20ee09c45b70e3f9e971">init_cuda</a>(<span class="keywordtype">int</span> device_id = 0) {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::once_flag init_flag;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="comment">// Ensure device is set for the calling thread (cudaSetDevice is thread-local)</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  cudaError_t err = cudaSetDevice(device_id);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordflow">if</span> (err != cudaSuccess) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Failed to set CUDA device &quot;</span> + std::to_string(device_id) + <span class="stringliteral">&quot;: &quot;</span> +</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                             std::string(cudaGetErrorString(err)));</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::call_once(init_flag, [device_id]() {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">int</span> device_count = 0;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    cudaError_t err = cudaGetDeviceCount(&amp;device_count);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">if</span> (err != cudaSuccess || device_count == 0) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;No CUDA devices found or CUDA error: &quot;</span> +</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                               std::string(cudaGetErrorString(err)));</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span> (device_id &lt; 0 || device_id &gt;= device_count) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keywordflow">throw</span> <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::runtime_error(<span class="stringliteral">&quot;Invalid CUDA device ID: &quot;</span> + <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::to_string(device_id) +</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                               <span class="stringliteral">&quot; (available devices: &quot;</span> + <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::to_string(device_count) + <span class="stringliteral">&quot;)&quot;</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    cudaDeviceProp prop{};</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    err = cudaGetDeviceProperties(&amp;prop, device_id);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">if</span> (err == cudaSuccess) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      std::cout &lt;&lt; <span class="stringliteral">&quot;&gt;&gt; CUDA Device: &quot;</span> &lt;&lt; prop.name &lt;&lt; <span class="stringliteral">&quot; (Compute &quot;</span> &lt;&lt; prop.major &lt;&lt; <span class="stringliteral">&quot;.&quot;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                &lt;&lt; prop.minor &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">// Initialize RMM global pool</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#a69dc9271b5d964333ed498cdeaf09b67">init_rmm_pool</a><a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#a69dc9271b5d964333ed498cdeaf09b67">(</a><a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#a69dc9271b5d964333ed498cdeaf09b67">)</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">// Set pool as the default per-device resource so all RMM allocations use it</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">// This ensures device_uvector, rmm::device_vector, and other RMM containers</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">// all use the same pool, and Thrust temporary allocations (via rmm::exec_policy) can use it too</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">__CUDA_ARCH__</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">auto</span>* pool = get_gpu_pool_memory_resource();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    rmm::mr::set_current_device_resource(pool);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  });</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}  <span class="comment">// namespace SRDatalog::GPU</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

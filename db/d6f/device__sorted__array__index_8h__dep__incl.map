@@ -1,23 +1,35 @@
 <map id="generalized_datalog/gpu/device_sorted_array_index.h" name="generalized_datalog/gpu/device_sorted_array_index.h">
-<area shape="rect" id="node1" title="GPU&#45;based Sorted Array Index (Read&#45;Only B&#45;Tree / Flat Index) for GPU kernels." alt="" coords="865,5,1052,61"/>
-<area shape="rect" id="node2" href="$de/db4/runtime__tc__instantiation_8cpp.html" title=" " alt="" coords="45,585,219,641"/>
-<area shape="rect" id="node3" href="$d0/d27/tc__device__benchmark_8cpp.html" title=" " alt="" coords="1047,109,1212,165"/>
-<area shape="rect" id="node4" href="$df/d52/device__sorted__array__index_8ipp.html" title=" " alt="" coords="1168,213,1355,269"/>
-<area shape="rect" id="node5" href="$d4/d81/deduplication_8h.html" title="GPU&#45;based deduplication on N&#45;dimensional array." alt="" coords="1311,117,1465,158"/>
-<area shape="rect" id="node6" href="$d4/d9a/test__gpu__deduplication_8cpp.html" title=" " alt="" coords="1382,221,1615,262"/>
-<area shape="rect" id="node7" href="$d1/d12/test__device__sorted__array__index_8cpp.html" title=" " alt="" coords="1540,109,1719,165"/>
-<area shape="rect" id="node8" href="$d7/d5b/test__device__sorted__array__index__clone_8cpp.html" title=" " alt="" coords="1743,109,1921,165"/>
-<area shape="rect" id="node9" href="$de/de3/test__gpu__fixpoint__executor_8cpp.html" title=" " alt="" coords="125,689,291,745"/>
-<area shape="rect" id="node10" href="$df/dd6/gpu__fixpoint__executor_8h.html" title=" " alt="" coords="243,585,432,641"/>
-<area shape="rect" id="node11" href="$da/d33/gpu_2runtime_2query_8h.html" title=" " alt="" coords="387,697,543,738"/>
-<area shape="rect" id="node14" href="$d3/db7/test__gpu__pipeline__executor_8cpp.html" title=" " alt="" coords="456,585,627,641"/>
-<area shape="rect" id="node15" href="$dd/dd0/runtime_2deduplication_8h.html" title="Deduplication logic for filtering against full relations." alt="" coords="661,117,870,158"/>
-<area shape="rect" id="node17" href="$d4/d4a/test__gpu__pipeline__executor__let__if_8cpp.html" title="Test GPU pipeline execution for LetClause and IfClause." alt="" coords="651,585,821,641"/>
-<area shape="rect" id="node18" href="$d7/dab/test__mir__aggregation_8cpp.html" title=" " alt="" coords="845,593,1067,634"/>
-<area shape="rect" id="node19" href="$d9/dce/pipeline__executor_8h.html" title="Inner pipeline executor &#45; recursive TMP dispatcher for MIR operations." alt="" coords="426,213,587,269"/>
-<area shape="rect" id="node20" href="$de/dc5/root__executor_8h.html" title="Root&#45;level executor &#45; handles first ColumnJoin and kernel launch." alt="" coords="510,317,719,359"/>
-<area shape="rect" id="node12" href="$d8/d53/test__gpu__query_8cpp.html" title=" " alt="" coords="275,793,455,835"/>
-<area shape="rect" id="node13" href="$d4/df5/test__gpu__tmp_8cpp.html" title="Test compiled pipelines on GPU (Port of test_tmp.cpp) using high&#45;level query compiler." alt="" coords="480,793,651,835"/>
-<area shape="rect" id="node16" href="$da/dd5/gpu_2runtime_2runtime_8h.html" title="Complete GPU runtime &#45; includes all components for easy usage." alt="" coords="503,496,675,537"/>
-<area shape="rect" id="node21" href="$da/d75/launcher_8h.html" title="Host&#45;side launcher for GPU pipeline execution." alt="" coords="501,407,677,448"/>
+<area shape="rect" id="node1" title="GPU&#45;based Sorted Array Index (Read&#45;Only B&#45;Tree / Flat Index) for GPU kernels." alt="" coords="2531,5,2718,61"/>
+<area shape="rect" id="node2" href="$df/dd6/gpu__fixpoint__executor_8h.html" title=" " alt="" coords="1767,585,1957,641"/>
+<area shape="rect" id="node4" href="$da/d33/gpu_2runtime_2query_8h.html" title=" " alt="" coords="1409,697,1565,738"/>
+<area shape="rect" id="node5" href="$de/db4/runtime__tc__instantiation_8cpp.html" title=" " alt="" coords="2346,793,2519,849"/>
+<area shape="rect" id="node16" href="$de/de3/test__gpu__fixpoint__executor_8cpp.html" title=" " alt="" coords="1652,689,1819,745"/>
+<area shape="rect" id="node17" href="$d4/d81/deduplication_8h.html" title="GPU&#45;based deduplication on N&#45;dimensional array." alt="" coords="2713,117,2867,158"/>
+<area shape="rect" id="node19" href="$df/d52/device__sorted__array__index_8ipp.html" title=" " alt="" coords="2950,213,3137,269"/>
+<area shape="rect" id="node20" href="$dd/dd0/runtime_2deduplication_8h.html" title="Deduplication logic for filtering against full relations." alt="" coords="2225,117,2435,158"/>
+<area shape="rect" id="node22" href="$d3/db7/test__gpu__pipeline__executor_8cpp.html" title=" " alt="" coords="1981,585,2151,641"/>
+<area shape="rect" id="node23" href="$d4/d4a/test__gpu__pipeline__executor__let__if_8cpp.html" title="Test GPU pipeline execution for LetClause and IfClause." alt="" coords="2175,585,2346,641"/>
+<area shape="rect" id="node24" href="$d3/dad/test__gpu__self__join_8cpp.html" title="Test GPU pipeline execution for Self&#45;Joins to verify aliasing fix." alt="" coords="2370,585,2525,641"/>
+<area shape="rect" id="node25" href="$d7/dab/test__mir__aggregation_8cpp.html" title=" " alt="" coords="2549,593,2770,634"/>
+<area shape="rect" id="node26" href="$d9/dce/pipeline__executor_8h.html" title="Inner pipeline executor &#45; recursive TMP dispatcher for MIR operations." alt="" coords="2292,213,2453,269"/>
+<area shape="rect" id="node27" href="$de/dc5/root__executor_8h.html" title="Root&#45;level executor &#45; handles first ColumnJoin and kernel launch." alt="" coords="2319,317,2528,359"/>
+<area shape="rect" id="node29" href="$db/dcf/tc__lower__device__benchmark_8cpp.html" title=" " alt="" coords="2966,109,3145,165"/>
+<area shape="rect" id="node30" href="$d1/d12/test__device__sorted__array__index_8cpp.html" title=" " alt="" coords="3169,109,3347,165"/>
+<area shape="rect" id="node31" href="$d7/d5b/test__device__sorted__array__index__clone_8cpp.html" title=" " alt="" coords="3371,109,3550,165"/>
+<area shape="rect" id="node32" href="$d5/d7d/test__tvjoin__adapter_8cpp.html" title=" " alt="" coords="3543,221,3749,262"/>
+<area shape="rect" id="node33" href="$d2/d61/tvjoin_8h.html" title=" " alt="" coords="3625,109,3784,165"/>
+<area shape="rect" id="node3" href="$d7/d92/andersen__benchmark_8cpp.html" title=" " alt="" coords="2159,793,2322,849"/>
+<area shape="rect" id="node6" href="$d7/d40/sg__device__benchmark_8cpp.html" title=" " alt="" coords="1778,793,1946,849"/>
+<area shape="rect" id="node7" href="$d0/d27/tc__device__benchmark_8cpp.html" title=" " alt="" coords="1970,793,2135,849"/>
+<area shape="rect" id="node8" href="$df/dee/test__dsl__syntax_8cpp.html" title=" " alt="" coords="1351,801,1535,842"/>
+<area shape="rect" id="node9" href="$d7/dc9/test__gpu__append_8cpp.html" title=" " alt="" coords="1560,801,1753,842"/>
+<area shape="rect" id="node10" href="$d8/d53/test__gpu__query_8cpp.html" title=" " alt="" coords="5,801,185,842"/>
+<area shape="rect" id="node11" href="$df/d85/test__gpu__sg_8cpp.html" title=" " alt="" coords="210,801,370,842"/>
+<area shape="rect" id="node12" href="$dc/d77/test__gpu__sg__deduplication_8cpp.html" title="Test to expose deduplication bugs in GPU SG fixpoint execution." alt="" coords="395,801,649,842"/>
+<area shape="rect" id="node13" href="$d7/d68/test__gpu__sg__fixpoint_8cpp.html" title="Test SG fixpoint query matching the benchmark to debug deduplication issue." alt="" coords="674,801,890,842"/>
+<area shape="rect" id="node14" href="$df/d6f/test__gpu__sg__pipeline_8cpp.html" title="Test SG fixpoint pipeline to debug join producing 0 results." alt="" coords="914,801,1133,842"/>
+<area shape="rect" id="node15" href="$d4/df5/test__gpu__tmp_8cpp.html" title="Test compiled pipelines on GPU (Port of test_tmp.cpp) using high&#45;level query compiler." alt="" coords="1157,801,1327,842"/>
+<area shape="rect" id="node18" href="$d1/d95/merge__overhead__benchmark_8cpp.html" title=" " alt="" coords="2713,213,2926,269"/>
+<area shape="rect" id="node21" href="$da/dd5/gpu_2runtime_2runtime_8h.html" title="Complete GPU runtime &#45; includes all components for easy usage." alt="" coords="2209,496,2381,537"/>
+<area shape="rect" id="node28" href="$da/d75/launcher_8h.html" title="Host&#45;side launcher for GPU pipeline execution." alt="" coords="2361,407,2537,448"/>
 </map>

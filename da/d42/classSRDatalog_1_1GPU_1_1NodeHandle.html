@@ -67,6 +67,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="../../d6/d48/classSRDatalog_1_1GPU_1_1NodeHandle-members.html">List of all members</a>  </div>
@@ -75,56 +76,58 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>POD-style Handle for <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a> kernel usage (fatty pointer, need slim down in future)  
+<p>POD-style Cursor for <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a> kernel usage (lightweight state)  
  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d2/def/device__sorted__array__index_8h_source.html">device_sorted_array_index.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a2fa680aa9d80dfea113611f6fdea55f0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> = <a class="el" href="../../dc/d47/structSRDatalog_1_1GPU_1_1NodeView.html">NodeView</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam &gt;</td></tr>
+<tr class="separator:a2fa680aa9d80dfea113611f6fdea55f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af7c7cd3f13cf1110f0e1fa73a305c9a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#af7c7cd3f13cf1110f0e1fa73a305c9a1">NodeHandle</a> ()=default</td></tr>
 <tr class="memdesc:af7c7cd3f13cf1110f0e1fa73a305c9a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor creates an invalid handle.  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#af7c7cd3f13cf1110f0e1fa73a305c9a1">More...</a><br /></td></tr>
 <tr class="separator:af7c7cd3f13cf1110f0e1fa73a305c9a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af44bc197e0bdcf44177234927f7d778a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#af44bc197e0bdcf44177234927f7d778a">NodeHandle</a> (const ValueTypeParam *col_data, <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt; *<a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a09cc8215c41cbca2794dd62d9090317e">provenance_ptr</a>, const ValueTypeParam *root_csr_values_ptr, const <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#ac2323a7a0f5af06e34db3223cbf04d5c">CSRData</a> *root_csr_meta_ptr, RowIdType <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a9d4c34788c3f7c3c9d34516f8e6464bb">begin</a>, RowIdType <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#aa5ebf8edc23a159c08861353bd3bb437">end</a>, uint32_t <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a20caa6a0cf62b3e3d94ee55b659af12c">depth</a>, uint32_t <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a3bf679cf969232c7677f8dd281abd419">arity</a>, RowIdType stride)</td></tr>
-<tr class="memdesc:af44bc197e0bdcf44177234927f7d778a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for creating a handle with device pointers.  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#af44bc197e0bdcf44177234927f7d778a">More...</a><br /></td></tr>
-<tr class="separator:af44bc197e0bdcf44177234927f7d778a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90ee360768d567378724e4f0a4b66d0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a90ee360768d567378724e4f0a4b66d0d">NodeHandle</a> (RowIdType <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a9d4c34788c3f7c3c9d34516f8e6464bb">begin</a>, RowIdType <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#aa5ebf8edc23a159c08861353bd3bb437">end</a>, uint32_t <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a20caa6a0cf62b3e3d94ee55b659af12c">depth</a>)</td></tr>
+<tr class="memdesc:a90ee360768d567378724e4f0a4b66d0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for creating a handle with state.  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a90ee360768d567378724e4f0a4b66d0d">More...</a><br /></td></tr>
+<tr class="separator:a90ee360768d567378724e4f0a4b66d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abee7bbd5be805d75aca0f9b0d9f1ddf5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#abee7bbd5be805d75aca0f9b0d9f1ddf5">valid</a> () const noexcept</td></tr>
 <tr class="memdesc:abee7bbd5be805d75aca0f9b0d9f1ddf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if handle is valid.  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#abee7bbd5be805d75aca0f9b0d9f1ddf5">More...</a><br /></td></tr>
 <tr class="separator:abee7bbd5be805d75aca0f9b0d9f1ddf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a072b401f825cc22b24e2419f7c8c3a65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a072b401f825cc22b24e2419f7c8c3a65">is_leaf</a> () const noexcept</td></tr>
-<tr class="memdesc:a072b401f825cc22b24e2419f7c8c3a65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if this is a leaf node (depth equals index arity)  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a072b401f825cc22b24e2419f7c8c3a65">More...</a><br /></td></tr>
-<tr class="separator:a072b401f825cc22b24e2419f7c8c3a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10f035fb0b4c71acc3ecc4fbde5d6a98"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a10f035fb0b4c71acc3ecc4fbde5d6a98">is_leaf</a> (const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;view) const noexcept</td></tr>
+<tr class="memdesc:a10f035fb0b4c71acc3ecc4fbde5d6a98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if this is a leaf node (depth equals index arity)  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a10f035fb0b4c71acc3ecc4fbde5d6a98">More...</a><br /></td></tr>
+<tr class="separator:a10f035fb0b4c71acc3ecc4fbde5d6a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20caa6a0cf62b3e3d94ee55b659af12c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a20caa6a0cf62b3e3d94ee55b659af12c">depth</a> () const noexcept</td></tr>
 <tr class="memdesc:a20caa6a0cf62b3e3d94ee55b659af12c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current depth in the index.  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a20caa6a0cf62b3e3d94ee55b659af12c">More...</a><br /></td></tr>
 <tr class="separator:a20caa6a0cf62b3e3d94ee55b659af12c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bf679cf969232c7677f8dd281abd419"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a3bf679cf969232c7677f8dd281abd419">arity</a> () const noexcept</td></tr>
-<tr class="memdesc:a3bf679cf969232c7677f8dd281abd419"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get index arity.  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a3bf679cf969232c7677f8dd281abd419">More...</a><br /></td></tr>
-<tr class="separator:a3bf679cf969232c7677f8dd281abd419"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12a1a68f9a76dccddaefc41e5048dcfe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a12a1a68f9a76dccddaefc41e5048dcfe">degree</a> () const noexcept</td></tr>
 <tr class="memdesc:a12a1a68f9a76dccddaefc41e5048dcfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the degree (size of the range)  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a12a1a68f9a76dccddaefc41e5048dcfe">More...</a><br /></td></tr>
 <tr class="separator:a12a1a68f9a76dccddaefc41e5048dcfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae250e442dfef4698b9106c8faf5a5af8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> cuda_std::span&lt; const ValueTypeParam &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#ae250e442dfef4698b9106c8faf5a5af8">values</a> () const noexcept</td></tr>
-<tr class="memdesc:ae250e442dfef4698b9106c8faf5a5af8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get span of values at current depth.  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#ae250e442dfef4698b9106c8faf5a5af8">More...</a><br /></td></tr>
-<tr class="separator:ae250e442dfef4698b9106c8faf5a5af8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0a45be66dce2e672fce08fa52557ef4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> cuda_std::span&lt; const <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#aa0a45be66dce2e672fce08fa52557ef4">all_prov</a> () const noexcept</td></tr>
-<tr class="memdesc:aa0a45be66dce2e672fce08fa52557ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">get span of all provenance values of current cursor  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#aa0a45be66dce2e672fce08fa52557ef4">More...</a><br /></td></tr>
-<tr class="separator:aa0a45be66dce2e672fce08fa52557ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a510cbeb85b725d92d967e387493125c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> cuda_std::span&lt; const <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a510cbeb85b725d92d967e387493125c1">rows</a> () const noexcept</td></tr>
-<tr class="memdesc:a510cbeb85b725d92d967e387493125c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get span of provenance values (only valid at leaf)  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a510cbeb85b725d92d967e387493125c1">More...</a><br /></td></tr>
-<tr class="separator:a510cbeb85b725d92d967e387493125c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d85aca2b581f2d4816ba621221b3131"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> cuda_std::span&lt; const ValueTypeParam &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a4d85aca2b581f2d4816ba621221b3131">values</a> (const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;view) const noexcept</td></tr>
+<tr class="memdesc:a4d85aca2b581f2d4816ba621221b3131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get span of values at current depth.  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a4d85aca2b581f2d4816ba621221b3131">More...</a><br /></td></tr>
+<tr class="separator:a4d85aca2b581f2d4816ba621221b3131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace1cdde3091a496da6372b0645ce1de3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> cuda_std::span&lt; const <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#ace1cdde3091a496da6372b0645ce1de3">all_prov</a> (const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;view) const noexcept</td></tr>
+<tr class="memdesc:ace1cdde3091a496da6372b0645ce1de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">get span of all provenance values of current cursor  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#ace1cdde3091a496da6372b0645ce1de3">More...</a><br /></td></tr>
+<tr class="separator:ace1cdde3091a496da6372b0645ce1de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac027ac2fb2c79e59b0ebfbd07acb9049"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> cuda_std::span&lt; const <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#ac027ac2fb2c79e59b0ebfbd07acb9049">rows</a> (const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;view) const noexcept</td></tr>
+<tr class="memdesc:ac027ac2fb2c79e59b0ebfbd07acb9049"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get span of provenance values (only valid at leaf)  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#ac027ac2fb2c79e59b0ebfbd07acb9049">More...</a><br /></td></tr>
+<tr class="separator:ac027ac2fb2c79e59b0ebfbd07acb9049"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab48fcc8aeb47ee7f0f6fa202df7f2f57"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#ab48fcc8aeb47ee7f0f6fa202df7f2f57">unique_count</a> () const noexcept</td></tr>
 <tr class="memdesc:ab48fcc8aeb47ee7f0f6fa202df7f2f57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of unique values (same as degree for sorted data)  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#ab48fcc8aeb47ee7f0f6fa202df7f2f57">More...</a><br /></td></tr>
 <tr class="separator:ab48fcc8aeb47ee7f0f6fa202df7f2f57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18050c65485c4c120237587a0dab2ebe"><td class="memTemplParams" colspan="2">template&lt;typename Group &gt; </td></tr>
-<tr class="memitem:a18050c65485c4c120237587a0dab2ebe"><td class="memTemplItemLeft" align="right" valign="top">__device__ <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">NodeHandle</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a18050c65485c4c120237587a0dab2ebe">prefix</a> (ValueTypeParam key, Group tile) const</td></tr>
-<tr class="memdesc:a18050c65485c4c120237587a0dab2ebe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binary search for a key with configurable group size.  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a18050c65485c4c120237587a0dab2ebe">More...</a><br /></td></tr>
-<tr class="separator:a18050c65485c4c120237587a0dab2ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30835ddb23dffc4456eb25323e047ce8"><td class="memTemplParams" colspan="2">template&lt;int TILE_SIZE = 32&gt; </td></tr>
-<tr class="memitem:a30835ddb23dffc4456eb25323e047ce8"><td class="memTemplItemLeft" align="right" valign="top">__device__ <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a30835ddb23dffc4456eb25323e047ce8">prov</a> () const noexcept</td></tr>
-<tr class="separator:a30835ddb23dffc4456eb25323e047ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46c9830c2921c90d0967e1f108b0ee85"><td class="memItemLeft" align="right" valign="top">__device__ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a46c9830c2921c90d0967e1f108b0ee85">contains_value</a> (ValueTypeParam key) const noexcept</td></tr>
-<tr class="memdesc:a46c9830c2921c90d0967e1f108b0ee85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if key exists.  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a46c9830c2921c90d0967e1f108b0ee85">More...</a><br /></td></tr>
-<tr class="separator:a46c9830c2921c90d0967e1f108b0ee85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a590ab579520cb209d45fd271a5e3ce"><td class="memTemplParams" colspan="2">template&lt;typename Group &gt; </td></tr>
+<tr class="memitem:a5a590ab579520cb209d45fd271a5e3ce"><td class="memTemplItemLeft" align="right" valign="top">__device__ <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">NodeHandle</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a5a590ab579520cb209d45fd271a5e3ce">prefix</a> (ValueTypeParam key, Group tile, const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;view) const</td></tr>
+<tr class="memdesc:a5a590ab579520cb209d45fd271a5e3ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binary search for a key with configurable group size.  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a5a590ab579520cb209d45fd271a5e3ce">More...</a><br /></td></tr>
+<tr class="separator:a5a590ab579520cb209d45fd271a5e3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32a3fab41a205e20512631d07aaf2b30"><td class="memTemplParams" colspan="2">template&lt;int TILE_SIZE = 32&gt; </td></tr>
+<tr class="memitem:a32a3fab41a205e20512631d07aaf2b30"><td class="memTemplItemLeft" align="right" valign="top">__device__ <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a32a3fab41a205e20512631d07aaf2b30">prov</a> (const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;view) const noexcept</td></tr>
+<tr class="separator:a32a3fab41a205e20512631d07aaf2b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93ff1558c3535cdc9e2e52dd9f4a1c6d"><td class="memItemLeft" align="right" valign="top">__device__ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a93ff1558c3535cdc9e2e52dd9f4a1c6d">contains_value</a> (ValueTypeParam key, const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;view) const noexcept</td></tr>
+<tr class="memdesc:a93ff1558c3535cdc9e2e52dd9f4a1c6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if key exists.  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a93ff1558c3535cdc9e2e52dd9f4a1c6d">More...</a><br /></td></tr>
+<tr class="separator:a93ff1558c3535cdc9e2e52dd9f4a1c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d4c34788c3f7c3c9d34516f8e6464bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> RowIdType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a9d4c34788c3f7c3c9d34516f8e6464bb">begin</a> () const noexcept</td></tr>
 <tr class="memdesc:a9d4c34788c3f7c3c9d34516f8e6464bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get begin index.  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a9d4c34788c3f7c3c9d34516f8e6464bb">More...</a><br /></td></tr>
 <tr class="separator:a9d4c34788c3f7c3c9d34516f8e6464bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,16 +140,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a77e3b5ca8544b1a591be5dae035dfddf"><td class="memItemLeft" align="right" valign="top">__device__ RowIdType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a77e3b5ca8544b1a591be5dae035dfddf">column_position</a> () const noexcept</td></tr>
 <tr class="memdesc:a77e3b5ca8544b1a591be5dae035dfddf"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d5/d0d/classSRDatalog_1_1Column.html" title="Thin, PMR-aware contiguous column wrapper.">Column</a> position of current handle on data array.  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a77e3b5ca8544b1a591be5dae035dfddf">More...</a><br /></td></tr>
 <tr class="separator:a77e3b5ca8544b1a591be5dae035dfddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5245adf1790fe7e4a49107f51d5145b"><td class="memTemplParams" colspan="2">template&lt;int COLUMN&gt; </td></tr>
-<tr class="memitem:ad5245adf1790fe7e4a49107f51d5145b"><td class="memTemplItemLeft" align="right" valign="top">__device__ RowIdType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#ad5245adf1790fe7e4a49107f51d5145b">offset</a> (RowIdType row) const noexcept</td></tr>
-<tr class="memdesc:ad5245adf1790fe7e4a49107f51d5145b"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a offset with respect to the data array  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#ad5245adf1790fe7e4a49107f51d5145b">More...</a><br /></td></tr>
-<tr class="separator:ad5245adf1790fe7e4a49107f51d5145b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6069e1045b91b4aef8979d2c57e4085c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> const ValueTypeParam *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a6069e1045b91b4aef8979d2c57e4085c">root_value_ptr</a> () const noexcept</td></tr>
-<tr class="memdesc:a6069e1045b91b4aef8979d2c57e4085c"><td class="mdescLeft">&#160;</td><td class="mdescRight">expose the root level for job partitioning  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a6069e1045b91b4aef8979d2c57e4085c">More...</a><br /></td></tr>
-<tr class="separator:a6069e1045b91b4aef8979d2c57e4085c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09cc8215c41cbca2794dd62d9090317e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a09cc8215c41cbca2794dd62d9090317e">provenance_ptr</a> ()</td></tr>
-<tr class="memdesc:a09cc8215c41cbca2794dd62d9090317e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expose the provenance pointer.  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a09cc8215c41cbca2794dd62d9090317e">More...</a><br /></td></tr>
-<tr class="separator:a09cc8215c41cbca2794dd62d9090317e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e9f25138a998f4f2d733bab51f0ab25"><td class="memTemplParams" colspan="2">template&lt;int COLUMN&gt; </td></tr>
+<tr class="memitem:a1e9f25138a998f4f2d733bab51f0ab25"><td class="memTemplItemLeft" align="right" valign="top">__device__ RowIdType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a1e9f25138a998f4f2d733bab51f0ab25">offset</a> (RowIdType row, const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;view) const noexcept</td></tr>
+<tr class="memdesc:a1e9f25138a998f4f2d733bab51f0ab25"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a offset with respect to the data array  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a1e9f25138a998f4f2d733bab51f0ab25">More...</a><br /></td></tr>
+<tr class="separator:a1e9f25138a998f4f2d733bab51f0ab25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d12bf9c1c43264374e23a905df5d753"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> const <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a6d12bf9c1c43264374e23a905df5d753">provenance_ptr</a> (const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;view) const noexcept</td></tr>
+<tr class="memdesc:a6d12bf9c1c43264374e23a905df5d753"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get provenance pointer (for CDeviceHandle concept)  <a href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a6d12bf9c1c43264374e23a905df5d753">More...</a><br /></td></tr>
+<tr class="separator:a6d12bf9c1c43264374e23a905df5d753"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -158,21 +158,31 @@ Static Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;Semiring SR, typename ValueTypeParam = uint32_t, typename RowIdType = uint32_t&gt;<br />
 class SRDatalog::GPU::NodeHandle&lt; SR, ValueTypeParam, RowIdType &gt;</h3>
 
-<p>POD-style Handle for <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a> kernel usage (fatty pointer, need slim down in future) </p>
-<p><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html" title="POD-style Handle for GPU kernel usage (fatty pointer, need slim down in future)">NodeHandle</a> is a Plain Old Data structure containing only:</p><ul>
-<li>Device pointers (safe to copy to <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a>)</li>
-<li>Indices and offsets (POD types)</li>
-<li>No host pointers or complex types</li>
+<p>POD-style Cursor for <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html">GPU</a> kernel usage (lightweight state) </p>
+<p><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html" title="POD-style Cursor for GPU kernel usage (lightweight state)">NodeHandle</a> (Cursor) contains only the mutable state needed for traversal:</p><ul>
+<li>Indices (begin, end)</li>
+<li>Current depth</li>
+<li>NO pointers (accessed via <a class="el" href="../../dc/d47/structSRDatalog_1_1GPU_1_1NodeView.html" title="Immutable view of the index structure (pointers only).">NodeView</a>)</li>
 </ul>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">SR</td><td>The semiring type </td></tr>
-    <tr><td class="paramname">ValueTypeParam</td><td>The type for encoded values (default: uint32_t) </td></tr>
-    <tr><td class="paramname">RowIdType</td><td>The type for row IDs (default: uint32_t) </td></tr>
-  </table>
-  </dd>
-</dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<p>Size: 3 * 4 bytes = 12 bytes (vs 56 bytes previously) </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a2fa680aa9d80dfea113611f6fdea55f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fa680aa9d80dfea113611f6fdea55f0">&#9670;&nbsp;</a></span>View</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType  = uint32_t&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::<a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> =  <a class="el" href="../../dc/d47/structSRDatalog_1_1GPU_1_1NodeView.html">NodeView</a>&lt;<a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af7c7cd3f13cf1110f0e1fa73a305c9a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af7c7cd3f13cf1110f0e1fa73a305c9a1">&#9670;&nbsp;</a></span>NodeHandle() <span class="overload">[1/2]</span></h2>
 
@@ -185,7 +195,7 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::<a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">NodeHandle</a> </td>
+          <td class="memname"><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::<a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">NodeHandle</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -202,8 +212,8 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
 
 </div>
 </div>
-<a id="af44bc197e0bdcf44177234927f7d778a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af44bc197e0bdcf44177234927f7d778a">&#9670;&nbsp;</a></span>NodeHandle() <span class="overload">[2/2]</span></h2>
+<a id="a90ee360768d567378724e4f0a4b66d0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90ee360768d567378724e4f0a4b66d0d">&#9670;&nbsp;</a></span>NodeHandle() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,32 +224,8 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::<a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">NodeHandle</a> </td>
+          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::<a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">NodeHandle</a> </td>
           <td>(</td>
-          <td class="paramtype">const ValueTypeParam *&#160;</td>
-          <td class="paramname"><em>col_data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt; *&#160;</td>
-          <td class="paramname"><em>provenance_ptr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const ValueTypeParam *&#160;</td>
-          <td class="paramname"><em>root_csr_values_ptr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#ac2323a7a0f5af06e34db3223cbf04d5c">CSRData</a> *&#160;</td>
-          <td class="paramname"><em>root_csr_meta_ptr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">RowIdType&#160;</td>
           <td class="paramname"><em>begin</em>, </td>
         </tr>
@@ -253,19 +239,7 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>depth</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>arity</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">RowIdType&#160;</td>
-          <td class="paramname"><em>stride</em>&#160;</td>
+          <td class="paramname"><em>depth</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -280,13 +254,13 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
 </table>
 </div><div class="memdoc">
 
-<p>Constructor for creating a handle with device pointers. </p>
+<p>Constructor for creating a handle with state. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa0a45be66dce2e672fce08fa52557ef4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0a45be66dce2e672fce08fa52557ef4">&#9670;&nbsp;</a></span>all_prov()</h2>
+<a id="ace1cdde3091a496da6372b0645ce1de3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace1cdde3091a496da6372b0645ce1de3">&#9670;&nbsp;</a></span>all_prov()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -297,9 +271,10 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> cuda_std::span&lt;const <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt;<a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>&gt; &gt; <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::all_prov </td>
+          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> cuda_std::span&lt;const <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt;<a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>&gt; &gt; <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::all_prov </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;&#160;</td>
+          <td class="paramname"><em>view</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -311,35 +286,6 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
 </div><div class="memdoc">
 
 <p>get span of all provenance values of current cursor </p>
-
-</div>
-</div>
-<a id="a3bf679cf969232c7677f8dd281abd419"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bf679cf969232c7677f8dd281abd419">&#9670;&nbsp;</a></span>arity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType  = uint32_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> uint32_t <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::arity </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get index arity. </p>
 
 </div>
 </div>
@@ -355,7 +301,7 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> RowIdType <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::begin </td>
+          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> RowIdType <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::begin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -384,7 +330,7 @@ template&lt;Semiring SR, typename ValueType , typename RowIdType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">__device__ RowIdType <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, RowIdType &gt;::column_position</td>
+          <td class="memname">__device__ RowIdType <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, RowIdType &gt;::column_position</td>
         </tr>
       </table>
   </td>
@@ -398,8 +344,8 @@ template&lt;Semiring SR, typename ValueType , typename RowIdType &gt; </div>
 
 </div>
 </div>
-<a id="a46c9830c2921c90d0967e1f108b0ee85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46c9830c2921c90d0967e1f108b0ee85">&#9670;&nbsp;</a></span>contains_value()</h2>
+<a id="a93ff1558c3535cdc9e2e52dd9f4a1c6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93ff1558c3535cdc9e2e52dd9f4a1c6d">&#9670;&nbsp;</a></span>contains_value()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -410,11 +356,21 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">__device__ bool <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::contains_value </td>
+          <td class="memname">__device__ bool <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::contains_value </td>
           <td>(</td>
           <td class="paramtype">ValueTypeParam&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;&#160;</td>
+          <td class="paramname"><em>view</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -440,7 +396,7 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> std::size_t <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::degree </td>
+          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> std::size_t <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::degree </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -469,7 +425,7 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> uint32_t <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::depth </td>
+          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> uint32_t <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::depth </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -498,7 +454,7 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> RowIdType <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::end </td>
+          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> RowIdType <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::end </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -527,7 +483,7 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">NodeHandle</a> <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::invalid </td>
+          <td class="memname">static <a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">NodeHandle</a> <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::invalid </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -544,8 +500,8 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
 
 </div>
 </div>
-<a id="a072b401f825cc22b24e2419f7c8c3a65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a072b401f825cc22b24e2419f7c8c3a65">&#9670;&nbsp;</a></span>is_leaf()</h2>
+<a id="a10f035fb0b4c71acc3ecc4fbde5d6a98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10f035fb0b4c71acc3ecc4fbde5d6a98">&#9670;&nbsp;</a></span>is_leaf()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -556,9 +512,10 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> bool <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::is_leaf </td>
+          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> bool <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::is_leaf </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;&#160;</td>
+          <td class="paramname"><em>view</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -573,8 +530,8 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
 
 </div>
 </div>
-<a id="ad5245adf1790fe7e4a49107f51d5145b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5245adf1790fe7e4a49107f51d5145b">&#9670;&nbsp;</a></span>offset()</h2>
+<a id="a1e9f25138a998f4f2d733bab51f0ab25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e9f25138a998f4f2d733bab51f0ab25">&#9670;&nbsp;</a></span>offset()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -587,11 +544,21 @@ template&lt;int COLUMN&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">__device__ RowIdType <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, RowIdType &gt;::offset </td>
+          <td class="memname">__device__ RowIdType <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, RowIdType &gt;::offset </td>
           <td>(</td>
           <td class="paramtype">RowIdType&#160;</td>
-          <td class="paramname"><em>row</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;&#160;</td>
+          <td class="paramname"><em>view</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -605,8 +572,8 @@ template&lt;int COLUMN&gt; </div>
 
 </div>
 </div>
-<a id="a18050c65485c4c120237587a0dab2ebe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18050c65485c4c120237587a0dab2ebe">&#9670;&nbsp;</a></span>prefix()</h2>
+<a id="a5a590ab579520cb209d45fd271a5e3ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a590ab579520cb209d45fd271a5e3ce">&#9670;&nbsp;</a></span>prefix()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -616,7 +583,7 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
 template&lt;typename Group &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">__device__ <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">NodeHandle</a> <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::prefix </td>
+          <td class="memname">__device__ <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">NodeHandle</a> <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::prefix </td>
           <td>(</td>
           <td class="paramtype">ValueTypeParam&#160;</td>
           <td class="paramname"><em>key</em>, </td>
@@ -625,7 +592,13 @@ template&lt;typename Group &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">Group&#160;</td>
-          <td class="paramname"><em>tile</em>&#160;</td>
+          <td class="paramname"><em>tile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;&#160;</td>
+          <td class="paramname"><em>view</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -636,19 +609,11 @@ template&lt;typename Group &gt; </div>
 </div><div class="memdoc">
 
 <p>Binary search for a key with configurable group size. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">key</td><td>The key to search for </td></tr>
-    <tr><td class="paramname">tile</td><td>Cooperative group (can be warp, sub-warp, or even sequential) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html" title="POD-style Handle for GPU kernel usage (fatty pointer, need slim down in future)">NodeHandle</a> for the matching prefix, or <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#af2b753938462cd3c582f6473b341901a" title="Create invalid handle.">invalid()</a> if not found </dd></dl>
 
 </div>
 </div>
-<a id="a30835ddb23dffc4456eb25323e047ce8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30835ddb23dffc4456eb25323e047ce8">&#9670;&nbsp;</a></span>prov()</h2>
+<a id="a32a3fab41a205e20512631d07aaf2b30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32a3fab41a205e20512631d07aaf2b30">&#9670;&nbsp;</a></span>prov()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -661,7 +626,11 @@ template&lt;int TILE_SIZE&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">__device__ <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt; <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, RowIdType &gt;::prov</td>
+          <td class="memname">__device__ <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a> &gt; <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, RowIdType &gt;::prov </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;&#160;</td>
+          <td class="paramname"><em>view</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -673,8 +642,8 @@ template&lt;int TILE_SIZE&gt; </div>
 
 </div>
 </div>
-<a id="a09cc8215c41cbca2794dd62d9090317e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09cc8215c41cbca2794dd62d9090317e">&#9670;&nbsp;</a></span>provenance_ptr()</h2>
+<a id="a6d12bf9c1c43264374e23a905df5d753"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d12bf9c1c43264374e23a905df5d753">&#9670;&nbsp;</a></span>provenance_ptr()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -685,38 +654,10 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt;<a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>&gt;* <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::provenance_ptr </td>
+          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> const <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt;<a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>&gt;* <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::provenance_ptr </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Expose the provenance pointer. </p>
-
-</div>
-</div>
-<a id="a6069e1045b91b4aef8979d2c57e4085c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6069e1045b91b4aef8979d2c57e4085c">&#9670;&nbsp;</a></span>root_value_ptr()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType  = uint32_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> const ValueTypeParam* <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::root_value_ptr </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;&#160;</td>
+          <td class="paramname"><em>view</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -727,7 +668,8 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
 </table>
 </div><div class="memdoc">
 
-<p>expose the root level for job partitioning </p>
+<p>Get provenance pointer (for CDeviceHandle concept) </p>
+<p>Returns the provenance pointer from the view, or nullptr if invalid </p>
 
 </div>
 </div>
@@ -743,7 +685,7 @@ template&lt;Semiring SR, typename ValueType , typename RowIdType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">__device__ RowIdType <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, RowIdType &gt;::row_position</td>
+          <td class="memname">__device__ RowIdType <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueType, RowIdType &gt;::row_position</td>
         </tr>
       </table>
   </td>
@@ -757,8 +699,8 @@ template&lt;Semiring SR, typename ValueType , typename RowIdType &gt; </div>
 
 </div>
 </div>
-<a id="a510cbeb85b725d92d967e387493125c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a510cbeb85b725d92d967e387493125c1">&#9670;&nbsp;</a></span>rows()</h2>
+<a id="ac027ac2fb2c79e59b0ebfbd07acb9049"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac027ac2fb2c79e59b0ebfbd07acb9049">&#9670;&nbsp;</a></span>rows()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -769,9 +711,10 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> cuda_std::span&lt;const <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt;<a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>&gt; &gt; <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::rows </td>
+          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> cuda_std::span&lt;const <a class="el" href="../../d7/d69/semiring_8h.html#af13b0385c646b6dbedccfc327bc662d2">semiring_value_t</a>&lt;<a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>&gt; &gt; <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::rows </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;&#160;</td>
+          <td class="paramname"><em>view</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -798,7 +741,7 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> std::size_t <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::unique_count </td>
+          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> std::size_t <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::unique_count </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -827,7 +770,7 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> bool <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::valid </td>
+          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> bool <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::valid </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -844,8 +787,8 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
 
 </div>
 </div>
-<a id="ae250e442dfef4698b9106c8faf5a5af8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae250e442dfef4698b9106c8faf5a5af8">&#9670;&nbsp;</a></span>values()</h2>
+<a id="a4d85aca2b581f2d4816ba621221b3131"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d85aca2b581f2d4816ba621221b3131">&#9670;&nbsp;</a></span>values()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -856,9 +799,10 @@ template&lt;Semiring SR, typename ValueTypeParam  = uint32_t, typename RowIdType
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> cuda_std::span&lt;const ValueTypeParam&gt; <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d3/db9/index__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::values </td>
+          <td class="memname"><a class="el" href="../../d7/d69/semiring_8h.html#a3f19d28d9fbbe8932ff002f87ea09eff">GPU_HD</a> cuda_std::span&lt;const ValueTypeParam&gt; <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html">SRDatalog::GPU::NodeHandle</a>&lt; <a class="el" href="../../d7/d92/andersen__benchmark_8cpp.html#ab10c3cc90e26fe9179b01c8a8f6bee5b">SR</a>, ValueTypeParam, RowIdType &gt;::values </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">View</a> &amp;&#160;</td>
+          <td class="paramname"><em>view</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>

@@ -1,8 +1,9 @@
 <map id="generalized_datalog/gpu/init.h" name="generalized_datalog/gpu/init.h">
-<area shape="rect" id="node1" title=" " alt="" coords="211,5,365,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,128,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="152,95,232,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="256,95,320,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="345,95,431,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="456,95,515,121"/>
+<area shape="rect" id="node1" title=" " alt="" coords="260,5,415,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,102,128,129"/>
+<area shape="rect" id="node3" title=" " alt="" coords="152,102,232,129"/>
+<area shape="rect" id="node4" title=" " alt="" coords="256,102,320,129"/>
+<area shape="rect" id="node5" title=" " alt="" coords="345,102,431,129"/>
+<area shape="rect" id="node6" title=" " alt="" coords="456,102,515,129"/>
+<area shape="rect" id="node7" title=" " alt="" coords="539,95,736,136"/>
 </map>

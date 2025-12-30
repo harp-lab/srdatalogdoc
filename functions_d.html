@@ -66,7 +66,7 @@ $(function() {
 
 <h3><a id="index_d"></a>- d -</h3><ul>
 <li>data()
-: <a class="el" href="d5/d0d/classSRDatalog_1_1Column.html#a72e3c959b71ed354bd5f7e114df44787">SRDatalog::Column&lt; T &gt;</a>
+: <a class="el" href="d5/d0d/classSRDatalog_1_1Column.html#a6deb7016d4824379f9263dc8bf483026">SRDatalog::Column&lt; T &gt;</a>
 , <a class="el" href="d0/d21/classSRDatalog_1_1EytzingerMap.html#a05393de64b29b54f74d07226ba4c7325">SRDatalog::EytzingerMap&lt; T &gt;</a>
 , <a class="el" href="df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a5dfba504b9b0ee9b9ce84ff5ac150fa5">SRDatalog::GPU::DeviceArray&lt; T &gt;</a>
 , <a class="el" href="d3/dc1/classSRDatalog_1_1GPU_1_1DeviceSortedArrayIndex.html#ade530ea3ebb7e95c80dd342d47c56c78">SRDatalog::GPU::DeviceSortedArrayIndex&lt; SR, AttrTuple, ValueTypeParam, RowIdType &gt;</a>
@@ -74,7 +74,7 @@ $(function() {
 , <a class="el" href="de/dea/classSRDatalog_1_1GPU_1_1NDDeviceArray.html#ad9a16cbeb62780a334b96ed6f04610f7">SRDatalog::GPU::NDDeviceArray&lt; T, N &gt;</a>
 </li>
 <li>data_type
-: <a class="el" href="d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a0e68552bd711d9f627939c85a7339edd">SRDatalog::AST::SemiNaiveDatabase&lt; DBType &gt;</a>
+: <a class="el" href="d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a0c77a0d1a12eaf28179b320669049dfa">SRDatalog::AST::SemiNaiveDatabase&lt; DBType, RelationMapper &gt;</a>
 </li>
 <li>db_type
 : <a class="el" href="d4/da5/structSRDatalog_1_1AST_1_1Program.html#aa98fb2d1cd6565ccf7883b1beb2b5d18">SRDatalog::AST::Program&lt; db, QueryList &gt;</a>
@@ -90,8 +90,19 @@ $(function() {
 , <a class="el" href="d9/db8/classSRDatalog_1_1index_1_1HashmapIndex_1_1NodeHandle.html#ab11e20665f5e8c638b426d56ed478b1b">SRDatalog::index::HashmapIndex&lt; SR, AttrTuple, ValueType, RowIdType, IndexType &gt;::NodeHandle</a>
 , <a class="el" href="d7/d48/classSRDatalog_1_1SortedArrayIndex_1_1NodeHandle.html#a7c3cad27c50338ce479b8e820a0322b9">SRDatalog::SortedArrayIndex&lt; SR, AttrTuple, ValueType, RowIdType &gt;::NodeHandle</a>
 </li>
-<li>delta
-: <a class="el" href="d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a6c8936166f45e6bac768ec3c1f33ba8c">SRDatalog::AST::SemiNaiveDatabase&lt; DBType &gt;</a>
+<li>Delta
+: <a class="el" href="d7/d2a/structSRDatalog_1_1AST_1_1Rel.html#a6703d613a45ee624956e602e1453c2d0">SRDatalog::AST::Rel&lt; S &gt;</a>
+</li>
+<li>delta()
+: <a class="el" href="d6/d94/structSRDatalog_1_1AST_1_1RelWrapper.html#a0980994cffe6fbc71a047ba0b6d4ff63">SRDatalog::AST::RelWrapper&lt; S &gt;</a>
+, <a class="el" href="d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#ac65c7f8f8d5ff42e893103ca3565dd71">SRDatalog::AST::SemiNaiveDatabase&lt; DBType, RelationMapper &gt;</a>
+</li>
+<li>DeltaVersion
+: <a class="el" href="db/d23/structSRDatalog_1_1mir_1_1ComputeDeltaAndMerge.html#a5eb31ef95f61cf7f19439e8ea30c28ac">SRDatalog::mir::ComputeDeltaAndMerge</a>
+</li>
+<li>Depends
+: <a class="el" href="d3/dd6/structSRDatalog_1_1GPU_1_1detail_1_1GetIndicesForOp_3_01mir_1_1CartesianJoin_3_01VarsTuple_00_0108d434d754413c0e73fa222831b7fa59.html#a632656564512d3264ce100f4fd6df871">SRDatalog::GPU::detail::GetIndicesForOp&lt; mir::CartesianJoin&lt; VarsTuple, SourcesTuple &gt;, Var, Offset &gt;</a>
+, <a class="el" href="d0/d21/structSRDatalog_1_1GPU_1_1detail_1_1GetIndicesForOp_3_01mir_1_1ColumnJoin_3_01VarToBind_00_01Sou621b4f865df9ecff0743668a7ae7cd92.html#ad786e60f12e50ce78ac462f8f30d9f02">SRDatalog::GPU::detail::GetIndicesForOp&lt; mir::ColumnJoin&lt; VarToBind, SourcesTuple, Strategy &gt;, Var, Offset &gt;</a>
 </li>
 <li>depth()
 : <a class="el" href="da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a20caa6a0cf62b3e3d94ee55b659af12c">SRDatalog::GPU::NodeHandle&lt; SR, ValueTypeParam, RowIdType &gt;</a>
@@ -117,7 +128,13 @@ $(function() {
 : <a class="el" href="df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#ad014decc55a9cd9b1d23e8f0658dff42">SRDatalog::GPU::DeviceArray&lt; T &gt;</a>
 </li>
 <li>DeviceArray()
-: <a class="el" href="df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a402b0ab78fc03592c58d4103105d3304">SRDatalog::GPU::DeviceArray&lt; T &gt;</a>
+: <a class="el" href="df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a8a7be3ed737821b99a53437c7b823168">SRDatalog::GPU::DeviceArray&lt; T &gt;</a>
+</li>
+<li>DeviceDB
+: <a class="el" href="dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a58e53248a452e43cee6e163a9ba8859c">SRDatalog::GPU::GPUQueryExecutor&lt; FP &gt;</a>
+</li>
+<li>DeviceDBFromHost
+: <a class="el" href="dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a55936c926c9bac9734f82f86e1b77809">SRDatalog::GPU::GPUQueryExecutor&lt; FP &gt;</a>
 </li>
 <li>DeviceSortedArrayIndex()
 : <a class="el" href="d3/dc1/classSRDatalog_1_1GPU_1_1DeviceSortedArrayIndex.html#ab03d13f85b46b204f6fc82fffc51ab62">SRDatalog::GPU::DeviceSortedArrayIndex&lt; SR, AttrTuple, ValueTypeParam, RowIdType &gt;</a>
@@ -142,6 +159,9 @@ $(function() {
 </li>
 <li>do_is_equal()
 : <a class="el" href="dc/dea/classSRDatalog_1_1HighwayAlignedMemoryResource.html#ae188a98c944dd91536c7b3dbe0a64543">SRDatalog::HighwayAlignedMemoryResource</a>
+</li>
+<li>DSLStringLiteral()
+: <a class="el" href="d0/dd1/structSRDatalog_1_1AST_1_1DSLStringLiteral.html#af0b44a2b6cfdb681309fea06bc7a39ea">SRDatalog::AST::DSLStringLiteral&lt; N &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->

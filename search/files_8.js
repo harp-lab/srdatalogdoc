@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['launcher_2eh_1626',['launcher.h',['../da/d75/launcher_8h.html',1,'']]],
-  ['leapfrog_5fview_2eh_1627',['leapfrog_view.h',['../df/d19/leapfrog__view_8h.html',1,'']]],
-  ['logging_2eh_1628',['logging.h',['../d5/d77/logging_8h.html',1,'']]],
-  ['logging_5fboost_2eh_1629',['logging_boost.h',['../d5/d1c/logging__boost_8h.html',1,'']]]
+  ['join_5fbenchmark_2ecpp_2075',['join_benchmark.cpp',['../df/db0/join__benchmark_8cpp.html',1,'']]]
 ];

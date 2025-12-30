@@ -1,12 +1,24 @@
 var searchData=
 [
-  ['kernel_5fcount_692',['kernel_count',['../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a519367ac1006914d5b0db66de3b26050',1,'SRDatalog::GPU::GPURootExecutor']]],
-  ['kernel_5fmaterialize_693',['kernel_materialize',['../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9593b289b83c25265804bf7a417ee692',1,'SRDatalog::GPU::GPURootExecutor']]],
-  ['kernels_694',['kernels',['../de/dd9/namespacekernels.html',1,'']]],
-  ['key_5fbuffer_695',['key_buffer',['../d8/ddf/structhwy__lexsort_1_1SortContext.html#a462987e9a2816bf17bcc55e66f2b122d',1,'hwy_lexsort::SortContext']]],
-  ['keymatchespos_696',['KeyMatchesPos',['../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html',1,'SRDatalog::state::FindTypeAtPos']]],
-  ['keys_5fcache_697',['keys_cache',['../da/d88/structSRDatalog_1_1HashTrieIndex_1_1Impl_1_1Node.html#a75de9f76ab78b5224b9c9d9e28abfac6',1,'SRDatalog::HashTrieIndex::Impl::Node']]],
-  ['keystuple_698',['KeysTuple',['../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html#ae9f4e5531d4cd60aa743c7c7d9b181c4',1,'SRDatalog::state::FindTypeAtPos']]],
-  ['kgoldenratio_699',['kGoldenRatio',['../dd/d83/structSRDatalog_1_1FibonacciHash.html#a4668d0350b7dfdc19c162ccaab197a8c',1,'SRDatalog::FibonacciHash']]],
-  ['kversion_700',['kVersion',['../df/d82/structSRDatalog_1_1IndexSpecT.html#ade03fd17775a1fbacabca9fe625aa0ad',1,'SRDatalog::IndexSpecT']]]
+  ['kernel_5finit_5ftuple_5fptrs_826',['kernel_init_tuple_ptrs',['../dd/dba/namespaceSRDatalog_1_1GPU_1_1Adapter.html#a69295e57bb3d4933517605e3c95a6794',1,'SRDatalog::GPU::Adapter']]],
+  ['kernel_5ftranspose_5faos_5fto_5fsoa_827',['kernel_transpose_aos_to_soa',['../dd/dba/namespaceSRDatalog_1_1GPU_1_1Adapter.html#af7cb6d296ee2e3cf09d641956668aed5',1,'SRDatalog::GPU::Adapter']]],
+  ['kernel_5ftranspose_5fsoa_5fto_5faos_828',['kernel_transpose_soa_to_aos',['../dd/dba/namespaceSRDatalog_1_1GPU_1_1Adapter.html#a55faed51db7d40bab5655acdedaa8d6c',1,'SRDatalog::GPU::Adapter']]],
+  ['kernels_829',['kernels',['../de/dd9/namespacekernels.html',1,'']]],
+  ['key2_5ftype_830',['key2_type',['../db/d73/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom.html#aaf4d8b90121b1fbcb03fe8719594d1c5',1,'cuda_cub::__set_operations::SetOpAgentCustom']]],
+  ['key_5fbuffer_831',['key_buffer',['../d8/ddf/structhwy__lexsort_1_1SortContext.html#a462987e9a2816bf17bcc55e66f2b122d',1,'hwy_lexsort::SortContext']]],
+  ['key_5ftype_832',['key_type',['../db/d73/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom.html#a8fa5aff577f7dac7b43eea58a6a32a82',1,'cuda_cub::__set_operations::SetOpAgentCustom']]],
+  ['keymatchespos_833',['KeyMatchesPos',['../d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html',1,'SRDatalog::state::FindTypeAtPos']]],
+  ['keys1_5fcount_834',['keys1_count',['../d4/d9a/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1impl.html#addaaf2f572c3713e221a0f67239d3e58',1,'cuda_cub::__set_operations::SetOpAgentCustom::impl']]],
+  ['keys1_5fin_835',['keys1_in',['../d4/d9a/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1impl.html#a9661c5cb50f1203f379a7a072fb7aac3',1,'cuda_cub::__set_operations::SetOpAgentCustom::impl']]],
+  ['keys2_5fcount_836',['keys2_count',['../d4/d9a/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1impl.html#aff8777720b94cdb4f053efe15aad2098',1,'cuda_cub::__set_operations::SetOpAgentCustom::impl']]],
+  ['keys2_5fin_837',['keys2_in',['../d4/d9a/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1impl.html#a926afeba1f9ea0c132343aec0f611342',1,'cuda_cub::__set_operations::SetOpAgentCustom::impl']]],
+  ['keys_5fcache_838',['keys_cache',['../da/d88/structSRDatalog_1_1HashTrieIndex_1_1Impl_1_1Node.html#a75de9f76ab78b5224b9c9d9e28abfac6',1,'SRDatalog::HashTrieIndex::Impl::Node']]],
+  ['keys_5fout_839',['keys_out',['../d4/d9a/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1impl.html#adc34be325acf6e4926e6f427a44e3f70',1,'cuda_cub::__set_operations::SetOpAgentCustom::impl']]],
+  ['keys_5fshared_840',['keys_shared',['../d9/db7/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1PtxPlan_1_1TempStorage_1_1LoadStorage.html#a294ff60bdab1ccfcf05f92389c6249d9',1,'cuda_cub::__set_operations::SetOpAgentCustom::PtxPlan::TempStorage::LoadStorage']]],
+  ['keysloadit1_841',['KeysLoadIt1',['../d0/dbb/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1PtxPlan.html#a05a10daa4b847f717a99c7d144609b26',1,'cuda_cub::__set_operations::SetOpAgentCustom::PtxPlan::KeysLoadIt1()'],['../db/d73/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom.html#af6cc10c051557f926cd6140bb725d055',1,'cuda_cub::__set_operations::SetOpAgentCustom::KeysLoadIt1()']]],
+  ['keysloadit2_842',['KeysLoadIt2',['../d0/dbb/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1PtxPlan.html#ad95532281154f8c946a3cd0ec76509e5',1,'cuda_cub::__set_operations::SetOpAgentCustom::PtxPlan::KeysLoadIt2()'],['../db/d73/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom.html#a33edd3e5eadf53caa4337bb3f2fbe94b',1,'cuda_cub::__set_operations::SetOpAgentCustom::KeysLoadIt2()']]],
+  ['keystuple_843',['KeysTuple',['../d4/d76/structSRDatalog_1_1state_1_1FindTypeAtPos.html#ae9f4e5531d4cd60aa743c7c7d9b181c4',1,'SRDatalog::state::FindTypeAtPos']]],
+  ['kgoldenratio_844',['kGoldenRatio',['../dd/d83/structSRDatalog_1_1FibonacciHash.html#a4668d0350b7dfdc19c162ccaab197a8c',1,'SRDatalog::FibonacciHash']]],
+  ['kvalue_845',['kValue',['../dd/d4a/structSRDatalog_1_1GPU_1_1detail_1_1GetSchemaIndex.html#af8a3d8b7660a704628242b285db5ad69',1,'SRDatalog::GPU::detail::GetSchemaIndex']]],
+  ['kversion_846',['kVersion',['../df/d82/structSRDatalog_1_1IndexSpecT.html#ade03fd17775a1fbacabca9fe625aa0ad',1,'SRDatalog::IndexSpecT']]]
 ];

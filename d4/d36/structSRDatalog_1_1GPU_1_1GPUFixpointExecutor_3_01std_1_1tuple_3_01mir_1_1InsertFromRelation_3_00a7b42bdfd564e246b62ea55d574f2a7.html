@@ -81,8 +81,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a82dbd87bfe12cd4d398f6740d8fdf891"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d36/structSRDatalog_1_1GPU_1_1GPUFixpointExecutor_3_01std_1_1tuple_3_01mir_1_1InsertFromRelation_3_00a7b42bdfd564e246b62ea55d574f2a7.html#a82dbd87bfe12cd4d398f6740d8fdf891">execute</a> (RelationsBundle &amp;relations, std::size_t iteration, std::size_t max_output)</td></tr>
-<tr class="separator:a82dbd87bfe12cd4d398f6740d8fdf891"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af230188d8efa6df5dea8dd75cddbe9be"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d36/structSRDatalog_1_1GPU_1_1GPUFixpointExecutor_3_01std_1_1tuple_3_01mir_1_1InsertFromRelation_3_00a7b42bdfd564e246b62ea55d574f2a7.html#af230188d8efa6df5dea8dd75cddbe9be">execute</a> (RelationsBundle &amp;relations, std::size_t iteration, std::size_t max_output)</td></tr>
+<tr class="separator:af230188d8efa6df5dea8dd75cddbe9be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename Schema, std::size_t FromVer, std::size_t ToVer, typename IndexSpec, typename... TailOps, typename RelationsBundle, typename SchemaTuple&gt;<br />
@@ -91,8 +91,8 @@ struct SRDatalog::GPU::GPUFixpointExecutor&lt; std::tuple&lt; mir::InsertFromRel
 <p>Specialization for InsertFromRelation: Merges one relation into another. </p>
 <p>Performed using <code><a class="el" href="../../d3/dc1/classSRDatalog_1_1GPU_1_1DeviceSortedArrayIndex.html#a22dd5dec9e30b788c2c38c72f61a80fb" title="Merge another index into this one.">DeviceSortedArrayIndex::merge</a></code>. Used for merging NEW tuples into FULL or DELTA relations. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a82dbd87bfe12cd4d398f6740d8fdf891"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82dbd87bfe12cd4d398f6740d8fdf891">&#9670;&nbsp;</a></span>execute()</h2>
+<a id="af230188d8efa6df5dea8dd75cddbe9be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af230188d8efa6df5dea8dd75cddbe9be">&#9670;&nbsp;</a></span>execute()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -103,7 +103,7 @@ template&lt;typename Schema , std::size_t FromVer, std::size_t ToVer, typename I
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void <a class="el" href="../../d6/d65/structSRDatalog_1_1GPU_1_1GPUFixpointExecutor.html">SRDatalog::GPU::GPUFixpointExecutor</a>&lt; std::tuple&lt; <a class="el" href="../../dc/d99/structSRDatalog_1_1mir_1_1InsertFromRelation.html">mir::InsertFromRelation</a>&lt; Schema, FromVer, ToVer, <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">IndexSpec</a> &gt;, TailOps... &gt;, RelationsBundle, SchemaTuple &gt;::execute </td>
+          <td class="memname">static bool <a class="el" href="../../d6/d65/structSRDatalog_1_1GPU_1_1GPUFixpointExecutor.html">SRDatalog::GPU::GPUFixpointExecutor</a>&lt; std::tuple&lt; mir::InsertFromRelation&lt; Schema, FromVer, ToVer, <a class="el" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">IndexSpec</a> &gt;, TailOps... &gt;, RelationsBundle, SchemaTuple &gt;::execute </td>
           <td>(</td>
           <td class="paramtype">RelationsBundle &amp;&#160;</td>
           <td class="paramname"><em>relations</em>, </td>

@@ -164,6 +164,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac3b7985e15a627cb1a2527347847471e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dea/classSRDatalog_1_1GPU_1_1NDDeviceArray.html#ac3b7985e15a627cb1a2527347847471e">swap</a> (<a class="el" href="../../de/dea/classSRDatalog_1_1GPU_1_1NDDeviceArray.html">NDDeviceArray</a> &amp;other) noexcept</td></tr>
 <tr class="memdesc:ac3b7985e15a627cb1a2527347847471e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap with another array.  <a href="../../de/dea/classSRDatalog_1_1GPU_1_1NDDeviceArray.html#ac3b7985e15a627cb1a2527347847471e">More...</a><br /></td></tr>
 <tr class="separator:ac3b7985e15a627cb1a2527347847471e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d7e0dd1724cf58d3ba52c3577565fec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dea/classSRDatalog_1_1GPU_1_1NDDeviceArray.html#a3d7e0dd1724cf58d3ba52c3577565fec">swap_internal_storage</a> (typename <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">DeviceArray</a>&lt; T &gt;::internal_storage_type &amp;other_vec, <a class="el" href="../../de/dea/classSRDatalog_1_1GPU_1_1NDDeviceArray.html#ae949f650a222dd90d0a033b1388ec5ab">size_type</a> new_num_rows) noexcept</td></tr>
+<tr class="memdesc:a3d7e0dd1724cf58d3ba52c3577565fec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap internal storage with external buffer.  <a href="../../de/dea/classSRDatalog_1_1GPU_1_1NDDeviceArray.html#a3d7e0dd1724cf58d3ba52c3577565fec">More...</a><br /></td></tr>
+<tr class="separator:a3d7e0dd1724cf58d3ba52c3577565fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a862ff258686e49035ab12eaa9982a9ac"><td class="memTemplParams" colspan="2">template&lt;std::size_t Dim&gt; </td></tr>
 <tr class="memitem:a862ff258686e49035ab12eaa9982a9ac"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/dea/classSRDatalog_1_1GPU_1_1NDDeviceArray.html#a862ff258686e49035ab12eaa9982a9ac">column_ptr</a> () noexcept</td></tr>
 <tr class="separator:a862ff258686e49035ab12eaa9982a9ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1219,6 +1222,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 </div><div class="memdoc">
 
 <p>Resize array. Only reallocates if growing beyond stride. </p>
+<dl class="section note"><dt>Note</dt><dd>Allocates exactly new_num_rows (no extra capacity) to minimize memory usage </dd></dl>
 
 </div>
 </div>
@@ -1305,6 +1309,55 @@ template&lt;typename T , std::size_t N&gt; </div>
 </div><div class="memdoc">
 
 <p>Swap with another array. </p>
+
+</div>
+</div>
+<a id="a3d7e0dd1724cf58d3ba52c3577565fec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d7e0dd1724cf58d3ba52c3577565fec">&#9670;&nbsp;</a></span>swap_internal_storage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../de/dea/classSRDatalog_1_1GPU_1_1NDDeviceArray.html">SRDatalog::GPU::NDDeviceArray</a>&lt; T, N &gt;::swap_internal_storage </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="../../df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html">DeviceArray</a>&lt; T &gt;::internal_storage_type &amp;&#160;</td>
+          <td class="paramname"><em>other_vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/dea/classSRDatalog_1_1GPU_1_1NDDeviceArray.html#ae949f650a222dd90d0a033b1388ec5ab">size_type</a>&#160;</td>
+          <td class="paramname"><em>new_num_rows</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Swap internal storage with external buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other_vec</td><td>External device_uvector buffer to swap with </td></tr>
+    <tr><td class="paramname">new_num_rows</td><td>New number of rows after swap </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This allows reusing external buffers (like the persistent buffer in Impl) </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The caller must ensure other_vec has enough capacity for N * new_num_rows elements </dd></dl>
 
 </div>
 </div>

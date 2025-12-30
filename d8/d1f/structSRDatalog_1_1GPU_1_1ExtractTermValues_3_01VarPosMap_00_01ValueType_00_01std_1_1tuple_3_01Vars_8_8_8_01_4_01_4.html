@@ -67,8 +67,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="../../d0/d34/structSRDatalog_1_1GPU_1_1ExtractTermValues_3_01VarPosMap_00_01ValueType_00_01std_1_1tuple_3_01Vars_8_8_8_01_4_01_4-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SRDatalog::GPU::ExtractTermValues&lt; VarPosMap, ValueType, std::tuple&lt; Vars... &gt; &gt; Struct Template Reference</div>  </div>
@@ -77,20 +76,15 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="../../d9/d9f/tmp__helpers_8h_source.html">tmp_helpers.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a1dfb20bf0065657d4f36e66b5fd39d42"><td class="memTemplParams" colspan="2">template&lt;typename Store &gt; </td></tr>
-<tr class="memitem:a1dfb20bf0065657d4f36e66b5fd39d42"><td class="memTemplItemLeft" align="right" valign="top">__device__&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d1f/structSRDatalog_1_1GPU_1_1ExtractTermValues_3_01VarPosMap_00_01ValueType_00_01std_1_1tuple_3_01Vars_8_8_8_01_4_01_4.html#a1dfb20bf0065657d4f36e66b5fd39d42">__attribute__</a> ((always_inline)) static void get_array(const Store &amp;vars</td></tr>
-<tr class="separator:a1dfb20bf0065657d4f36e66b5fd39d42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a0a4b80d051724fecb9629c75634a290a"><td class="memItemLeft" align="right" valign="top">__device__ ValueType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d1f/structSRDatalog_1_1GPU_1_1ExtractTermValues_3_01VarPosMap_00_01ValueType_00_01std_1_1tuple_3_01Vars_8_8_8_01_4_01_4.html#a0a4b80d051724fecb9629c75634a290a">output</a></td></tr>
-<tr class="separator:a0a4b80d051724fecb9629c75634a290a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a997c75029ba64787dc9c979acfde7462"><td class="memTemplParams" colspan="2">template&lt;typename Store &gt; </td></tr>
+<tr class="memitem:a997c75029ba64787dc9c979acfde7462"><td class="memTemplItemLeft" align="right" valign="top">static __device__ void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d1f/structSRDatalog_1_1GPU_1_1ExtractTermValues_3_01VarPosMap_00_01ValueType_00_01std_1_1tuple_3_01Vars_8_8_8_01_4_01_4.html#a997c75029ba64787dc9c979acfde7462">get_array</a> (const Store &amp;vars, ValueType *output)</td></tr>
+<tr class="separator:a997c75029ba64787dc9c979acfde7462"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1dfb20bf0065657d4f36e66b5fd39d42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1dfb20bf0065657d4f36e66b5fd39d42">&#9670;&nbsp;</a></span>__attribute__()</h2>
+<a id="a997c75029ba64787dc9c979acfde7462"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a997c75029ba64787dc9c979acfde7462">&#9670;&nbsp;</a></span>get_array()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -98,39 +92,35 @@ Public Attributes</h2></td></tr>
 template&lt;typename VarPosMap , typename ValueType , typename... Vars&gt; </div>
 <div class="memtemplate">
 template&lt;typename Store &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">__device__ <a class="el" href="../../de/d60/structSRDatalog_1_1GPU_1_1ExtractTermValues.html">SRDatalog::GPU::ExtractTermValues</a>&lt; <a class="el" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#add4e6314f6277063598c40c406f4de4f">VarPosMap</a>, ValueType, std::tuple&lt; Vars... &gt; &gt;::__attribute__ </td>
+          <td class="memname">static __device__ void <a class="el" href="../../de/d60/structSRDatalog_1_1GPU_1_1ExtractTermValues.html">SRDatalog::GPU::ExtractTermValues</a>&lt; <a class="el" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#add4e6314f6277063598c40c406f4de4f">VarPosMap</a>, ValueType, std::tuple&lt; Vars... &gt; &gt;::get_array </td>
           <td>(</td>
-          <td class="paramtype">(always_inline)&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const &amp;</td>
+          <td class="paramtype">const Store &amp;&#160;</td>
+          <td class="paramname"><em>vars</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a0a4b80d051724fecb9629c75634a290a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a4b80d051724fecb9629c75634a290a">&#9670;&nbsp;</a></span>output</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename VarPosMap , typename ValueType , typename... Vars&gt; </div>
-      <table class="memname">
         <tr>
-          <td class="memname">__device__ ValueType* <a class="el" href="../../de/d60/structSRDatalog_1_1GPU_1_1ExtractTermValues.html">SRDatalog::GPU::ExtractTermValues</a>&lt; <a class="el" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#add4e6314f6277063598c40c406f4de4f">VarPosMap</a>, ValueType, std::tuple&lt; Vars... &gt; &gt;::output</td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ValueType *&#160;</td>
+          <td class="paramname"><em>output</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">    [&amp;]&lt;std::size_t... Is&gt;(std::index_sequence&lt;Is...&gt;) {</div>
-<div class="line">      ((<a class="code" href="../../d8/d1f/structSRDatalog_1_1GPU_1_1ExtractTermValues_3_01VarPosMap_00_01ValueType_00_01std_1_1tuple_3_01Vars_8_8_8_01_4_01_4.html#a0a4b80d051724fecb9629c75634a290a">output</a>[Is] = vars.template get&lt;std::tuple_element_t&lt;Is, std::tuple&lt;Vars...&gt;&gt;&gt;()), ...);</div>
-<div class="line">    }(std::make_index_sequence&lt;<span class="keyword">sizeof</span>...(Vars)&gt;{})</div>
-<div class="ttc" id="astructSRDatalog_1_1GPU_1_1ExtractTermValues_3_01VarPosMap_00_01ValueType_00_01std_1_1tuple_3_01Vars_8_8_8_01_4_01_4_html_a0a4b80d051724fecb9629c75634a290a"><div class="ttname"><a href="../../d8/d1f/structSRDatalog_1_1GPU_1_1ExtractTermValues_3_01VarPosMap_00_01ValueType_00_01std_1_1tuple_3_01Vars_8_8_8_01_4_01_4.html#a0a4b80d051724fecb9629c75634a290a">SRDatalog::GPU::ExtractTermValues&lt; VarPosMap, ValueType, std::tuple&lt; Vars... &gt; &gt;::output</a></div><div class="ttdeci">__device__ ValueType * output</div><div class="ttdef"><b>Definition:</b> tmp_helpers.h:37</div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>

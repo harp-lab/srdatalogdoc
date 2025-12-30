@@ -121,17 +121,17 @@ $(function() {
 <div class="line">    constexpr std::size_t ver = <a name="a2"></a><a class="code" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#ade03fd17775a1fbacabca9fe625aa0ad">IndexSpecT::kVersion</a>;</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// In iteration 0, DELTA_VER relations are redirected to FULL_VER</span></div>
-<div class="line">    <span class="keyword">auto</span>&amp; rel = [&amp;]() -&gt; <span class="keyword">auto</span>&amp; {</div>
-<div class="line">      <span class="keywordflow">if</span> constexpr (ver == <a name="a3"></a><a class="code" href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a>) {</div>
+<div class="line">    <span class="keyword">auto</span>&amp; <a name="a3"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a> = [&amp;]() -&gt; <span class="keyword">auto</span>&amp; {</div>
+<div class="line">      <span class="keywordflow">if</span> constexpr (ver == <a name="a4"></a><a class="code" href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a>) {</div>
 <div class="line">        <span class="keywordflow">return</span> get_relation_by_schema&lt;Schema, FULL_VER&gt;(db);</div>
 <div class="line">      }</div>
 <div class="line">      <span class="keywordflow">return</span> get_relation_by_schema&lt;Schema, ver&gt;(db);</div>
 <div class="line">    }();</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">auto</span> runtime_spec = []&lt;<span class="keywordtype">int</span>... Cols&gt;(std::integer_sequence&lt;int, Cols...&gt;) {</div>
-<div class="line">      <span class="keywordflow">return</span> <a name="a4"></a><a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">IndexSpec</a>{{Cols...}};</div>
+<div class="line">      <span class="keywordflow">return</span> <a name="a5"></a><a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">IndexSpec</a>{{Cols...}};</div>
 <div class="line">    }(ColSeq{});</div>
-<div class="line">    rel.ensure_index(runtime_spec);</div>
+<div class="line">    <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a>.ensure_index(runtime_spec);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Continue with next operation</span></div>
 <div class="line">    MIRExecutor&lt;std::tuple&lt;TailOps...&gt;&gt;::execute(db, iteration);</div>
@@ -149,11 +149,11 @@ $(function() {
 <div class="line">    <span class="keyword">using</span> ColSeq = <span class="keyword">typename</span> <a class="code" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#a43072acbd80c0e205f40aec1117a4838">IndexSpecT::column_indexes_type</a>;</div>
 <div class="line">    constexpr std::size_t ver = <a class="code" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#ade03fd17775a1fbacabca9fe625aa0ad">IndexSpecT::kVersion</a>;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">auto</span>&amp; rel = get_relation_by_schema&lt;Schema, ver&gt;(db);</div>
+<div class="line">    <span class="keyword">auto</span>&amp; <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a> = get_relation_by_schema&lt;Schema, ver&gt;(db);</div>
 <div class="line">    <span class="keyword">auto</span> runtime_spec = []&lt;<span class="keywordtype">int</span>... Cols&gt;(std::integer_sequence&lt;int, Cols...&gt;) {</div>
 <div class="line">      <span class="keywordflow">return</span> <a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">IndexSpec</a>{{Cols...}};</div>
 <div class="line">    }(ColSeq{});</div>
-<div class="line">    rel.ensure_index(runtime_spec);</div>
+<div class="line">    <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a>.ensure_index(runtime_spec);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Continue with next operation</span></div>
 <div class="line">    MIRExecutor&lt;std::tuple&lt;TailOps...&gt;&gt;::execute(db, iteration);</div>
@@ -161,15 +161,15 @@ $(function() {
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Specialization for CheckSize - conditional execution</span></div>
-<div class="line"><span class="keyword">template</span> &lt;CRelationSchema Schema, std::size_t <a name="a5"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a>, <span class="keyword">typename</span>... TailOps&gt;</div>
+<div class="line"><span class="keyword">template</span> &lt;CRelationSchema Schema, std::size_t <a name="a6"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a>, <span class="keyword">typename</span>... TailOps&gt;</div>
 <div class="line"><span class="keyword">struct </span>MIRExecutor&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;mir::CheckSize&lt;Schema, Ver&gt;, TailOps...&gt;&gt; {</div>
 <div class="line">  <span class="keyword">template</span> &lt;CSemiNaiveDatabase DB&gt;</div>
 <div class="line">  <span class="keyword">static</span> <span class="keywordtype">void</span> execute(DB&amp; db, std::size_t iteration) {</div>
 <div class="line">    <span class="comment">// LOG_DEBUG &lt;&lt; &quot;Executing CheckSize instruction: &quot;</span></div>
 <div class="line">    <span class="comment">//           &lt;&lt; get_type_name&lt;mir::CheckSize&lt;Schema, Ver&gt;&gt;();</span></div>
-<div class="line">    <span class="keyword">auto</span>&amp; rel = get_relation_by_schema&lt;Schema, Ver&gt;(db);</div>
-<div class="line">    <span class="keywordflow">if</span> (rel.size() == 0) {</div>
-<div class="line">      <a name="a6"></a><a class="code" href="../../d5/d77/logging_8h.html#a6ff63e8955665c4a58b1598f2b07c51a">LOG_DEBUG</a> &lt;&lt; <span class="stringliteral">&quot;CheckSize: relation is empty, skipping remaining operations&quot;</span>;</div>
+<div class="line">    <span class="keyword">auto</span>&amp; <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a> = get_relation_by_schema&lt;Schema, Ver&gt;(db);</div>
+<div class="line">    <span class="keywordflow">if</span> (<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a>.size() == 0) {</div>
+<div class="line">      <a name="a7"></a><a class="code" href="../../d5/d77/logging_8h.html#a6ff63e8955665c4a58b1598f2b07c51a">LOG_DEBUG</a> &lt;&lt; <span class="stringliteral">&quot;CheckSize: relation is empty, skipping remaining operations&quot;</span>;</div>
 <div class="line">      <span class="comment">// Early return - skip remaining operations</span></div>
 <div class="line">      <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
@@ -186,15 +186,15 @@ $(function() {
 <div class="line">  <span class="keyword">static</span> <span class="keywordtype">void</span> execute(DB&amp; db, std::size_t iteration) {</div>
 <div class="line">    <span class="comment">// LOG_DEBUG &lt;&lt; &quot;Executing ClearRelation instruction: &quot;</span></div>
 <div class="line">    <span class="comment">//           &lt;&lt; get_type_name&lt;mir::ClearRelation&lt;Schema, Ver&gt;&gt;();</span></div>
-<div class="line">    <span class="keyword">auto</span>&amp; rel = get_relation_by_schema&lt;Schema, Ver&gt;(db);</div>
-<div class="line">    rel.clear();</div>
+<div class="line">    <span class="keyword">auto</span>&amp; <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a> = get_relation_by_schema&lt;Schema, Ver&gt;(db);</div>
+<div class="line">    <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a>.clear();</div>
 <div class="line">    <span class="comment">// Continue with next operation</span></div>
 <div class="line">    MIRExecutor&lt;std::tuple&lt;TailOps...&gt;&gt;::execute(db, iteration);</div>
 <div class="line">  }</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Specialization for InsertFromRelation</span></div>
-<div class="line"><span class="keyword">template</span> &lt;CRelationSchema Schema, std::size_t <a name="a7"></a><a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#afe141324a783aac4824e1f9ae7d1e585">FromVer</a>, std::size_t <a name="a8"></a><a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a16d6468ceb5a94d3a93056708093195a">ToVer</a>, CIndexSpec IndexSpecT,</div>
+<div class="line"><span class="keyword">template</span> &lt;CRelationSchema Schema, std::size_t <a name="a8"></a><a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#afe141324a783aac4824e1f9ae7d1e585">FromVer</a>, std::size_t <a name="a9"></a><a class="code" href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a16d6468ceb5a94d3a93056708093195a">ToVer</a>, CIndexSpec IndexSpecT,</div>
 <div class="line">          <span class="keyword">typename</span>... TailOps&gt;</div>
 <div class="line"><span class="keyword">struct </span>MIRExecutor&lt;</div>
 <div class="line">    <a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;mir::InsertFromRelation&lt;Schema, FromVer, ToVer, IndexSpecT&gt;, TailOps...&gt;&gt; {</div>
@@ -218,7 +218,7 @@ $(function() {
 <div class="line">    <span class="comment">// LOG_DEBUG &lt;&lt; &quot;Full relation size: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; BEFORE INSERT &quot; &lt;&lt; to_rel.size();</span></div>
 <div class="line">    std::array&lt;std::size_t, Schema::Arity&gt; values{};</div>
 <div class="line">    <span class="comment">// Pass IndexSpecT type (not runtime value) for compile-time unrolling</span></div>
-<div class="line">    IterateInsertFull&lt;<a name="a9"></a><a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#a538ab4d8179abe46644281d4051c119e">Schema::Arity</a>, decltype(from_root), Schema&gt;::iterate(from_root, to_rel,</div>
+<div class="line">    IterateInsertFull&lt;<a name="a10"></a><a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#a538ab4d8179abe46644281d4051c119e">Schema::Arity</a>, decltype(from_root), Schema&gt;::iterate(from_root, to_rel,</div>
 <div class="line">                                                                           values, IndexSpecT{});</div>
 <div class="line">    <span class="comment">// print full relation</span></div>
 <div class="line">    <span class="comment">// LOG_DEBUG &lt;&lt; &quot;From relation size: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; AFTER INSERT &quot; &lt;&lt;</span></div>
@@ -250,8 +250,8 @@ $(function() {
 <div class="line">  <span class="keyword">static</span> <span class="keywordtype">void</span> execute(DB&amp; db, std::size_t iteration) {</div>
 <div class="line">    <span class="comment">// LOG_DEBUG &lt;&lt; &quot;Executing SetVersion instruction: &quot;</span></div>
 <div class="line">    <span class="comment">//           &lt;&lt; get_type_name&lt;mir::SetVersion&lt;Schema, Ver&gt;&gt;();</span></div>
-<div class="line">    <span class="keyword">auto</span>&amp; rel = get_relation_by_schema&lt;Schema, Ver&gt;(db);</div>
-<div class="line">    rel.set_version(<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a>);</div>
+<div class="line">    <span class="keyword">auto</span>&amp; <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a> = get_relation_by_schema&lt;Schema, Ver&gt;(db);</div>
+<div class="line">    <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a>.set_version(<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a>);</div>
 <div class="line">    <span class="comment">// Continue with next operation</span></div>
 <div class="line">    MIRExecutor&lt;std::tuple&lt;TailOps...&gt;&gt;::execute(db, iteration);</div>
 <div class="line">  }</div>
@@ -259,7 +259,7 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="comment">// Specialization for ExecutePipeline</span></div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Pipeline, <span class="keyword">typename</span>... TailOps&gt;</div>
-<div class="line">  <a name="a10"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c">requires</a> mir::is_pipeline_v&lt;Pipeline&gt;</div>
+<div class="line">  <a name="a11"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c">requires</a> mir::is_pipeline_v&lt;Pipeline&gt;</div>
 <div class="line"><span class="keyword">struct </span>MIRExecutor&lt;<a class="code" href="../../d8/dcc/namespacestd.html">std</a>::tuple&lt;mir::ExecutePipeline&lt;Pipeline&gt;, TailOps...&gt;&gt; {</div>
 <div class="line">  <span class="keyword">template</span> &lt;CSemiNaiveDatabase DB&gt;</div>
 <div class="line">  <span class="keyword">static</span> <span class="keywordtype">void</span> execute(DB&amp; db, std::size_t iteration) {</div>
@@ -274,7 +274,7 @@ $(function() {
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;AST::CSemiNaiveDatabase DB&gt;</div>
-<div class="line"><span class="keywordtype">void</span> <a name="a11"></a><a class="code" href="../../d6/d03/namespaceSRDatalog_1_1detail.html#a6c80985df9a470fadaf3f03fdef3c77a">clear_all_indexes_for_debug</a>(DB&amp; db) {</div>
+<div class="line"><span class="keywordtype">void</span> <a name="a12"></a><a class="code" href="../../d6/d03/namespaceSRDatalog_1_1detail.html#a6c80985df9a470fadaf3f03fdef3c77a">clear_all_indexes_for_debug</a>(DB&amp; db) {</div>
 <div class="line">  <span class="keyword">using</span> DBType = <span class="keyword">typename</span> DB::schema_type;</div>
 <div class="line">  constexpr std::size_t N = std::tuple_size_v&lt;typename DB::data_type&gt;;</div>
 <div class="line"> </div>
@@ -325,20 +325,20 @@ $(function() {
 <div class="line"><span class="comment">// CompileRuleToMIR is now defined in mir.h (included above)</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CRelationSchema Schema, <span class="keyword">typename</span>... Values, <span class="keyword">typename</span> DB&gt;</div>
-<div class="line"><span class="keyword">inline</span> <span class="keywordtype">void</span> <a name="a12"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact</a>(DB&amp; runtime_db, <span class="keyword">const</span> <span class="keyword">auto</span>&amp;&amp; semiring_val, Values... values) {</div>
-<div class="line">  <span class="keyword">auto</span>&amp; rel = get_relation_by_schema&lt;Schema, FULL_VER&gt;(runtime_db);</div>
-<div class="line">  rel.push_row({values...}, std::forward&lt;decltype(semiring_val)&gt;(semiring_val));</div>
+<div class="line"><span class="keyword">inline</span> <span class="keywordtype">void</span> <a name="a13"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#abddd4b71e5fb3682986014326a3c3215">add_fact</a>(DB&amp; runtime_db, <span class="keyword">const</span> <span class="keyword">auto</span>&amp;&amp; semiring_val, Values... values) {</div>
+<div class="line">  <span class="keyword">auto</span>&amp; <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a> = get_relation_by_schema&lt;Schema, FULL_VER&gt;(runtime_db);</div>
+<div class="line">  <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a>.push_row({values...}, std::forward&lt;decltype(semiring_val)&gt;(semiring_val));</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CRelationSchema Schema, std::<span class="keywordtype">size_t</span> Ver, <span class="keyword">typename</span> DB&gt;</div>
-<div class="line"><span class="keywordtype">void</span> <a name="a13"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a199862a46af3476f5c3f54fe56e4750c">print_relation</a>(DB&amp; runtime_db, std::ostream&amp; os = std::cout, std::size_t n = 10) {</div>
-<div class="line">  <span class="keyword">auto</span>&amp; rel = get_relation_by_schema&lt;Schema, Ver&gt;(runtime_db);</div>
-<div class="line">  rel.head(n, os);</div>
+<div class="line"><span class="keywordtype">void</span> <a name="a14"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a199862a46af3476f5c3f54fe56e4750c">print_relation</a>(DB&amp; runtime_db, std::ostream&amp; os = std::cout, std::size_t n = 10) {</div>
+<div class="line">  <span class="keyword">auto</span>&amp; <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a> = get_relation_by_schema&lt;Schema, Ver&gt;(runtime_db);</div>
+<div class="line">  <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a>.head(n, os);</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// check if a tuple is in a relation</span></div>
 <div class="line"><span class="keyword">template</span> &lt;CRelationSchema Schema, std::<span class="keywordtype">size_t</span> Ver, <span class="keyword">typename</span> DB&gt;</div>
-<div class="line"><span class="keywordtype">bool</span> <a name="a14"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a61066e0430e71562cd23d6207200cf37">is_in_relation</a>(DB&amp; runtime_db, <span class="keyword">const</span> std::array&lt;std::size_t, Schema::Arity&gt;&amp; encoded_tuple) {</div>
+<div class="line"><span class="keywordtype">bool</span> <a name="a15"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a61066e0430e71562cd23d6207200cf37">is_in_relation</a>(DB&amp; runtime_db, <span class="keyword">const</span> std::array&lt;std::size_t, Schema::Arity&gt;&amp; encoded_tuple) {</div>
 <div class="line">  <span class="comment">// Access relation directly via tuple indexing to avoid get_relation_by_schema visibility issues</span></div>
 <div class="line">  <span class="comment">// Since query.h is included, we can use IndexRelInDBRels from SRDatalog::detail namespace</span></div>
 <div class="line">  <span class="comment">// Note: runtime/query.h has its own detail namespace, so we need to fully qualify</span></div>
@@ -346,12 +346,12 @@ $(function() {
 <div class="line">  <span class="comment">// Use boost::mp11 to find the index directly</span></div>
 <div class="line">  <span class="keyword">using</span> SchemaTuple = <span class="keyword">typename</span> DB::schema_type;</div>
 <div class="line">  constexpr std::size_t rel_index = boost::mp11::mp_find&lt;SchemaTuple, Schema&gt;::value;</div>
-<div class="line">  <span class="keyword">auto</span>&amp; rel = [&amp;]() -&gt; <span class="keyword">auto</span>&amp; {</div>
-<div class="line">    <span class="keywordflow">if</span> constexpr (<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a> == <a name="a15"></a><a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>) {</div>
+<div class="line">  <span class="keyword">auto</span>&amp; <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a> = [&amp;]() -&gt; <span class="keyword">auto</span>&amp; {</div>
+<div class="line">    <span class="keywordflow">if</span> constexpr (<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a> == <a name="a16"></a><a class="code" href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a>) {</div>
 <div class="line">      <span class="keywordflow">return</span> std::get&lt;rel_index&gt;(runtime_db.full);</div>
 <div class="line">    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a> == <a class="code" href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a>) {</div>
 <div class="line">      <span class="keywordflow">return</span> std::get&lt;rel_index&gt;(runtime_db.delta);</div>
-<div class="line">    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a> == <a name="a16"></a><a class="code" href="../../db/df0/ast_8h.html#af23fd1858447e4f2bfe0a8891acf1a77">NEW_VER</a>) {</div>
+<div class="line">    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (<a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">Ver</a> == <a name="a17"></a><a class="code" href="../../db/df0/ast_8h.html#af23fd1858447e4f2bfe0a8891acf1a77">NEW_VER</a>) {</div>
 <div class="line">      <span class="keywordflow">return</span> std::get&lt;rel_index&gt;(runtime_db.newt);</div>
 <div class="line">    }</div>
 <div class="line">  }();</div>
@@ -362,9 +362,9 @@ $(function() {
 <div class="line">  }(std::make_integer_sequence&lt;int, Schema::Arity&gt;{});</div>
 <div class="line">  <span class="comment">// Ensure the canonical index exists (canonical index is always [0,1,2,...,arity-1])</span></div>
 <div class="line">  <span class="comment">// This is not &quot;generating at runtime&quot; - the canonical index spec is determined at compile time</span></div>
-<div class="line">  <span class="keyword">const</span> <span class="keyword">auto</span>&amp; idx = rel.ensure_index(canonical_spec).root();</div>
+<div class="line">  <span class="keyword">const</span> <span class="keyword">auto</span>&amp; idx = <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a>.ensure_index(canonical_spec).root();</div>
 <div class="line">  <span class="comment">// reorder the tuple</span></div>
-<div class="line">  <span class="keyword">auto</span> reordered_tuple = <a name="a17"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#ac23ccf89fbb3ce7e6c680ace71d386c4">reorder_tuple</a>(canonical_spec, encoded_tuple);</div>
+<div class="line">  <span class="keyword">auto</span> reordered_tuple = <a name="a18"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#ac23ccf89fbb3ce7e6c680ace71d386c4">reorder_tuple</a>(canonical_spec, encoded_tuple);</div>
 <div class="line">  <span class="keywordflow">return</span> idx.prefix(reordered_tuple).valid();</div>
 <div class="line">}</div>
 <div class="line"><span class="comment">// left value for array</span></div>
@@ -516,7 +516,7 @@ $(function() {
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> SchemaArity, <span class="keyword">typename</span> IndexColSeq&gt;</div>
-<div class="line"><span class="keyword">auto</span> <a name="a18"></a><a class="code" href="../../d6/d03/namespaceSRDatalog_1_1detail.html#a44159eab654e36f4f12a022c9646d34d">inverse_reorder_tuple_ct</a>(<span class="keyword">const</span> std::array&lt;std::size_t, SchemaArity&gt;&amp; index_ordered_values)</div>
+<div class="line"><span class="keyword">auto</span> <a name="a19"></a><a class="code" href="../../d6/d03/namespaceSRDatalog_1_1detail.html#a44159eab654e36f4f12a022c9646d34d">inverse_reorder_tuple_ct</a>(<span class="keyword">const</span> std::array&lt;std::size_t, SchemaArity&gt;&amp; index_ordered_values)</div>
 <div class="line">    -&gt; std::array&lt;std::size_t, SchemaArity&gt; {</div>
 <div class="line">  <span class="keywordflow">return</span> [&amp;]&lt;std::size_t... SchemaPos&gt;(std::index_sequence&lt;SchemaPos...&gt;) {</div>
 <div class="line">    <span class="keywordflow">return</span> std::array&lt;std::size_t, SchemaArity&gt;{</div>
@@ -556,7 +556,7 @@ $(function() {
 <div class="line">    <span class="comment">// current_idx is the position in the index order (0, 1, 2, ... for index columns)</span></div>
 <div class="line">    <span class="comment">// We&#39;re iterating in index order, so values[current_idx] gets the value for index column</span></div>
 <div class="line">    <span class="comment">// current_idx</span></div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keyword">auto</span> val : <a name="a19"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a99715d6e23f027a765e0851134bc7ed7">RelType::column_intersect</a>(node)) {</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keyword">auto</span> val : <a name="a20"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a99715d6e23f027a765e0851134bc7ed7">RelType::column_intersect</a>(node)) {</div>
 <div class="line">      values[current_idx] = val;</div>
 <div class="line">      <span class="keyword">auto</span> next_node = node.prefix(val);</div>
 <div class="line">      IterateInsertFull&lt;<a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#a538ab4d8179abe46644281d4051c119e">Arity</a> - 1, decltype(next_node), Schema&gt;::iterate(next_node, relation_full,</div>
@@ -567,7 +567,7 @@ $(function() {
 <div class="line">}  <span class="comment">// namespace detail</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CRelationSchema Schema, AST::CSemiNaiveDatabase DB&gt;</div>
-<div class="line"><span class="keywordtype">void</span> <a name="a20"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a0f79ed37877d2c63457a5dca4629f67e">load_full_to_delta</a>(DB&amp; db) {</div>
+<div class="line"><span class="keywordtype">void</span> <a name="a21"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a0f79ed37877d2c63457a5dca4629f67e">load_full_to_delta</a>(DB&amp; db) {</div>
 <div class="line">  <span class="keyword">auto</span>&amp; relation_full = get_relation_by_schema&lt;Schema, FULL_VER&gt;(db);</div>
 <div class="line">  <span class="keyword">auto</span>&amp; relation_delta = get_relation_by_schema&lt;Schema, DELTA_VER&gt;(db);</div>
 <div class="line">  <span class="comment">// db.verify_distinct_addresses();</span></div>
@@ -577,7 +577,7 @@ $(function() {
 <div class="line"><span class="keyword">template</span> &lt;CFixpo<span class="keywordtype">int</span> FP&gt;</div>
 <div class="line"><span class="keyword">struct </span>ExecuteRulesForFixpoint {</div>
 <div class="line">  <span class="comment">// Compile Fixpoint to monadic FixpointPlan (flat instruction list)</span></div>
-<div class="line">  <span class="keyword">using</span> Plan = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">CompileFixpointToPlan&lt;FP&gt;::type</a>;</div>
+<div class="line">  <span class="keyword">using</span> <a name="a22"></a><a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8bf8e2d65414a73ba67d62a53eed1f8b">Plan</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">CompileFixpointToPlan&lt;FP&gt;::type</a>;</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// Extract incremental relations from original Fixpoint (needed for delta computation)</span></div>
 <div class="line">  <span class="keyword">using</span> IncrementalRelations = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">GetIncrementalRelationsFromFixpoint&lt;FP&gt;::type</a>;</div>
@@ -609,7 +609,7 @@ $(function() {
 <div class="line"> </div>
 <div class="line">    std::size_t iteration = 0;</div>
 <div class="line">    <span class="keywordflow">while</span> (iteration &lt; max_iterations) {</div>
-<div class="line">      <a name="a21"></a><a class="code" href="../../d5/d77/logging_8h.html#aeb4f36db01bd128c7afeac5889dac311">LOG_INFO</a> &lt;&lt; <span class="stringliteral">&quot;Iteration &quot;</span> &lt;&lt; iteration;</div>
+<div class="line">      <a name="a23"></a><a class="code" href="../../d5/d77/logging_8h.html#aeb4f36db01bd128c7afeac5889dac311">LOG_INFO</a> &lt;&lt; <span class="stringliteral">&quot;Iteration &quot;</span> &lt;&lt; iteration;</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Check DELTA_VER size at the START of iteration (except iteration 0)</span></div>
 <div class="line">      <span class="comment">// After delta computation in previous iteration, NEW_VER was cleared</span></div>
@@ -643,7 +643,7 @@ $(function() {
 <div class="line">      iteration++;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">if</span> (iteration &gt;= max_iterations) {</div>
-<div class="line">      <a name="a22"></a><a class="code" href="../../d5/d77/logging_8h.html#adf4476a6a4ea6c74231c826e899d7189">LOG_WARNING</a> &lt;&lt; <span class="stringliteral">&quot;Reached maximum iterations (&quot;</span> &lt;&lt; max_iterations &lt;&lt; <span class="stringliteral">&quot;), terminating early&quot;</span>;</div>
+<div class="line">      <a name="a24"></a><a class="code" href="../../d5/d77/logging_8h.html#adf4476a6a4ea6c74231c826e899d7189">LOG_WARNING</a> &lt;&lt; <span class="stringliteral">&quot;Reached maximum iterations (&quot;</span> &lt;&lt; max_iterations &lt;&lt; <span class="stringliteral">&quot;), terminating early&quot;</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// For debugging: clear all indexes after query execution</span></div>
@@ -667,7 +667,7 @@ $(function() {
 <div class="line">  <span class="comment">// Compile MIR plans for each rule (with canonical indices replaced)</span></div>
 <div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Rule&gt;</div>
 <div class="line">  <span class="keyword">using</span> CompileRuleMIR =</div>
-<div class="line">      <span class="keyword">typename</span> <a name="a23"></a><a class="code" href="../../d3/d92/structSRDatalog_1_1ReplaceDestinationRelationsInTuple.html#a859e762e6df9db03721146bbd3ec9788">ReplaceDestinationRelationsInTuple&lt;typename CompileRuleToMIR&lt;Rule&gt;::type</a>,</div>
+<div class="line">      <span class="keyword">typename</span> <a name="a25"></a><a class="code" href="../../d3/d92/structSRDatalog_1_1ReplaceDestinationRelationsInTuple.html#a859e762e6df9db03721146bbd3ec9788">ReplaceDestinationRelationsInTuple&lt;typename CompileRuleToMIR&lt;Rule&gt;::type</a>,</div>
 <div class="line">                                                  CanonicalIndexSpecs&gt;<a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">::type</a>;</div>
 <div class="line">  <span class="keyword">using</span> MIRPlans = mp::mp_transform&lt;CompileRuleMIR, RuleList&gt;;</div>
 <div class="line"> </div>
@@ -702,9 +702,8 @@ $(function() {
 <div class="line">      <span class="comment">// Compute the variable-to-position map</span></div>
 <div class="line">      <span class="keyword">using</span> <a class="code" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#add4e6314f6277063598c40c406f4de4f">VarPosMap</a> = <span class="keyword">typename</span> <a class="code" href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#ab8bf84636c981103c4efa6cac4712799">mir::ComputeVarPosMap&lt;GlobalJoinPlan&gt;::type</a>;</div>
 <div class="line">      <span class="comment">// Compute the IndexSpecT-to-iterator-position map</span></div>
-<div class="line">      <span class="keyword">using</span> <a class="code" href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6aa6c3da4d7a9ef1e1571ebc4170a7cc">IteratorPosMap</a> = <span class="keyword">typename</span> <a name="a24"></a><a class="code" href="../../d9/db4/structSRDatalog_1_1mir_1_1ComputePipelineIteratorPosMap.html#ac1716ad65a032da33ceaaaa66d77b4fd">mir::ComputePipelineIteratorPosMap&lt;MIR&gt;::type</a>;</div>
 <div class="line">      <span class="comment">// Create Pipeline</span></div>
-<div class="line">      <span class="keyword">using</span> Pipeline = mir::Pipeline&lt;MIR, VarPosMap, IteratorPosMap&gt;;</div>
+<div class="line">      <span class="keyword">using</span> Pipeline = mir::Pipeline&lt;MIR, VarPosMap&gt;;</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Execute using the new tuple-based pipeline execution engine</span></div>
 <div class="line">      execute_pipeline&lt;Pipeline&gt;(db, 0, <span class="keyword">true</span>);  <span class="comment">// non_iterative = true</span></div>
@@ -714,11 +713,11 @@ $(function() {
 <div class="line">    mp::mp_for_each&lt;FilteredIndexSpecs&gt;([&amp;]&lt;<span class="keyword">typename</span> IndexSpecT&gt;(IndexSpecT) {</div>
 <div class="line">      <span class="keyword">using</span> Schema = <span class="keyword">typename</span> <a class="code" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#af0843f4a7aed4186f433a0de69929985">IndexSpecT::schema_type</a>;</div>
 <div class="line">      <span class="keyword">using</span> ColSeq = <span class="keyword">typename</span> <a class="code" href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#a43072acbd80c0e205f40aec1117a4838">IndexSpecT::column_indexes_type</a>;</div>
-<div class="line">      <span class="keyword">auto</span>&amp; rel = get_relation_by_schema&lt;Schema, FULL_VER&gt;(db);</div>
+<div class="line">      <span class="keyword">auto</span>&amp; <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a> = get_relation_by_schema&lt;Schema, FULL_VER&gt;(db);</div>
 <div class="line">      <span class="keyword">auto</span> runtime_spec = []&lt;<span class="keywordtype">int</span>... Cols&gt;(std::integer_sequence&lt;int, Cols...&gt;) {</div>
 <div class="line">        <span class="keywordflow">return</span> <a class="code" href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">IndexSpec</a>{{Cols...}};</div>
 <div class="line">      }(ColSeq{});</div>
-<div class="line">      rel.ensure_index(runtime_spec);</div>
+<div class="line">      <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">rel</a>.ensure_index(runtime_spec);</div>
 <div class="line">    });</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// For debugging: clear all indexes after query execution</span></div>
@@ -744,45 +743,45 @@ $(function() {
 <div class="line"><span class="comment">// Specialization for CFixpoint to expose plan types</span></div>
 <div class="line"><span class="keyword">template</span> &lt;CFixpo<span class="keywordtype">int</span> Q&gt;</div>
 <div class="line"><span class="keyword">struct </span>ExecuteQuery&lt;Q&gt; {</div>
-<div class="line">  <span class="keyword">using</span> Executor = ExecuteRulesForFixpoint&lt;Q&gt;;</div>
-<div class="line">  <span class="keyword">using</span> Plan = <span class="keyword">typename</span> Executor::Plan;</div>
-<div class="line">  <span class="keyword">using</span> IncrementalRelations = <span class="keyword">typename</span> Executor::IncrementalRelations;</div>
-<div class="line">  <span class="keyword">using</span> AllIndexSpecs = <span class="keyword">typename</span> Executor::AllIndexSpecs;</div>
-<div class="line">  <span class="keyword">using</span> CanonicalIndexSpecs = <span class="keyword">typename</span> Executor::CanonicalIndexSpecs;</div>
+<div class="line">  <span class="keyword">using</span> <a name="_a26"></a><a class="code" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">Executor</a> = ExecuteRulesForFixpoint&lt;Q&gt;;</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8bf8e2d65414a73ba67d62a53eed1f8b">Plan</a> = <span class="keyword">typename</span> <a name="a27"></a><a class="code" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a404e789a11fc71f0c4d61dd525b30907">Executor::Plan</a>;</div>
+<div class="line">  <span class="keyword">using</span> IncrementalRelations = <span class="keyword">typename</span> <a name="a28"></a><a class="code" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a85b7af87fcce1f53d4714298e42314a8">Executor::IncrementalRelations</a>;</div>
+<div class="line">  <span class="keyword">using</span> AllIndexSpecs = <span class="keyword">typename</span> <a name="a29"></a><a class="code" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#af41c60a8106e6ad8a71892f68baa92de">Executor::AllIndexSpecs</a>;</div>
+<div class="line">  <span class="keyword">using</span> CanonicalIndexSpecs = <span class="keyword">typename</span> <a name="a30"></a><a class="code" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a003d21da35e8898da80b1403bf8d15df">Executor::CanonicalIndexSpecs</a>;</div>
 <div class="line"> </div>
 <div class="line">  <span class="keyword">template</span> &lt;AST::CSemiNaiveDatabase DB&gt;</div>
 <div class="line">  std::size_t operator()(DB&amp; db, std::size_t max_iterations = SIZE_MAX)<span class="keyword"> const </span>{</div>
-<div class="line">    <span class="keywordflow">return</span> Executor{}(db, max_iterations);</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">Executor</a>{}(db, max_iterations);</div>
 <div class="line">  }</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Specialization for CNonIterativeRuleSets to expose plan types</span></div>
 <div class="line"><span class="keyword">template</span> &lt;CNonIterativeRuleSets Q&gt;</div>
 <div class="line"><span class="keyword">struct </span>ExecuteQuery&lt;Q&gt; {</div>
-<div class="line">  <span class="keyword">using</span> Executor = ExecuteRulesForNonIterativeRuleSets&lt;Q&gt;;</div>
+<div class="line">  <span class="keyword">using</span> <a class="code" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">Executor</a> = ExecuteRulesForNonIterativeRuleSets&lt;Q&gt;;</div>
 <div class="line">  <span class="keyword">using</span> RuleList = <span class="keyword">typename</span> Executor::RuleList;</div>
-<div class="line">  <span class="keyword">using</span> IncrementalRelations = <span class="keyword">typename</span> Executor::IncrementalRelations;</div>
-<div class="line">  <span class="keyword">using</span> AllIndexSpecs = <span class="keyword">typename</span> Executor::AllIndexSpecs;</div>
-<div class="line">  <span class="keyword">using</span> CanonicalIndexSpecs = <span class="keyword">typename</span> Executor::CanonicalIndexSpecs;</div>
+<div class="line">  <span class="keyword">using</span> IncrementalRelations = <span class="keyword">typename</span> <a class="code" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a85b7af87fcce1f53d4714298e42314a8">Executor::IncrementalRelations</a>;</div>
+<div class="line">  <span class="keyword">using</span> AllIndexSpecs = <span class="keyword">typename</span> <a class="code" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#af41c60a8106e6ad8a71892f68baa92de">Executor::AllIndexSpecs</a>;</div>
+<div class="line">  <span class="keyword">using</span> CanonicalIndexSpecs = <span class="keyword">typename</span> <a class="code" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a003d21da35e8898da80b1403bf8d15df">Executor::CanonicalIndexSpecs</a>;</div>
 <div class="line">  <span class="keyword">using</span> MIRPlans = <span class="keyword">typename</span> Executor::MIRPlans;</div>
 <div class="line">  <span class="keyword">using</span> FilteredIndexSpecs = <span class="keyword">typename</span> Executor::FilteredIndexSpecs;</div>
 <div class="line"> </div>
 <div class="line">  <span class="keyword">template</span> &lt;AST::CSemiNaiveDatabase DB&gt;</div>
 <div class="line">  std::size_t operator()(DB&amp; db, std::size_t max_iterations = SIZE_MAX)<span class="keyword"> const </span>{</div>
-<div class="line">    Executor{}(db);</div>
+<div class="line">    <a class="code" href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">Executor</a>{}(db);</div>
 <div class="line">    <span class="keywordflow">return</span> 1;</div>
 <div class="line">  }</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;CQuery Q, AST::CSemiNaiveDatabase DB&gt;</div>
-<div class="line">std::size_t <a name="a25"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">execute_query</a>(DB&amp; db, std::size_t max_iterations = SIZE_MAX) {</div>
+<div class="line">std::size_t <a name="a31"></a><a class="code" href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">execute_query</a>(DB&amp; db, std::size_t max_iterations = SIZE_MAX) {</div>
 <div class="line">  <span class="keywordflow">return</span> ExecuteQuery&lt;Q&gt;{}(db, max_iterations);</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line">}  <span class="comment">// namespace SRDatalog</span></div>
-<div class="ttc" id="aast_8h_html_a69450f971feef4fd1281d79c44217e97"><div class="ttname"><a href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a></div><div class="ttdeci">#define FULL_VER</div><div class="ttdef"><b>Definition:</b> ast.h:52</div></div>
-<div class="ttc" id="aast_8h_html_af23fd1858447e4f2bfe0a8891acf1a77"><div class="ttname"><a href="../../db/df0/ast_8h.html#af23fd1858447e4f2bfe0a8891acf1a77">NEW_VER</a></div><div class="ttdeci">#define NEW_VER</div><div class="ttdef"><b>Definition:</b> ast.h:51</div></div>
-<div class="ttc" id="aast_8h_html_afaaa88a6fca1241dce9bdf47936fa190"><div class="ttname"><a href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a></div><div class="ttdeci">#define DELTA_VER</div><div class="ttdef"><b>Definition:</b> ast.h:53</div></div>
+<div class="ttc" id="aast_8h_html_a69450f971feef4fd1281d79c44217e97"><div class="ttname"><a href="../../db/df0/ast_8h.html#a69450f971feef4fd1281d79c44217e97">FULL_VER</a></div><div class="ttdeci">#define FULL_VER</div><div class="ttdef"><b>Definition:</b> ast.h:51</div></div>
+<div class="ttc" id="aast_8h_html_af23fd1858447e4f2bfe0a8891acf1a77"><div class="ttname"><a href="../../db/df0/ast_8h.html#af23fd1858447e4f2bfe0a8891acf1a77">NEW_VER</a></div><div class="ttdeci">#define NEW_VER</div><div class="ttdef"><b>Definition:</b> ast.h:53</div></div>
+<div class="ttc" id="aast_8h_html_afaaa88a6fca1241dce9bdf47936fa190"><div class="ttname"><a href="../../db/df0/ast_8h.html#afaaa88a6fca1241dce9bdf47936fa190">DELTA_VER</a></div><div class="ttdeci">#define DELTA_VER</div><div class="ttdef"><b>Definition:</b> ast.h:52</div></div>
 <div class="ttc" id="aexecutor_8h_html"><div class="ttname"><a href="../../dd/d40/executor_8h.html">executor.h</a></div><div class="ttdoc">Pipeline executor - core template metaprogramming interpreter for pipelines.</div></div>
 <div class="ttc" id="alogging_8h_html"><div class="ttname"><a href="../../d5/d77/logging_8h.html">logging.h</a></div></div>
 <div class="ttc" id="alogging_8h_html_a6ff63e8955665c4a58b1598f2b07c51a"><div class="ttname"><a href="../../d5/d77/logging_8h.html#a6ff63e8955665c4a58b1598f2b07c51a">LOG_DEBUG</a></div><div class="ttdeci">#define LOG_DEBUG</div><div class="ttdef"><b>Definition:</b> logging.h:107</div></div>
@@ -790,31 +789,36 @@ $(function() {
 <div class="ttc" id="alogging_8h_html_aeb4f36db01bd128c7afeac5889dac311"><div class="ttname"><a href="../../d5/d77/logging_8h.html#aeb4f36db01bd128c7afeac5889dac311">LOG_INFO</a></div><div class="ttdeci">#define LOG_INFO</div><div class="ttdef"><b>Definition:</b> logging.h:108</div></div>
 <div class="ttc" id="amir_8h_html"><div class="ttname"><a href="../../d3/dab/mir_8h.html">mir.h</a></div><div class="ttdoc">Mid-level Intermediate Representation (MIR) definitions and compilation.</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1AST_html"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html">SRDatalog::AST</a></div><div class="ttdef"><b>Definition:</b> ast.h:56</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_ad59d2fc2c37668ffd3093befaec5671f"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">SRDatalog::AST::Ver</a></div><div class="ttdeci">CRelationSchema std::size_t Ver</div><div class="ttdef"><b>Definition:</b> ast.h:375</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1GPU_html_acd0e9dde4687ece128684cdb2bf1db12"><div class="ttname"><a href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">SRDatalog::GPU::IndexSpec</a></div><div class="ttdeci">SRDatalog::IndexSpec IndexSpec</div><div class="ttdef"><b>Definition:</b> device_sorted_array_index.h:49</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a5e6b328cd7e5a4fb45a9843d28889e45"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a5e6b328cd7e5a4fb45a9843d28889e45">SRDatalog::AST::rel</a></div><div class="ttdeci">constexpr auto rel</div><div class="ttdoc">Global helper to create a RelWrapper for a schema.</div><div class="ttdef"><b>Definition:</b> ast.h:1269</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_a8bf8e2d65414a73ba67d62a53eed1f8b"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#a8bf8e2d65414a73ba67d62a53eed1f8b">SRDatalog::AST::Plan</a></div><div class="ttdeci">JoinPlan&lt; std::tuple&lt; Vars... &gt; &gt; Plan</div><div class="ttdef"><b>Definition:</b> ast.h:521</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1AST_html_ad59d2fc2c37668ffd3093befaec5671f"><div class="ttname"><a href="../../d6/da1/namespaceSRDatalog_1_1AST.html#ad59d2fc2c37668ffd3093befaec5671f">SRDatalog::AST::Ver</a></div><div class="ttdeci">CRelationSchema std::size_t Ver</div><div class="ttdef"><b>Definition:</b> ast.h:387</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1GPU_html_acd0e9dde4687ece128684cdb2bf1db12"><div class="ttname"><a href="../../df/dcf/namespaceSRDatalog_1_1GPU.html#acd0e9dde4687ece128684cdb2bf1db12">SRDatalog::GPU::IndexSpec</a></div><div class="ttdeci">SRDatalog::IndexSpec IndexSpec</div><div class="ttdef"><b>Definition:</b> device_sorted_array_index.h:50</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1detail_html_a44159eab654e36f4f12a022c9646d34d"><div class="ttname"><a href="../../d6/d03/namespaceSRDatalog_1_1detail.html#a44159eab654e36f4f12a022c9646d34d">SRDatalog::detail::inverse_reorder_tuple_ct</a></div><div class="ttdeci">auto inverse_reorder_tuple_ct(const std::array&lt; std::size_t, SchemaArity &gt; &amp;index_ordered_values) -&gt; std::array&lt; std::size_t, SchemaArity &gt;</div><div class="ttdoc">Compile-time inverse reorder: convert from index order back to schema order.</div><div class="ttdef"><b>Definition:</b> query.h:615</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1detail_html_a6c80985df9a470fadaf3f03fdef3c77a"><div class="ttname"><a href="../../d6/d03/namespaceSRDatalog_1_1detail.html#a6c80985df9a470fadaf3f03fdef3c77a">SRDatalog::detail::clear_all_indexes_for_debug</a></div><div class="ttdeci">void clear_all_indexes_for_debug(DB &amp;db)</div><div class="ttdoc">Clear all indexes from all relations in a database (for debugging).</div><div class="ttdef"><b>Definition:</b> query.h:226</div></div>
 <div class="ttc" id="anamespaceSRDatalog_1_1index_1_1detail_html_a538ab4d8179abe46644281d4051c119e"><div class="ttname"><a href="../../d6/d55/namespaceSRDatalog_1_1index_1_1detail.html#a538ab4d8179abe46644281d4051c119e">SRDatalog::index::detail::Arity</a></div><div class="ttdeci">Arity</div><div class="ttdef"><b>Definition:</b> hashmap.h:52</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_a16d6468ceb5a94d3a93056708093195a"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a16d6468ceb5a94d3a93056708093195a">SRDatalog::mir::ToVer</a></div><div class="ttdeci">std::size_t std::size_t ToVer</div><div class="ttdef"><b>Definition:</b> mir.h:275</div></div>
-<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_afe141324a783aac4824e1f9ae7d1e585"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#afe141324a783aac4824e1f9ae7d1e585">SRDatalog::mir::FromVer</a></div><div class="ttdeci">std::size_t FromVer</div><div class="ttdef"><b>Definition:</b> mir.h:275</div></div>
-<div class="ttc" id="anamespaceSRDatalog_html"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html">SRDatalog</a></div><div class="ttdef"><b>Definition:</b> device_array.h:24</div></div>
-<div class="ttc" id="anamespaceSRDatalog_html_a029373a27788414f143dd0dbf0f2875c"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">SRDatalog::execute_query</a></div><div class="ttdeci">std::size_t execute_query(DB &amp;db, std::size_t max_iterations=SIZE_MAX)</div><div class="ttdoc">Convenience function wrapper for ExecuteQuery functor (API compatibility).</div><div class="ttdef"><b>Definition:</b> query.h:980</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_a16d6468ceb5a94d3a93056708093195a"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#a16d6468ceb5a94d3a93056708093195a">SRDatalog::mir::ToVer</a></div><div class="ttdeci">std::size_t std::size_t ToVer</div><div class="ttdef"><b>Definition:</b> mir.h:331</div></div>
+<div class="ttc" id="anamespaceSRDatalog_1_1mir_html_afe141324a783aac4824e1f9ae7d1e585"><div class="ttname"><a href="../../db/d7d/namespaceSRDatalog_1_1mir.html#afe141324a783aac4824e1f9ae7d1e585">SRDatalog::mir::FromVer</a></div><div class="ttdeci">std::size_t FromVer</div><div class="ttdef"><b>Definition:</b> mir.h:331</div></div>
+<div class="ttc" id="anamespaceSRDatalog_html"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html">SRDatalog</a></div><div class="ttdef"><b>Definition:</b> ast.h:56</div></div>
+<div class="ttc" id="anamespaceSRDatalog_html_a029373a27788414f143dd0dbf0f2875c"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#a029373a27788414f143dd0dbf0f2875c">SRDatalog::execute_query</a></div><div class="ttdeci">std::size_t execute_query(DB &amp;db, std::size_t max_iterations=SIZE_MAX)</div><div class="ttdoc">Convenience function wrapper for ExecuteQuery functor (API compatibility).</div><div class="ttdef"><b>Definition:</b> query.h:979</div></div>
 <div class="ttc" id="anamespaceSRDatalog_html_a0f79ed37877d2c63457a5dca4629f67e"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#a0f79ed37877d2c63457a5dca4629f67e">SRDatalog::load_full_to_delta</a></div><div class="ttdeci">void load_full_to_delta(DB &amp;db)</div><div class="ttdoc">Load full relation into delta for fixpoint initialization.</div><div class="ttdef"><b>Definition:</b> query.h:691</div></div>
 <div class="ttc" id="anamespaceSRDatalog_html_a199862a46af3476f5c3f54fe56e4750c"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#a199862a46af3476f5c3f54fe56e4750c">SRDatalog::print_relation</a></div><div class="ttdeci">void print_relation(DB &amp;runtime_db, std::ostream &amp;os=std::cout, std::size_t n=10)</div><div class="ttdoc">Print the contents of a relation in the runtime database.</div><div class="ttdef"><b>Definition:</b> query.h:301</div></div>
 <div class="ttc" id="anamespaceSRDatalog_html_a61066e0430e71562cd23d6207200cf37"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#a61066e0430e71562cd23d6207200cf37">SRDatalog::is_in_relation</a></div><div class="ttdeci">bool is_in_relation(DB &amp;runtime_db, const std::array&lt; std::size_t, Schema::Arity &gt; &amp;encoded_tuple)</div><div class="ttdef"><b>Definition:</b> query.h:308</div></div>
 <div class="ttc" id="anamespaceSRDatalog_html_a8840025cc1f1f494e70817737843187c"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#a8840025cc1f1f494e70817737843187c">SRDatalog::requires</a></div><div class="ttdeci">requires requires</div><div class="ttdef"><b>Definition:</b> relation_col.ipp:37</div></div>
-<div class="ttc" id="anamespaceSRDatalog_html_a99715d6e23f027a765e0851134bc7ed7"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#a99715d6e23f027a765e0851134bc7ed7">SRDatalog::column_intersect</a></div><div class="ttdeci">auto column_intersect(const NodeHandleTs &amp;... handles) noexcept</div><div class="ttdoc">Overload that takes Index type as template parameter and calls its static intersect method.</div><div class="ttdef"><b>Definition:</b> relation_col.ipp:596</div></div>
+<div class="ttc" id="anamespaceSRDatalog_html_a99715d6e23f027a765e0851134bc7ed7"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#a99715d6e23f027a765e0851134bc7ed7">SRDatalog::column_intersect</a></div><div class="ttdeci">auto column_intersect(const NodeHandleTs &amp;... handles) noexcept</div><div class="ttdoc">Overload that takes Index type as template parameter and calls its static intersect method.</div><div class="ttdef"><b>Definition:</b> relation_col.ipp:600</div></div>
 <div class="ttc" id="anamespaceSRDatalog_html_abddd4b71e5fb3682986014326a3c3215"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#abddd4b71e5fb3682986014326a3c3215">SRDatalog::add_fact</a></div><div class="ttdeci">void add_fact(DB &amp;runtime_db, const auto &amp;&amp;semiring_val, Values... values)</div><div class="ttdoc">Add a fact to a relation in the runtime database.</div><div class="ttdef"><b>Definition:</b> query.h:286</div></div>
 <div class="ttc" id="anamespaceSRDatalog_html_ac23ccf89fbb3ce7e6c680ace71d386c4"><div class="ttname"><a href="../../dc/d33/namespaceSRDatalog.html#ac23ccf89fbb3ce7e6c680ace71d386c4">SRDatalog::reorder_tuple</a></div><div class="ttdeci">auto reorder_tuple(const IndexSpec &amp;spec, const std::array&lt; std::size_t, N &gt; &amp;array) -&gt; std::array&lt; std::size_t, N &gt;</div><div class="ttdef"><b>Definition:</b> relation_col.h:1451</div></div>
 <div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="../../d8/dcc/namespacestd.html">std</a></div><div class="ttdef"><b>Definition:</b> test_gpu_pipeline_executor.cpp:29</div></div>
 <div class="ttc" id="arelation__col_8h_html"><div class="ttname"><a href="../../d1/d25/relation__col_8h.html">relation_col.h</a></div><div class="ttdoc">Defines the column-oriented Relation class and associated views/indexes.</div></div>
 <div class="ttc" id="astate_8h_html"><div class="ttname"><a href="../../db/d3b/state_8h.html">state.h</a></div><div class="ttdoc">Runtime state management for variable bindings.</div></div>
+<div class="ttc" id="astructSRDatalog_1_1GPU_1_1GPUQueryExecutor_html"><div class="ttname"><a href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html">SRDatalog::GPU::GPUQueryExecutor</a></div><div class="ttdoc">Executor for running fixpoint queries on GPU.</div><div class="ttdef"><b>Definition:</b> query.h:69</div></div>
+<div class="ttc" id="astructSRDatalog_1_1GPU_1_1GPUQueryExecutor_html_a003d21da35e8898da80b1403bf8d15df"><div class="ttname"><a href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a003d21da35e8898da80b1403bf8d15df">SRDatalog::GPU::GPUQueryExecutor::CanonicalIndexSpecs</a></div><div class="ttdeci">typename SRDatalog::detail::CollectCanonicalIndexSpecs&lt; IncrementalRelations, AllIndexSpecs &gt;::type CanonicalIndexSpecs</div><div class="ttdef"><b>Definition:</b> query.h:85</div></div>
+<div class="ttc" id="astructSRDatalog_1_1GPU_1_1GPUQueryExecutor_html_a404e789a11fc71f0c4d61dd525b30907"><div class="ttname"><a href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a404e789a11fc71f0c4d61dd525b30907">SRDatalog::GPU::GPUQueryExecutor::Plan</a></div><div class="ttdeci">typename mir::gpu_opt::OptimizeFixpointPlanForGPU&lt; InitialPlan &gt;::type Plan</div><div class="ttdoc">Apply GPU-specific MIR optimizations.</div><div class="ttdef"><b>Definition:</b> query.h:73</div></div>
+<div class="ttc" id="astructSRDatalog_1_1GPU_1_1GPUQueryExecutor_html_a85b7af87fcce1f53d4714298e42314a8"><div class="ttname"><a href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a85b7af87fcce1f53d4714298e42314a8">SRDatalog::GPU::GPUQueryExecutor::IncrementalRelations</a></div><div class="ttdeci">typename GetIncrementalRelationsFromFixpoint&lt; FP &gt;::type IncrementalRelations</div><div class="ttdef"><b>Definition:</b> query.h:82</div></div>
+<div class="ttc" id="astructSRDatalog_1_1GPU_1_1GPUQueryExecutor_html_af41c60a8106e6ad8a71892f68baa92de"><div class="ttname"><a href="../../dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#af41c60a8106e6ad8a71892f68baa92de">SRDatalog::GPU::GPUQueryExecutor::AllIndexSpecs</a></div><div class="ttdeci">typename SRDatalog::detail::CollectAllIndexSpecs&lt; RulesTuple &gt;::type AllIndexSpecs</div><div class="ttdef"><b>Definition:</b> query.h:79</div></div>
 <div class="ttc" id="astructSRDatalog_1_1IndexSpecT_html_a43072acbd80c0e205f40aec1117a4838"><div class="ttname"><a href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#a43072acbd80c0e205f40aec1117a4838">SRDatalog::IndexSpecT::column_indexes_type</a></div><div class="ttdeci">ColumnIndexes column_indexes_type</div><div class="ttdoc">The column indexes sequence type.</div><div class="ttdef"><b>Definition:</b> mir.h:55</div></div>
 <div class="ttc" id="astructSRDatalog_1_1IndexSpecT_html_ade03fd17775a1fbacabca9fe625aa0ad"><div class="ttname"><a href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#ade03fd17775a1fbacabca9fe625aa0ad">SRDatalog::IndexSpecT::kVersion</a></div><div class="ttdeci">static constexpr std::size_t kVersion</div><div class="ttdoc">The version number for semi-naive evaluation.</div><div class="ttdef"><b>Definition:</b> mir.h:57</div></div>
 <div class="ttc" id="astructSRDatalog_1_1IndexSpecT_html_af0843f4a7aed4186f433a0de69929985"><div class="ttname"><a href="../../df/d82/structSRDatalog_1_1IndexSpecT.html#af0843f4a7aed4186f433a0de69929985">SRDatalog::IndexSpecT::schema_type</a></div><div class="ttdeci">schema schema_type</div><div class="ttdoc">The relation schema type.</div><div class="ttdef"><b>Definition:</b> mir.h:53</div></div>
-<div class="ttc" id="astructSRDatalog_1_1ReplaceDestinationRelationsInTuple_html_a859e762e6df9db03721146bbd3ec9788"><div class="ttname"><a href="../../d3/d92/structSRDatalog_1_1ReplaceDestinationRelationsInTuple.html#a859e762e6df9db03721146bbd3ec9788">SRDatalog::ReplaceDestinationRelationsInTuple::type</a></div><div class="ttdeci">mp::mp_transform&lt; ReplaceOp, MIROps &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:1450</div></div>
-<div class="ttc" id="astructSRDatalog_1_1mir_1_1ComputePipelineIteratorPosMap_html_ac1716ad65a032da33ceaaaa66d77b4fd"><div class="ttname"><a href="../../d9/db4/structSRDatalog_1_1mir_1_1ComputePipelineIteratorPosMap.html#ac1716ad65a032da33ceaaaa66d77b4fd">SRDatalog::mir::ComputePipelineIteratorPosMap::type</a></div><div class="ttdeci">typename ComputeIndexSpecToIteratorPosMap&lt; UniqueIndexSpecs &gt;::type type</div><div class="ttdef"><b>Definition:</b> mir.h:468</div></div>
-<div class="ttc" id="atest__gpu__fixpoint__executor_8cpp_html_a6aa6c3da4d7a9ef1e1571ebc4170a7cc"><div class="ttname"><a href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#a6aa6c3da4d7a9ef1e1571ebc4170a7cc">IteratorPosMap</a></div><div class="ttdeci">typename mir::ComputePipelineIteratorPosMap&lt; MIROps &gt;::type IteratorPosMap</div><div class="ttdef"><b>Definition:</b> test_gpu_fixpoint_executor.cpp:88</div></div>
+<div class="ttc" id="astructSRDatalog_1_1ReplaceDestinationRelationsInTuple_html_a859e762e6df9db03721146bbd3ec9788"><div class="ttname"><a href="../../d3/d92/structSRDatalog_1_1ReplaceDestinationRelationsInTuple.html#a859e762e6df9db03721146bbd3ec9788">SRDatalog::ReplaceDestinationRelationsInTuple::type</a></div><div class="ttdeci">mp::mp_transform&lt; ReplaceOp, MIROps &gt; type</div><div class="ttdef"><b>Definition:</b> mir.h:2057</div></div>
 <div class="ttc" id="atest__gpu__fixpoint__executor_8cpp_html_add4e6314f6277063598c40c406f4de4f"><div class="ttname"><a href="../../de/de3/test__gpu__fixpoint__executor_8cpp.html#add4e6314f6277063598c40c406f4de4f">VarPosMap</a></div><div class="ttdeci">typename mir::ComputeVarPosMap&lt; JoinPlanVars &gt;::type VarPosMap</div><div class="ttdef"><b>Definition:</b> test_gpu_fixpoint_executor.cpp:87</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->

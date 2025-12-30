@@ -1,3 +1,14 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$d3/d79/structSRDatalog_1_1ComputeIndicesForRules.html" title="Join plan for Worst&#45;Case Optimal Join (WCOJ) algorithms." alt="" coords="5,5,208,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,339,124,366"/>
+<area shape="rect" id="node2" href="$d8/dc7/structSRDatalog_1_1AST_1_1is__cpp__expr.html" title=" " alt="" coords="211,5,352,47"/>
+<area shape="rect" id="node3" href="$d1/d77/structSRDatalog_1_1AST_1_1is__database.html" title=" " alt="" coords="211,71,352,112"/>
+<area shape="rect" id="node4" href="$d8/da3/structSRDatalog_1_1AST_1_1is__semi__naive__database.html" title=" " alt="" coords="177,136,386,177"/>
+<area shape="rect" id="node5" href="$dd/d96/structSRDatalog_1_1detail_1_1is__relation__ref.html" title="Helper to check if a type is a reference to a Relation." alt="" coords="205,201,358,243"/>
+<area shape="rect" id="node6" href="$d6/dad/structSRDatalog_1_1is__agg__clause__for__var__impl.html" title="Helper to filter a list of body clauses for a specific AggClause." alt="" coords="174,267,389,308"/>
+<area shape="rect" id="node7" href="$d9/d82/structSRDatalog_1_1is__fixpoint__plan.html" title=" " alt="" coords="199,332,364,373"/>
+<area shape="rect" id="node8" href="$d7/d40/structSRDatalog_1_1is__let__clause__for__var__impl.html" title="Helper to filter a list of body clauses for a specific LetClause." alt="" coords="174,397,389,439"/>
+<area shape="rect" id="node9" href="$d0/d71/structSRDatalog_1_1is__node__handle.html" title=" " alt="" coords="207,463,355,504"/>
+<area shape="rect" id="node10" href="$d1/d7e/structSRDatalog_1_1mir_1_1is__bound__vars.html" title=" " alt="" coords="210,528,353,569"/>
+<area shape="rect" id="node11" href="$d9/d49/structSRDatalog_1_1mir_1_1is__execute__pipeline.html" title=" " alt="" coords="193,593,370,635"/>
+<area shape="rect" id="node12" href="$d4/d6e/structis__mpi__direct__mappable.html" title=" " alt="" coords="172,659,391,686"/>
 </map>

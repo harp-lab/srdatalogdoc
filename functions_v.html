@@ -76,6 +76,7 @@ $(function() {
 <li>value
 : <a class="el" href="d9/d04/structSRDatalog_1_1AST_1_1ArityMismatchError.html#a3ed468fbd55a6fdcf4a1b10f2d09a847">SRDatalog::AST::ArityMismatchError&lt; schema, ExpectedArity, ActualArity &gt;</a>
 , <a class="el" href="d3/d6f/structSRDatalog_1_1AST_1_1Const.html#a6a4ea5ae96dbd207a609631044110361">SRDatalog::AST::Const&lt; Func &gt;</a>
+, <a class="el" href="d0/dd1/structSRDatalog_1_1AST_1_1DSLStringLiteral.html#a5bee2b152024718da229e4d18eadc300">SRDatalog::AST::DSLStringLiteral&lt; N &gt;</a>
 , <a class="el" href="df/d68/structSRDatalog_1_1AST_1_1FindTermIndex.html#a5f44210cf2d38dd5f17f91dc88a2bfea">SRDatalog::AST::FindTermIndex&lt; T, TermList &gt;</a>
 , <a class="el" href="d0/dc2/structSRDatalog_1_1AST_1_1GetNormalClauseVersion_3_01Clause_3_01S_00_01Ver_00_01Vars_8_8_8_01_4_01_4.html#a2a978b593a20ce3d815b40798f682224">SRDatalog::AST::GetNormalClauseVersion&lt; Clause&lt; S, Ver, Vars... &gt; &gt;</a>
 , <a class="el" href="db/dab/structSRDatalog_1_1CompileFixpointToPlan_3_01Fixpoint_3_01Rules_8_8_8_01_4_01_4_1_1CompileComputeDelta_1_1MatchesSchema.html#a8883f995869ca7028f422373088fb53b">SRDatalog::CompileFixpointToPlan&lt; Fixpoint&lt; Rules... &gt; &gt;::CompileComputeDelta&lt; Schema &gt;::MatchesSchema&lt; IndexSpecT &gt;</a>
@@ -85,15 +86,29 @@ $(function() {
 , <a class="el" href="d2/dc8/structSRDatalog_1_1GetClauseVersion_3_01C_01_4.html#a604cbf30e7db3346ccc6f5ea20824e7b">SRDatalog::GetClauseVersion&lt; C &gt;</a>
 , <a class="el" href="df/dc9/structSRDatalog_1_1GetVersionFromSources_3_01std_1_1tuple_3_01mir_1_1ColumnSource_3_01Index_00_01BVars_01_4_01_4_01_4.html#a08794e752ae9e5e8f4cc5b117be678de">SRDatalog::GetVersionFromSources&lt; std::tuple&lt; mir::ColumnSource&lt; Index, BVars &gt; &gt; &gt;</a>
 , <a class="el" href="df/db2/structSRDatalog_1_1GetVersionFromSources_3_01std_1_1tuple_3_01mir_1_1ColumnSource_3_01Index_00_08708582857d1d02336ee3667a306ad96.html#aa938c7df28835dfafffa1a6d3645e08d">SRDatalog::GetVersionFromSources&lt; std::tuple&lt; mir::ColumnSource&lt; Index, BVars &gt;, Rest... &gt; &gt;</a>
-, <a class="el" href="dd/d4a/structSRDatalog_1_1GPU_1_1detail_1_1GetSchemaIndex.html#a47d879748c1bf2e44184d39c7550b58e">SRDatalog::GPU::detail::GetSchemaIndex&lt; Schema, SchemaTuple &gt;</a>
+, <a class="el" href="d0/dfe/structSRDatalog_1_1GPU_1_1GPUFixpointExecutor_3_01std_1_1tuple_3_01mir_1_1CheckSize_3_01Schema_08bb45f70293929d8d634e58e2962a897.html#a76ebc1e0e082c4420f44790012090b49">SRDatalog::GPU::GPUFixpointExecutor&lt; std::tuple&lt; mir::CheckSize&lt; Schema, Ver &gt;, TailOps... &gt;, RelationsBundle, SchemaTuple &gt;::IsInsertForSchema&lt; Op &gt;</a>
 , <a class="el" href="dc/dd8/structSRDatalog_1_1GPU_1_1IntersectView_1_1Iterator.html#a89ab1a5fc11b884a2d704e09594888b2">SRDatalog::GPU::IntersectView&lt; ValueType, RowIdType, N, Group &gt;::Iterator</a>
 , <a class="el" href="d3/dc4/structSRDatalog_1_1is__clause__needing__index.html#a3467661119194cd855e925903184067a">SRDatalog::is_clause_needing_index&lt; Clause &gt;</a>
+, <a class="el" href="db/dba/structSRDatalog_1_1mir_1_1CountInputIterators.html#a0dad8068b15a00047380d6bb2ded272d">SRDatalog::mir::CountInputIterators&lt; T &gt;</a>
+, <a class="el" href="da/d91/structSRDatalog_1_1mir_1_1CountInputIterators_3_01mir_1_1Aggregate_3_01VarToBind_00_01IndexSpecT6f46acc97f766308840172925d6516af.html#ac1ee366a5699e9a41f093c94b63cf51c">SRDatalog::mir::CountInputIterators&lt; mir::Aggregate&lt; VarToBind, IndexSpecT, PrefixVars, AggFunc &gt; &gt;</a>
+, <a class="el" href="db/dab/structSRDatalog_1_1mir_1_1CountInputIterators_3_01mir_1_1CartesianJoin_3_01Vars_00_01Sources_01_4_01_4.html#ad47996e05dc6b52e1366676ed2ee39dc">SRDatalog::mir::CountInputIterators&lt; mir::CartesianJoin&lt; Vars, Sources &gt; &gt;</a>
+, <a class="el" href="d6/d19/structSRDatalog_1_1mir_1_1CountInputIterators_3_01mir_1_1ColumnJoin_3_01Var_00_01Sources_00_01Strategy_01_4_01_4.html#a7962f2ef5ab3e0ce4fdc0764accf4791">SRDatalog::mir::CountInputIterators&lt; mir::ColumnJoin&lt; Var, Sources, Strategy &gt; &gt;</a>
+, <a class="el" href="d4/dd8/structSRDatalog_1_1mir_1_1CountInputIterators_3_01mir_1_1ColumnSource_3_01IndexSpecT_00_01PrefixVars_01_4_01_4.html#abd1309f8b68a31554050a88442c186d0">SRDatalog::mir::CountInputIterators&lt; mir::ColumnSource&lt; IndexSpecT, PrefixVars &gt; &gt;</a>
+, <a class="el" href="da/d65/structSRDatalog_1_1mir_1_1CountInputIterators_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html#a0c0d919c32636e922301db026a97452c">SRDatalog::mir::CountInputIterators&lt; std::tuple&lt; Ts... &gt; &gt;</a>
+, <a class="el" href="de/dc7/structSRDatalog_1_1mir_1_1gpu__opt_1_1HasCartesianJoin.html#af3ba6e5b54f84e18d870869b24279c69">SRDatalog::mir::gpu_opt::HasCartesianJoin&lt; OpsTuple &gt;</a>
+, <a class="el" href="d3/d06/structSRDatalog_1_1mir_1_1gpu__opt_1_1OptimizeInstructionsForGPU_3_01std_1_1tuple_3_01Head_00_01a248a7a2471ce14dc760a017bd1c9b7c.html#afc29d3e7d47b6afc204291511601fcb3">SRDatalog::mir::gpu_opt::OptimizeInstructionsForGPU&lt; std::tuple&lt; Head, Tail... &gt; &gt;::PatternMatcher::Check&lt; H, T &gt;</a>
+, <a class="el" href="db/d88/structSRDatalog_1_1mir_1_1gpu__opt_1_1OptimizeInstructionsForGPU_3_01std_1_1tuple_3_01Head_00_01e582f3844993022686e0b215180ea301.html#aeec531d1fd0405c6d184ca8cab467827">SRDatalog::mir::gpu_opt::OptimizeInstructionsForGPU&lt; std::tuple&lt; Head, Tail... &gt; &gt;::PatternMatcher::Check&lt; mir::InsertFromRelation&lt; Schema, FromVer, ToVer, IndexSpec &gt;, mir::SwapRelations&lt; Schema &gt; &gt;</a>
 , <a class="el" href="d5/da5/structSRDatalog_1_1mir_1_1HasMoreColumnJoins_3_01std_1_1tuple_3_01Head_00_01Tail_8_8_8_01_4_01_4.html#a091b711f0b50e4bc9a99e16927dd6379">SRDatalog::mir::HasMoreColumnJoins&lt; std::tuple&lt; Head, Tail... &gt; &gt;</a>
 , <a class="el" href="d2/dde/structSRDatalog_1_1mir_1_1HasMoreColumnJoins_3_01std_1_1tuple_3_4_01_4.html#a44de2212828f68abe331d0d03a310486">SRDatalog::mir::HasMoreColumnJoins&lt; std::tuple&lt;&gt; &gt;</a>
 , <a class="el" href="d7/d6f/structSRDatalog_1_1state_1_1FindTypeAtPos_1_1KeyMatchesPos.html#a504ccb53664f7ab530f28139c9fc74d4">SRDatalog::state::FindTypeAtPos&lt; PosMap, Pos &gt;::KeyMatchesPos&lt; Key &gt;</a>
 </li>
+<li>value2_type
+: <a class="el" href="db/d73/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom.html#a9a1a060688d68b45261d21d0dacf29f1">cuda_cub::__set_operations::SetOpAgentCustom&lt; KeysIt1, KeysIt2, ValuesIt1, ValuesIt2, KeysOutputIt, ValuesOutputIt, Size, CompareOp, SetOp, HAS_VALUES &gt;</a>
+</li>
 <li>value_type
 : <a class="el" href="d3/d43/structBooleanSR.html#affbf07cce1f0cb312435e17653631aa1">BooleanSR</a>
+, <a class="el" href="d7/dbb/structCountSR.html#a88c2cf0033c22649d222533cab1129dc">CountSR</a>
+, <a class="el" href="db/d73/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom.html#aee3be0e1fef147be90e94a5fe7e5f266">cuda_cub::__set_operations::SetOpAgentCustom&lt; KeysIt1, KeysIt2, ValuesIt1, ValuesIt2, KeysOutputIt, ValuesOutputIt, Size, CompareOp, SetOp, HAS_VALUES &gt;</a>
 , <a class="el" href="dd/dd4/structNatSemiring.html#a55a73d9ca97c80aff2b2d6a86f83ce88">NatSemiring</a>
 , <a class="el" href="df/d66/structNaturalBag.html#a10c6c2d5d2c6046e2b0cc05ee9b17f27">NaturalBag</a>
 , <a class="el" href="df/d9c/structProbIndep.html#a646ca6744dbe1dde2fd9401dccae1f56">ProbIndep</a>
@@ -113,38 +128,67 @@ $(function() {
 , <a class="el" href="dd/de1/classSRDatalog_1_1SortedArrayIndex.html#a9ccaa4478d276d2813c0d5b2eced0618">SRDatalog::SortedArrayIndex&lt; SR, AttrTuple, ValueType, RowIdType &gt;</a>
 </li>
 <li>values()
-: <a class="el" href="da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#ae250e442dfef4698b9106c8faf5a5af8">SRDatalog::GPU::NodeHandle&lt; SR, ValueTypeParam, RowIdType &gt;</a>
+: <a class="el" href="da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a4d85aca2b581f2d4816ba621221b3131">SRDatalog::GPU::NodeHandle&lt; SR, ValueTypeParam, RowIdType &gt;</a>
 , <a class="el" href="db/d1c/classSRDatalog_1_1HashTrieIndex_1_1NodeHandle.html#a7be8f27531229c26d895a429a0fae603">SRDatalog::HashTrieIndex&lt; SR, AttrTuple, ValueType, RowIdType &gt;::NodeHandle</a>
 , <a class="el" href="d2/dba/classSRDatalog_1_1ImplicitBTreeIndex_1_1NodeHandle.html#ace5c35dc2e29a165623cca3e2914f21f">SRDatalog::ImplicitBTreeIndex&lt; SR, AttrTuple, ValueType, RowIdType &gt;::NodeHandle</a>
 , <a class="el" href="d9/db8/classSRDatalog_1_1index_1_1HashmapIndex_1_1NodeHandle.html#aa2b2f45464b44a87e646109994bf8c53">SRDatalog::index::HashmapIndex&lt; SR, AttrTuple, ValueType, RowIdType, IndexType &gt;::NodeHandle</a>
 , <a class="el" href="d7/d48/classSRDatalog_1_1SortedArrayIndex_1_1NodeHandle.html#acd1aeb4c808d569c60c99bd63a4516cc">SRDatalog::SortedArrayIndex&lt; SR, AttrTuple, ValueType, RowIdType &gt;::NodeHandle</a>
 </li>
+<li>values1_in
+: <a class="el" href="d4/d9a/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1impl.html#a0f89db37df21dffa9c9facaa3eff574d">cuda_cub::__set_operations::SetOpAgentCustom&lt; KeysIt1, KeysIt2, ValuesIt1, ValuesIt2, KeysOutputIt, ValuesOutputIt, Size, CompareOp, SetOp, HAS_VALUES &gt;::impl</a>
+</li>
+<li>values2_in
+: <a class="el" href="d4/d9a/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1impl.html#a7d99b477fb3c9cd8e9fe23e8230db729">cuda_cub::__set_operations::SetOpAgentCustom&lt; KeysIt1, KeysIt2, ValuesIt1, ValuesIt2, KeysOutputIt, ValuesOutputIt, Size, CompareOp, SetOp, HAS_VALUES &gt;::impl</a>
+</li>
+<li>values2_raw
+: <a class="el" href="d4/d9a/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1impl.html#aabc2fd924070f1627ba9f0251d8bf211">cuda_cub::__set_operations::SetOpAgentCustom&lt; KeysIt1, KeysIt2, ValuesIt1, ValuesIt2, KeysOutputIt, ValuesOutputIt, Size, CompareOp, SetOp, HAS_VALUES &gt;::impl</a>
+</li>
 <li>values_
 : <a class="el" href="d7/dd3/structSRDatalog_1_1GPU_1_1state_1_1VarStore.html#a478d244e6039e3735693262e983c4449">SRDatalog::GPU::state::VarStore&lt; VarPosMap, ValueType, NumVars &gt;</a>
 </li>
+<li>values_out
+: <a class="el" href="d4/d9a/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1impl.html#a1979b2deccc652ae81e2140f7f38ba16">cuda_cub::__set_operations::SetOpAgentCustom&lt; KeysIt1, KeysIt2, ValuesIt1, ValuesIt2, KeysOutputIt, ValuesOutputIt, Size, CompareOp, SetOp, HAS_VALUES &gt;::impl</a>
+</li>
+<li>values_shared
+: <a class="el" href="d9/db7/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1PtxPlan_1_1TempStorage_1_1LoadStorage.html#a270c16b0a50d66421d0dcf74fae8ddaf">cuda_cub::__set_operations::SetOpAgentCustom&lt; KeysIt1, KeysIt2, ValuesIt1, ValuesIt2, KeysOutputIt, ValuesOutputIt, Size, CompareOp, SetOp, HAS_VALUES &gt;::PtxPlan&lt; Arch &gt;::TempStorage::LoadStorage</a>
+</li>
+<li>ValuesLoadIt1
+: <a class="el" href="d0/dbb/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1PtxPlan.html#ae6f0e081c75094d8836ee4339b807ea3">cuda_cub::__set_operations::SetOpAgentCustom&lt; KeysIt1, KeysIt2, ValuesIt1, ValuesIt2, KeysOutputIt, ValuesOutputIt, Size, CompareOp, SetOp, HAS_VALUES &gt;::PtxPlan&lt; Arch &gt;</a>
+, <a class="el" href="db/d73/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom.html#ab2ef5617495df3a7fe3b507fa0ae5659">cuda_cub::__set_operations::SetOpAgentCustom&lt; KeysIt1, KeysIt2, ValuesIt1, ValuesIt2, KeysOutputIt, ValuesOutputIt, Size, CompareOp, SetOp, HAS_VALUES &gt;</a>
+</li>
+<li>ValuesLoadIt2
+: <a class="el" href="d0/dbb/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1PtxPlan.html#aa26122d3e92bfc1101a68320b72c2a44">cuda_cub::__set_operations::SetOpAgentCustom&lt; KeysIt1, KeysIt2, ValuesIt1, ValuesIt2, KeysOutputIt, ValuesOutputIt, Size, CompareOp, SetOp, HAS_VALUES &gt;::PtxPlan&lt; Arch &gt;</a>
+, <a class="el" href="db/d73/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom.html#a229fab620cc2807470edf2a4973543c5">cuda_cub::__set_operations::SetOpAgentCustom&lt; KeysIt1, KeysIt2, ValuesIt1, ValuesIt2, KeysOutputIt, ValuesOutputIt, Size, CompareOp, SetOp, HAS_VALUES &gt;</a>
+</li>
 <li>ValueType
-: <a class="el" href="d3/dc1/classSRDatalog_1_1GPU_1_1DeviceSortedArrayIndex.html#aed11a9bfd2595989a196235db52701c1">SRDatalog::GPU::DeviceSortedArrayIndex&lt; SR, AttrTuple, ValueTypeParam, RowIdType &gt;</a>
+: <a class="el" href="db/d04/structMergeMatchOp.html#a938bfaf26f2872b411ec73fa4cc85f27">MergeMatchOp&lt; SR &gt;</a>
+, <a class="el" href="d3/dc1/classSRDatalog_1_1GPU_1_1DeviceSortedArrayIndex.html#aed11a9bfd2595989a196235db52701c1">SRDatalog::GPU::DeviceSortedArrayIndex&lt; SR, AttrTuple, ValueTypeParam, RowIdType &gt;</a>
+, <a class="el" href="db/d8e/structSRDatalog_1_1GPU_1_1MergeMatchOp.html#a1467380577fa83ba2c961dcc6e2b9af8">SRDatalog::GPU::MergeMatchOp&lt; SR &gt;</a>
 , <a class="el" href="d4/d46/classSRDatalog_1_1LeapfrogView.html#ab2b069972d827b8c0e3ac530d3a8e2fc">SRDatalog::LeapfrogView&lt; Iterators &gt;</a>
+</li>
+<li>ValueType2
+: <a class="el" href="d4/d9a/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1impl.html#a1b1b59cca06dde0d2c4637ed5e63e286">cuda_cub::__set_operations::SetOpAgentCustom&lt; KeysIt1, KeysIt2, ValuesIt1, ValuesIt2, KeysOutputIt, ValuesOutputIt, Size, CompareOp, SetOp, HAS_VALUES &gt;::impl</a>
 </li>
 <li>ValueTypeAlias
 : <a class="el" href="d5/d2a/classSRDatalog_1_1index_1_1HashmapIndex.html#a3f1ae6c676b124d2e78b7ec880a684e0">SRDatalog::index::HashmapIndex&lt; SR, AttrTuple, ValueType, RowIdType, IndexType &gt;</a>
 </li>
 <li>var_pos_map_type
-: <a class="el" href="d5/dff/structSRDatalog_1_1mir_1_1Pipeline.html#a7d6ed4059ec26c9e7bda5d777974471e">SRDatalog::mir::Pipeline&lt; MIROps, VarPosMap, IteratorPosMap &gt;</a>
+: <a class="el" href="d5/dff/structSRDatalog_1_1mir_1_1Pipeline.html#abf753977a57404a121ba654657e6327f">SRDatalog::mir::Pipeline&lt; MIROps, VarPosMap &gt;</a>
 </li>
 <li>var_type
 : <a class="el" href="d9/d84/structSRDatalog_1_1mir_1_1Aggregate.html#a634e82cf2b2da123de61045b29846b1a">SRDatalog::mir::Aggregate</a>
-, <a class="el" href="da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html#a3e25d89083ae7525a2a839e5f91c49b1">SRDatalog::mir::ColumnJoin</a>
+, <a class="el" href="da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html#a9892f11d188d814f7d1dd39e7743612c">SRDatalog::mir::ColumnJoin&lt; Var, Sources, Strategy &gt;</a>
 </li>
 <li>VarPosMap
 : <a class="el" href="db/d54/structSRDatalog_1_1CompileRuleToPipeline.html#a80a16725b5b593c16f93c4107f83e278">SRDatalog::CompileRuleToPipeline&lt; Rule &gt;</a>
 , <a class="el" href="d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a35cafc040c71b1cebbab3361b86bd25b">SRDatalog::GPU::GPURootExecutor&lt; Pipeline, SR, ValueType, HandleType &gt;</a>
 </li>
 <li>vars
-: <a class="el" href="d6/d1a/structSRDatalog_1_1GPU_1_1GPUPipelineExecutor_3_01std_1_1tuple_3_01mir_1_1ColumnJoin_3_01VarToBibeb562d4b45bdf6bc706e8f5389e7ec9.html#a38cb7c9e9a5ac78f55e954c8586c9757">SRDatalog::GPU::GPUPipelineExecutor&lt; std::tuple&lt; mir::ColumnJoin&lt; VarToBind, std::tuple&lt; Sources... &gt; &gt;, TailOps... &gt;, VarPosMap, IteratorPosMap, RelationPosMap, GroupSize, IsLeafLevel &gt;</a>
+: <a class="el" href="d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a6ec27ced958395ad0d36ce8c3ac5afcf">SRDatalog::GPU::GPURootExecutor&lt; Pipeline, SR, ValueType, HandleType &gt;</a>
 </li>
 <li>vars_type
 : <a class="el" href="d4/dd0/structSRDatalog_1_1AST_1_1JoinPlan.html#a261529e3e02cfc3c1a61ca0d2c3b3606">SRDatalog::AST::JoinPlan&lt; Vars &gt;</a>
+, <a class="el" href="df/dfb/structSRDatalog_1_1mir_1_1gpu__opt_1_1PatternMatchResult.html#a39ffe4bddb4a469c7e45d179038c9d34">SRDatalog::mir::gpu_opt::PatternMatchResult&lt; JoinCount, Vars, Sources, MiddleOps, RemainingOps &gt;</a>
 </li>
 <li>VarStore()
 : <a class="el" href="d7/dd3/structSRDatalog_1_1GPU_1_1state_1_1VarStore.html#a8c28dca9ae41cc42705865ff457326e5">SRDatalog::GPU::state::VarStore&lt; VarPosMap, ValueType, NumVars &gt;</a>
@@ -170,7 +214,7 @@ $(function() {
 : <a class="el" href="d1/d48/structSRDatalog_1_1detail_1_1RelationStorageTraits_3_01Policy_01_4.html#a2ea9f1ef34f0ac82bd807f0a791440c0">SRDatalog::detail::RelationStorageTraits&lt; Policy &gt;</a>
 </li>
 <li>verify_distinct_addresses()
-: <a class="el" href="d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a86db2760bec8e43469663866f4a00162">SRDatalog::AST::SemiNaiveDatabase&lt; DBType &gt;</a>
+: <a class="el" href="d3/d76/structSRDatalog_1_1AST_1_1SemiNaiveDatabase.html#a2241f67bcbad4ab56f993b16c13e9612">SRDatalog::AST::SemiNaiveDatabase&lt; DBType, RelationMapper &gt;</a>
 </li>
 <li>verify_sorted()
 : <a class="el" href="dd/de1/classSRDatalog_1_1SortedArrayIndex.html#ae9bcb45b87134ff415188cb4cf38124f">SRDatalog::SortedArrayIndex&lt; SR, AttrTuple, ValueType, RowIdType &gt;</a>
@@ -188,10 +232,33 @@ $(function() {
 : <a class="el" href="d0/d00/classSRDatalog_1_1Relation.html#a3337e1f8b2df7a09838baf5ff17cb8bb">SRDatalog::Relation&lt; SR, AttrTuple, IndexType, Policy, ValueType, RowIdType &gt;</a>
 </li>
 <li>view()
-: <a class="el" href="de/dea/classSRDatalog_1_1GPU_1_1NDDeviceArray.html#a7c2352de72fddf9cdfdc27963485aa10">SRDatalog::GPU::NDDeviceArray&lt; T, N &gt;</a>
+: <a class="el" href="d3/dc1/classSRDatalog_1_1GPU_1_1DeviceSortedArrayIndex.html#ab5091990aa3fee138f692650d2fb9ac3">SRDatalog::GPU::DeviceSortedArrayIndex&lt; SR, AttrTuple, ValueTypeParam, RowIdType &gt;</a>
+, <a class="el" href="de/dea/classSRDatalog_1_1GPU_1_1NDDeviceArray.html#a7c2352de72fddf9cdfdc27963485aa10">SRDatalog::GPU::NDDeviceArray&lt; T, N &gt;</a>
+</li>
+<li>View
+: <a class="el" href="da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a2fa680aa9d80dfea113611f6fdea55f0">SRDatalog::GPU::NodeHandle&lt; SR, ValueTypeParam, RowIdType &gt;</a>
+</li>
+<li>view_store
+: <a class="el" href="d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a698f7983bc2fb8d7910d88c4a0aa91d6">SRDatalog::GPU::GPURootExecutor&lt; Pipeline, SR, ValueType, HandleType &gt;</a>
+</li>
+<li>view_store_
+: <a class="el" href="d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#ad3de7278fcc01a1a42e2b0bf81c697ef">SRDatalog::GPU::state::HandleStore&lt; HandleType, NumHandles &gt;</a>
 </li>
 <li>view_type
 : <a class="el" href="de/dea/classSRDatalog_1_1GPU_1_1NDDeviceArray.html#a1c61c26701a861ecf70ddd50bfdd9eb3">SRDatalog::GPU::NDDeviceArray&lt; T, N &gt;</a>
+</li>
+<li>views_
+: <a class="el" href="d5/da8/structSRDatalog_1_1GPU_1_1state_1_1ViewStore.html#a81782bbf7d2cbb13bd24fefa8215dfc9">SRDatalog::GPU::state::ViewStore&lt; ViewType, NumHandles &gt;</a>
+</li>
+<li>ViewStore()
+: <a class="el" href="d5/da8/structSRDatalog_1_1GPU_1_1state_1_1ViewStore.html#a9fbecbe537b58056bfd80a623e30d3ba">SRDatalog::GPU::state::ViewStore&lt; ViewType, NumHandles &gt;</a>
+</li>
+<li>ViewStoreType
+: <a class="el" href="d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a52c12a5f46f629dc4a9c4f05927a5ffa">SRDatalog::GPU::state::HandleStore&lt; HandleType, NumHandles &gt;</a>
+</li>
+<li>ViewType
+: <a class="el" href="d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#a9e2c526e2c73bf6cf7209a2e06b87463">SRDatalog::GPU::GPURootExecutor&lt; Pipeline, SR, ValueType, HandleType &gt;</a>
+, <a class="el" href="d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a49484dc3717dbfab768e50297c256931">SRDatalog::GPU::state::HandleStore&lt; HandleType, NumHandles &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->

@@ -75,6 +75,7 @@ $(function() {
 : <a class="el" href="d2/df8/structSRDatalog_1_1ExecuteQuery_3_01Q_01_4.html#a4f0714b6f83f5b40d8ff642cf73d2ef7">SRDatalog::ExecuteQuery&lt; Q &gt;</a>
 , <a class="el" href="de/da3/structSRDatalog_1_1ExecuteRulesForFixpoint.html#a5b4d47fe1ccabbf95f21c028f81fe657">SRDatalog::ExecuteRulesForFixpoint&lt; FP &gt;</a>
 , <a class="el" href="d7/d5f/structSRDatalog_1_1ExecuteRulesForNonIterativeRuleSets.html#aa0e3b029020345e073326d832f5b740c">SRDatalog::ExecuteRulesForNonIterativeRuleSets&lt; Rules &gt;</a>
+, <a class="el" href="dd/d40/structSRDatalog_1_1GPU_1_1GPUQueryExecutor.html#a003d21da35e8898da80b1403bf8d15df">SRDatalog::GPU::GPUQueryExecutor&lt; FP &gt;</a>
 </li>
 <li>capacity()
 : <a class="el" href="df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#a9b4245f75cad46ab7020ef8cc079b0c8">SRDatalog::GPU::DeviceArray&lt; T &gt;</a>
@@ -133,6 +134,12 @@ $(function() {
 , <a class="el" href="df/db6/classSRDatalog_1_1GPU_1_1DeviceArray.html#ab6545abf3e60b2737aa486c13a472ff5">SRDatalog::GPU::DeviceArray&lt; T &gt;</a>
 , <a class="el" href="de/dea/classSRDatalog_1_1GPU_1_1NDDeviceArray.html#acc3edcfb7fe87d845db0d30f3ce500ef">SRDatalog::GPU::NDDeviceArray&lt; T, N &gt;</a>
 </li>
+<li>col_data()
+: <a class="el" href="dc/d47/structSRDatalog_1_1GPU_1_1NodeView.html#ae61d9af08992f0ab6b5951d2ad3ddeb2">SRDatalog::GPU::NodeView&lt; SR, ValueTypeParam &gt;</a>
+</li>
+<li>col_data_
+: <a class="el" href="dc/d47/structSRDatalog_1_1GPU_1_1NodeView.html#a5a5efdcb062eaab56d41d6ca3a0011f2">SRDatalog::GPU::NodeView&lt; SR, ValueTypeParam &gt;</a>
+</li>
 <li>cols
 : <a class="el" href="d0/d48/structEncodedEnv.html#ae76888c4f70fa2b0e9d6c594e09c0b9a">EncodedEnv&lt; Arity &gt;</a>
 , <a class="el" href="d1/d33/structSRDatalog_1_1IndexSpec.html#aa5b0d79cf324d6288ce27e468be45ee9">SRDatalog::IndexSpec</a>
@@ -141,8 +148,11 @@ $(function() {
 : <a class="el" href="d0/d60/structSRDatalog_1_1detail_1_1RelationStorage_1_1HostStorage.html#a6e9d4ecbdd5011705d750f40ff2c8ff4">SRDatalog::detail::RelationStorage&lt; SR, AttrTuple, Policy, AnnotationVal &gt;::HostStorage&lt; IsDevice &gt;</a>
 , <a class="el" href="d4/dd8/structSRDatalog_1_1Relation_1_1StorageUnion_1_1HostData.html#ab8b3e54c15cf8051c817967e71a43bb9">SRDatalog::Relation&lt; SR, AttrTuple, IndexType, Policy, ValueType, RowIdType &gt;::StorageUnion::HostData</a>
 </li>
+<li>ColSeq
+: <a class="el" href="d8/d2b/structSRDatalog_1_1GPU_1_1Adapter_1_1SRDatalogToTVJoinISA.html#aa01a668694cf6b2d8580801c6dc28717">SRDatalog::GPU::Adapter::SRDatalogToTVJoinISA&lt; IndexSpecT, ValueType &gt;</a>
+</li>
 <li>Column()
-: <a class="el" href="d5/d0d/classSRDatalog_1_1Column.html#ac0ccea550065467d593e61532279c9bd">SRDatalog::Column&lt; T &gt;</a>
+: <a class="el" href="d5/d0d/classSRDatalog_1_1Column.html#a4109f9500082410a6d51ea5c06d9ce42">SRDatalog::Column&lt; T &gt;</a>
 </li>
 <li>column()
 : <a class="el" href="da/d07/structSRDatalog_1_1GPU_1_1NDArrayView.html#ac52c99d1c2ff71c77b74edbc2075fb53">SRDatalog::GPU::NDArrayView&lt; T, N &gt;</a>
@@ -151,6 +161,7 @@ $(function() {
 <li>column_indexes_type
 : <a class="el" href="de/d00/structSRDatalog_1_1detail_1_1GetCanonicalIndexSpec.html#acaf5b7162a5ce9e32eb8a681f0c47e6f">SRDatalog::detail::GetCanonicalIndexSpec&lt; Schema, Ver &gt;</a>
 , <a class="el" href="df/d82/structSRDatalog_1_1IndexSpecT.html#a43072acbd80c0e205f40aec1117a4838">SRDatalog::IndexSpecT&lt; schema, ColumnIndexes, Ver &gt;</a>
+, <a class="el" href="de/d61/structTestIndexSpec.html#a91624a337f9b98b17c2cb9eda0a9d943">TestIndexSpec</a>
 </li>
 <li>column_names()
 : <a class="el" href="d0/d00/classSRDatalog_1_1Relation.html#a7009015b1cce9ab76a6177e2829a3d47">SRDatalog::Relation&lt; SR, AttrTuple, IndexType, Policy, ValueType, RowIdType &gt;</a>
@@ -183,6 +194,14 @@ $(function() {
 <li>combine_all()
 : <a class="el" href="d4/d06/structSRDatalog_1_1GPU_1_1state_1_1ProvStore.html#ac5b5028234fe5333c6fb866b2d42f9be">SRDatalog::GPU::state::ProvStore&lt; RelationPosMap, SR, NumRelations &gt;</a>
 </li>
+<li>COMBINED_INPUT_BYTES
+: <a class="el" href="d2/d0c/structcuda__cub_1_1____set__operations_1_1TuningCustom.html#a523a17961d49db0f9e71ea4346a34177">cuda_cub::__set_operations::TuningCustom&lt; Arch, T, U &gt;</a>
+, <a class="el" href="de/d48/structcuda__cub_1_1____set__operations_1_1TuningCustom_3_01core_1_1sm52_00_01T_00_01U_01_4.html#a1d0cdb1d74c29b01e37e10e22a345da2">cuda_cub::__set_operations::TuningCustom&lt; core::sm52, T, U &gt;</a>
+, <a class="el" href="d7/d68/structcuda__cub_1_1____set__operations_1_1TuningCustom_3_01core_1_1sm60_00_01T_00_01U_01_4.html#aa2fbf9a2f6b4d234be6b04889a4d8fe3">cuda_cub::__set_operations::TuningCustom&lt; core::sm60, T, U &gt;</a>
+</li>
+<li>compare_op
+: <a class="el" href="d4/d9a/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1impl.html#a38db965cb45694bf4ca2cad0399fa44e">cuda_cub::__set_operations::SetOpAgentCustom&lt; KeysIt1, KeysIt2, ValuesIt1, ValuesIt2, KeysOutputIt, ValuesOutputIt, Size, CompareOp, SetOp, HAS_VALUES &gt;::impl</a>
+</li>
 <li>CompileRuleMIR
 : <a class="el" href="d7/d5f/structSRDatalog_1_1ExecuteRulesForNonIterativeRuleSets.html#a2b84f22609ec83835ac52fc41353db4b">SRDatalog::ExecuteRulesForNonIterativeRuleSets&lt; Rules &gt;</a>
 </li>
@@ -204,19 +223,28 @@ $(function() {
 <li>const_view_type
 : <a class="el" href="de/dea/classSRDatalog_1_1GPU_1_1NDDeviceArray.html#a394692a14f5c598380bc632be34536f8">SRDatalog::GPU::NDDeviceArray&lt; T, N &gt;</a>
 </li>
+<li>consume_tile_with_match()
+: <a class="el" href="d4/d9a/structcuda__cub_1_1____set__operations_1_1SetOpAgentCustom_1_1impl.html#ab9f6b33d9cb8f664785ebbe4e213cb32">cuda_cub::__set_operations::SetOpAgentCustom&lt; KeysIt1, KeysIt2, ValuesIt1, ValuesIt2, KeysOutputIt, ValuesOutputIt, Size, CompareOp, SetOp, HAS_VALUES &gt;::impl</a>
+</li>
 <li>contains()
 : <a class="el" href="de/da8/classSRDatalog_1_1DictionaryCodec.html#ac4240b3338c4d3eb4b2dfcdd717d2f19">SRDatalog::DictionaryCodec&lt; T &gt;</a>
 , <a class="el" href="da/d88/structSRDatalog_1_1HashTrieIndex_1_1Impl_1_1Node.html#aa967dc8888792671f8c2c0d5af9df009">SRDatalog::HashTrieIndex&lt; SR, AttrTuple, ValueType, RowIdType &gt;::Impl::Node</a>
 </li>
 <li>contains_value()
-: <a class="el" href="da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a46c9830c2921c90d0967e1f108b0ee85">SRDatalog::GPU::NodeHandle&lt; SR, ValueTypeParam, RowIdType &gt;</a>
+: <a class="el" href="da/d42/classSRDatalog_1_1GPU_1_1NodeHandle.html#a93ff1558c3535cdc9e2e52dd9f4a1c6d">SRDatalog::GPU::NodeHandle&lt; SR, ValueTypeParam, RowIdType &gt;</a>
 , <a class="el" href="db/d1c/classSRDatalog_1_1HashTrieIndex_1_1NodeHandle.html#a1db79da2b8d5705e0818959924e29625">SRDatalog::HashTrieIndex&lt; SR, AttrTuple, ValueType, RowIdType &gt;::NodeHandle</a>
 , <a class="el" href="d2/dba/classSRDatalog_1_1ImplicitBTreeIndex_1_1NodeHandle.html#a4dc16f5c9000268839642f356f4f0058">SRDatalog::ImplicitBTreeIndex&lt; SR, AttrTuple, ValueType, RowIdType &gt;::NodeHandle</a>
 , <a class="el" href="d9/db8/classSRDatalog_1_1index_1_1HashmapIndex_1_1NodeHandle.html#ab51926a243f1d2233ac9ab9eb5903e2e">SRDatalog::index::HashmapIndex&lt; SR, AttrTuple, ValueType, RowIdType, IndexType &gt;::NodeHandle</a>
 , <a class="el" href="d7/d48/classSRDatalog_1_1SortedArrayIndex_1_1NodeHandle.html#a4e85f6c41a8d9973f38b8f405f4b143e">SRDatalog::SortedArrayIndex&lt; SR, AttrTuple, ValueType, RowIdType &gt;::NodeHandle</a>
 </li>
+<li>convert()
+: <a class="el" href="d0/ddf/structSRDatalog_1_1GPU_1_1Adapter_1_1TVJoinToSRDatalogISA.html#a317f9890ea4cdb60e2807bc9a21c7eed">SRDatalog::GPU::Adapter::TVJoinToSRDatalogISA&lt; IndexSpecT, ValueType &gt;</a>
+</li>
 <li>copy_from()
-: <a class="el" href="d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a4b6dc195580291dc70dea8624e5276ff">SRDatalog::GPU::state::HandleStore&lt; IteratorPosMap, HandleType, NumHandles &gt;</a>
+: <a class="el" href="d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a2f93f976af678b3a7d343c2f82d19785">SRDatalog::GPU::state::HandleStore&lt; HandleType, NumHandles &gt;</a>
+</li>
+<li>copy_tuple()
+: <a class="el" href="d6/d25/structSRDatalog_1_1AST_1_1DatabaseInitializer.html#a46946d9524ca6ecafb7826a235e62719">SRDatalog::AST::DatabaseInitializer&lt; SrcDB, DstDB &gt;</a>
 </li>
 <li>count()
 : <a class="el" href="d4/d59/classSRDatalog_1_1GPU_1_1IntersectView.html#a9b311d781aa363191f68fd662f99f013">SRDatalog::GPU::IntersectView&lt; ValueType, RowIdType, N, Group &gt;</a>
@@ -224,6 +252,9 @@ $(function() {
 </li>
 <li>create_node()
 : <a class="el" href="db/d3c/structSRDatalog_1_1HashTrieIndex_1_1Impl.html#a16272c3ecaa5932f48b251849f5ceda1">SRDatalog::HashTrieIndex&lt; SR, AttrTuple, ValueType, RowIdType &gt;::Impl</a>
+</li>
+<li>create_relation()
+: <a class="el" href="de/db7/structSRDatalog_1_1AST_1_1InitDatabaseHelper_3_01Database_3_01Schemas_8_8_8_01_4_00_01RelationMapper_01_4.html#a3c8b550f3f407188f7f942462ad7d8b7">SRDatalog::AST::InitDatabaseHelper&lt; Database&lt; Schemas... &gt;, RelationMapper &gt;</a>
 </li>
 <li>current
 : <a class="el" href="db/d5f/structSRDatalog_1_1DedupRange_1_1Iterator.html#a2b924c2a1a5eefb1b0bbee49647477c5">SRDatalog::DedupRange&lt; T &gt;::Iterator</a>

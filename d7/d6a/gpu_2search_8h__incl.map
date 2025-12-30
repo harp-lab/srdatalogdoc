@@ -1,6 +1,9 @@
 <map id="generalized_datalog/gpu/search.h" name="generalized_datalog/gpu/search.h">
-<area shape="rect" id="node1" title="GPU&#45;based group&#45;cooperative search functions." alt="" coords="175,5,329,47"/>
+<area shape="rect" id="node1" title="GPU&#45;based group&#45;cooperative search functions." alt="" coords="212,5,367,47"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,95,168,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="193,95,311,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="335,95,435,121"/>
+<area shape="rect" id="node3" href="$d4/d9e/macro_8h.html" title=" " alt="" coords="192,95,267,121"/>
+<area shape="rect" id="node6" title=" " alt="" coords="291,95,410,121"/>
+<area shape="rect" id="node7" title=" " alt="" coords="434,95,534,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="163,169,216,196"/>
+<area shape="rect" id="node5" title=" " alt="" coords="240,169,299,196"/>
 </map>

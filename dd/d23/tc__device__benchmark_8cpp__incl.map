@@ -1,52 +1,52 @@
 <map id="generalized_datalog/benchmark/tc_device_benchmark.cpp" name="generalized_datalog/benchmark/tc_device_benchmark.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="3290,5,3455,61"/>
-<area shape="rect" id="node2" href="$db/df0/ast_8h.html" title="Abstract Syntax Tree (AST) for Datalog using Template Metaprogramming." alt="" coords="563,109,617,136"/>
-<area shape="rect" id="node8" title=" " alt="" coords="3077,512,3276,553"/>
-<area shape="rect" id="node17" href="$d7/d69/semiring_8h.html" title=" " alt="" coords="1735,355,1826,382"/>
-<area shape="rect" id="node21" title=" " alt="" coords="547,273,617,300"/>
-<area shape="rect" id="node26" href="$d5/d8a/eytzinger_8h.html" title=" " alt="" coords="2128,191,2223,218"/>
-<area shape="rect" id="node36" href="$d6/df3/hashmap_8h.html" title="A pure hashmap based index datastructure. For WCOJ, we will vectical partition the hash table,..." alt="" coords="1139,191,1233,218"/>
-<area shape="rect" id="node37" title=" " alt="" coords="3215,109,3285,136"/>
-<area shape="rect" id="node38" href="$d8/d5d/device__array_8h.html" title="GPU device array wrapper using Umpire allocator." alt="" coords="3461,273,3605,300"/>
-<area shape="rect" id="node42" title=" " alt="" coords="3250,355,3373,382"/>
-<area shape="rect" id="node43" title=" " alt="" coords="4261,355,4444,382"/>
-<area shape="rect" id="node44" href="$d2/def/device__sorted__array__index_8h.html" title="GPU&#45;based Sorted Array Index (Read&#45;Only B&#45;Tree / Flat Index) for GPU kernels." alt="" coords="2764,184,2947,225"/>
-<area shape="rect" id="node45" href="$d8/dc0/init_8h.html" title=" " alt="" coords="3303,273,3386,300"/>
-<area shape="rect" id="node46" href="$d0/dae/hashmap_8ipp.html" title=" " alt="" coords="3034,109,3141,136"/>
-<area shape="rect" id="node47" title=" " alt="" coords="3730,109,3815,136"/>
-<area shape="rect" id="node48" title=" " alt="" coords="3839,109,3906,136"/>
-<area shape="rect" id="node49" title=" " alt="" coords="3930,109,4037,136"/>
-<area shape="rect" id="node50" title=" " alt="" coords="4061,109,4164,136"/>
-<area shape="rect" id="node3" href="$d1/d25/relation__col_8h.html" title="Defines the column&#45;oriented Relation class and associated views/indexes." alt="" coords="801,191,912,218"/>
-<area shape="rect" id="node7" title=" " alt="" coords="5,512,204,553"/>
-<area shape="rect" id="node10" title=" " alt="" coords="1500,437,1592,464"/>
-<area shape="rect" id="node11" title=" " alt="" coords="227,437,353,464"/>
-<area shape="rect" id="node19" href="$dc/dc6/tmp_8h.html" title="Template metaprogramming utilities for SRDatalog." alt="" coords="260,355,320,382"/>
-<area shape="rect" id="node20" title=" " alt="" coords="475,437,529,464"/>
-<area shape="rect" id="node24" title=" " alt="" coords="193,184,424,225"/>
-<area shape="rect" id="node25" title=" " alt="" coords="449,191,611,218"/>
-<area shape="rect" id="node4" href="$dc/df8/column_8h.html" title="Thin, PMR&#45;aware contiguous column wrapper and encoding/decoding system." alt="" coords="894,355,977,382"/>
-<area shape="rect" id="node5" title=" " alt="" coords="2056,437,2127,464"/>
-<area shape="rect" id="node9" title=" " alt="" coords="754,437,834,464"/>
-<area shape="rect" id="node12" href="$d1/db5/index_8h.html" title=" " alt="" coords="1604,273,1675,300"/>
-<area shape="rect" id="node14" title=" " alt="" coords="2426,437,2493,464"/>
-<area shape="rect" id="node15" title=" " alt="" coords="1391,355,1458,382"/>
-<area shape="rect" id="node16" title=" " alt="" coords="1938,437,1991,464"/>
-<area shape="rect" id="node18" title=" " alt="" coords="2549,437,2634,464"/>
-<area shape="rect" id="node22" title=" " alt="" coords="1083,437,1161,464"/>
-<area shape="rect" id="node23" title=" " alt="" coords="3095,355,3175,382"/>
-<area shape="rect" id="node6" href="$dc/db2/system_8h.html" title="System abstraction layer for memory management and hardware configuration." alt="" coords="1831,437,1914,464"/>
-<area shape="rect" id="node13" title=" " alt="" coords="2151,437,2207,464"/>
-<area shape="rect" id="node27" title=" " alt="" coords="2156,273,2195,300"/>
-<area shape="rect" id="node28" title=" " alt="" coords="2318,437,2385,464"/>
-<area shape="rect" id="node29" title=" " alt="" coords="2490,355,2565,382"/>
-<area shape="rect" id="node30" href="$d5/d77/logging_8h.html" title=" " alt="" coords="3146,273,3229,300"/>
-<area shape="rect" id="node31" href="$d9/d85/search_8h.html" title=" " alt="" coords="2186,355,2263,382"/>
-<area shape="rect" id="node32" href="$d4/d8e/skip_8h.html" title="This file provide the SIMD operation for skip duplicate values in a sorted array during search." alt="" coords="2270,273,2331,300"/>
-<area shape="rect" id="node33" href="$d7/d50/sort_8h.html" title="High&#45;performance lexicographic sorting using Highway SIMD library." alt="" coords="2103,355,2162,382"/>
-<area shape="rect" id="node35" href="$df/d9c/eytzinger_8ipp.html" title=" " alt="" coords="2457,273,2563,300"/>
-<area shape="rect" id="node34" title=" " alt="" coords="2674,437,2733,464"/>
-<area shape="rect" id="node39" title=" " alt="" coords="3599,355,3757,382"/>
-<area shape="rect" id="node40" title=" " alt="" coords="3781,355,3997,382"/>
-<area shape="rect" id="node41" title=" " alt="" coords="4021,348,4237,389"/>
+<area shape="rect" id="node1" title=" " alt="" coords="2363,5,2528,61"/>
+<area shape="rect" id="node2" href="$db/df0/ast_8h.html" title="Abstract Syntax Tree (AST) for Datalog using Template Metaprogramming." alt="" coords="2822,430,2877,457"/>
+<area shape="rect" id="node13" title=" " alt="" coords="661,691,720,717"/>
+<area shape="rect" id="node14" title=" " alt="" coords="1470,691,1533,717"/>
+<area shape="rect" id="node15" href="$d7/d69/semiring_8h.html" title=" " alt="" coords="1752,691,1843,717"/>
+<area shape="rect" id="node22" title=" " alt="" coords="651,609,731,635"/>
+<area shape="rect" id="node26" title=" " alt="" coords="3040,109,3109,136"/>
+<area shape="rect" id="node27" title=" " alt="" coords="3133,109,3219,136"/>
+<area shape="rect" id="node28" href="$d4/d50/test__util_8h.html" title="Utility functions for tests and benchmarks." alt="" coords="3243,109,3330,136"/>
+<area shape="rect" id="node29" title=" " alt="" coords="3701,191,3792,218"/>
+<area shape="rect" id="node30" title=" " alt="" coords="3405,109,3472,136"/>
+<area shape="rect" id="node31" href="$d8/dc0/init_8h.html" title=" " alt="" coords="436,519,519,546"/>
+<area shape="rect" id="node35" href="$df/dd6/gpu__fixpoint__executor_8h.html" title=" " alt="" coords="1582,184,1767,225"/>
+<area shape="rect" id="node49" href="$da/d33/gpu_2runtime_2query_8h.html" title=" " alt="" coords="2369,109,2521,136"/>
+<area shape="rect" id="node3" href="$d1/d25/relation__col_8h.html" title="Defines the column&#45;oriented Relation class and associated views/indexes." alt="" coords="2075,519,2186,546"/>
+<area shape="rect" id="node9" title=" " alt="" coords="3330,765,3422,792"/>
+<area shape="rect" id="node10" title=" " alt="" coords="3145,765,3271,792"/>
+<area shape="rect" id="node18" href="$dc/dc6/tmp_8h.html" title="Template metaprogramming utilities for SRDatalog." alt="" coords="2873,691,2933,717"/>
+<area shape="rect" id="node19" title=" " alt="" coords="2841,765,2895,792"/>
+<area shape="rect" id="node23" title=" " alt="" coords="2973,601,3171,643"/>
+<area shape="rect" id="node24" title=" " alt="" coords="3142,512,3373,553"/>
+<area shape="rect" id="node25" title=" " alt="" coords="2955,519,3117,546"/>
+<area shape="rect" id="node4" title=" " alt="" coords="2168,609,2344,635"/>
+<area shape="rect" id="node5" title=" " alt="" coords="2368,609,2552,635"/>
+<area shape="rect" id="node6" title=" " alt="" coords="2577,609,2695,635"/>
+<area shape="rect" id="node7" href="$dc/df8/column_8h.html" title="Thin, PMR&#45;aware contiguous column wrapper and encoding/decoding system." alt="" coords="2664,691,2747,717"/>
+<area shape="rect" id="node8" title=" " alt="" coords="2015,765,2095,792"/>
+<area shape="rect" id="node11" href="$d1/db5/index_8h.html" title=" " alt="" coords="1819,609,1890,635"/>
+<area shape="rect" id="node12" title=" " alt="" coords="1681,765,1748,792"/>
+<area shape="rect" id="node17" title=" " alt="" coords="1772,765,1857,792"/>
+<area shape="rect" id="node20" title=" " alt="" coords="1166,609,1253,635"/>
+<area shape="rect" id="node21" title=" " alt="" coords="1531,609,1591,635"/>
+<area shape="rect" id="node16" href="$d4/d9e/macro_8h.html" title=" " alt="" coords="721,765,823,792"/>
+<area shape="rect" id="node32" title=" " alt="" coords="93,609,216,635"/>
+<area shape="rect" id="node33" title=" " alt="" coords="240,609,304,635"/>
+<area shape="rect" id="node34" title=" " alt="" coords="379,601,576,643"/>
+<area shape="rect" id="node36" title=" " alt="" coords="1602,273,1747,300"/>
+<area shape="rect" id="node37" title=" " alt="" coords="1771,273,1938,300"/>
+<area shape="rect" id="node38" title=" " alt="" coords="806,609,989,635"/>
+<area shape="rect" id="node39" title=" " alt="" coords="2109,273,2216,300"/>
+<area shape="rect" id="node40" href="$d5/d77/logging_8h.html" title=" " alt="" coords="668,519,751,546"/>
+<area shape="rect" id="node41" href="$d3/dab/mir_8h.html" title="Mid&#45;level Intermediate Representation (MIR) definitions and compilation." alt="" coords="2615,348,2694,375"/>
+<area shape="rect" id="node42" href="$dd/d40/executor_8h.html" title="Pipeline executor &#45; core template metaprogramming interpreter for pipelines." alt="" coords="2361,273,2529,300"/>
+<area shape="rect" id="node43" href="$db/d3b/state_8h.html" title="Runtime state management for variable bindings." alt="" coords="1963,273,2085,300"/>
+<area shape="rect" id="node44" href="$d3/d31/type__name_8h.html" title=" " alt="" coords="948,348,1055,375"/>
+<area shape="rect" id="node45" href="$d2/def/device__sorted__array__index_8h.html" title="GPU&#45;based Sorted Array Index (Read&#45;Only B&#45;Tree / Flat Index) for GPU kernels." alt="" coords="1359,423,1526,464"/>
+<area shape="rect" id="node47" href="$da/dd5/gpu_2runtime_2runtime_8h.html" title="Complete GPU runtime &#45; includes all components for easy usage." alt="" coords="1180,273,1265,300"/>
+<area shape="rect" id="node48" href="$db/dac/custom__set__op_8h.html" title=" " alt="" coords="1289,273,1476,300"/>
+<area shape="rect" id="node46" href="$d8/d5d/device__array_8h.html" title="GPU device array wrapper using RMM (RAPIDS Memory Manager) allocator." alt="" coords="1130,519,1246,546"/>
+<area shape="rect" id="node50" title=" " alt="" coords="2383,191,2507,218"/>
 </map>

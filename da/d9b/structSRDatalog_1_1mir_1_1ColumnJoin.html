@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SRDatalog: SRDatalog::mir::ColumnJoin Struct Reference</title>
+<title>SRDatalog: SRDatalog::mir::ColumnJoin&lt; Var, Sources, Strategy &gt; Struct Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -70,42 +70,81 @@ $(function() {
 <a href="#pub-types">Public Types</a> &#124;
 <a href="../../d6/d40/structSRDatalog_1_1mir_1_1ColumnJoin-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">SRDatalog::mir::ColumnJoin Struct Reference</div>  </div>
+<div class="title">SRDatalog::mir::ColumnJoin&lt; Var, Sources, Strategy &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Abstract Data Type (ADT) for a column join operation in MIR.  
+ <a href="../../da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d3/dab/mir_8h_source.html">mir.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a3e25d89083ae7525a2a839e5f91c49b1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html#a3e25d89083ae7525a2a839e5f91c49b1">var_type</a> = <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">Var</a></td></tr>
-<tr class="separator:a3e25d89083ae7525a2a839e5f91c49b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4af2ce979705010e72f3528e914ada3d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html#a4af2ce979705010e72f3528e914ada3d">sources_type</a> = Sources</td></tr>
-<tr class="separator:a4af2ce979705010e72f3528e914ada3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9892f11d188d814f7d1dd39e7743612c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html#a9892f11d188d814f7d1dd39e7743612c">var_type</a> = <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">Var</a></td></tr>
+<tr class="separator:a9892f11d188d814f7d1dd39e7743612c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46c73290aed76a9a8aad3748fe9f962d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html#a46c73290aed76a9a8aad3748fe9f962d">sources_type</a> = Sources</td></tr>
+<tr class="separator:a46c73290aed76a9a8aad3748fe9f962d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7761b78d59b3dc144c5e922a2ad0de8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html#af7761b78d59b3dc144c5e922a2ad0de8">strategy_type</a> = Strategy</td></tr>
+<tr class="separator:af7761b78d59b3dc144c5e922a2ad0de8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a4af2ce979705010e72f3528e914ada3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4af2ce979705010e72f3528e914ada3d">&#9670;&nbsp;</a></span>sources_type</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;CVar Var, tmp::CTuple Sources, typename Strategy = DefaultJoinStrategy&gt;<br />
+struct SRDatalog::mir::ColumnJoin&lt; Var, Sources, Strategy &gt;</h3>
+
+<p>Abstract Data Type (ADT) for a column join operation in MIR. </p>
+<p>Represents a multi-way join operation that binds a variable. The execution strategy is determined by the <code>Strategy</code> template parameter.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Var</td><td>The variable to bind through this join </td></tr>
+    <tr><td class="paramname">Sources</td><td>A std::tuple of <a class="el" href="../../d9/dc5/structSRDatalog_1_1mir_1_1ColumnSource.html" title="Abstract Data Type (ADT) for a column source in MIR.">ColumnSource</a> types to intersect </td></tr>
+    <tr><td class="paramname">Strategy</td><td>The join strategy to use (default: <a class="el" href="../../df/d6f/structSRDatalog_1_1mir_1_1DefaultJoinStrategy.html" title="The default join strategy (WCOJ / Intersection).">DefaultJoinStrategy</a>) </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a46c73290aed76a9a8aad3748fe9f962d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46c73290aed76a9a8aad3748fe9f962d">&#9670;&nbsp;</a></span>sources_type</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;CVar Var, tmp::CTuple Sources, typename Strategy  = DefaultJoinStrategy&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html#a4af2ce979705010e72f3528e914ada3d">SRDatalog::mir::ColumnJoin::sources_type</a> =  Sources</td>
+          <td class="memname">using <a class="el" href="../../da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html">SRDatalog::mir::ColumnJoin</a>&lt; <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">Var</a>, Sources, Strategy &gt;::<a class="el" href="../../da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html#a46c73290aed76a9a8aad3748fe9f962d">sources_type</a> =  Sources</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a3e25d89083ae7525a2a839e5f91c49b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e25d89083ae7525a2a839e5f91c49b1">&#9670;&nbsp;</a></span>var_type</h2>
+<a id="af7761b78d59b3dc144c5e922a2ad0de8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7761b78d59b3dc144c5e922a2ad0de8">&#9670;&nbsp;</a></span>strategy_type</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;CVar Var, tmp::CTuple Sources, typename Strategy  = DefaultJoinStrategy&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html#a3e25d89083ae7525a2a839e5f91c49b1">SRDatalog::mir::ColumnJoin::var_type</a> =  <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">Var</a></td>
+          <td class="memname">using <a class="el" href="../../da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html">SRDatalog::mir::ColumnJoin</a>&lt; <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">Var</a>, Sources, Strategy &gt;::<a class="el" href="../../da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html#af7761b78d59b3dc144c5e922a2ad0de8">strategy_type</a> =  Strategy</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9892f11d188d814f7d1dd39e7743612c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9892f11d188d814f7d1dd39e7743612c">&#9670;&nbsp;</a></span>var_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;CVar Var, tmp::CTuple Sources, typename Strategy  = DefaultJoinStrategy&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html">SRDatalog::mir::ColumnJoin</a>&lt; <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">Var</a>, Sources, Strategy &gt;::<a class="el" href="../../da/d9b/structSRDatalog_1_1mir_1_1ColumnJoin.html#a9892f11d188d814f7d1dd39e7743612c">var_type</a> =  <a class="el" href="../../d5/de4/structSRDatalog_1_1AST_1_1Var.html">Var</a></td>
         </tr>
       </table>
 </div><div class="memdoc">

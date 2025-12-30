@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['handles_2104',['handles',['../d6/d1a/structSRDatalog_1_1GPU_1_1GPUPipelineExecutor_3_01std_1_1tuple_3_01mir_1_1ColumnJoin_3_01VarToBibeb562d4b45bdf6bc706e8f5389e7ec9.html#a917ef247b5dc8daf2510ad268fbdb78b',1,'SRDatalog::GPU::GPUPipelineExecutor&lt; std::tuple&lt; mir::ColumnJoin&lt; VarToBind, std::tuple&lt; Sources... &gt; &gt;, TailOps... &gt;, VarPosMap, IteratorPosMap, RelationPosMap, GroupSize, IsLeafLevel &gt;']]],
-  ['handles_5f_2105',['handles_',['../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a13297e2f2c6a8a9595409ed719dd3d28',1,'SRDatalog::GPU::state::HandleStore']]],
-  ['has_5ffull_5fhandles_2106',['has_full_handles',['../d2/d68/structSRDatalog_1_1GPU_1_1OutputContext.html#a551c1a55014b5a83a97f43430575e957',1,'SRDatalog::GPU::OutputContext']]],
-  ['heap_5fto_5fblock_2107',['heap_to_block',['../d0/d21/classSRDatalog_1_1EytzingerMap.html#a0c2c9fc0dbca23215e437858e6027cc6',1,'SRDatalog::EytzingerMap']]]
+  ['handles_2664',['handles',['../d9/d12/structSRDatalog_1_1GPU_1_1GPURootExecutor.html#ad0ff8186c37b8956a363eec51893ccb6',1,'SRDatalog::GPU::GPURootExecutor']]],
+  ['handles_5f_2665',['handles_',['../d0/dce/structSRDatalog_1_1GPU_1_1state_1_1HandleStore.html#a6125ada637105caeff6d31b43a5d14b8',1,'SRDatalog::GPU::state::HandleStore']]],
+  ['has_5ffull_5fhandles_2666',['has_full_handles',['../d2/d68/structSRDatalog_1_1GPU_1_1OutputContext.html#a551c1a55014b5a83a97f43430575e957',1,'SRDatalog::GPU::OutputContext']]],
+  ['heap_5fto_5fblock_2667',['heap_to_block',['../d0/d21/classSRDatalog_1_1EytzingerMap.html#a0c2c9fc0dbca23215e437858e6027cc6',1,'SRDatalog::EytzingerMap']]]
 ];
